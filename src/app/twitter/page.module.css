@@ -1,0 +1,407 @@
+.container {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--background);
+}
+
+.mainContent {
+    flex: 1;
+    margin-left: 260px;
+}
+
+.content {
+    padding: 2rem;
+}
+
+/* Twitter Hero */
+.hero {
+    background: linear-gradient(135deg, #1da1f2, #0d8ecf);
+    border-radius: var(--radius);
+    padding: 3rem;
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+    color: white;
+}
+
+.heroContent h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.heroContent p {
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+.heroIcon {
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.3;
+    color: white;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+
+.sectionTitle {
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    color: var(--text-main);
+}
+
+/* Tweet Cards */
+.tweetGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.tweetCard {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    transition: all 0.2s;
+}
+
+.tweetCard:hover {
+    border-color: #1da1f2;
+}
+
+.tweetHeader {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.rankCircle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: white;
+    flex-shrink: 0;
+}
+
+/* Standardized Rank Colors */
+.rank1 {
+    background-color: #FF8C00;
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.4);
+}
+
+.rank2 {
+    background-color: #FFD700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+    color: #333;
+}
+
+.rank3 {
+    background-color: #32CD32;
+    box-shadow: 0 0 10px rgba(50, 205, 50, 0.4);
+}
+
+.rankOther {
+    background-color: #1da1f2;
+    opacity: 0.8;
+}
+
+/* Twitter Theme Blue */
+
+
+.headerInfo {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hashtag {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text-main);
+}
+
+.volume {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.tweetText {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.tweetActions {
+    display: flex;
+    gap: 1rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+}
+
+.actionBtn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    padding: 0.5rem;
+    border-radius: 6px;
+}
+
+.actionBtn:hover {
+    color: #1da1f2;
+    background-color: rgba(29, 161, 242, 0.1);
+}
+
+/* Sidebar/Suggestions */
+.suggestionBox {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+}
+
+.ideaList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.ideaItem {
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    border-left: 2px solid #1da1f2;
+}
+
+.ideaItem strong {
+    color: #1da1f2;
+}
+
+/* Modal Styles */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.modalContent {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    width: 90%;
+    max-width: 500px;
+    padding: 2rem;
+    position: relative;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.closeButton {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.closeButton:hover {
+    color: white;
+}
+
+.modalBody {
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.iconWrapper {
+    margin-bottom: 1rem;
+    display: inline-block;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+}
+
+.modalBody h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-main);
+}
+
+.modalText {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+/* Idea Modal */
+.ideaBox {
+    background-color: rgba(29, 161, 242, 0.1);
+    border: 1px dashed #1da1f2;
+    padding: 1.5rem;
+    border-radius: 8px;
+    color: #1da1f2;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.subText {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Sentiment Modal Styles */
+.sentimentContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.sentimentRow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sentimentLabel {
+    width: 60px;
+    text-align: left;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.sentimentValue {
+    width: 40px;
+    text-align: right;
+    font-size: 0.9rem;
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+.progressBar {
+    flex: 1;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progressFill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.5s ease;
+}
+
+
+/* Chart Styles */
+.chartContainer {
+    height: 180px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.chart {
+    display: flex;
+    gap: 6px;
+    height: 100%;
+    align-items: flex-end;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.barItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+    height: 100%;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.barFill {
+    width: 100%;
+    background: linear-gradient(to top, #1da1f2, #0d8ecf);
+    border-radius: 2px;
+    transition: height 0.5s ease;
+    min-width: 6px;
+    position: relative;
+}
+
+.barFill:hover {
+    filter: brightness(1.2);
+}
+
+.barLabel {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.tooltip {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-size: 0.65rem;
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+}
+
+.barFill:hover .tooltip {
+    opacity: 1;
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
