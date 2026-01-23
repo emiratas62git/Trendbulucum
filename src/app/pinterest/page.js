@@ -29,6 +29,13 @@ export default function PinterestPage() {
 
 
     const [timeframe, setTimeframe] = useState('monthly');
+    const [copiedColor, setCopiedColor] = useState(null);
+
+    const handleCopyColor = (hex) => {
+        navigator.clipboard.writeText(hex);
+        setCopiedColor(hex);
+        setTimeout(() => setCopiedColor(null), 2000);
+    };
 
     useEffect(() => {
         async function fetchData() {
@@ -111,6 +118,14 @@ export default function PinterestPage() {
                                                 <span className={styles.colorName}>{color.name}</span>
                                                 <span className={styles.colorHex}>{color.hex}</span>
                                             </div>
+                                            <button
+                                                className={styles.copyButton}
+                                                style={{ backgroundColor: color.hex }}
+                                                onClick={() => handleCopyColor(color.hex)}
+                                                title="Copy color code"
+                                            >
+                                                {copiedColor === color.hex ? '✓ Copied!' : 'Copy Color'}
+                                            </button>
                                         </div>
                                     ))}
                                 </div>
