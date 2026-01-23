@@ -7,7 +7,7 @@ export default function TrendLifecycleModal({ isOpen, onClose, trend }) {
     if (!isOpen || !trend) return null;
 
     const { lifecycle, platform } = trend;
-    const isLive = lifecycle.status === 'Yükselişte' || lifecycle.status === 'Zirvede';
+    const isLive = lifecycle.status === 'Rising' || lifecycle.status === 'Peak';
     const statusColor = isLive ? '#22c55e' : '#ef4444';
 
     return (
@@ -27,7 +27,7 @@ export default function TrendLifecycleModal({ isOpen, onClose, trend }) {
                 </div>
 
                 <div className={styles.gaugeContainer}>
-                    <div className={styles.gaugeLabel}>Trend Geçerlilik Skoru</div>
+                    <div className={styles.gaugeLabel}>Trend Validity Score</div>
                     <div className={styles.gaugeBarBackground}>
                         <div
                             className={styles.gaugeBarFill}
@@ -44,32 +44,32 @@ export default function TrendLifecycleModal({ isOpen, onClose, trend }) {
                     <div className={styles.infoCard}>
                         <Calendar size={20} className={styles.icon} />
                         <div>
-                            <div className={styles.label}>Başlangıç</div>
+                            <div className={styles.label}>Start</div>
                             <div className={styles.value}>{lifecycle.startDate}</div>
                         </div>
                     </div>
                     <div className={styles.infoCard}>
                         <Calendar size={20} className={styles.icon} />
                         <div>
-                            <div className={styles.label}>Tahmini Bitiş</div>
+                            <div className={styles.label}>Estimated End</div>
                             <div className={styles.value}>{lifecycle.endDate}</div>
                         </div>
                     </div>
                 </div>
 
                 <div className={styles.summary}>
-                    <h3>Analiz Özeti</h3>
+                    <h3>Analysis Summary</h3>
                     <p>{lifecycle.summary}</p>
                 </div>
 
                 <div className={styles.action}>
                     {isLive ? (
                         <button className={styles.actionBtn} style={{ backgroundColor: '#22c55e' }}>
-                            Hemen İçerik Üret! 🚀
+                            Create Content Now! 🚀
                         </button>
                     ) : (
                         <button className={styles.actionBtn} style={{ backgroundColor: '#64748b' }}>
-                            Bu Trendi Pas Geç ⚠️
+                            Skip This Trend ⚠️
                         </button>
                     )}
                 </div>

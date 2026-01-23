@@ -11,9 +11,45 @@
     z-index: 100;
 }
 
+.headerLeft {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
 .title {
     font-size: 1.25rem;
     font-weight: 600;
+}
+
+.timeframeSelector {
+    display: flex;
+    background-color: var(--background);
+    padding: 3px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.timeframeBtn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    background: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.timeframeBtn:hover {
+    color: var(--text-main);
+}
+
+.activeTimeframe {
+    background-color: var(--theme-color, var(--primary));
+    color: white;
+    box-shadow: 0 2px 8px var(--theme-glow, rgba(99, 102, 241, 0.3));
 }
 
 .actions {

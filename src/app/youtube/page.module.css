@@ -437,3 +437,43 @@
     height: 40px;
     background-color: #333;
 }
+
+@media (max-width: 1024px) {
+    .mainContent {
+        margin-left: 80px;
+    }
+
+    .hero {
+        padding: 2rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .mainContent {
+        margin-left: 0;
+    }
+
+    .content {
+        padding: 1rem;
+    }
+
+    .hero {
+        padding: 1.5rem;
+    }
+
+    .heroContent h1 {
+        font-size: 1.75rem;
+    }
+
+    .heroIcon {
+        display: none;
+    }
+
+    .videoCard {
+        padding: 1rem;
+    }
+}

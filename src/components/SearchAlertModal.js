@@ -10,7 +10,7 @@ const PLATFORM_THEMES = {
     instagram: { color: '#d62976', icon: 'Instagram' },
     linkedin: { color: '#0a66c2', icon: 'LinkedIn' },
     pinterest: { color: '#bd081c', icon: 'Pinterest' },
-    default: { color: '#6366f1', icon: 'Trend Bulucu' }
+    default: { color: '#6366f1', icon: 'Trendfinder' }
 };
 
 export default function SearchAlertModal({ isOpen, onClose, platformContext, searchTerm }) {
@@ -35,17 +35,16 @@ export default function SearchAlertModal({ isOpen, onClose, platformContext, sea
                     <SearchX size={48} />
                 </div>
 
-                <h2 className={styles.title}>Sonuç Bulunamadı</h2>
+                <h2 className={styles.title}>No Results Found</h2>
 
                 <p className={styles.message}>
-                    <span style={{ color: theme.color, fontWeight: 600 }}>"{searchTerm}"</span> ile ilgili
-                    {platformContext ? ` ${theme.icon} üzerinde ` : ' '}
-                    herhangi bir trend verisi yakalayamadık.
+                    We couldn't capture any trend data for <span style={{ color: theme.color, fontWeight: 600 }}>"{searchTerm}"</span>
+                    {platformContext ? ` on ${theme.icon}.` : '.'}
                 </p>
 
                 <div className={styles.suggestionBox}>
                     <AlertTriangle size={18} className={styles.warningIcon} style={{ color: theme.color }} />
-                    <span>Lütfen yazım hatası yapmadığınızdan emin olun veya daha genel terimler deneyin.</span>
+                    <span>Please make sure there are no typos or try more general terms.</span>
                 </div>
 
                 <button
@@ -53,7 +52,7 @@ export default function SearchAlertModal({ isOpen, onClose, platformContext, sea
                     style={{ backgroundColor: theme.color }}
                     onClick={onClose}
                 >
-                    Tamam, Anlaşıldı
+                    Got it, Thanks
                 </button>
             </div>
         </div>

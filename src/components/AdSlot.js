@@ -5,7 +5,8 @@ import React from 'react';
 const AdSlot = ({ type, className = '' }) => {
     const styles = {
         horizontal: {
-            width: '728px',
+            width: '100%',
+            maxWidth: '800px',
             height: '90px',
         },
         'small-horizontal': {
@@ -34,9 +35,10 @@ const AdSlot = ({ type, className = '' }) => {
                 fontSize: '0.8rem',
                 borderRadius: 'var(--radius)',
                 overflow: 'hidden',
+                margin: '0 auto', // Center horizontally
             }}
         >
-            <span>Reklam Alanı ({type})</span>
+            <span>Ad Space ({type})</span>
         </div>
     );
 };

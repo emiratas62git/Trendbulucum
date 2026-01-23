@@ -117,18 +117,15 @@
 
 .cardInfo {
     flex: 1;
-}
-
-.cardHeader {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.5rem;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
-.cardHeader h4 {
-    font-size: 1.1rem;
+.cardInfo h4 {
+    font-size: 1.15rem;
     color: var(--text-main);
+    margin: 0;
 }
 
 .industryTag {
@@ -137,12 +134,20 @@
     color: #0077b5;
     padding: 0.2rem 0.6rem;
     border-radius: 99px;
+    white-space: nowrap;
+}
+
+.cardActions {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
 }
 
 .meta {
     display: flex;
     gap: 1.5rem;
     font-size: 0.9rem;
+    margin-top: 0.25rem;
 }
 
 .metaItem {

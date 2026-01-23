@@ -1,18 +1,19 @@
 "use client";
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import { Bell, Search, User, Loader2, TrendingUp, TrendingDown } from 'lucide-react';
+import { Search, Loader2, TrendingUp, TrendingDown } from 'lucide-react';
 import styles from './Header.module.css';
 import { TrendService } from '@/services/TrendService';
 import TrendLifecycleModal from './TrendLifecycleModal';
 import SearchAlertModal from './SearchAlertModal';
 
-export default function Header({ title }) {
+export default function Header({ title, onTimeframeChange }) {
     const pathname = usePathname();
     const [query, setQuery] = useState('');
     const [isSearching, setIsSearching] = useState(false);
     const [searchResult, setSearchResult] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [activeTimeframe, setActiveTimeframe] = useState('monthly');
 
     // Alert state
     const [isAlertOpen, setIsAlertOpen] = useState(false);
@@ -80,6 +81,13 @@ export default function Header({ title }) {
         setIsModalOpen(true);
     };
 
+    const handleTimeframeChange = (timeframe) => {
+        setActiveTimeframe(timeframe);
+        if (onTimeframeChange) {
+            onTimeframeChange(timeframe);
+        }
+    };
+
     // Derived context for color coding
     const pathSegment = pathname.split('/')[1];
     const currentContext = (!pathSegment || pathSegment === '') ? 'default' : pathSegment;
@@ -104,7 +112,22 @@ export default function Header({ title }) {
                     '--theme-glow': activeColor + '40' // 25% opacity
                 }}
             >
-                <h2 className={styles.title}>{title || 'Panel'}</h2>
+                <div className={styles.headerLeft}>
+                    <h2 className={styles.title}>{title || 'Dashboard'}</h2>
+                    {pathname !== '/' && (
+                        <div className={styles.timeframeSelector}>
+                            {['hourly', 'daily', 'weekly', 'monthly'].map((tf) => (
+                                <button
+                                    key={tf}
+                                    className={`${styles.timeframeBtn} ${activeTimeframe === tf ? styles.activeTimeframe : ''}`}
+                                    onClick={() => handleTimeframeChange(tf)}
+                                >
+                                    {tf.charAt(0).toUpperCase() + tf.slice(1)}
+                                </button>
+                            ))}
+                        </div>
+                    )}
+                </div>
 
                 <div className={styles.actions}>
                     <div className={styles.searchContainer}>
@@ -115,7 +138,7 @@ export default function Header({ title }) {
                         )}
                         <input
                             type="text"
-                            placeholder={pathname === '/' ? "Tüm trendlerde ara..." : `${pathname.replace('/', '').toUpperCase()} içinde ara...`}
+                            placeholder={pathname === '/' ? "Search all trends..." : `Search in ${pathname.replace('/', '').toUpperCase()}...`}
                             className={styles.searchInput}
                             value={query}
                             onChange={(e) => setQuery(e.target.value)}
@@ -130,7 +153,7 @@ export default function Header({ title }) {
                         {showSuggestions && suggestions.length > 0 && (
                             <div className={styles.suggestionsDropdown}>
                                 {suggestions.map((item, index) => {
-                                    const isPositive = item.lifecycle.status !== 'Düşüşte';
+                                    const isPositive = item.lifecycle.status !== 'Falling';
                                     return (
                                         <div
                                             key={index}
@@ -148,27 +171,13 @@ export default function Header({ title }) {
                                             </div>
 
                                             <div className={styles.suggestionRight}>
-                                                <div className={styles.suggestionGrowth} style={{ color: isPositive ? '#22c55e' : '#ef4444' }}>
-                                                    {isPositive ? <TrendingUp size={14} /> : <TrendingDown size={14} />}
-                                                    <span>{item.lifecycle.validityScore} Skor</span>
-                                                </div>
+                                                <span>{item.lifecycle.validityScore} Score</span>
                                             </div>
                                         </div>
                                     );
                                 })}
                             </div>
                         )}
-                    </div>
-
-                    <button className={styles.iconButton}>
-                        <Bell size={20} />
-                        <span className={styles.notificationBadge}>3</span>
-                    </button>
-
-                    <div className={styles.profile}>
-                        <div className={styles.avatar}>
-                            <User size={20} />
-                        </div>
                     </div>
                 </div>
             </header>

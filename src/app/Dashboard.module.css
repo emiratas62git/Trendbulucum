@@ -175,6 +175,8 @@
     border: 1px solid var(--border);
     border-radius: 8px;
     background-color: rgba(255, 255, 255, 0.02);
+    min-width: 0;
+    /* Enable shrinking for flex items */
 }
 
 .hashtagItem:last-child {
@@ -188,6 +190,16 @@
     gap: 0.5rem;
     color: var(--primary);
     font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+    flex: 1;
+}
+
+.tagInfo span {
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .tagIcon {
@@ -289,4 +301,133 @@
     grid-column: 1 / -1;
     text-align: center;
     padding: 1rem;
+}
+
+@media (max-width: 1024px) {
+    .mainContent {
+        margin-left: 80px;
+    }
+
+    .content {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .mainContent {
+        margin-left: 0;
+    }
+
+    .content {
+        padding: 1rem;
+    }
+
+    .statCard {
+        padding: 1rem;
+    }
+
+    .statsGrid {
+        margin-bottom: 2rem;
+    }
+}
+
+/* Summary Highlights Styles */
+.summarySection {
+    margin-top: 3rem;
+    padding-bottom: 2rem;
+}
+
+.highlightsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.highlightsList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.highlightItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    background-color: var(--background);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    transition: transform 0.2s;
+}
+
+.highlightItem:hover {
+    transform: translateX(5px);
+    border-color: var(--primary);
+}
+
+.platformDot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.youtube {
+    background-color: #ef4444;
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
+}
+
+.tiktok {
+    background-color: #d946ef;
+    box-shadow: 0 0 10px rgba(217, 70, 239, 0.4);
+}
+
+.twitter {
+    background-color: #1d9bf0;
+    box-shadow: 0 0 10px rgba(29, 155, 240, 0.4);
+}
+
+.instagram {
+    background-color: #d62976;
+    box-shadow: 0 0 10px rgba(214, 41, 118, 0.4);
+}
+
+.linkedin {
+    background-color: #0a66c2;
+    box-shadow: 0 0 10px rgba(10, 102, 194, 0.4);
+}
+
+.pinterest {
+    background-color: #bd081c;
+    box-shadow: 0 0 10px rgba(189, 8, 28, 0.4);
+}
+
+.highlightInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+}
+
+.highlightTitle {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-main);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+}
+
+.highlightValue {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+@media (max-width: 1024px) {
+    .highlightsGrid {
+        grid-template-columns: 1fr;
+    }
 }

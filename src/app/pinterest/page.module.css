@@ -78,6 +78,19 @@
     transform: translateX(4px);
 }
 
+.cardInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.cardInfo h4 {
+    font-size: 1.15rem;
+    color: var(--text-main);
+    margin: 0;
+}
+
 .rankCircle {
     width: 32px;
     height: 32px;
@@ -115,28 +128,19 @@
 
 /* Pinterest Red */
 
-.cardInfo {
-    flex: 1;
-}
-
-.cardHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.5rem;
-}
-
-.cardHeader h4 {
-    font-size: 1.1rem;
-    color: var(--text-main);
-}
-
 .dateTag {
     font-size: 0.75rem;
     background-color: rgba(189, 8, 28, 0.1);
     color: #bd081c;
     padding: 0.2rem 0.6rem;
     border-radius: 99px;
+    white-space: nowrap;
+}
+
+.cardActions {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
 }
 
 .meta {
@@ -397,7 +401,45 @@
 }
 
 @media (max-width: 1024px) {
+    .mainContent {
+        margin-left: 80px;
+    }
+
+    .hero {
+        padding: 2rem;
+    }
+
     .grid {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .mainContent {
+        margin-left: 0;
+    }
+
+    .content {
+        padding: 1rem;
+    }
+
+    .hero {
+        padding: 1.5rem;
+    }
+
+    .heroContent h1 {
+        font-size: 1.75rem;
+    }
+
+    .heroIcon {
+        display: none;
+    }
+
+    .card {
+        padding: 1.25rem;
+    }
+
+    .heroContent p {
+        font-size: 1rem;
     }
 }

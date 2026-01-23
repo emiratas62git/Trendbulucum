@@ -6,13 +6,13 @@ import AdSlot from '@/components/AdSlot';
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-    title: 'Trend Bulucu',
-    description: 'Sosyal medya trend analizi ve içerik önerileri',
+    title: 'Trendfinder',
+    description: 'Social media trend analysis and content suggestions',
 }
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="tr">
+        <html lang="en">
             <body className={inter.className}>
                 <DashboardProvider>
                     <div className="app-layout">

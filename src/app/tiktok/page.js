@@ -12,10 +12,13 @@ export default function TiktokPage() {
     const [loading, setLoading] = useState(true);
     const [selectedTrend, setSelectedTrend] = useState(null);
 
+    const [timeframe, setTimeframe] = useState('monthly');
+
     useEffect(() => {
         async function fetchData() {
+            setLoading(true);
             const [trendData, musicData] = await Promise.all([
-                TrendService.getPlatformTrends('tiktok'),
+                TrendService.getPlatformTrends('tiktok', timeframe),
                 TrendService.getPlatformTrends('tiktok_music')
             ]);
             setTrends(trendData);
@@ -23,7 +26,7 @@ export default function TiktokPage() {
             setLoading(false);
         }
         fetchData();
-    }, []);
+    }, [timeframe]);
 
     const openAnalysis = (trend) => {
         setSelectedTrend(trend);
@@ -45,13 +48,13 @@ export default function TiktokPage() {
         <div className={styles.container}>
             <Sidebar />
             <main className={styles.mainContent}>
-                <Header title="TikTok Trendleri" />
+                <Header title="TikTok Trends" onTimeframeChange={setTimeframe} />
 
                 <div className={styles.content}>
                     <div className={styles.hero}>
                         <div className={styles.heroContent}>
-                            <h1>TikTok Akımları</h1>
-                            <p>Viral danslar, popüler sesler ve hızlı yayılan içerik fikirleri.</p>
+                            <h1>TikTok Trends</h1>
+                            <p>Viral dances, popular sounds, and rapid content ideas.</p>
                         </div>
                         <div className={styles.heroIcon}>
                             <Video size={64} />
@@ -60,9 +63,9 @@ export default function TiktokPage() {
 
                     <div className={styles.grid}>
                         <div className={styles.colLeft}>
-                            <h3 className={styles.sectionTitle}>En Çok Kullanılan Akımlar</h3>
+                            <h3 className={styles.sectionTitle}>Most Used Trends</h3>
                             <div className={styles.trendList}>
-                                {loading ? <p>Veriler çekiliyor...</p> : trends.map((trend, index) => (
+                                {loading ? <p>Loading data...</p> : trends.map((trend, index) => (
                                     <div key={trend.id} className={styles.trendCard}>
                                         <div className={`${styles.rankCircle} ${getRankClass(index)}`}>
                                             {index + 1}
@@ -78,14 +81,14 @@ export default function TiktokPage() {
                                             className={styles.actionButton}
                                             onClick={() => openAnalysis(trend)}
                                         >
-                                            Analiz Et
+                                            Analyze
                                         </button>
                                     </div>
                                 ))}
                             </div>
 
                             <div className={styles.musicSection}>
-                                <h3 className={styles.sectionTitle}>🎶 Yükselen Müzikler</h3>
+                                <h3 className={styles.sectionTitle}>🎶 Rising Music</h3>
                                 <div className={styles.musicList}>
                                     {music.map((song, index) => (
                                         <div key={song.id} className={styles.musicItem}>
@@ -107,16 +110,16 @@ export default function TiktokPage() {
                         </div>
 
                         <div className={styles.colRight}>
-                            <h3 className={styles.sectionTitle}>İçerik Önerileri</h3>
+                            <h3 className={styles.sectionTitle}>Content Suggestions</h3>
                             <div className={styles.suggestionBox}>
                                 <div className={styles.ideaHeader}>
                                     <TrendingUp size={20} className={styles.ideaIcon} />
-                                    <h4>Viral Fırsatlar</h4>
+                                    <h4>Viral Opportunities</h4>
                                 </div>
                                 <div className={styles.ideaList}>
                                     {trends.slice(0, 3).map(trend => (
                                         <div key={trend.id} className={styles.ideaItem}>
-                                            <p>Bu sesi kullanarak {trend.topic} hakkında 15 saniyelik bir challenge videosu çek.</p>
+                                            <p>Create a 15-second challenge video about {trend.topic} using this sound.</p>
                                         </div>
                                     ))}
                                 </div>
@@ -125,11 +128,11 @@ export default function TiktokPage() {
                             <div className={`${styles.suggestionBox} ${styles.marginTop}`}>
                                 <div className={styles.ideaHeader}>
                                     <Hash size={20} className={styles.ideaIcon} />
-                                    <h4>Popüler Etiketler</h4>
+                                    <h4>Popular Tags</h4>
                                 </div>
                                 <ul className={styles.tagList}>
                                     <li>#fyp</li>
-                                    <li>#kesfet</li>
+                                    <li>#explore</li>
                                     <li>#tiktokviral</li>
                                 </ul>
                             </div>
@@ -149,8 +152,8 @@ export default function TiktokPage() {
                             <div className={styles.modalIconWrapper}>
                                 <BarChart2 size={40} className={styles.modalIcon} />
                             </div>
-                            <h3 className={styles.modalTitle}>Trend Analizi: {selectedTrend.topic}</h3>
-                            <p className={styles.modalSubtitle}>Son 12 aylık etkileşim performansı.</p>
+                            <h3 className={styles.modalTitle}>Trend Analysis: {selectedTrend.topic}</h3>
+                            <p className={styles.modalSubtitle}>Interaction performance for the last 12 months.</p>
 
                             <div className={styles.chartContainer}>
                                 <div className={styles.chart}>
@@ -167,7 +170,7 @@ export default function TiktokPage() {
 
                             {selectedTrend.generated_idea && (
                                 <div className={styles.ideaBox}>
-                                    <h4>💡 İçerik Fikri:</h4>
+                                    <h4>💡 Content Idea:</h4>
                                     <p>"{selectedTrend.generated_idea}"</p>
                                 </div>
                             )}

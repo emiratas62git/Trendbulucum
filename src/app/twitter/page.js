@@ -12,14 +12,17 @@ export default function TwitterPage() {
     const [selectedTrend, setSelectedTrend] = useState(null);
     const [modalType, setModalType] = useState(null); // 'idea', 'analysis'
 
+    const [timeframe, setTimeframe] = useState('monthly');
+
     useEffect(() => {
         async function fetchData() {
-            const data = await TrendService.getPlatformTrends('twitter');
+            setLoading(true);
+            const data = await TrendService.getPlatformTrends('twitter', timeframe);
             setTrends(data);
             setLoading(false);
         }
         fetchData();
-    }, []);
+    }, [timeframe]);
 
     const openModal = (trend, type) => {
         setSelectedTrend(trend);
@@ -45,14 +48,14 @@ export default function TwitterPage() {
             return (
                 <div className={styles.modalBody}>
                     <div className={styles.iconWrapper}><Sparkles size={32} color="#1da1f2" /></div>
-                    <h3>Fikir Önerisi</h3>
+                    <h3>Idea Suggestion</h3>
                     <p className={styles.modalText}>
-                        "{selectedTrend.hashtag}" hakkında etkileşim alabilecek bir tweet fikri:
+                        Tweet idea about "{selectedTrend.hashtag}" that can get engagement:
                     </p>
                     <div className={styles.ideaBox}>
-                        "Bu hafta {selectedTrend.hashtag} konuşulurken gözden kaçan bir detay var... 👇 (Flood Başlangıcı)"
+                        "While {selectedTrend.hashtag} is being talked about this week, there's a detail that went unnoticed... 👇 (Start of Thread)"
                     </div>
-                    <p className={styles.subText}>Bu taslağı kullanarak zincirleme bir flood başlatabilirsin.</p>
+                    <p className={styles.subText}>You can start a thread using this draft.</p>
                 </div>
             );
         }
@@ -62,24 +65,24 @@ export default function TwitterPage() {
             return (
                 <div className={styles.modalBody}>
                     <div className={styles.iconWrapper}><Heart size={32} color="#e0245e" /></div>
-                    <h3>Duygu Analizi: {selectedTrend.hashtag}</h3>
-                    <p className={styles.modalText}>Kullanıcıların bu konu hakkındaki hisleri.</p>
+                    <h3>Sentiment Analysis: {selectedTrend.hashtag}</h3>
+                    <p className={styles.modalText}>User feelings about this topic.</p>
 
                     <div className={styles.sentimentContainer}>
                         <div className={styles.sentimentRow}>
-                            <span className={styles.sentimentLabel}>Pozitif</span>
+                            <span className={styles.sentimentLabel}>Positive</span>
                             <div className={styles.progressBar}><div className={styles.progressFill} style={{ width: `${positive}%`, backgroundColor: '#17bf63' }}></div></div>
-                            <span className={styles.sentimentValue}>%{positive}</span>
+                            <span className={styles.sentimentValue}>{positive}%</span>
                         </div>
                         <div className={styles.sentimentRow}>
-                            <span className={styles.sentimentLabel}>Nötr</span>
+                            <span className={styles.sentimentLabel}>Neutral</span>
                             <div className={styles.progressBar}><div className={styles.progressFill} style={{ width: `${neutral}%`, backgroundColor: '#FFD700' }}></div></div>
-                            <span className={styles.sentimentValue}>%{neutral}</span>
+                            <span className={styles.sentimentValue}>{neutral}%</span>
                         </div>
                         <div className={styles.sentimentRow}>
-                            <span className={styles.sentimentLabel}>Negatif</span>
+                            <span className={styles.sentimentLabel}>Negative</span>
                             <div className={styles.progressBar}><div className={styles.progressFill} style={{ width: `${negative}%`, backgroundColor: '#e0245e' }}></div></div>
-                            <span className={styles.sentimentValue}>%{negative}</span>
+                            <span className={styles.sentimentValue}>{negative}%</span>
                         </div>
                     </div>
                 </div>
@@ -90,8 +93,8 @@ export default function TwitterPage() {
             return (
                 <div className={styles.modalBody}>
                     <div className={styles.iconWrapper}><BarChart2 size={32} color="#1da1f2" /></div>
-                    <h3>Trend Analizi: {selectedTrend.hashtag}</h3>
-                    <p className={styles.modalText}>Son 12 aylık etkileşim ve hacim performansı.</p>
+                    <h3>Trend Analysis: {selectedTrend.hashtag}</h3>
+                    <p className={styles.modalText}>Interaction and volume performance for the last 12 months.</p>
                     <div className={styles.chartContainer}>
                         <div className={styles.chart}>
                             {selectedTrend.history?.map((item, idx) => (
@@ -113,13 +116,13 @@ export default function TwitterPage() {
         <div className={styles.container}>
             <Sidebar />
             <main className={styles.mainContent}>
-                <Header title="Twitter / X Analiz" />
+                <Header title="Twitter / X Analysis" onTimeframeChange={setTimeframe} />
 
                 <div className={styles.content}>
                     <div className={styles.hero}>
                         <div className={styles.heroContent}>
-                            <h1>Twitter / X Gündemi</h1>
-                            <p>Anlık etiket analizleri ve etkileşim getirecek tweet fikirleri.</p>
+                            <h1>Twitter / X Trending</h1>
+                            <p>Instant hashtag analysis and tweet ideas for engagement.</p>
                         </div>
                         <div className={styles.heroIcon}>
                             <Twitter size={64} />
@@ -128,9 +131,9 @@ export default function TwitterPage() {
 
                     <div className={styles.grid}>
                         <div className={styles.colLeft}>
-                            <h3 className={styles.sectionTitle}>Canlı Gündem & Analiz</h3>
+                            <h3 className={styles.sectionTitle}>Live Agenda & Analysis</h3>
                             <div className={styles.tweetGrid}>
-                                {loading ? <p>Yükleniyor...</p> : trends.map((trend, index) => (
+                                {loading ? <p>Loading...</p> : trends.map((trend, index) => (
                                     <div key={trend.id} className={styles.tweetCard}>
                                         <div className={styles.tweetHeader}>
                                             <div className={`${styles.rankCircle} ${getRankClass(index)}`}>
@@ -146,13 +149,13 @@ export default function TwitterPage() {
                                         </p>
                                         <div className={styles.tweetActions}>
                                             <button className={styles.actionBtn} onClick={() => openModal(trend, 'idea')}>
-                                                <MessageCircle size={16} /> Fikir Yaz
+                                                <MessageCircle size={16} /> Write Idea
                                             </button>
                                             <button className={styles.actionBtn} onClick={() => openModal(trend, 'sentiment')}>
-                                                <Heart size={16} /> Duygu Ölçümü
+                                                <Heart size={16} /> Sentiment
                                             </button>
                                             <button className={styles.actionBtn} onClick={() => openModal(trend, 'analysis')}>
-                                                <BarChart2 size={16} /> Analiz Et
+                                                <BarChart2 size={16} /> Analyze
                                             </button>
                                         </div>
                                     </div>
@@ -161,17 +164,17 @@ export default function TwitterPage() {
                         </div>
 
                         <div className={styles.colRight}>
-                            <h3 className={styles.sectionTitle}>Tweet Önerileri</h3>
+                            <h3 className={styles.sectionTitle}>Tweet Suggestions</h3>
                             <div className={styles.suggestionBox}>
                                 <div className={styles.ideaList}>
                                     <div className={styles.ideaItem}>
-                                        <p><strong>Flood Fikri:</strong> "Yazılımcılar için 5 Verimlilik Aracı" flood'u hazırla.</p>
+                                        <p><strong>Thread Idea:</strong> Prepare "5 Productivity Tools for Developers" thread.</p>
                                     </div>
                                     <div className={styles.ideaItem}>
-                                        <p><strong>Anket:</strong> Takipçilerine "Remote mu Ofis mi?" diye sor.</p>
+                                        <p><strong>Poll:</strong> Ask followers "Remote or Office?".</p>
                                     </div>
                                     <div className={styles.ideaItem}>
-                                        <p><strong>Görsel:</strong> Çalışma masanın fotoğrafını "Setup War" etiketiyle paylaş.</p>
+                                        <p><strong>Media:</strong> Share a photo of your desk with #SetupWar tag.</p>
                                     </div>
                                 </div>
                             </div>

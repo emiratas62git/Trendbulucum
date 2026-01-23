@@ -12,10 +12,13 @@ export default function YoutubePage() {
     const [loading, setLoading] = useState(true);
     const [selectedTrend, setSelectedTrend] = useState(null);
 
+    const [timeframe, setTimeframe] = useState('monthly');
+
     useEffect(() => {
         async function fetchData() {
+            setLoading(true);
             const [trendData, musicData] = await Promise.all([
-                TrendService.getPlatformTrends('youtube'),
+                TrendService.getPlatformTrends('youtube', timeframe),
                 TrendService.getPlatformTrends('youtube_music')
             ]);
             setTrends(trendData);
@@ -23,7 +26,7 @@ export default function YoutubePage() {
             setLoading(false);
         }
         fetchData();
-    }, []);
+    }, [timeframe]);
 
     const openReport = (trend) => {
         setSelectedTrend(trend);
@@ -37,13 +40,13 @@ export default function YoutubePage() {
         <div className={styles.container}>
             <Sidebar />
             <main className={styles.mainContent}>
-                <Header title="YouTube Analiz" />
+                <Header title="YouTube Analysis" onTimeframeChange={setTimeframe} />
 
                 <div className={styles.content}>
                     <div className={styles.hero}>
                         <div className={styles.heroContent}>
-                            <h1>YouTube Trendleri</h1>
-                            <p>Viral video fikirleri ve kanal büyüme stratejileri.</p>
+                            <h1>YouTube Trends</h1>
+                            <p>Viral video ideas and channel growth strategies.</p>
                         </div>
                         <div className={styles.heroIcon}>
                             <Youtube size={64} />
@@ -52,9 +55,9 @@ export default function YoutubePage() {
 
                     <div className={styles.grid}>
                         <div className={styles.colLeft}>
-                            <h3 className={styles.sectionTitle}>Yükselen Videolar</h3>
+                            <h3 className={styles.sectionTitle}>Rising Videos</h3>
                             <div className={styles.videoList}>
-                                {loading ? <p>Yükleniyor...</p> : trends.map((trend, idx) => (
+                                {loading ? <p>Loading...</p> : trends.map((trend, idx) => (
                                     <div key={trend.id} className={styles.videoCard}>
                                         <div className={styles.videoIcon}>
                                             <span className={styles.rank}>#{idx + 1}</span>
@@ -62,7 +65,7 @@ export default function YoutubePage() {
                                         <div className={styles.videoInfo}>
                                             <h4>{trend.title}</h4>
                                             <div className={styles.videoMeta}>
-                                                <span className={styles.views}>{trend.views} görüntülenme</span>
+                                                <span className={styles.views}>{trend.views} views</span>
                                                 <span className={styles.growth}>{trend.growth}</span>
                                             </div>
                                         </div>
@@ -70,14 +73,14 @@ export default function YoutubePage() {
                                             className={styles.actionButton}
                                             onClick={() => openReport(trend)}
                                         >
-                                            Analiz Et
+                                            Analyze
                                         </button>
                                     </div>
                                 ))}
                             </div>
 
                             <div className={styles.musicSection}>
-                                <h3 className={styles.sectionTitle}>🎶 Trend Şarkılar</h3>
+                                <h3 className={styles.sectionTitle}>🎶 Trending Songs</h3>
                                 <div className={styles.musicList}>
                                     {music.map((song, index) => (
                                         <div key={song.id} className={styles.musicItem}>
@@ -99,14 +102,14 @@ export default function YoutubePage() {
                         </div>
 
                         <div className={styles.colRight}>
-                            <h3 className={styles.sectionTitle}>İçerik Önerileri</h3>
+                            <h3 className={styles.sectionTitle}>Content Suggestions</h3>
                             <div className={styles.suggestionBox}>
                                 <div className={styles.ideaHeader}>
                                     <Lightbulb size={20} className={styles.ideaIcon} />
-                                    <h4>Sizin için Seçilenler</h4>
+                                    <h4>Chosen for You</h4>
                                 </div>
                                 <div className={styles.ideaList}>
-                                    {loading ? <p>Analiz ediliyor...</p> : trends.slice(0, 3).map((trend) => (
+                                    {loading ? <p>Analyzing...</p> : trends.slice(0, 3).map((trend) => (
                                         <div key={trend.id} className={styles.ideaItem}>
                                             <p>{TrendService.generateIdea(trend)}</p>
                                         </div>
@@ -117,12 +120,12 @@ export default function YoutubePage() {
                             <div className={`${styles.suggestionBox} ${styles.marginTop}`}>
                                 <div className={styles.ideaHeader}>
                                     <TrendingUp size={20} className={styles.ideaIcon} />
-                                    <h4>Kategori Fırsatları</h4>
+                                    <h4>Category Opportunities</h4>
                                 </div>
                                 <ul className={styles.categoryList}>
-                                    <li>Teknoloji: Yapay Zeka Araçları</li>
-                                    <li>Oyun: Minecraft Mods</li>
-                                    <li>Eğitim: Kişisel Gelişim</li>
+                                    <li>Technology: AI Tools</li>
+                                    <li>Gaming: Minecraft Mods</li>
+                                    <li>Education: Personal Development</li>
                                 </ul>
                             </div>
                         </div>
@@ -141,8 +144,8 @@ export default function YoutubePage() {
                             <div className={styles.modalIconWrapper}>
                                 <BarChart2 size={40} className={styles.modalIcon} />
                             </div>
-                            <h3 className={styles.modalTitle}>Trend Analizi: {selectedTrend.title}</h3>
-                            <p className={styles.modalSubtitle}>Son 12 aylık izlenme performansı ve değişim grafiği.</p>
+                            <h3 className={styles.modalTitle}>Trend Analysis: {selectedTrend.title}</h3>
+                            <p className={styles.modalSubtitle}>View performance and growth chart for the last 12 months.</p>
 
                             <div className={styles.chartContainer}>
                                 <div className={styles.chart}>
@@ -159,12 +162,12 @@ export default function YoutubePage() {
 
                             <div className={styles.statBox}>
                                 <div>
-                                    <span className={styles.statLabel}>Toplam İzlenme</span>
+                                    <span className={styles.statLabel}>Total Views</span>
                                     <span className={styles.statValue}>{selectedTrend.views}</span>
                                 </div>
                                 <div className={styles.divider}></div>
                                 <div>
-                                    <span className={styles.statLabel}>Büyüme</span>
+                                    <span className={styles.statLabel}>Growth</span>
                                     <span className={styles.statValueGrowth}>{selectedTrend.growth}</span>
                                 </div>
                             </div>

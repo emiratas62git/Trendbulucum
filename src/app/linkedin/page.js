@@ -26,26 +26,29 @@ export default function LinkedinPage() {
         return styles.rankOther;
     };
 
+    const [timeframe, setTimeframe] = useState('monthly');
+
     useEffect(() => {
         async function fetchData() {
-            const data = await TrendService.getPlatformTrends('linkedin');
+            setLoading(true);
+            const data = await TrendService.getPlatformTrends('linkedin', timeframe);
             setTrends(data);
             setLoading(false);
         }
         fetchData();
-    }, []);
+    }, [timeframe]);
 
     return (
         <div className={styles.container}>
             <Sidebar />
             <main className={styles.mainContent}>
-                <Header title="LinkedIn Analiz" />
+                <Header title="LinkedIn Analysis" onTimeframeChange={setTimeframe} />
 
                 <div className={styles.content}>
                     <div className={styles.hero}>
                         <div className={styles.heroContent}>
-                            <h1>LinkedIn Gündemi</h1>
-                            <p>İş dünyası trendleri, sektör analizleri ve network fırsatları.</p>
+                            <h1>LinkedIn Trending</h1>
+                            <p>Business world trends, industry analysis, and networking opportunities.</p>
                         </div>
                         <div className={styles.heroIcon}>
                             <Linkedin size={64} />
@@ -54,45 +57,45 @@ export default function LinkedinPage() {
 
                     <div className={styles.grid}>
                         <div className={styles.colLeft}>
-                            <h3 className={styles.sectionTitle}>📈 Yükselen Tartışmalar</h3>
+                            <h3 className={styles.sectionTitle}>📈 Rising Discussions</h3>
                             <div className={styles.cardList}>
-                                {loading ? <p>Yükleniyor...</p> : trends.map((trend, index) => (
+                                {loading ? <p>Loading...</p> : trends.map((trend, index) => (
                                     <div key={trend.id} className={styles.card}>
                                         <div className={`${styles.rankCircle} ${getRankClass(index)}`}>
                                             {index + 1}
                                         </div>
                                         <div className={styles.cardInfo}>
-                                            <div className={styles.cardHeader}>
-                                                <h4>{trend.topic}</h4>
-                                                <span className={styles.industryTag}>{trend.industry}</span>
-                                            </div>
+                                            <h4>{trend.topic}</h4>
                                             <div className={styles.meta}>
                                                 <div className={styles.metaItem}>
-                                                    <span className={styles.metaLabel}>Büyüme</span>
+                                                    <span className={styles.metaLabel}>Growth</span>
                                                     <span className={styles.growth}>{trend.growth}</span>
                                                 </div>
                                                 <div className={styles.metaItem}>
-                                                    <span className={styles.metaLabel}>Etkileşim</span>
+                                                    <span className={styles.metaLabel}>Engagement</span>
                                                     <span className={styles.metaValue}>{trend.engagement_rate}</span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <button className={styles.actionButton} onClick={() => openReport(trend)}>Analiz Et</button>
+                                        <div className={styles.cardActions}>
+                                            <span className={styles.industryTag}>{trend.industry}</span>
+                                            <button className={styles.actionButton} onClick={() => openReport(trend)}>Analyze</button>
+                                        </div>
                                     </div>
                                 ))}
                             </div>
                         </div>
 
                         <div className={styles.colRight}>
-                            <h3 className={styles.sectionTitle}>Profesyonel Öneriler</h3>
+                            <h3 className={styles.sectionTitle}>Professional Suggestions</h3>
                             <div className={styles.suggestionBox}>
                                 <div className={styles.ideaHeader}>
                                     <Users size={20} className={styles.ideaIcon} />
-                                    <h4>Network Fırsatları</h4>
+                                    <h4>Networking Opportunities</h4>
                                 </div>
                                 <ul className={styles.list}>
-                                    <li>AI Konferansları (Q3)</li>
-                                    <li>Remote Çalışma Webinar'ları</li>
+                                    <li>AI Conferences (Q3)</li>
+                                    <li>Remote Work Webinars</li>
                                 </ul>
                             </div>
                         </div>
@@ -107,7 +110,7 @@ export default function LinkedinPage() {
                         <div className={styles.modalHeader}>
                             <div className={styles.modalTitleRow}>
                                 <BarChart2 size={24} className={styles.modalIcon} />
-                                <h3>Trend Analizi: {selectedReport.topic}</h3>
+                                <h3>Trend Analysis: {selectedReport.topic}</h3>
                             </div>
                             <button className={styles.closeButton} onClick={closeReport}>
                                 <X size={24} />
@@ -134,7 +137,7 @@ export default function LinkedinPage() {
                         </div>
 
                         <div className={styles.reportSummary}>
-                            <p>Bu trend son 12 ayda <strong>{selectedReport.growth}</strong> büyüme gösterdi. En yüksek etkileşim {selectedReport.top_demographic} kitlesinden geliyor.</p>
+                            <p>This trend has shown <strong>{selectedReport.growth}</strong> growth in the last 12 months. The highest engagement comes from the {selectedReport.top_demographic} audience.</p>
                         </div>
                     </div>
                 </div>
