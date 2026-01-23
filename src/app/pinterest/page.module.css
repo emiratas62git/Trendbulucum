@@ -283,19 +283,25 @@
 .modalHeader {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 2rem;
+    gap: 1rem;
 }
 
 .modalTitleRow {
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    flex: 1;
+    min-width: 0;
 }
 
 .modalHeader h3 {
     font-size: 1.25rem;
     color: var(--text-main);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.4;
 }
 
 .modalIcon {
@@ -325,9 +331,10 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding-bottom: 2rem;
+    padding: 1.5rem 0 2rem 0;
     border-bottom: 1px solid var(--border);
     margin-bottom: 1.5rem;
+    overflow: hidden;
 }
 
 .chartBars {
@@ -373,12 +380,13 @@
 
 .barValue {
     position: absolute;
-    top: -25px;
-    font-size: 0.75rem;
-    color: #bd081c;
-    font-weight: 600;
+    top: 8px;
+    font-size: 0.7rem;
+    color: white;
+    font-weight: 700;
     opacity: 0;
     transition: opacity 0.2s;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .bar:hover .barValue {
