@@ -12,6 +12,7 @@
   --radius: 12px;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --ad-side-width: 180px;
+  --sidebar-width: 260px;
 }
 
 * {
@@ -44,29 +45,24 @@ body {
 }
 
 
-/* Layout for Ads */
+/* Layout Design */
 .app-layout {
   display: flex;
-  flex-direction: column;
   min-height: 100vh;
-}
-
-.layout-header,
-.layout-footer {
-  width: calc(100% - 260px);
-  margin-left: 260px;
-  display: flex;
-  justify-content: center;
-  padding: 1rem 1.5rem;
-  transition: margin-left 0.3s ease, width 0.3s ease;
 }
 
 .layout-body {
   display: flex;
   flex: 1;
   width: 100%;
-  max-width: 100%;
-  margin: 0;
+}
+
+.layout-header,
+.layout-footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 1.5rem;
 }
 
 .layout-ad-left,

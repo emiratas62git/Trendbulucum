@@ -1,16 +1,16 @@
 .sidebar {
-    width: 260px;
+    width: var(--sidebar-width);
     height: 100vh;
     background-color: var(--surface);
     border-right: 1px solid var(--border);
     display: flex;
     flex-direction: column;
     padding: 1.5rem;
-    position: fixed;
-    left: 0;
+    position: sticky;
     top: 0;
     z-index: 50;
     overflow-y: auto;
+    flex-shrink: 0;
     scrollbar-width: thin;
     scrollbar-color: var(--surface-hover) transparent;
 }
@@ -97,47 +97,36 @@
 }
 
 .toggleButton {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
     border: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     color: white;
-    transition: transform 0.2s;
-    opacity: 0;
-    /* Hidden by default */
+    transition: all 0.2s ease;
+    opacity: 0.8;
+    flex-shrink: 0;
+    margin-left: 0.5rem;
 }
 
 .navItemWrapper:hover .toggleButton {
-    opacity: 1;
-    /* Show on hover */
-}
-
-/* Always show if needed, or keep hover. Let's make it always visible for usability if preferred, but user said 'navItemWrapper' context. Let's keep hover for clean look or make it subtle opacity. */
-.toggleButton {
-    opacity: 0.5;
-}
-
-.toggleButton:hover {
     opacity: 1;
     transform: scale(1.1);
 }
 
 .addBtn {
     background-color: #22c55e;
-    /* Green */
-    box-shadow: 0 0 5px rgba(34, 197, 94, 0.4);
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.3);
 }
 
 .removeBtn {
     background-color: #ef4444;
-    /* Red */
-    box-shadow: 0 0 5px rgba(239, 68, 68, 0.4);
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.3);
 }
 
 

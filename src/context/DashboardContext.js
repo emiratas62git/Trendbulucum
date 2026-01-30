@@ -7,6 +7,8 @@ export function DashboardProvider({ children }) {
     // Default visible platforms
     const [visiblePlatforms, setVisiblePlatforms] = useState(['youtube', 'tiktok']);
 
+    const [searchQuery, setSearchQuery] = useState('');
+
     const togglePlatform = (platform) => {
         setVisiblePlatforms(prev => {
             if (prev.includes(platform)) {
@@ -26,7 +28,14 @@ export function DashboardProvider({ children }) {
     };
 
     return (
-        <DashboardContext.Provider value={{ visiblePlatforms, togglePlatform, isPlatformVisible, reorderPlatforms }}>
+        <DashboardContext.Provider value={{
+            visiblePlatforms,
+            togglePlatform,
+            isPlatformVisible,
+            reorderPlatforms,
+            searchQuery,
+            setSearchQuery
+        }}>
             {children}
         </DashboardContext.Provider>
     );

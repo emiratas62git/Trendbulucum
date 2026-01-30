@@ -1,13 +1,10 @@
 .container {
-    display: flex;
-    min-height: 100vh;
     background-color: var(--bg);
 }
 
 .mainContent {
     flex: 1;
     overflow-y: auto;
-    margin-left: 260px;
 }
 
 .content {

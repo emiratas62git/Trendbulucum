@@ -1,0 +1,35 @@
+.scrollToTop {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 99999;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #fff;
+    width: 3.5rem;
+    height: 3.5rem;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.4);
+    transition: transform 0.2s, opacity 0.3s;
+    opacity: 0;
+    pointer-events: none;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.scrollToTop:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(var(--primary-rgb), 0.6);
+}
+
+.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.text {
+    font-size: 0.9rem;
+    font-weight: 700;
+}

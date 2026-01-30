@@ -4,12 +4,14 @@ import { usePathname } from 'next/navigation';
 import { Search, Loader2, TrendingUp, TrendingDown } from 'lucide-react';
 import styles from './Header.module.css';
 import { TrendService } from '@/services/TrendService';
+import { useDashboard } from '@/context/DashboardContext';
 import TrendLifecycleModal from './TrendLifecycleModal';
 import SearchAlertModal from './SearchAlertModal';
 
 export default function Header({ title, onTimeframeChange }) {
     const pathname = usePathname();
-    const [query, setQuery] = useState('');
+    const { searchQuery, setSearchQuery } = useDashboard();
+    const [query, setQuery] = useState(searchQuery);
     const [isSearching, setIsSearching] = useState(false);
     const [searchResult, setSearchResult] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -114,7 +116,7 @@ export default function Header({ title, onTimeframeChange }) {
             >
                 <div className={styles.headerLeft}>
                     <h2 className={styles.title}>{title || 'Dashboard'}</h2>
-                    {pathname !== '/' && (
+                    {pathname !== '/' && onTimeframeChange && (
                         <div className={styles.timeframeSelector}>
                             {['hourly', 'daily', 'weekly', 'monthly'].map((tf) => (
                                 <button
@@ -141,7 +143,10 @@ export default function Header({ title, onTimeframeChange }) {
                             placeholder={pathname === '/' ? "Search all trends..." : `Search in ${pathname.replace('/', '').toUpperCase()}...`}
                             className={styles.searchInput}
                             value={query}
-                            onChange={(e) => setQuery(e.target.value)}
+                            onChange={(e) => {
+                                setQuery(e.target.value);
+                                setSearchQuery(e.target.value);
+                            }}
                             onKeyDown={handleSearch}
                             onFocus={() => query.length >= 2 && setShowSuggestions(true)}
                             // Delay blur to allow click event on suggestion to fire

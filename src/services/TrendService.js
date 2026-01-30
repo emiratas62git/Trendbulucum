@@ -3,425 +3,126 @@
 const MOCK_DATA = {
     youtube: [
         {
-            id: 1,
-            title: 'Travel Vlog: Japan',
-            views: '3.1M',
-            growth: '+200%',
+            id: 'yt-1',
+            title: 'I Built a 100% Sustainable House in 24h',
+            views: '12M',
+            growth: '+450%',
+            category: 'Challenges',
+            history: Array(12).fill(0).map((_, i) => ({ month: i, value: 50 + Math.random() * 200 }))
+        },
+        {
+            id: 'yt-2',
+            title: 'Is This the End of Generative AI?',
+            views: '5.2M',
+            growth: '+120%',
+            category: 'Tech/Documentary',
+            history: Array(12).fill(0).map((_, i) => ({ month: i, value: 80 + Math.random() * 150 }))
+        },
+        {
+            id: 'yt-3',
+            title: 'Top 10 Hidden Gem Destinations for 2026',
+            views: '2.1M',
+            growth: '+85%',
             category: 'Travel',
-            history: [
-                { month: 'Jan', value: 40 }, { month: 'Feb', value: 50 }, { month: 'Mar', value: 65 },
-                { month: 'Apr', value: 80 }, { month: 'May', value: 100 }, { month: 'Jun', value: 120 },
-                { month: 'Jul', value: 150 }, { month: 'Aug', value: 180 }, { month: 'Sep', value: 200 },
-                { month: 'Oct', value: 220 }, { month: 'Nov', value: 210 }, { month: 'Dec', value: 200 }
-            ]
-        },
-        {
-            id: 2,
-            title: 'AI Tools 2024',
-            views: '2.5M',
-            growth: '+150%',
-            category: 'Tech',
-            history: [
-                { month: 'Jan', value: 20 }, { month: 'Feb', value: 35 }, { month: 'Mar', value: 60 },
-                { month: 'Apr', value: 80 }, { month: 'May', value: 110 }, { month: 'Jun', value: 130 },
-                { month: 'Jul', value: 140 }, { month: 'Aug', value: 135 }, { month: 'Sep', value: 150 },
-                { month: 'Oct', value: 160 }, { month: 'Nov', value: 170 }, { month: 'Dec', value: 180 }
-            ]
-        },
-        {
-            id: 3,
-            title: 'Healthy Meal Prep',
-            views: '1.2M',
-            growth: '+80%',
-            category: 'Food',
-            history: [
-                { month: 'Jan', value: 80 }, { month: 'Feb', value: 75 }, { month: 'Mar', value: 70 },
-                { month: 'Apr', value: 85 }, { month: 'May', value: 90 }, { month: 'Jun', value: 95 },
-                { month: 'Jul', value: 90 }, { month: 'Aug', value: 85 }, { month: 'Sep', value: 100 },
-                { month: 'Oct', value: 110 }, { month: 'Nov', value: 105 }, { month: 'Dec', value: 95 }
-            ]
-        },
-        {
-            id: 4,
-            title: 'Minimalist Setup Tour',
-            views: '850K',
-            growth: '+45%',
-            category: 'Lifestyle',
-            history: [
-                { month: 'Jan', value: 30 }, { month: 'Feb', value: 40 }, { month: 'Mar', value: 45 },
-                { month: 'Apr', value: 50 }, { month: 'May', value: 60 }, { month: 'Jun', value: 65 },
-                { month: 'Jul', value: 70 }, { month: 'Aug', value: 75 }, { month: 'Sep', value: 80 },
-                { month: 'Oct', value: 85 }, { month: 'Nov', value: 90 }, { month: 'Dec', value: 85 }
-            ]
-        },
-    ],
-    youtube_music: [
-        { id: 1, title: 'Seven', artist: 'Jung Kook', uses: '500M+ Views' },
-        { id: 2, title: 'Vampire', artist: 'Olivia Rodrigo', uses: '200M+ Views' },
-        { id: 3, title: 'Cruel Summer', artist: 'Taylor Swift', uses: '900M+ Views' },
-        { id: 4, title: 'Flowers', artist: 'Miley Cyrus', uses: '850M+ Views' },
-        { id: 5, title: 'Anti-Hero', artist: 'Taylor Swift', uses: '400M+ Views' }
+            history: Array(12).fill(0).map((_, i) => ({ month: i, value: 30 + Math.random() * 100 }))
+        }
     ],
     tiktok: [
         {
-            id: 1,
-            topic: '#GrimaceShake',
-            posts: '500K',
-            trend_score: 98,
-            generated_idea: "For this trend: Prepare a purple-colored drink (like a blackberry milkshake) and fall to the ground after drinking it with a funny editing style as if you 'fainted' or 'transformed'. Don't forget to add that suspenseful music in the background!",
-            history: [
-                { month: 'Jan', value: 10 }, { month: 'Feb', value: 20 }, { month: 'Mar', value: 50 },
-                { month: 'Apr', value: 100 }, { month: 'May', value: 150 }, { month: 'Jun', value: 200 },
-                { month: 'Jul', value: 250 }, { month: 'Aug', value: 220 }, { month: 'Sep', value: 180 },
-                { month: 'Oct', value: 100 }, { month: 'Nov', value: 50 }, { month: 'Dec', value: 20 }
-            ]
+            id: 'tk-1',
+            topic: '#SilentReview',
+            posts: '8.5M',
+            trend_score: 99,
+            generated_idea: "Ürünleri hiç konuşmadan sadece jest ve mimiklerle incelediğin bir video çek. Arka plana 'Lo-fi beats' eklemeyi unutma!",
+            history: Array(12).fill(0).map((_, i) => ({ month: i, value: 100 + Math.random() * 300 }))
         },
         {
-            id: 2,
-            topic: '#RomanEmpire',
-            posts: '1.2M',
-            trend_score: 95,
-            generated_idea: "Go to your partner, father, or brother and ask this question while recording: 'How often do you think about the Roman Empire?'. Record the answer and show your surprise.",
-            history: [
-                { month: 'Jan', value: 5 }, { month: 'Feb', value: 10 }, { month: 'Mar', value: 15 },
-                { month: 'Apr', value: 20 }, { month: 'May', value: 50 }, { month: 'Jun', value: 100 },
-                { month: 'Jul', value: 150 }, { month: 'Aug', value: 200 }, { month: 'Sep', value: 250 },
-                { month: 'Oct', value: 300 }, { month: 'Nov', value: 280 }, { month: 'Dec', value: 250 }
-            ]
-        },
-        {
-            id: 3,
-            topic: 'Dance Challenge X',
-            posts: '750K',
-            trend_score: 88,
-            generated_idea: "Shoot a 'tutorial' video focusing on the footwork of this dance. Show it step-by-step by slowing down the speed, as people save these types of videos a lot to learn.",
-            history: [
-                { month: 'Jan', value: 80 }, { month: 'Feb', value: 90 }, { month: 'Mar', value: 100 },
-                { month: 'Apr', value: 120 }, { month: 'May', value: 150 }, { month: 'Jun', value: 140 },
-                { month: 'Jul', value: 130 }, { month: 'Aug', value: 120 }, { month: 'Sep', value: 110 },
-                { month: 'Oct', value: 100 }, { month: 'Nov', value: 200 }, { month: 'Dec', value: 150 }
-            ]
-        },
-    ],
-    tiktok_music: [
-        { id: 1, title: 'Paint The Town Red', artist: 'Doja Cat', uses: '2.1M' },
-        { id: 2, title: 'Strangers', artist: 'Kenya Grace', uses: '1.5M' },
-        { id: 3, title: 'Water', artist: 'Tyla', uses: '800K' },
-        { id: 4, title: 'Prada', artist: 'cassö, RAYE, D-Block Europe', uses: '600K' },
-        { id: 5, title: 'Greedy', artist: 'Tate McRae', uses: '450K' }
+            id: 'tk-2',
+            topic: '#AestheticMorningRoutine',
+            posts: '4.2M',
+            trend_score: 96,
+            generated_idea: "Sabah rutinini 'cinematic' açılarla çek. Kahve yapımı ve gün doğumu görüntüleri etkileşimi artıracaktır.",
+            history: Array(12).fill(0).map((_, i) => ({ month: i, value: 50 + Math.random() * 200 }))
+        }
     ],
     twitter: [
         {
-            id: 1,
-            hashtag: '#TechNews',
+            id: 'tw-1',
+            hashtag: '#NewSpaceRace',
+            volume: '450K Tweets',
+            description: "Mars yolculuğu ve özel uzay şirketleri hakkındaki tartışmalar hızla artıyor. Teknoloji meraklıları için harika bir 'thread' konusu.",
+            sentiment: { positive: 65, neutral: 25, negative: 10 },
+            history: Array(12).fill(0).map((_, i) => ({ month: i, value: 200 + Math.random() * 500 }))
+        },
+        {
+            id: 'tw-2',
+            hashtag: '#WFHRevolution',
             volume: '120K Tweets',
-            description: 'Most tweets about this topic are positive. People are eagerly waiting for this development. You can prepare a thread expressing your views on this topic.',
-            sentiment: { positive: 70, neutral: 20, negative: 10 },
-            rt_analysis: [
-                45, 50, 55, 60, 40, 35, 30, 45, 60, 80, 100, 120,
-                110, 90, 85, 95, 130, 150, 140, 120, 100, 90, 80, 70
-            ],
-            history: [
-                { month: 'Jan', value: 100 }, { month: 'Feb', value: 120 }, { month: 'Mar', value: 150 },
-                { month: 'Apr', value: 130 }, { month: 'May', value: 140 }, { month: 'Jun', value: 160 },
-                { month: 'Jul', value: 180 }, { month: 'Aug', value: 200 }, { month: 'Sep', value: 220 },
-                { month: 'Oct', value: 240 }, { month: 'Nov', value: 260 }, { month: 'Dec', value: 280 }
-            ]
-        },
-        {
-            id: 2,
-            hashtag: '#MondayMotivation',
-            volume: '80K Tweets',
-            description: 'High energy for the start of the week. Great time to share motivational visuals and short quotes. You can also create your own hashtag.',
-            sentiment: { positive: 90, neutral: 5, negative: 5 },
-            rt_analysis: [
-                20, 25, 30, 35, 40, 45, 50, 60, 70, 65, 60, 55,
-                50, 45, 40, 50, 60, 75, 80, 70, 60, 50, 40, 30
-            ],
-            history: [
-                { month: 'Jan', value: 80 }, { month: 'Feb', value: 85 }, { month: 'Mar', value: 90 },
-                { month: 'Apr', value: 80 }, { month: 'May', value: 85 }, { month: 'Jun', value: 80 },
-                { month: 'Jul', value: 75 }, { month: 'Aug', value: 80 }, { month: 'Sep', value: 85 },
-                { month: 'Oct', value: 90 }, { month: 'Nov', value: 95 }, { month: 'Dec', value: 100 }
-            ]
-        },
-        {
-            id: 3,
-            hashtag: '#NewRelease',
-            volume: '250K Tweets',
-            description: 'Discussions about new content releases are heated. You can create a review post or a poll without giving spoilers.',
-            sentiment: { positive: 45, neutral: 30, negative: 25 },
-            rt_analysis: [
-                80, 90, 100, 120, 140, 160, 180, 200, 220, 240, 250, 230,
-                210, 190, 170, 150, 140, 130, 120, 110, 100, 90, 80, 70
-            ],
-            history: [
-                { month: 'Jan', value: 50 }, { month: 'Feb', value: 60 }, { month: 'Mar', value: 100 },
-                { month: 'Apr', value: 150 }, { month: 'May', value: 200 }, { month: 'Jun', value: 180 },
-                { month: 'Jul', value: 160 }, { month: 'Aug', value: 140 }, { month: 'Sep', value: 200 },
-                { month: 'Oct', value: 250 }, { month: 'Nov', value: 300 }, { month: 'Dec', value: 280 }
-            ]
-        },
-    ],
-    twitter_suggestions: [
-        { id: 1, type: 'Thread', content: 'Prepare a 5-tweet thread explaining tech trends.', icon: 'Type' },
-        { id: 2, type: 'Poll', content: 'Start a "Do you think AI will take our jobs?" poll.', icon: 'CheckSquare' },
-        { id: 3, type: 'Media', content: 'Share a short video showing your office setup.', icon: 'Image' }
+            description: "Uzaktan çalışma modelleri ve ofis hayatına dönüş çatışması yeniden gündemde. Çalışan hakları odağında yorum yapabilirsin.",
+            sentiment: { positive: 40, neutral: 40, negative: 20 },
+            history: Array(12).fill(0).map((_, i) => ({ month: i, value: 100 + Math.random() * 300 }))
+        }
     ],
     instagram: [
         {
-            id: 1,
+            id: 'ig-1',
             type: 'reels',
-            title: 'Summer Vibes',
-            views: '1.5M',
-            audio: 'Trending Audio #4',
-            history: [
-                { month: 'Jan', value: 20 }, { month: 'Feb', value: 30 }, { month: 'Mar', value: 45 },
-                { month: 'Apr', value: 60 }, { month: 'May', value: 80 }, { month: 'Jun', value: 95 },
-                { month: 'Jul', value: 100 }, { month: 'Aug', value: 90 }, { month: 'Sep', value: 75 },
-                { month: 'Oct', value: 60 }, { month: 'Nov', value: 50 }, { month: 'Dec', value: 40 }
-            ]
+            title: 'Minimalist Fashion Haul',
+            views: '4.1M',
+            audio: 'Cinematic Piano #2',
+            history: Array(12).fill(0).map((_, i) => ({ month: i, value: 60 + Math.random() * 200 }))
         },
         {
-            id: 2,
-            type: 'story',
-            title: 'Poll: Coffee vs Tea',
-            interactions: '45K',
-            template: 'Versus',
-            history: [
-                { month: 'Jan', value: 40 }, { month: 'Feb', value: 45 }, { month: 'Mar', value: 50 },
-                { month: 'Apr', value: 55 }, { month: 'May', value: 60 }, { month: 'Jun', value: 65 },
-                { month: 'Jul', value: 70 }, { month: 'Aug', value: 80 }, { month: 'Sep', value: 85 },
-                { month: 'Oct', value: 90 }, { month: 'Nov', value: 95 }, { month: 'Dec', value: 100 }
-            ]
+            id: 'ig-2',
+            type: 'reels',
+            title: '15 Min Home Workout',
+            views: '2.8M',
+            audio: 'Upbeat Tech-House',
+            history: Array(12).fill(0).map((_, i) => ({ month: i, value: 80 + Math.random() * 150 }))
         }
     ],
     linkedin: [
         {
-            id: 1,
-            topic: 'Remote Work Harmony',
-            industry: 'Business',
-            growth: '+40%',
-            engagement_rate: '3.2%',
-            top_demographic: 'HR Managers',
-            history: [
-                { month: 'Oca', value: 20 },
-                { month: 'Feb', value: 35 },
-                { month: 'Mar', value: 45 },
-                { month: 'Apr', value: 40 },
-                { month: 'May', value: 60 },
-                { month: 'Jun', value: 85 },
-                { month: 'Tem', value: 80 },
-                { month: 'Aug', value: 75 },
-                { month: 'Eyl', value: 90 },
-                { month: 'Oct', value: 95 },
-                { month: 'Nov', value: 88 },
-                { month: 'Dec', value: 92 }
-            ]
+            id: 'li-1',
+            topic: 'AI Ethics in Leadership',
+            industry: 'Corporate',
+            growth: '+140%',
+            engagement_rate: '6.2%',
+            history: Array(12).fill(0).map((_, i) => ({ month: i, value: 40 + Math.random() * 100 }))
         },
         {
-            id: 2,
-            topic: 'AI Ethics in 2024',
-            industry: 'Tech',
-            growth: '+150%',
-            engagement_rate: '5.8%',
-            top_demographic: 'Developers',
-            history: [
-                { month: 'Oca', value: 10 },
-                { month: 'Feb', value: 25 },
-                { month: 'Mar', value: 50 },
-                { month: 'Apr', value: 80 },
-                { month: 'May', value: 95 },
-                { month: 'Jun', value: 100 },
-                { month: 'Tem', value: 90 },
-                { month: 'Aug', value: 85 },
-                { month: 'Eyl', value: 92 },
-                { month: 'Oct', value: 98 },
-                { month: 'Nov', value: 100 },
-                { month: 'Dec', value: 100 }
-            ]
-        },
-        {
-            id: 3,
-            topic: 'Sustainable Leadership',
-            industry: 'Management',
-            growth: '+60%',
-            engagement_rate: '4.1%',
-            top_demographic: 'Execs',
-            history: [
-                { month: 'Oca', value: 30 },
-                { month: 'Feb', value: 40 },
-                { month: 'Mar', value: 45 },
-                { month: 'Apr', value: 55 },
-                { month: 'May', value: 65 },
-                { month: 'Jun', value: 75 },
-                { month: 'Tem', value: 60 },
-                { month: 'Aug', value: 50 },
-                { month: 'Eyl', value: 70 },
-                { month: 'Oct', value: 85 },
-                { month: 'Nov', value: 90 },
-                { month: 'Dec', value: 95 }
-            ]
+            id: 'li-2',
+            topic: 'The Future of Sustainable Energy',
+            industry: 'Energy',
+            growth: '+95%',
+            engagement_rate: '4.5%',
+            history: Array(12).fill(0).map((_, i) => ({ month: i, value: 30 + Math.random() * 120 }))
         }
     ],
     pinterest: [
         {
-            id: 1,
-            topic: 'Minimalist Home Office',
-            category: 'Interior Design',
-            pins: '50K+',
-            saves: '12K',
-            impression_growth: '+85%',
-            history: [
-                { month: 'Jan', value: 20 }, { month: 'Feb', value: 30 }, { month: 'Mar', value: 50 },
-                { month: 'Apr', value: 70 }, { month: 'May', value: 80 }, { month: 'Jun', value: 90 },
-                { month: 'Jul', value: 95 }, { month: 'Aug', value: 90 }, { month: 'Sep', value: 85 },
-                { month: 'Oct', value: 80 }, { month: 'Nov', value: 75 }, { month: 'Dec', value: 70 }
-            ]
+            id: 'pin-1',
+            topic: 'Modern Japandi Living Room',
+            category: 'Home Decor',
+            pins: '250K+',
+            impression_growth: '+320%',
+            history: Array(12).fill(0).map((_, i) => ({ month: i, value: 50 + Math.random() * 200 }))
         },
         {
-            id: 2,
-            topic: 'Healthy Bento Box',
-            category: 'Food',
+            id: 'pin-2',
+            topic: 'Digital Nomad Travel Gear',
+            category: 'Tech/Travel',
             pins: '120K+',
-            saves: '45K',
             impression_growth: '+110%',
-            history: [
-                { month: 'Jan', value: 60 }, { month: 'Feb', value: 70 }, { month: 'Mar', value: 80 },
-                { month: 'Apr', value: 90 }, { month: 'May', value: 100 }, { month: 'Jun', value: 110 },
-                { month: 'Jul', value: 120 }, { month: 'Aug', value: 130 }, { month: 'Sep', value: 125 },
-                { month: 'Oct', value: 120 }, { month: 'Nov', value: 115 }, { month: 'Dec', value: 110 }
-            ]
-        },
-        {
-            id: 3,
-            topic: 'Capsule Wardrobe Spring',
-            category: 'Fashion',
-            pins: '80K+',
-            saves: '28K',
-            impression_growth: '+60%',
-            history: [
-                { month: 'Jan', value: 40 }, { month: 'Feb', value: 50 }, { month: 'Mar', value: 60 },
-                { month: 'Apr', value: 80 }, { month: 'May', value: 100 }, { month: 'Jun', value: 90 },
-                { month: 'Jul', value: 80 }, { month: 'Aug', value: 70 }, { month: 'Sep', value: 60 },
-                { month: 'Oct', value: 50 }, { month: 'Nov', value: 40 }, { month: 'Dec', value: 30 }
-            ]
-        }
-    ],
-    pinterest_colors: [
-        { name: 'Peach Fuzz', hex: '#FFBE98' },
-        { name: 'Mint Green', hex: '#98FF98' },
-        { name: 'Deep Burgundy', hex: '#800020' },
-        { name: 'Sky Blue', hex: '#87CEEB' }
-    ],
-    instagram_categories: [
-        {
-            id: 1,
-            category: 'Fashion',
-            topic: 'Outfit Videos',
-            history: [
-                { month: 'Jan', value: 30 }, { month: 'Feb', value: 40 }, { month: 'Mar', value: 50 },
-                { month: 'Apr', value: 70 }, { month: 'May', value: 85 }, { month: 'Jun', value: 95 },
-                { month: 'Jul', value: 100 }, { month: 'Aug', value: 90 }, { month: 'Sep', value: 80 },
-                { month: 'Oct', value: 70 }, { month: 'Nov', value: 60 }, { month: 'Dec', value: 50 }
-            ]
-        },
-        {
-            id: 2,
-            category: 'Food',
-            topic: 'Quick Recipes',
-            history: [
-                { month: 'Jan', value: 50 }, { month: 'Feb', value: 55 }, { month: 'Mar', value: 60 },
-                { month: 'Apr', value: 65 }, { month: 'May', value: 70 }, { month: 'Jun', value: 80 },
-                { month: 'Jul', value: 85 }, { month: 'Aug', value: 90 }, { month: 'Sep', value: 95 },
-                { month: 'Oct', value: 100 }, { month: 'Nov', value: 90 }, { month: 'Dec', value: 80 }
-            ]
-        },
-        {
-            id: 3,
-            category: 'Travel',
-            topic: 'Hidden Spots',
-            history: [
-                { month: 'Jan', value: 20 }, { month: 'Feb', value: 30 }, { month: 'Mar', value: 40 },
-                { month: 'Apr', value: 60 }, { month: 'May', value: 80 }, { month: 'Jun', value: 100 },
-                { month: 'Jul', value: 100 }, { month: 'Aug', value: 100 }, { month: 'Sep', value: 90 },
-                { month: 'Oct', value: 60 }, { month: 'Nov', value: 40 }, { month: 'Dec', value: 30 }
-            ]
-        },
-        {
-            id: 4,
-            category: 'Humor',
-            topic: 'Office Life',
-            history: [
-                { month: 'Jan', value: 60 }, { month: 'Feb', value: 65 }, { month: 'Mar', value: 70 },
-                { month: 'Apr', value: 75 }, { month: 'May', value: 80 }, { month: 'Jun', value: 85 },
-                { month: 'Jul', value: 90 }, { month: 'Aug', value: 85 }, { month: 'Sep', value: 95 },
-                { month: 'Oct', value: 100 }, { month: 'Nov', value: 90 }, { month: 'Dec', value: 95 }
-            ]
-        },
-        {
-            id: 5,
-            category: 'Tech',
-            topic: 'Daily Hacks',
-            history: [
-                { month: 'Jan', value: 40 }, { month: 'Feb', value: 50 }, { month: 'Mar', value: 60 },
-                { month: 'Apr', value: 70 }, { month: 'May', value: 80 }, { month: 'Jun', value: 90 },
-                { month: 'Jul', value: 95 }, { month: 'Aug', value: 90 }, { month: 'Sep', value: 85 },
-                { month: 'Oct', value: 80 }, { month: 'Nov', value: 75 }, { month: 'Dec', value: 70 }
-            ]
-        },
-        {
-            id: 6,
-            category: 'Sports',
-            topic: '15 Min Workout',
-            history: [
-                { month: 'Jan', value: 100 }, { month: 'Feb', value: 90 }, { month: 'Mar', value: 80 },
-                { month: 'Apr', value: 70 }, { month: 'May', value: 85 }, { month: 'Jun', value: 95 },
-                { month: 'Jul', value: 90 }, { month: 'Aug', value: 85 }, { month: 'Sep', value: 80 },
-                { month: 'Oct', value: 70 }, { month: 'Nov', value: 60 }, { month: 'Dec', value: 90 }
-            ]
-        },
-        {
-            id: 7,
-            category: 'Books',
-            topic: 'Staff Pick',
-            history: [
-                { month: 'Jan', value: 50 }, { month: 'Feb', value: 55 }, { month: 'Mar', value: 50 },
-                { month: 'Apr', value: 45 }, { month: 'May', value: 50 }, { month: 'Jun', value: 60 },
-                { month: 'Jul', value: 70 }, { month: 'Aug', value: 75 }, { month: 'Sep', value: 80 },
-                { month: 'Oct', value: 85 }, { month: 'Nov', value: 90 }, { month: 'Dec', value: 95 }
-            ]
-        },
-        {
-            id: 8,
-            category: 'Motivation',
-            topic: 'Quote of the Day',
-            history: [
-                { month: 'Jan', value: 80 }, { month: 'Feb', value: 85 }, { month: 'Mar', value: 80 },
-                { month: 'Apr', value: 75 }, { month: 'May', value: 80 }, { month: 'Jun', value: 85 },
-                { month: 'Jul', value: 80 }, { month: 'Aug', value: 75 }, { month: 'Sep', value: 85 },
-                { month: 'Oct', value: 90 }, { month: 'Nov', value: 95 }, { month: 'Dec', value: 90 }
-            ]
-        },
-        {
-            id: 9,
-            category: 'Art',
-            topic: 'Sketch Sharing',
-            history: [
-                { month: 'Jan', value: 30 }, { month: 'Feb', value: 35 }, { month: 'Mar', value: 40 },
-                { month: 'Apr', value: 50 }, { month: 'May', value: 55 }, { month: 'Jun', value: 60 },
-                { month: 'Jul', value: 65 }, { month: 'Aug', value: 70 }, { month: 'Sep', value: 75 },
-                { month: 'Oct', value: 80 }, { month: 'Nov', value: 85 }, { month: 'Dec', value: 90 }
-            ]
+            history: Array(12).fill(0).map((_, i) => ({ month: i, value: 40 + Math.random() * 150 }))
         }
     ],
     hashtags: [
-        { id: 1, tag: '#ArtificialIntelligence', volume: '2.1M', growth: '+300%' },
-        { id: 2, tag: '#SummerFlavors', volume: '500K', growth: '+45%' },
-        { id: 4, tag: '#ViralDance', volume: '850K', growth: '+90%' },
-        { id: 5, tag: '#Entrepreneurship', volume: '300K', growth: '+25%' }
+        { id: 1, tag: '#FutureOfTech', volume: '1.2M', growth: '+250%' },
+        { id: 2, tag: '#HealthyLiving', volume: '850K', growth: '+120%' },
+        { id: 3, tag: '#DigitalMarketing2026', volume: '600K', growth: '+90%' },
+        { id: 4, tag: '#Sustainability', volume: '2.1M', growth: '+300%' }
     ]
-
 };
 
 export const TrendService = {
@@ -484,70 +185,260 @@ export const TrendService = {
         };
 
         // Simulate network delay
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                let data = (MOCK_DATA[platform] || []).map(item => adjustByTimeframe(item, timeframe));
+        return new Promise(async (resolve) => {
+            // Try to fetch real trends for context (with timeout)
+            let realTrends = [];
+            try {
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 5000); // 5s timeout
 
-                // Sort logic based on platform
-                if (platform === 'youtube') {
-                    data.sort((a, b) => parseValue(b.views) - parseValue(a.views));
-                } else if (platform === 'tiktok') {
-                    data.sort((a, b) => parseValue(b.posts) - parseValue(a.posts));
-                } else if (platform === 'twitter') {
-                    data.sort((a, b) => parseValue(b.volume) - parseValue(a.volume));
-                } else if (platform === 'instagram') {
-                    data.sort((a, b) => parseValue(b.views || b.interactions) - parseValue(a.views || a.interactions));
+                const res = await fetch('/api/trends', { signal: controller.signal });
+                clearTimeout(timeoutId);
+
+                if (res.ok) {
+                    const json = await res.json();
+                    if (json.success) {
+                        realTrends = json.data;
+                        console.log(`Successfully fetched ${realTrends.length} real trends for ${platform}`);
+                    }
                 }
+            } catch (e) {
+                console.warn(`TrendService: real trends fetch for ${platform} failed/timed out`, e.message);
+            }
 
-                resolve(data);
+            // Ensure we resolve WITHIN the outer promise
+            setTimeout(() => {
+                try {
+                    let data = (MOCK_DATA[platform] || []).map(item => adjustByTimeframe(item, timeframe));
+
+                    if (realTrends && realTrends.length > 0) {
+                        if (platform === 'twitter') {
+                            const realTwitter = realTrends.slice(0, 5).map((t, i) => ({
+                                id: `real-t-${i}`,
+                                hashtag: `#${t.title.replace(/\s+/g, '')}`,
+                                volume: t.traffic,
+                                description: `Gündem: ${t.title}. ${t.news?.[0]?.news_item_title || ''}`,
+                                sentiment: { positive: 60 + Math.random() * 30, neutral: 10, negative: 10 },
+                                rt_analysis: Array(24).fill(0).map(() => Math.floor(Math.random() * 100)),
+                                history: Array(12).fill(0).map((_, idx) => ({ month: idx, value: Math.floor(Math.random() * 200) }))
+                            }));
+                            data = [...realTwitter, ...data];
+                        } else if (platform === 'youtube') {
+                            const realYt = realTrends.slice(0, 5).map((t, i) => ({
+                                id: `real-y-${i}`,
+                                title: t.title,
+                                views: t.traffic,
+                                growth: '+New',
+                                category: 'Gündem',
+                                history: Array(12).fill(0).map((_, idx) => ({ month: idx, value: Math.floor(Math.random() * 200) }))
+                            }));
+                            data = [...realYt, ...data];
+                        } else if (platform === 'tiktok') {
+                            const realTiktok = realTrends.slice(0, 5).map((t, i) => ({
+                                id: `real-tk-${i}`,
+                                topic: t.title,
+                                posts: t.traffic,
+                                trend_score: 95,
+                                generated_idea: `Bugünün gündemi ${t.title} hakkında içerik üretmelisin.`,
+                                history: Array(12).fill(0).map((_, idx) => ({ month: idx, value: Math.floor(Math.random() * 200) }))
+                            }));
+                            data = [...realTiktok, ...data];
+                        }
+                    }
+                    resolve(data);
+                } catch (err) {
+                    console.error(`TrendService: error constructing ${platform} data:`, err);
+                    resolve(MOCK_DATA[platform] || []);
+                }
             }, 500);
         });
     },
 
     getAllTrends: async () => {
-        return new Promise((resolve) => {
-            setTimeout(() => {
+        return new Promise(async (resolve) => {
+            try {
+                // Try to fetch real trends (with timeout)
+                let realTrends = [];
+                try {
+                    const controller = new AbortController();
+                    const timeoutId = setTimeout(() => controller.abort(), 5000); // 5s timeout
+
+                    const res = await fetch('/api/trends', { signal: controller.signal });
+                    clearTimeout(timeoutId);
+
+                    if (res.ok) {
+                        const json = await res.json();
+                        if (json.success) realTrends = json.data;
+                    }
+                } catch (e) {
+                    console.warn('Real trends fetch failed or timed out', e);
+                }
+
+                setTimeout(() => {
+                    try {
+                        // Clone mock data
+                        const finalData = JSON.parse(JSON.stringify(MOCK_DATA));
+
+                        if (realTrends.length > 0) {
+                            // Update Hashtags
+                            finalData.hashtags = realTrends.map((t, i) => ({
+                                id: `real-tag-${i}`,
+                                tag: `#${t.title.replace(/\s+/g, '')}`,
+                                volume: t.traffic,
+                                growth: '🔥 Hot'
+                            }));
+
+                            // Inject into platforms
+                            finalData.youtube = [
+                                ...realTrends.slice(0, 3).map(t => ({
+                                    id: `real-yt-${t.id}`,
+                                    title: t.title,
+                                    views: t.traffic,
+                                    growth: '+New',
+                                    category: 'Gündem',
+                                })),
+                                ...finalData.youtube
+                            ];
+
+                            finalData.twitter = [
+                                ...realTrends.slice(0, 3).map(t => ({
+                                    id: `real-tw-${t.id}`,
+                                    hashtag: `#${t.title.replace(/\s+/g, '')}`,
+                                    volume: t.traffic,
+                                })),
+                                ...finalData.twitter
+                            ];
+
+                            finalData.tiktok = [
+                                ...realTrends.slice(0, 3).map(t => ({
+                                    id: `real-tk-${t.id}`,
+                                    topic: t.title,
+                                    posts: t.traffic,
+                                    trend_score: 99
+                                })),
+                                ...finalData.tiktok
+                            ];
+                        }
+                        resolve(finalData);
+                    } catch (innerError) {
+                        console.error("Dashboard data construction failed:", innerError);
+                        resolve(MOCK_DATA);
+                    }
+                }, 800);
+            } catch (outerError) {
+                console.error("getAllTrends promise failed:", outerError);
                 resolve(MOCK_DATA);
-            }, 800);
+            }
         });
     },
 
     getTimeframeHighlights: async (timeframe) => {
         // timeframe: 'daily' (24h) or 'weekly' (7d)
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                const results = [];
-                const platforms = ['youtube', 'tiktok', 'twitter', 'instagram', 'linkedin', 'pinterest'];
+        return new Promise(async (resolve) => {
+            try {
+                let realTrends = [];
+                try {
+                    const controller = new AbortController();
+                    const timeoutId = setTimeout(() => controller.abort(), 5000); // 5s timeout
 
-                platforms.forEach(p => {
-                    const platformData = (MOCK_DATA[p] || []).slice(0, 1); // Get top 1 from each
-                    platformData.forEach(item => {
-                        // Simulate data adjustment for timeframe
-                        const scale = timeframe === 'daily' ? 0.2 : 0.5;
-                        const newItem = { ...item, platform: p };
+                    const res = await fetch('/api/trends', { signal: controller.signal });
+                    clearTimeout(timeoutId);
 
-                        // Pick a display value based on platform
-                        if (p === 'youtube') newItem.displayValue = item.views;
-                        else if (p === 'tiktok') newItem.displayValue = item.posts;
-                        else if (p === 'twitter') newItem.displayValue = item.volume;
-                        else if (p === 'instagram') newItem.displayValue = item.views || item.interactions;
-                        else if (p === 'linkedin') newItem.displayValue = item.growth;
-                        else if (p === 'pinterest') newItem.displayValue = item.impression_growth;
+                    if (res.ok) {
+                        const json = await res.json();
+                        if (json.success) realTrends = json.data;
+                    }
+                } catch (e) {
+                    console.warn('Real trends highlights fetch failed or timed out', e);
+                }
 
-                        results.push(newItem);
+                setTimeout(() => {
+                    const results = [];
+                    const platforms = ['youtube', 'tiktok', 'twitter', 'instagram', 'linkedin', 'pinterest'];
+
+                    platforms.forEach((p, idx) => {
+                        // Start with mock
+                        let platformData = (MOCK_DATA[p] || []).slice(0, 1);
+
+                        // If we have real trends, randomly assign one to a platform for variety
+                        if (realTrends.length > idx) {
+                            const t = realTrends[idx];
+                            // Construct a "real" item
+                            const realItem = {
+                                id: `real-hl-${t.id}`,
+                                title: t.title,
+                                topic: t.title,
+                                hashtag: `#${t.title.replace(/\s+/g, '')}`,
+                                views: t.traffic,
+                                posts: t.traffic,
+                                volume: t.traffic,
+                                growth: '+100%',
+                                impression_growth: '+100%'
+                            };
+                            // Override/Prepend
+                            platformData = [realItem];
+                        }
+
+                        platformData.forEach(item => {
+                            // Simulate data adjustment for timeframe
+                            const scale = timeframe === 'daily' ? 0.2 : 0.5;
+                            const newItem = { ...item, platform: p };
+
+                            // Pick a display value based on platform
+                            if (p === 'youtube') newItem.displayValue = item.views;
+                            else if (p === 'tiktok') newItem.displayValue = item.posts;
+                            else if (p === 'twitter') newItem.displayValue = item.volume;
+                            else if (p === 'instagram') newItem.displayValue = item.views || item.interactions;
+                            else if (p === 'linkedin') newItem.displayValue = item.growth;
+                            else if (p === 'pinterest') newItem.displayValue = item.impression_growth;
+
+                            results.push(newItem);
+                        });
                     });
-                });
 
-                resolve(results);
-            }, 400);
+                    resolve(results);
+                }, 400);
+            } catch (outerError) {
+                console.error("getTimeframeHighlights failed:", outerError);
+                resolve([]);
+            }
         });
     },
 
     getTrendingHashtags: async () => {
-        return new Promise((resolve) => {
-            setTimeout(() => {
+        return new Promise(async (resolve) => {
+            try {
+                let realTrends = [];
+                try {
+                    const res = await fetch('/api/trends');
+                    if (res.ok) {
+                        const json = await res.json();
+                        if (json.success) realTrends = json.data;
+                    }
+                } catch (e) {
+                    console.warn("Hashtags real-fetch failed", e.message);
+                }
+
+                setTimeout(() => {
+                    try {
+                        let tags = JSON.parse(JSON.stringify(MOCK_DATA.hashtags || []));
+                        if (realTrends.length > 0) {
+                            const realTags = realTrends.map((t, i) => ({
+                                id: `real-tags-${i}`,
+                                tag: `#${t.title.replace(/\s+/g, '')}`,
+                                volume: t.traffic,
+                                growth: '🔥 Hot'
+                            }));
+                            tags = [...realTags, ...tags];
+                        }
+                        resolve(tags);
+                    } catch (e) {
+                        resolve(MOCK_DATA.hashtags || []);
+                    }
+                }, 300);
+            } catch (err) {
                 resolve(MOCK_DATA.hashtags || []);
-            }, 300);
+            }
         })
     },
 
@@ -596,69 +487,70 @@ export const TrendService = {
         };
 
         return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve(IDEAS[platform] || []);
-            }, 400);
+            try {
+                setTimeout(() => {
+                    resolve(IDEAS[platform] || []);
+                }, 400);
+            } catch (e) {
+                console.error("getContentIdeas error:", e);
+                resolve([]);
+            }
         });
     },
 
     searchTrends: async (query, platformContext = null) => {
+        console.log(`Searching for "${query}" in context: ${platformContext}`);
         return new Promise((resolve) => {
             setTimeout(() => {
-                const results = [];
-                const q = query.toLowerCase();
+                try {
+                    const results = [];
+                    const q = query.toLowerCase().trim();
 
-                // Helper to enrich data with lifecycle
-                const enrich = (item, platform) => {
-                    // Random lifecycle generation for demo
-                    const statuses = ['Rising', 'Peak', 'Falling'];
-                    const status = statuses[Math.floor(Math.random() * statuses.length)];
+                    if (q.length < 2) return resolve([]);
 
-                    let score, summary;
-                    let endDate = new Date();
-                    const startDate = new Date();
-                    startDate.setMonth(startDate.getMonth() - Math.floor(Math.random() * 3));
+                    // Helper to enrich data with lifecycle
+                    const enrich = (item, platform) => {
+                        const statuses = ['Rising', 'Peak', 'Falling'];
+                        const status = statuses[Math.floor(Math.random() * statuses.length)];
 
-                    if (status === 'Rising') {
-                        score = 85 + Math.floor(Math.random() * 15);
-                        endDate.setMonth(endDate.getMonth() + 2);
-                        summary = "This trend hasn't reached saturation yet. A great time to be an early adopter!";
-                    } else if (status === 'Peak') {
-                        score = 90 + Math.floor(Math.random() * 10);
-                        endDate.setMonth(endDate.getMonth() + 1);
-                        summary = "Everyone is talking about this now. High views guaranteed if you create content, but competition is fierce.";
-                    } else {
-                        score = 30 + Math.floor(Math.random() * 30);
-                        endDate.setDate(endDate.getDate() + 7);
-                        summary = "This trend is about to go out of style. We recommend focusing on other topics.";
-                    }
+                        let score, summary;
+                        let endDate = new Date();
+                        const startDate = new Date();
+                        startDate.setMonth(startDate.getMonth() - 2);
 
-                    return {
-                        ...item,
-                        platform,
-                        lifecycle: {
-                            status,
-                            validityScore: score,
-                            startDate: startDate.toLocaleDateString('en-US'),
-                            endDate: endDate.toLocaleDateString('en-US'),
-                            summary
+                        if (status === 'Rising') {
+                            score = 85 + Math.floor(Math.random() * 10);
+                            endDate.setMonth(endDate.getMonth() + 2);
+                            summary = "Bu trend henüz doyuma ulaşmadı. Erken katılım için harika bir zaman!";
+                        } else if (status === 'Peak') {
+                            score = 90 + Math.floor(Math.random() * 5);
+                            endDate.setMonth(endDate.getMonth() + 1);
+                            summary = "Şu an herkes bunu konuşuyor. İçerik üretirseniz yüksek izlenme garantili!";
+                        } else {
+                            score = 40 + Math.floor(Math.random() * 20);
+                            endDate.setDate(endDate.getDate() + 10);
+                            summary = "Bu trendin modası geçmek üzere. Diğer konulara odaklanmanızı öneririz.";
                         }
+
+                        return {
+                            ...item,
+                            platform,
+                            lifecycle: {
+                                status,
+                                validityScore: score,
+                                startDate: startDate.toLocaleDateString('tr-TR'),
+                                endDate: endDate.toLocaleDateString('tr-TR'),
+                                summary
+                            }
+                        };
                     };
-                };
 
-                // Helper to check match
-                const isMatch = (item) => {
-                    const text = item.title || item.topic || item.hashtag || item.description || '';
-                    return text.toLowerCase().includes(q);
-                };
+                    const isMatch = (item) => {
+                        const text = (item.title || item.topic || item.hashtag || item.description || '').toLowerCase();
+                        return text.includes(q);
+                    };
 
-                if (platformContext && MOCK_DATA[platformContext]) {
-                    // Search specific platform
-                    MOCK_DATA[platformContext].forEach(item => {
-                        if (isMatch(item)) results.push(enrich(item, platformContext));
-                    });
-                } else {
-                    // Search all
+                    // Search logic
                     Object.keys(MOCK_DATA).forEach(key => {
                         if (Array.isArray(MOCK_DATA[key])) {
                             MOCK_DATA[key].forEach(item => {
@@ -666,10 +558,14 @@ export const TrendService = {
                             });
                         }
                     });
-                }
 
-                resolve(results);
-            }, 600);
+                    console.log(`Found ${results.length} results for "${q}"`);
+                    resolve(results);
+                } catch (e) {
+                    console.error("Search evaluation failed:", e);
+                    resolve([]);
+                }
+            }, 300);
         });
     }
 };

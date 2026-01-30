@@ -1,7 +1,7 @@
 "use client";
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Youtube, Twitter, Instagram, Video, BarChart2, Linkedin, Pin, Info, ShieldCheck, Mail, Wrench, FileText } from 'lucide-react';
+import { Home, Youtube, Twitter, Instagram, Video, BarChart2, Linkedin, Pin, Info, ShieldCheck, Mail, Wrench, FileText, BookOpen } from 'lucide-react';
 import { useDashboard } from '@/context/DashboardContext';
 import styles from './Sidebar.module.css';
 
@@ -13,6 +13,7 @@ const MENU_ITEMS = [
     { name: 'Instagram', path: '/instagram', icon: Instagram },
     { name: 'LinkedIn', path: '/linkedin', icon: Linkedin },
     { name: 'Pinterest', path: '/pinterest', icon: Pin },
+    { name: 'Resources / Blog', path: '/blog', icon: BookOpen, type: 'info' },
     { name: 'About Us', path: '/about-us', icon: Info, type: 'info' },
     { name: 'Privacy Policy', path: '/privacy-policy', icon: ShieldCheck, type: 'info' },
     { name: 'Terms of Service', path: '/terms-of-service', icon: FileText, type: 'info' },
@@ -22,6 +23,7 @@ const MENU_ITEMS = [
 
 export default function Sidebar() {
     const pathname = usePathname();
+    const { isPlatformVisible, togglePlatform } = useDashboard();
 
     return (
         <aside className={styles.sidebar}>
@@ -39,7 +41,6 @@ export default function Sidebar() {
                     const platformKey = item.path.replace('/', '');
                     const isPlatform = ['youtube', 'tiktok', 'twitter', 'instagram', 'linkedin', 'pinterest'].includes(platformKey);
 
-                    const { isPlatformVisible, togglePlatform } = useDashboard();
                     const isVisible = isPlatform && isPlatformVisible(platformKey);
 
                     const isFirstInfo = item.type === 'info' && (index === 0 || MENU_ITEMS[index - 1].type !== 'info');
