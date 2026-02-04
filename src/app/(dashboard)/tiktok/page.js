@@ -1,9 +1,9 @@
 "use client";
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import Header from '@/components/Header';
-import BlogPromoCard from '@/components/BlogPromoCard';
 import { TrendService } from '@/services/TrendService';
-import { Video, Music, Hash, TrendingUp, X, BarChart2 } from 'lucide-react';
+import { Video, Music, Hash, TrendingUp, X, BarChart2, BookOpen, ArrowRight } from 'lucide-react';
 import styles from './page.module.css';
 
 export default function TiktokPage() {
@@ -44,7 +44,7 @@ export default function TiktokPage() {
     };
 
     return (
-        <div className={styles.content}>
+        <>
             <Header title="TikTok Trends" onTimeframeChange={setTimeframe} />
 
             <div className={styles.content}>
@@ -61,20 +61,25 @@ export default function TiktokPage() {
                 <div className={styles.grid}>
                     <div className={styles.colLeft}>
                         <h3 className={styles.sectionTitle}>🔥 Rising Hashtags</h3>
-                        <div className={styles.cardList}>
+                        <div className={styles.videoList}>
                             {loading ? <p>Loading...</p> : trends.map((trend, index) => (
-                                <div key={trend.id} className={styles.card}>
-                                    <div className={`${styles.rankCircle} ${getRankClass(index)}`}>
-                                        {index + 1}
+                                <div key={trend.id} className={styles.videoCard}>
+                                    <div className={styles.videoIcon}>
+                                        <span className={styles.rank}>#{index + 1}</span>
                                     </div>
-                                    <div className={styles.cardInfo}>
+                                    <div className={styles.videoInfo}>
                                         <h4>{trend.topic}</h4>
-                                        <div className={styles.meta}>
+                                        <div className={styles.videoMeta}>
+                                            <span className={styles.views}>{trend.volume}</span>
                                             <span className={styles.growth}>{trend.growth}</span>
-                                            <span className={styles.vol}>{trend.volume}</span>
                                         </div>
                                     </div>
-                                    <button className={styles.actionButton} onClick={() => openAnalysis(trend)}>Analyze</button>
+                                    <button
+                                        className={styles.actionButton}
+                                        onClick={() => openAnalysis(trend)}
+                                    >
+                                        Analyze
+                                    </button>
                                 </div>
                             ))}
                         </div>
@@ -113,6 +118,41 @@ export default function TiktokPage() {
                                 <li>#explore</li>
                                 <li>#tiktokviral</li>
                             </ul>
+                        </div>
+
+                        <div className={`${styles.suggestionBox} ${styles.marginTop}`} style={{ marginTop: '1.5rem', borderColor: 'rgba(217, 70, 239, 0.2)' }}>
+                            <div className={styles.ideaHeader}>
+                                <BookOpen size={20} className={styles.ideaIcon} style={{ color: '#d946ef' }} />
+                                <h4>Read Expert Insight</h4>
+                            </div>
+                            <div style={{ padding: '0 0.5rem 0.5rem 0.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                                <div style={{ width: '100%', height: '100px', borderRadius: '6px', overflow: 'hidden', border: '1px solid var(--border)' }}>
+                                    <img
+                                        src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&auto=format&fit=crop&q=60"
+                                        alt="Insight"
+                                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                    />
+                                </div>
+                                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.4' }}>
+                                    Learn how to master TikTok algorithms and go viral.
+                                </p>
+                                <Link
+                                    href="/blog/finding-tiktok-trends?from=tiktok"
+                                    className={styles.actionButton}
+                                    style={{
+                                        width: '100%',
+                                        textAlign: 'center',
+                                        display: 'block',
+                                        textDecoration: 'none',
+                                        backgroundColor: 'var(--surface)',
+                                        border: '1px solid #d946ef',
+                                        color: '#d946ef',
+                                        marginTop: '0.25rem'
+                                    }}
+                                >
+                                    Read Article <ArrowRight size={14} style={{ display: 'inline', verticalAlign: 'middle', marginLeft: '4px' }} />
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -155,7 +195,6 @@ export default function TiktokPage() {
                     </div>
                 </div>
             )}
-            <BlogPromoCard platform="tiktok" />
-        </div>
+        </>
     );
 }

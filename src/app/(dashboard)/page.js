@@ -337,6 +337,17 @@ export default function Home() {
                         <div className={styles.statTrend}>2.4M interactions</div>
                     </div>
                 </div>
+
+                <a href="/blog" target="_blank" className={`${styles.card} ${styles.statCard}`} style={{ textDecoration: 'none', cursor: 'pointer', border: '1px solid var(--primary)' }}>
+                    <div className={styles.iconBox} style={{ backgroundColor: 'rgba(99, 102, 241, 0.1)', color: 'var(--primary)' }}>
+                        <Hash size={24} />
+                    </div>
+                    <div>
+                        <h4 style={{ color: 'var(--primary)' }}>Read Our Blog</h4>
+                        <p className={styles.statValue} style={{ fontSize: '1.2rem' }}>Expert Insights</p>
+                        <div className={styles.statTrend}>Click to open separate page</div>
+                    </div>
+                </a>
             </div>
 
             <div className={styles.layoutGrid}>

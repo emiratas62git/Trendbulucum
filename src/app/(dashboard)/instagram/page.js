@@ -1,10 +1,10 @@
 "use client";
 import Header from '@/components/Header';
-import { Instagram, Image as ImageIcon, Film, X, TrendingUp, BarChart2 } from 'lucide-react';
+import Link from 'next/link';
+import { Instagram, Image as ImageIcon, Film, X, TrendingUp, BarChart2, BookOpen, ArrowRight } from 'lucide-react';
 import styles from './page.module.css';
 import { useState, useEffect } from 'react';
 import { TrendService } from '@/services/TrendService';
-import BlogPromoCard from '@/components/BlogPromoCard';
 
 export default function InstagramPage() {
     const [selectedReport, setSelectedReport] = useState(null);
@@ -40,7 +40,7 @@ export default function InstagramPage() {
     ];
 
     return (
-        <div className={styles.content}>
+        <>
             <Header title="Instagram Analysis" onTimeframeChange={setTimeframe} />
 
             <div className={styles.content}>
@@ -140,6 +140,41 @@ export default function InstagramPage() {
                                 ))}
                             </div>
                         </div>
+
+                        <div className={`${styles.suggestionBox} ${styles.marginTop}`} style={{ marginTop: '1.5rem', borderColor: 'rgba(214, 41, 118, 0.2)' }}>
+                            <div className={styles.ideaHeader}>
+                                <BookOpen size={20} className={styles.ideaIcon} style={{ color: '#d62976' }} />
+                                <h4>Read Expert Insight</h4>
+                            </div>
+                            <div style={{ padding: '0 0.5rem 0.5rem 0.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                                <div style={{ width: '100%', height: '100px', borderRadius: '6px', overflow: 'hidden', border: '1px solid var(--border)' }}>
+                                    <img
+                                        src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&auto=format&fit=crop&q=60"
+                                        alt="Insight"
+                                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                    />
+                                </div>
+                                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.4' }}>
+                                    Learn how to master Instagram Reels algorithms.
+                                </p>
+                                <Link
+                                    href="/blog/instagram-reels-rising-types?from=instagram"
+                                    className={styles.actionButton}
+                                    style={{
+                                        width: '100%',
+                                        textAlign: 'center',
+                                        display: 'block',
+                                        textDecoration: 'none',
+                                        backgroundColor: 'var(--surface)',
+                                        border: '1px solid #d62976',
+                                        color: '#d62976',
+                                        marginTop: '0.25rem'
+                                    }}
+                                >
+                                    Read Article <ArrowRight size={14} style={{ display: 'inline', verticalAlign: 'middle', marginLeft: '4px' }} />
+                                </Link>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -180,7 +215,6 @@ export default function InstagramPage() {
                     </div>
                 </div>
             )}
-            <BlogPromoCard platform="instagram" />
-        </div>
+        </>
     );
 }

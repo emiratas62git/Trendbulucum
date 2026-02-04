@@ -13,7 +13,7 @@ const MENU_ITEMS = [
     { name: 'Instagram', path: '/instagram', icon: Instagram },
     { name: 'LinkedIn', path: '/linkedin', icon: Linkedin },
     { name: 'Pinterest', path: '/pinterest', icon: Pin },
-    { name: 'Resources / Blog', path: '/blog', icon: BookOpen, type: 'info' },
+    { name: 'Blog & Insights', path: '/blog', icon: BookOpen },
     { name: 'About Us', path: '/about-us', icon: Info, type: 'info' },
     { name: 'Privacy Policy', path: '/privacy-policy', icon: ShieldCheck, type: 'info' },
     { name: 'Terms of Service', path: '/terms-of-service', icon: FileText, type: 'info' },
@@ -52,6 +52,7 @@ export default function Sidebar() {
                                 <Link
                                     href={item.path}
                                     className={`${styles.navItem} ${isActive ? styles.active : ''}`}
+                                    target={item.path === '/blog' ? '_blank' : undefined}
                                 >
                                     <Icon size={20} />
                                     <span>{item.name}</span>
@@ -78,6 +79,6 @@ export default function Sidebar() {
             <div className={styles.footer}>
                 <p>© {new Date().getFullYear()} Trendfinder All rights reserved.</p>
             </div>
-        </aside>
+        </aside >
     );
 }
