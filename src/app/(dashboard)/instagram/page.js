@@ -1,12 +1,13 @@
 "use client";
-import Header from '@/components/Header';
 import Link from 'next/link';
 import { Instagram, Image as ImageIcon, Film, X, TrendingUp, BarChart2, BookOpen, ArrowRight } from 'lucide-react';
+import { useDashboard } from '@/context/DashboardContext';
 import styles from './page.module.css';
 import { useState, useEffect } from 'react';
 import { TrendService } from '@/services/TrendService';
 
 export default function InstagramPage() {
+    const { timeframe } = useDashboard();
     const [selectedReport, setSelectedReport] = useState(null);
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -19,7 +20,6 @@ export default function InstagramPage() {
         setSelectedReport(null);
     };
 
-    const [timeframe, setTimeframe] = useState('monthly');
 
     useEffect(() => {
         async function fetchCategories() {
@@ -41,8 +41,6 @@ export default function InstagramPage() {
 
     return (
         <>
-            <Header title="Instagram Analysis" onTimeframeChange={setTimeframe} />
-
             <div className={styles.content}>
                 <div className={styles.hero}>
                     <div className={styles.heroContent}>

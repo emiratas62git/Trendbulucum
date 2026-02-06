@@ -1,18 +1,17 @@
 "use client";
 import { useEffect, useState } from 'react';
-import Header from '@/components/Header';
 import Link from 'next/link';
 import { Youtube, PlayCircle, TrendingUp, Lightbulb, Music, X, BarChart2, BookOpen, ArrowRight } from 'lucide-react';
 import { TrendService } from '@/services/TrendService';
+import { useDashboard } from '@/context/DashboardContext';
 import styles from './page.module.css';
 
 export default function YoutubePage() {
+    const { timeframe } = useDashboard();
     const [trends, setTrends] = useState([]);
     const [music, setMusic] = useState([]);
     const [loading, setLoading] = useState(true);
     const [selectedTrend, setSelectedTrend] = useState(null);
-
-    const [timeframe, setTimeframe] = useState('monthly');
 
     useEffect(() => {
         async function fetchData() {
@@ -38,9 +37,7 @@ export default function YoutubePage() {
 
     return (
         <div className={styles.content}>
-            <Header title="YouTube Analysis" onTimeframeChange={setTimeframe} />
-
-            <div className={styles.content}>
+            <div className={styles.hero}>
                 <div className={styles.hero}>
                     <div className={styles.heroContent}>
                         <h1>YouTube Trends</h1>

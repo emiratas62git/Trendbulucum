@@ -1,12 +1,13 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Header from '@/components/Header';
 import { TrendService } from '@/services/TrendService';
 import { Linkedin, Briefcase, Users, X, BarChart2, BookOpen, ArrowRight } from 'lucide-react';
+import { useDashboard } from '@/context/DashboardContext';
 import styles from './page.module.css';
 
 export default function LinkedinPage() {
+    const { timeframe } = useDashboard();
     const [trends, setTrends] = useState([]);
     const [selectedReport, setSelectedReport] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -26,7 +27,6 @@ export default function LinkedinPage() {
         return styles.rankOther;
     };
 
-    const [timeframe, setTimeframe] = useState('monthly');
 
     useEffect(() => {
         async function fetchData() {
@@ -40,8 +40,6 @@ export default function LinkedinPage() {
 
     return (
         <>
-            <Header title="LinkedIn Analysis" onTimeframeChange={setTimeframe} />
-
             <div className={styles.content}>
                 <div className={styles.hero}>
                     <div className={styles.heroContent}>

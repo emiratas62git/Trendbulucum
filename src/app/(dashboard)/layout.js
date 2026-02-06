@@ -1,5 +1,6 @@
 import Sidebar from '@/components/Sidebar';
 import AdSlot from '@/components/AdSlot';
+import Header from '@/components/Header';
 
 export default function DashboardLayout({ children }) {
     return (
@@ -15,6 +16,8 @@ export default function DashboardLayout({ children }) {
                     <header className="layout-header">
                         <AdSlot type="horizontal" />
                     </header>
+
+                    <Header />
 
                     <div className="app-container">
                         {children}

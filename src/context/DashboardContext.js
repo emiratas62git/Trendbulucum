@@ -8,6 +8,7 @@ export function DashboardProvider({ children }) {
     const [visiblePlatforms, setVisiblePlatforms] = useState(['youtube', 'tiktok']);
 
     const [searchQuery, setSearchQuery] = useState('');
+    const [timeframe, setTimeframe] = useState('monthly');
 
     const togglePlatform = (platform) => {
         setVisiblePlatforms(prev => {
@@ -34,7 +35,9 @@ export function DashboardProvider({ children }) {
             isPlatformVisible,
             reorderPlatforms,
             searchQuery,
-            setSearchQuery
+            setSearchQuery,
+            timeframe,
+            setTimeframe
         }}>
             {children}
         </DashboardContext.Provider>

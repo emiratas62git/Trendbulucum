@@ -8,14 +8,23 @@ import { useDashboard } from '@/context/DashboardContext';
 import TrendLifecycleModal from './TrendLifecycleModal';
 import SearchAlertModal from './SearchAlertModal';
 
-export default function Header({ title, onTimeframeChange }) {
+export default function Header({ title: propTitle, onTimeframeChange: propOnTimeframeChange }) {
     const pathname = usePathname();
-    const { searchQuery, setSearchQuery } = useDashboard();
+    const { searchQuery, setSearchQuery, timeframe, setTimeframe } = useDashboard();
     const [query, setQuery] = useState(searchQuery);
     const [isSearching, setIsSearching] = useState(false);
     const [searchResult, setSearchResult] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [activeTimeframe, setActiveTimeframe] = useState('monthly');
+
+    // Derive title if not provided
+    const getDerivedTitle = () => {
+        if (propTitle) return propTitle;
+        const path = pathname.split('/')[1];
+        if (!path || path === '') return 'Trend Dashboard';
+        return path.charAt(0).toUpperCase() + path.slice(1) + ' Trends';
+    };
+
+    const title = getDerivedTitle();
 
     // Alert state
     const [isAlertOpen, setIsAlertOpen] = useState(false);
@@ -83,10 +92,10 @@ export default function Header({ title, onTimeframeChange }) {
         setIsModalOpen(true);
     };
 
-    const handleTimeframeChange = (timeframe) => {
-        setActiveTimeframe(timeframe);
-        if (onTimeframeChange) {
-            onTimeframeChange(timeframe);
+    const handleTimeframeChange = (newTf) => {
+        setTimeframe(newTf);
+        if (propOnTimeframeChange) {
+            propOnTimeframeChange(newTf);
         }
     };
 
@@ -115,13 +124,13 @@ export default function Header({ title, onTimeframeChange }) {
                 }}
             >
                 <div className={styles.headerLeft}>
-                    <h2 className={styles.title}>{title || 'Dashboard'}</h2>
-                    {pathname !== '/' && onTimeframeChange && (
+                    <h2 className={styles.title}>{title}</h2>
+                    {pathname !== '/' && (
                         <div className={styles.timeframeSelector}>
                             {['hourly', 'daily', 'weekly', 'monthly'].map((tf) => (
                                 <button
                                     key={tf}
-                                    className={`${styles.timeframeBtn} ${activeTimeframe === tf ? styles.activeTimeframe : ''}`}
+                                    className={`${styles.timeframeBtn} ${timeframe === tf ? styles.activeTimeframe : ''}`}
                                     onClick={() => handleTimeframeChange(tf)}
                                 >
                                     {tf.charAt(0).toUpperCase() + tf.slice(1)}

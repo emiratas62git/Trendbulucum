@@ -331,6 +331,10 @@
 /* Summary Highlights Styles */
 .summarySection {
     margin-top: 3rem;
+}
+
+.content {
+    margin-top: 2rem;
     padding-bottom: 2rem;
 }
 

@@ -70,7 +70,9 @@ export default function BlogPost({ params }) {
                                 <span>{post.date} • {post.readTime}</span>
                                 <span style={{ marginLeft: '1rem', color: 'var(--primary)' }}>
                                     <Eye size={14} style={{ marginRight: '4px', verticalAlign: 'middle' }} />
-                                    {post.views?.toLocaleString()} views
+                                    <span suppressHydrationWarning>
+                                        {(post.views || 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} views
+                                    </span>
                                 </span>
                             </div>
                             <h1 className={styles.articleTitle}>{post.title}</h1>

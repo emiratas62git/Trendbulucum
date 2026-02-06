@@ -63,7 +63,9 @@ export default function BlogList() {
                                 <span>{post.date}</span>
                                 <span className={styles.views}>
                                     <Eye size={14} style={{ marginRight: '4px', verticalAlign: 'middle' }} />
-                                    {post.views?.toLocaleString()} views
+                                    <span suppressHydrationWarning>
+                                        {(post.views || 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} views
+                                    </span>
                                 </span>
                             </div>
                             <h2 className={styles.title}>{post.title}</h2>

@@ -4,15 +4,15 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import { TrendService } from '@/services/TrendService';
 import { Video, Music, Hash, TrendingUp, X, BarChart2, BookOpen, ArrowRight } from 'lucide-react';
+import { useDashboard } from '@/context/DashboardContext';
 import styles from './page.module.css';
 
 export default function TiktokPage() {
+    const { timeframe } = useDashboard();
     const [trends, setTrends] = useState([]);
     const [music, setMusic] = useState([]);
     const [loading, setLoading] = useState(true);
     const [selectedTrend, setSelectedTrend] = useState(null);
-
-    const [timeframe, setTimeframe] = useState('monthly');
 
     useEffect(() => {
         async function fetchData() {
@@ -45,8 +45,6 @@ export default function TiktokPage() {
 
     return (
         <>
-            <Header title="TikTok Trends" onTimeframeChange={setTimeframe} />
-
             <div className={styles.content}>
                 <div className={styles.hero}>
                     <div className={styles.heroContent}>

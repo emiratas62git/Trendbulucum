@@ -1,12 +1,13 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Header from '@/components/Header';
 import { TrendService } from '@/services/TrendService';
 import { Pin, Palette, TrendingUp, X, BarChart2, BookOpen, ArrowRight } from 'lucide-react';
+import { useDashboard } from '@/context/DashboardContext';
 import styles from './page.module.css';
 
 export default function PinterestPage() {
+    const { timeframe } = useDashboard();
     const [trends, setTrends] = useState([]);
     const [colors, setColors] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -28,7 +29,6 @@ export default function PinterestPage() {
     };
 
 
-    const [timeframe, setTimeframe] = useState('monthly');
     const [copiedColor, setCopiedColor] = useState(null);
 
     const handleCopyColor = (hex) => {
@@ -53,8 +53,6 @@ export default function PinterestPage() {
 
     return (
         <>
-            <Header title="Pinterest Analysis" onTimeframeChange={setTimeframe} />
-
             <div className={styles.content}>
                 <div className={styles.hero}>
                     <div className={styles.heroContent}>

@@ -1,18 +1,17 @@
 "use client";
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Header from '@/components/Header';
 import { TrendService } from '@/services/TrendService';
 import { Twitter, MessageCircle, TrendingUp, Heart, X, Sparkles, BarChart2, BookOpen, ArrowRight } from 'lucide-react';
+import { useDashboard } from '@/context/DashboardContext';
 import styles from './page.module.css';
 
 export default function TwitterPage() {
+    const { timeframe } = useDashboard();
     const [trends, setTrends] = useState([]);
     const [loading, setLoading] = useState(true);
     const [selectedTrend, setSelectedTrend] = useState(null);
     const [modalType, setModalType] = useState(null); // 'idea', 'analysis'
-
-    const [timeframe, setTimeframe] = useState('monthly');
 
     useEffect(() => {
         async function fetchData() {
@@ -114,8 +113,6 @@ export default function TwitterPage() {
 
     return (
         <>
-            <Header title="Twitter / X Analysis" onTimeframeChange={setTimeframe} />
-
             <div className={styles.content}>
                 <div className={styles.hero}>
                     <div className={styles.heroContent}>

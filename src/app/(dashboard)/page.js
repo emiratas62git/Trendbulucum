@@ -12,14 +12,14 @@ export default function Home() {
     const [weeklyHighlights, setWeeklyHighlights] = useState([]);
     const [platformIdeas, setPlatformIdeas] = useState({});
     const [loading, setLoading] = useState(true);
-    const { isPlatformVisible, visiblePlatforms, reorderPlatforms, searchQuery } = useDashboard();
+    const { isPlatformVisible, visiblePlatforms, reorderPlatforms, searchQuery, timeframe } = useDashboard();
 
     useEffect(() => {
         async function fetchData() {
             setLoading(true);
             try {
                 const results = await Promise.allSettled([
-                    TrendService.getAllTrends(),
+                    TrendService.getAllTrends(timeframe),
                     TrendService.getTimeframeHighlights('daily'),
                     TrendService.getTimeframeHighlights('weekly')
                 ]);
@@ -50,7 +50,7 @@ export default function Home() {
             }
         }
         fetchData();
-    }, []);
+    }, [timeframe]);
 
     const handleDragStart = (e, index) => {
         e.dataTransfer.setData("platformIndex", index);
@@ -302,8 +302,6 @@ export default function Home() {
 
     return (
         <div className={styles.content}>
-            <Header title="Trend Dashboard" />
-
             <div className={styles.statsGrid}>
                 <div className={`${styles.card} ${styles.statCard}`}>
                     <div className={styles.iconBox} style={{ backgroundColor: 'rgba(99, 102, 241, 0.1)', color: 'var(--primary)' }}>
