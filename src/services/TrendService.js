@@ -177,14 +177,11 @@ export const TrendService = {
                 const val = parseValue(newItem.views) * mod.scale;
                 newItem.views = val > 1000000 ? (val / 1000000).toFixed(1) + 'M' : (val / 1000).toFixed(0) + 'K';
             }
-            if (newItem.posts) {
-                const val = parseValue(newItem.posts) * mod.scale;
-                newItem.posts = val > 1000000 ? (val / 1000000).toFixed(1) + 'M' : (val / 1000).toFixed(0) + 'K';
-            }
-            if (newItem.volume) {
-                const val = parseValue(newItem.volume) * mod.scale;
-                newItem.volume = val > 1000000 ? (val / 1000000).toFixed(1) + 'M' : (val / 1000).toFixed(0) + 'K';
-                if (newItem.volume.includes('K')) newItem.volume += ' Tweets';
+            if (newItem.posts || newItem.volume) {
+                const key = newItem.posts ? 'posts' : 'volume';
+                const val = parseValue(newItem[key]) * mod.scale;
+                newItem[key] = val > 1000000 ? (val / 1000000).toFixed(1) + 'M' : (val / 1000).toFixed(0) + 'K';
+                if (key === 'volume' && platform === 'twitter' && newItem[key].includes('K')) newItem[key] += ' Tweets';
             }
             if (newItem.pins) {
                 const val = parseValue(newItem.pins) * mod.scale;
@@ -261,8 +258,8 @@ export const TrendService = {
                             const realTiktok = realTrends.slice(0, 5).map((t, i) => ({
                                 id: `real-tk-${i}`,
                                 topic: t.title,
-                                posts: t.traffic,
-                                trend_score: 95,
+                                volume: t.traffic,
+                                growth: '+New',
                                 generated_idea: `Bugünün gündemi ${t.title} hakkında içerik üretmelisin.`,
                                 history: Array(12).fill(0).map((_, idx) => ({ month: idx, value: Math.floor(Math.random() * 200) }))
                             }));
