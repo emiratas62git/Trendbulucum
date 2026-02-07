@@ -1,7 +1,7 @@
 "use client";
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Youtube, Twitter, Instagram, Video, BarChart2, Linkedin, Pin, Info, ShieldCheck, Mail, Wrench, FileText, BookOpen } from 'lucide-react';
+import { Home, Youtube, Twitter, Instagram, Video, BarChart2, Linkedin, Pin, Info, ShieldCheck, Mail, Wrench, FileText, BookOpen, X } from 'lucide-react';
 import { useDashboard } from '@/context/DashboardContext';
 import styles from './Sidebar.module.css';
 
@@ -23,63 +23,72 @@ const MENU_ITEMS = [
 
 export default function Sidebar() {
     const pathname = usePathname();
-    const { isPlatformVisible, togglePlatform } = useDashboard();
+    const { isPlatformVisible, togglePlatform, isSidebarOpen, closeSidebar } = useDashboard();
 
     return (
-        <aside className={styles.sidebar}>
-            <div className={styles.logoContainer}>
-                <BarChart2 className={styles.logoIcon} />
-                <span className={styles.logoText}>Trendfinder</span>
-            </div>
+        <>
+            {/* Mobile Overlay */}
+            {isSidebarOpen && <div className={styles.overlay} onClick={closeSidebar} />}
 
-            <nav className={styles.nav}>
-                {MENU_ITEMS.map((item, index) => {
-                    const Icon = item.icon;
-                    const isActive = pathname === item.path;
+            <aside className={`${styles.sidebar} ${isSidebarOpen ? styles.sidebarOpen : ''}`}>
+                <div className={styles.sidebarHeader}>
+                    <div className={styles.logoContainer}>
+                        <BarChart2 className={styles.logoIcon} />
+                        <span className={styles.logoText}>Trendfinder</span>
+                    </div>
+                    <button className={styles.closeSidebar} onClick={closeSidebar}>
+                        <X size={24} />
+                    </button>
+                </div>
 
-                    // Map path to platform key for context
-                    const platformKey = item.path.replace('/', '');
-                    const isPlatform = ['youtube', 'tiktok', 'twitter', 'instagram', 'linkedin', 'pinterest'].includes(platformKey);
+                <nav className={styles.nav}>
+                    {MENU_ITEMS.map((item, index) => {
+                        const Icon = item.icon;
+                        const isActive = pathname === item.path;
 
-                    const isVisible = isPlatform && isPlatformVisible(platformKey);
+                        // Map path to platform key for context
+                        const platformKey = item.path.replace('/', '');
+                        const isPlatform = ['youtube', 'tiktok', 'twitter', 'instagram', 'linkedin', 'pinterest'].includes(platformKey);
 
-                    const isFirstInfo = item.type === 'info' && (index === 0 || MENU_ITEMS[index - 1].type !== 'info');
+                        const isVisible = isPlatform && isPlatformVisible(platformKey);
 
-                    return (
-                        <div key={item.path}>
-                            {isFirstInfo && <div className={styles.navTitle}>Info & Support</div>}
-                            <div className={styles.navItemWrapper}>
-                                <Link
-                                    href={item.path}
-                                    className={`${styles.navItem} ${isActive ? styles.active : ''}`}
-                                    target={item.path === '/blog' ? '_blank' : undefined}
-                                    onClick={closeSidebar}
-                                >
-                                    <Icon size={20} />
-                                    <span>{item.name}</span>
-                                </Link>
-                                {isPlatform && (
-                                    <button
-                                        className={`${styles.toggleButton} ${isVisible ? styles.removeBtn : styles.addBtn}`}
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            e.stopPropagation();
-                                            togglePlatform(platformKey);
-                                        }}
-                                        title={isVisible ? "Remove from Overview" : "Add to Overview"}
+                        const isFirstInfo = item.type === 'info' && (index === 0 || MENU_ITEMS[index - 1].type !== 'info');
+
+                        return (
+                            <div key={item.path}>
+                                {isFirstInfo && <div className={styles.navTitle}>Info & Support</div>}
+                                <div className={styles.navItemWrapper}>
+                                    <Link
+                                        href={item.path}
+                                        className={`${styles.navItem} ${isActive ? styles.active : ''}`}
+                                        target={item.path === '/blog' ? '_blank' : undefined}
+                                        onClick={closeSidebar}
                                     >
-                                        {isVisible ? '-' : '+'}
-                                    </button>
-                                )}
+                                        <Icon size={20} />
+                                        <span>{item.name}</span>
+                                    </Link>
+                                    {isPlatform && (
+                                        <button
+                                            className={`${styles.toggleButton} ${isVisible ? styles.removeBtn : styles.addBtn}`}
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                e.stopPropagation();
+                                                togglePlatform(platformKey);
+                                            }}
+                                            title={isVisible ? "Remove from Overview" : "Add to Overview"}
+                                        >
+                                            {isVisible ? '-' : '+'}
+                                        </button>
+                                    )}
+                                </div>
                             </div>
-                        </div>
-                    );
-                })}
-            </nav>
+                        );
+                    })}
+                </nav>
 
-            <div className={styles.footer}>
-                <p>© {new Date().getFullYear()} Trendfinder All rights reserved.</p>
-            </div>
-        </aside >
-    );
+                <div className={styles.footer}>
+                    <p>© {new Date().getFullYear()} Trendfinder All rights reserved.</p>
+                </div>
+            </aside >
+            );
 }
