@@ -37,4 +37,9 @@ next-env.d.ts
 .next
 node_modules
 .env
+package.json
+next.config.js
+src/app/
+src/pages/
+package-lock.json
 
