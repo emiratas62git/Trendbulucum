@@ -150,6 +150,41 @@
     text-align: center;
 }
 
+/* Sidebar Header (Mobile Only) */
+.sidebarHeader {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding: 0 0.5rem;
+}
+
+.closeSidebar {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+}
+
+.closeSidebar:hover {
+    color: var(--text-main);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+}
+
 @media (max-width: 1024px) {
     .sidebar {
         width: 80px;

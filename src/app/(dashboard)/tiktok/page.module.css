@@ -19,7 +19,8 @@
     position: relative;
     overflow: hidden;
     color: white;
-    border-bottom: 4px solid #fe2c55;
+    border-bottom: 4px solid #ad35fb;
+    box-shadow: 0 0 30px rgba(173, 53, 251, 0.2);
 }
 
 .hero::before {

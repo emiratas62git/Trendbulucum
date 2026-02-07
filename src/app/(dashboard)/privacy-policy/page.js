@@ -1,11 +1,9 @@
 "use client";
-import Header from '@/components/Header';
 import styles from '../../static.module.css';
 
 export default function PrivacyPolicy() {
     return (
         <div className={styles.content}>
-            <Header title="Privacy Policy" />
             <div className={styles.content}>
                 <div className={styles.card}>
                     <h1 className={styles.title}>Privacy Policy</h1>
