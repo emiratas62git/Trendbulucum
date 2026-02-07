@@ -1,3 +1,6 @@
+"use client";
+import styles from '../../static.module.css';
+
 export default function AboutUs() {
     return (
         <div className={styles.content}>

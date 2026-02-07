@@ -1,11 +1,9 @@
 "use client";
-import Header from '@/components/Header';
 import styles from '../../static.module.css';
 
 export default function HowItWorks() {
     return (
         <div className={styles.content}>
-            <Header title="How It Works?" />
             <div className={styles.content}>
                 <div className={styles.card}>
                     <h1 className={styles.title}>How It Works?</h1>
