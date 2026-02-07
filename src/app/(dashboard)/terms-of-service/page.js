@@ -1,11 +1,6 @@
-"use client";
-import Header from '@/components/Header';
-import styles from '../../static.module.css';
-
 export default function TermsOfService() {
     return (
         <div className={styles.content}>
-            <Header title="Terms of Service" />
             <div className={styles.content}>
                 <div className={styles.card}>
                     <h1 className={styles.title}>Terms of Service</h1>

@@ -1,6 +1,11 @@
 "use client";
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { TrendService } from '@/services/TrendService';
+import { Video, Music, Hash, TrendingUp, X, BarChart2, BookOpen, ArrowRight } from 'lucide-react';
+import { useDashboard } from '@/context/DashboardContext';
+import styles from './page.module.css';
+
 export default function TiktokPage() {
     const { timeframe } = useDashboard();
     const [trends, setTrends] = useState([]);
