@@ -25,5 +25,6 @@ export default function HowItWorks() {
                     develop their own content strategies.
                 </p>
             </div>
-            );
+        </div>
+    );
 }
