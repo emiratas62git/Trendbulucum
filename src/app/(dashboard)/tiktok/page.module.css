@@ -86,7 +86,24 @@
 .trendCard:hover {
     border-color: #fe2c55;
     transform: translateX(4px);
-    box-shadow: -4px 4px 0px rgba(37, 244, 238, 0.2);
+    box-shadow: -4px 4px 0px rgba(254, 44, 85, 0.2);
+}
+
+.videoIcon {
+    width: 40px;
+    height: 40px;
+    background: rgba(254, 44, 85, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.rank {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #fe2c55;
 }
 
 .rankCircle {
