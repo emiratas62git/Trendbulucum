@@ -90,10 +90,8 @@
 }
 
 .videoIcon {
-    width: 40px;
-    height: 40px;
-    background: rgba(254, 44, 85, 0.1);
-    border-radius: 50%;
+    width: 48px;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -119,50 +117,54 @@
     flex-shrink: 0;
 }
 
-/* Standardized Rank Colors */
+/* Standardized Rank Colors with TikTok Theme */
 .rank1 {
-    background-color: #FF8C00;
-    box-shadow: 0 0 10px rgba(255, 140, 0, 0.4);
+    background: linear-gradient(135deg, #fe2c55, #ff6b81);
+    box-shadow: 0 0 15px rgba(254, 44, 85, 0.5);
+    border: 2px solid #fff;
 }
 
 .rank2 {
-    background-color: #FFD700;
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
-    color: #333;
+    background: linear-gradient(135deg, #25f4ee, #54fff9);
+    box-shadow: 0 0 15px rgba(37, 244, 238, 0.4);
+    border: 2px solid #fff;
+    color: #000;
 }
 
 .rank3 {
-    background-color: #32CD32;
-    box-shadow: 0 0 10px rgba(50, 205, 50, 0.4);
+    background: linear-gradient(135deg, #fe2c55, #25f4ee);
+    box-shadow: 0 0 15px rgba(254, 44, 85, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .rankOther {
-    background-color: #fe2c55;
-    opacity: 0.8;
+    background-color: var(--border);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
 }
 
 /* TikTok Theme Pink for >3 */
 
-.trendInfo {
+.videoInfo {
     flex: 1;
 }
 
-.trendInfo h4 {
+.videoInfo h4 {
     font-size: 1.1rem;
     margin-bottom: 0.25rem;
 }
 
-.trendMeta {
+.videoMeta {
     display: flex;
     gap: 1rem;
     font-size: 0.9rem;
 }
 
-.posts {
+.views {
     color: var(--text-muted);
 }
 
-.score {
+.growth {
     color: #fe2c55;
     font-weight: 600;
 }

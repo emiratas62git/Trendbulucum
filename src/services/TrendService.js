@@ -97,6 +97,30 @@ const MOCK_DATA = {
             growth: '+95%',
             engagement_rate: '4.5%',
             history: Array(12).fill(0).map((_, i) => ({ month: i, value: 30 + Math.random() * 120 }))
+        },
+        {
+            id: 'li-3',
+            topic: 'Workplace Wellness 2026',
+            industry: 'HR/Management',
+            growth: '+110%',
+            engagement_rate: '5.8%',
+            history: Array(12).fill(0).map((_, i) => ({ month: i, value: 45 + Math.random() * 90 }))
+        },
+        {
+            id: 'li-4',
+            topic: 'Decentralized Finance Growth',
+            industry: 'Fintech',
+            growth: '+165%',
+            engagement_rate: '7.1%',
+            history: Array(12).fill(0).map((_, i) => ({ month: i, value: 55 + Math.random() * 110 }))
+        },
+        {
+            id: 'li-5',
+            topic: 'Skills Over Degrees Trend',
+            industry: 'Education',
+            growth: '+80%',
+            engagement_rate: '4.9%',
+            history: Array(12).fill(0).map((_, i) => ({ month: i, value: 35 + Math.random() * 85 }))
         }
     ],
     pinterest: [

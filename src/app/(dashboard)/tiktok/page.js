@@ -63,7 +63,9 @@ export default function TiktokPage() {
                             {loading ? <p>Loading...</p> : trends.map((trend, index) => (
                                 <div key={trend.id} className={styles.videoCard}>
                                     <div className={styles.videoIcon}>
-                                        <span className={styles.rank}>#{index + 1}</span>
+                                        <div className={`${styles.rankCircle} ${getRankClass(index)}`}>
+                                            {index + 1}
+                                        </div>
                                     </div>
                                     <div className={styles.videoInfo}>
                                         <h4>{trend.topic}</h4>
