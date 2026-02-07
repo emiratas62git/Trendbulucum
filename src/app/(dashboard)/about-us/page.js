@@ -1,11 +1,6 @@
-"use client";
-import Header from '@/components/Header';
-import styles from '../../static.module.css';
-
 export default function AboutUs() {
     return (
         <div className={styles.content}>
-            <Header title="About Us" />
             <div className={styles.content}>
                 <div className={styles.card}>
                     <h1 className={styles.title}>About Us</h1>

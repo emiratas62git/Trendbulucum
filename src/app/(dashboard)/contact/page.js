@@ -1,12 +1,6 @@
-"use client";
-import Header from '@/components/Header';
-import { Mail, Linkedin } from 'lucide-react';
-import styles from '../../static.module.css';
-
 export default function Contact() {
     return (
         <div className={styles.content}>
-            <Header title="Contact" />
             <div className={styles.content}>
                 <div className={styles.card}>
                     <h1 className={styles.title}>Contact</h1>
