@@ -9,6 +9,7 @@ export function DashboardProvider({ children }) {
 
     const [searchQuery, setSearchQuery] = useState('');
     const [timeframe, setTimeframe] = useState('monthly');
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     const togglePlatform = (platform) => {
         setVisiblePlatforms(prev => {
@@ -28,6 +29,9 @@ export function DashboardProvider({ children }) {
         setVisiblePlatforms(newOrder);
     };
 
+    const toggleSidebar = () => setIsSidebarOpen(prev => !prev);
+    const closeSidebar = () => setIsSidebarOpen(false);
+
     return (
         <DashboardContext.Provider value={{
             visiblePlatforms,
@@ -37,7 +41,10 @@ export function DashboardProvider({ children }) {
             searchQuery,
             setSearchQuery,
             timeframe,
-            setTimeframe
+            setTimeframe,
+            isSidebarOpen,
+            toggleSidebar,
+            closeSidebar
         }}>
             {children}
         </DashboardContext.Provider>

@@ -53,6 +53,7 @@ export default function Sidebar() {
                                     href={item.path}
                                     className={`${styles.navItem} ${isActive ? styles.active : ''}`}
                                     target={item.path === '/blog' ? '_blank' : undefined}
+                                    onClick={closeSidebar}
                                 >
                                     <Icon size={20} />
                                     <span>{item.name}</span>
