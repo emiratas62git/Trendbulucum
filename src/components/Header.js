@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import { Search, Loader2, TrendingUp, TrendingDown } from 'lucide-react';
+import { Search, Loader2, TrendingUp, TrendingDown, Menu } from 'lucide-react';
 import styles from './Header.module.css';
 import { TrendService } from '@/services/TrendService';
 import { useDashboard } from '@/context/DashboardContext';
@@ -10,7 +10,7 @@ import SearchAlertModal from './SearchAlertModal';
 
 export default function Header({ title: propTitle, onTimeframeChange: propOnTimeframeChange }) {
     const pathname = usePathname();
-    const { searchQuery, setSearchQuery, timeframe, setTimeframe } = useDashboard();
+    const { searchQuery, setSearchQuery, timeframe, setTimeframe, toggleSidebar } = useDashboard();
     const [query, setQuery] = useState(searchQuery);
     const [isSearching, setIsSearching] = useState(false);
     const [searchResult, setSearchResult] = useState(null);
@@ -124,6 +124,13 @@ export default function Header({ title: propTitle, onTimeframeChange: propOnTime
                 }}
             >
                 <div className={styles.headerLeft}>
+                    <button
+                        className={styles.menuToggle}
+                        onClick={toggleSidebar}
+                        aria-label="Toggle Menu"
+                    >
+                        <Menu size={24} />
+                    </button>
                     <h2 className={styles.title}>{title}</h2>
                     {pathname !== '/' && (
                         <div className={styles.timeframeSelector}>
