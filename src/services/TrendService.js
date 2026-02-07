@@ -31,16 +31,16 @@ const MOCK_DATA = {
         {
             id: 'tk-1',
             topic: '#SilentReview',
-            posts: '8.5M',
-            trend_score: 99,
+            volume: '8.5M',
+            growth: '+99%',
             generated_idea: "Ürünleri hiç konuşmadan sadece jest ve mimiklerle incelediğin bir video çek. Arka plana 'Lo-fi beats' eklemeyi unutma!",
             history: Array(12).fill(0).map((_, i) => ({ month: i, value: 100 + Math.random() * 300 }))
         },
         {
             id: 'tk-2',
             topic: '#AestheticMorningRoutine',
-            posts: '4.2M',
-            trend_score: 96,
+            volume: '4.2M',
+            growth: '+96%',
             generated_idea: "Sabah rutinini 'cinematic' açılarla çek. Kahve yapımı ve gün doğumu görüntüleri etkileşimi artıracaktır.",
             history: Array(12).fill(0).map((_, i) => ({ month: i, value: 50 + Math.random() * 200 }))
         }
