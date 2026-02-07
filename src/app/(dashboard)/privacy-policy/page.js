@@ -18,7 +18,5 @@ export default function PrivacyPolicy() {
                     Users can disable cookies through their browser settings.
                 </p>
             </div>
-        </div>
-        </div >
-    );
+            );
 }

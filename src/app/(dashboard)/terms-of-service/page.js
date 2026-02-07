@@ -15,7 +15,5 @@ export default function TermsOfService() {
                     for any consequences that may arise.
                 </p>
             </div>
-        </div>
-        </div >
-    );
+            );
 }

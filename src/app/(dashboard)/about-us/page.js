@@ -40,7 +40,5 @@ export default function AboutUs() {
                     </ul>
                 </div>
             </div>
-        </div>
-        </div >
-    );
+            );
 }
