@@ -1,6 +1,6 @@
 "use client";
 import Header from '@/components/Header';
-import styles from '../static.module.css';
+import styles from '../../static.module.css';
 
 export default function TermsOfService() {
     return (

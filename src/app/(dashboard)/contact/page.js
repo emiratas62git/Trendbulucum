@@ -1,7 +1,7 @@
 "use client";
 import Header from '@/components/Header';
 import { Mail, Linkedin } from 'lucide-react';
-import styles from '../static.module.css';
+import styles from '../../static.module.css';
 
 export default function Contact() {
     return (
