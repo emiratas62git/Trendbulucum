@@ -90,5 +90,6 @@ export default function Sidebar() {
                     <p>© {new Date().getFullYear()} Trendfinder All rights reserved.</p>
                 </div>
             </aside >
-            );
+        </>
+    );
 }
