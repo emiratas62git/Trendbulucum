@@ -132,7 +132,7 @@ export default function Header({ title: propTitle, onTimeframeChange: propOnTime
                         <Menu size={24} />
                     </button>
                     <h2 className={styles.title}>{title}</h2>
-                    {pathname !== '/' && (
+                    {['youtube', 'tiktok', 'twitter', 'instagram', 'linkedin', 'pinterest', ''].includes(pathname.split('/')[1]) && (
                         <div className={styles.timeframeSelector}>
                             {['hourly', 'daily', 'weekly', 'monthly'].map((tf) => (
                                 <button
