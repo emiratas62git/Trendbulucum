@@ -66,13 +66,13 @@
 }
 
 /* Trend List */
-.trendList {
+.videoList {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-.trendCard {
+.videoCard {
     background-color: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
@@ -83,7 +83,7 @@
     transition: all 0.2s;
 }
 
-.trendCard:hover {
+.videoCard:hover {
     border-color: #fe2c55;
     transform: translateX(4px);
     box-shadow: -4px 4px 0px rgba(254, 44, 85, 0.2);
