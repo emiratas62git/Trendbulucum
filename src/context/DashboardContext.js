@@ -9,6 +9,7 @@ export function DashboardProvider({ children }) {
 
     const [searchQuery, setSearchQuery] = useState('');
     const [timeframe, setTimeframe] = useState('monthly');
+    const [activeColor, setActiveColor] = useState('#8b5cf6'); // Default purple
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     const togglePlatform = (platform) => {
@@ -42,6 +43,8 @@ export function DashboardProvider({ children }) {
             setSearchQuery,
             timeframe,
             setTimeframe,
+            activeColor,
+            setActiveColor,
             isSidebarOpen,
             toggleSidebar,
             closeSidebar

@@ -2,8 +2,10 @@
 import { useState, useEffect } from 'react';
 import { ArrowUp } from 'lucide-react';
 import styles from './ScrollToTop.module.css';
+import { useDashboard } from '@/context/DashboardContext';
 
 const ScrollToTop = () => {
+    const { activeColor } = useDashboard();
     const [isVisible, setIsVisible] = useState(false);
 
     const toggleVisibility = () => {
@@ -40,12 +42,19 @@ const ScrollToTop = () => {
         };
     }, []);
 
+    const isBlog = window.location.pathname.startsWith('/blog');
+    const buttonColor = isBlog ? '#3b82f6' : activeColor; // Blue for blog, dynamic for others
+
     return (
         <button
             className={`${styles.scrollToTop} ${isVisible ? styles.visible : ''}`}
             onClick={scrollToTop}
             aria-label="Scroll to top"
-            style={{ zIndex: 999999 }}
+            style={{
+                zIndex: 999999,
+                '--scroll-color': buttonColor,
+                boxShadow: `0 4px 15px ${buttonColor}40`
+            }}
         >
             <ArrowUp size={24} />
         </button >

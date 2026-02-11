@@ -7,13 +7,14 @@ import { useDashboard } from '@/context/DashboardContext';
 import styles from './page.module.css';
 
 export default function TwitterPage() {
-    const { timeframe } = useDashboard();
+    const { timeframe, setActiveColor } = useDashboard();
     const [trends, setTrends] = useState([]);
     const [loading, setLoading] = useState(true);
     const [selectedTrend, setSelectedTrend] = useState(null);
     const [modalType, setModalType] = useState(null); // 'idea', 'analysis'
 
     useEffect(() => {
+        setActiveColor('#1DA1F2'); // Twitter Blue
         async function fetchData() {
             setLoading(true);
             const data = await TrendService.getPlatformTrends('twitter', timeframe);
@@ -21,7 +22,7 @@ export default function TwitterPage() {
             setLoading(false);
         }
         fetchData();
-    }, [timeframe]);
+    }, [timeframe, setActiveColor]);
 
     const openModal = (trend, type) => {
         setSelectedTrend(trend);

@@ -7,7 +7,7 @@ import { useDashboard } from '@/context/DashboardContext';
 import styles from './page.module.css';
 
 export default function LinkedinPage() {
-    const { timeframe } = useDashboard();
+    const { timeframe, setActiveColor } = useDashboard();
     const [trends, setTrends] = useState([]);
     const [selectedReport, setSelectedReport] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -29,6 +29,7 @@ export default function LinkedinPage() {
 
 
     useEffect(() => {
+        setActiveColor('#0A66C2'); // LinkedIn Blue
         async function fetchData() {
             setLoading(true);
             const data = await TrendService.getPlatformTrends('linkedin_discussions', timeframe);
@@ -36,7 +37,7 @@ export default function LinkedinPage() {
             setLoading(false);
         }
         fetchData();
-    }, [timeframe]);
+    }, [timeframe, setActiveColor]);
 
     return (
         <>

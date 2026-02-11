@@ -145,21 +145,22 @@
 }
 
 .featuredCard {
-    border: 2px solid var(--primary);
-    box-shadow: 0 10px 30px rgba(var(--primary-rgb), 0.15);
+    /* Subtle highlight instead of loud border */
+    border: 1px solid rgba(var(--primary-rgb), 0.3);
 }
 
 .featuredCard::after {
-    content: '★ Featured Insight';
+    content: '★ Featured';
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 0;
+    right: 0;
     background: var(--primary);
     color: white;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.75rem;
+    padding: 0.15rem 0.6rem;
+    border-bottom-left-radius: 8px;
+    font-size: 0.65rem;
     font-weight: 700;
+    z-index: 10;
 }
 
 .card:hover {

@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 import { TrendService } from '@/services/TrendService';
 
 export default function InstagramPage() {
-    const { timeframe } = useDashboard();
+    const { timeframe, setActiveColor } = useDashboard();
     const [selectedReport, setSelectedReport] = useState(null);
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -22,6 +22,7 @@ export default function InstagramPage() {
 
 
     useEffect(() => {
+        setActiveColor('#D62976'); // Instagram Pink
         async function fetchCategories() {
             setLoading(true);
             const data = await TrendService.getPlatformTrends('instagram_categories', timeframe);
@@ -29,7 +30,7 @@ export default function InstagramPage() {
             setLoading(false);
         }
         fetchCategories();
-    }, [timeframe]);
+    }, [timeframe, setActiveColor]);
 
     // Static data for ideas since simpler
     const storyIdeas = [

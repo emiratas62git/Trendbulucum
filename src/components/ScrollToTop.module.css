@@ -2,8 +2,9 @@
     position: fixed;
     bottom: 2rem;
     right: 2rem;
-    z-index: 99999;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    z-index: 2147483647;
+    /* Max z-index to stay above everything */
+    background: var(--scroll-color, linear-gradient(135deg, var(--primary), var(--secondary)));
     color: #fff;
     width: 3.5rem;
     height: 3.5rem;

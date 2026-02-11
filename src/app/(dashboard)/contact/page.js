@@ -15,24 +15,48 @@ export default function Contact() {
                     <div className={styles.contactItem}>
                         <Mail size={40} className={styles.contactIcon} />
                         <h3 style={{ marginBottom: '0.5rem', color: 'var(--text)' }}>Email</h3>
-                        <a
-                            href="mailto:emircanatas62@gmail.com"
-                            style={{ color: 'var(--primary)', fontWeight: '600', fontSize: '1rem', wordBreak: 'break-all', textDecoration: 'none' }}
+                        <div
+                            onClick={() => window.location.href = 'mailto:emircanatas62@gmail.com'}
+                            style={{
+                                backgroundColor: 'var(--primary)',
+                                color: 'white',
+                                padding: '0.5rem 1.25rem',
+                                borderRadius: '50px',
+                                fontWeight: '600',
+                                fontSize: '0.9rem',
+                                cursor: 'pointer',
+                                marginTop: '0.5rem',
+                                display: 'inline-block',
+                                transition: 'transform 0.2s'
+                            }}
+                            onMouseOver={(e) => e.target.style.transform = 'scale(1.05)'}
+                            onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
                         >
-                            emircanatas62@gmail.com
-                        </a>
+                            Send Email
+                        </div>
                     </div>
                     <div className={styles.contactItem}>
                         <Linkedin size={40} className={styles.contactIcon} />
                         <h3 style={{ marginBottom: '0.5rem', color: 'var(--text)' }}>LinkedIn</h3>
-                        <a
-                            href="https://www.linkedin.com/in/emircanataş626210"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            style={{ color: 'var(--primary)', fontWeight: '600', fontSize: '1rem', wordBreak: 'break-all' }}
+                        <div
+                            onClick={() => window.open('https://www.linkedin.com/in/emircanataş626210', '_blank')}
+                            style={{
+                                backgroundColor: 'var(--primary)',
+                                color: 'white',
+                                padding: '0.5rem 1.25rem',
+                                borderRadius: '50px',
+                                fontWeight: '600',
+                                fontSize: '0.9rem',
+                                cursor: 'pointer',
+                                marginTop: '0.5rem',
+                                display: 'inline-block',
+                                transition: 'transform 0.2s'
+                            }}
+                            onMouseOver={(e) => e.target.style.transform = 'scale(1.05)'}
+                            onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
                         >
                             View Profile
-                        </a>
+                        </div>
                     </div>
                 </div>
 

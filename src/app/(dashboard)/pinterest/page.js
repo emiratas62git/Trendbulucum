@@ -7,7 +7,7 @@ import { useDashboard } from '@/context/DashboardContext';
 import styles from './page.module.css';
 
 export default function PinterestPage() {
-    const { timeframe } = useDashboard();
+    const { timeframe, setActiveColor } = useDashboard();
     const [trends, setTrends] = useState([]);
     const [colors, setColors] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -38,6 +38,7 @@ export default function PinterestPage() {
     };
 
     useEffect(() => {
+        setActiveColor('#E60023'); // Pinterest Red
         async function fetchData() {
             setLoading(true);
             const [trendsData, colorsData] = await Promise.all([
@@ -49,7 +50,7 @@ export default function PinterestPage() {
             setLoading(false);
         }
         fetchData();
-    }, [timeframe]);
+    }, [timeframe, setActiveColor]);
 
     return (
         <>

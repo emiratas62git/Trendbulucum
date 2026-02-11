@@ -7,13 +7,14 @@ import { useDashboard } from '@/context/DashboardContext';
 import styles from './page.module.css';
 
 export default function YoutubePage() {
-    const { timeframe } = useDashboard();
+    const { timeframe, setActiveColor } = useDashboard();
     const [trends, setTrends] = useState([]);
     const [music, setMusic] = useState([]);
     const [loading, setLoading] = useState(true);
     const [selectedTrend, setSelectedTrend] = useState(null);
 
     useEffect(() => {
+        setActiveColor('#FF0000'); // YouTube Red
         async function fetchData() {
             setLoading(true);
             const [trendData, musicData] = await Promise.all([
@@ -25,7 +26,7 @@ export default function YoutubePage() {
             setLoading(false);
         }
         fetchData();
-    }, [timeframe]);
+    }, [timeframe, setActiveColor]);
 
     const openReport = (trend) => {
         setSelectedTrend(trend);
