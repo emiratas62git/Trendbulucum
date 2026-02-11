@@ -210,7 +210,10 @@ const MOCK_DATA = {
     ],
     linkedin_discussions: [
         { id: 'ld-1', topic: 'Future of Remote Work', growth: '+45%', engagement_rate: '5.2%', industry: 'Technology', history: Array(12).fill(0).map((_, i) => ({ month: i, value: 40 + Math.random() * 60 })) },
-        { id: 'ld-2', topic: 'Sustainability in Supply Chain', growth: '+30%', engagement_rate: '4.1%', industry: 'Logistics', history: Array(12).fill(0).map((_, i) => ({ month: i, value: 30 + Math.random() * 70 })) }
+        { id: 'ld-2', topic: 'Sustainability in Supply Chain', growth: '+30%', engagement_rate: '4.1%', industry: 'Logistics', history: Array(12).fill(0).map((_, i) => ({ month: i, value: 30 + Math.random() * 70 })) },
+        { id: 'ld-3', topic: 'The Great Resignation 2.0', growth: '+55%', engagement_rate: '6.8%', industry: 'Business', history: Array(12).fill(0).map((_, i) => ({ month: i, value: 45 + Math.random() * 80 })) },
+        { id: 'ld-4', topic: 'AI in Recruitment', growth: '+70%', engagement_rate: '5.9%', industry: 'HR', history: Array(12).fill(0).map((_, i) => ({ month: i, value: 35 + Math.random() * 90 })) },
+        { id: 'ld-5', topic: 'Mental Health at Work', growth: '+90%', engagement_rate: '7.5%', industry: 'Health', history: Array(12).fill(0).map((_, i) => ({ month: i, value: 50 + Math.random() * 100 })) }
     ]
 };
 
