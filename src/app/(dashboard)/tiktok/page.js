@@ -14,7 +14,7 @@ export default function TiktokPage() {
     const [selectedTrend, setSelectedTrend] = useState(null);
 
     useEffect(() => {
-        setActiveColor('#FE2C55'); // TikTok Pink/Red
+        setActiveColor('#d946ef'); // TikTok Purple (Fuchsia)
         async function fetchData() {
             setLoading(true);
             const [trendData, musicData] = await Promise.all([
