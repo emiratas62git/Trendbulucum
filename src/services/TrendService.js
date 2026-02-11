@@ -121,6 +121,22 @@ const MOCK_DATA = {
             growth: '+80%',
             engagement_rate: '4.9%',
             history: Array(12).fill(0).map((_, i) => ({ month: i, value: 35 + Math.random() * 85 }))
+        },
+        {
+            id: 'li-6',
+            topic: 'Hybrid Work Culture 2.0',
+            industry: 'HR/Management',
+            growth: '+105%',
+            engagement_rate: '6.5%',
+            history: Array(12).fill(0).map((_, i) => ({ month: i, value: 50 + Math.random() * 110 }))
+        },
+        {
+            id: 'li-7',
+            topic: 'Generative AI in Marketing',
+            industry: 'Marketing',
+            growth: '+200%',
+            engagement_rate: '8.1%',
+            history: Array(12).fill(0).map((_, i) => ({ month: i, value: 60 + Math.random() * 150 }))
         }
     ],
     pinterest: [
@@ -139,6 +155,30 @@ const MOCK_DATA = {
             pins: '120K+',
             impression_growth: '+110%',
             history: Array(12).fill(0).map((_, i) => ({ month: i, value: 40 + Math.random() * 150 }))
+        },
+        {
+            id: 'pin-3',
+            topic: 'Sustainable Fashion DIY',
+            category: 'Fashion',
+            pins: '180K+',
+            impression_growth: '+210%',
+            history: Array(12).fill(0).map((_, i) => ({ month: i, value: 60 + Math.random() * 180 }))
+        },
+        {
+            id: 'pin-4',
+            topic: 'Plant-Based Party Snacks',
+            category: 'Food',
+            pins: '300K+',
+            impression_growth: '+150%',
+            history: Array(12).fill(0).map((_, i) => ({ month: i, value: 70 + Math.random() * 220 }))
+        },
+        {
+            id: 'pin-5',
+            topic: 'Cyberpunk Aesthetic Art',
+            category: 'Art/Design',
+            pins: '90K+',
+            impression_growth: '+130%',
+            history: Array(12).fill(0).map((_, i) => ({ month: i, value: 45 + Math.random() * 140 }))
         }
     ],
     hashtags: [
