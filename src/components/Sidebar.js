@@ -86,9 +86,6 @@ export default function Sidebar() {
                     })}
                 </nav>
 
-                <div className={styles.footer}>
-                    <p>© {new Date().getFullYear()} Trendfinder All rights reserved.</p>
-                </div>
             </aside >
         </>
     );

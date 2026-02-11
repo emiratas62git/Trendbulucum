@@ -98,7 +98,7 @@ export default function TwitterPage() {
                         <div className={styles.chart}>
                             {selectedTrend.history?.map((item, idx) => (
                                 <div key={idx} className={styles.barItem}>
-                                    <div className={styles.barFill} style={{ height: `${(item.value / 300) * 100}%` }}>
+                                    <div className={styles.barFill} style={{ height: `${Math.min((item.value / 600) * 100, 100)}%` }}>
                                         <span className={styles.tooltip}>{item.value}K</span>
                                     </div>
                                     <span className={styles.barLabel}>{item.month}</span>

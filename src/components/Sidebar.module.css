@@ -217,6 +217,50 @@
 
 @media (max-width: 768px) {
     .sidebar {
-        display: none;
+        position: fixed;
+        left: -100%;
+        top: 0;
+        width: 280px;
+        height: 100vh;
+        z-index: 2000;
+        display: flex;
+        transition: left 0.3s ease;
+        box-shadow: 10px 0 20px rgba(0, 0, 0, 0.5);
+        padding: 1.5rem;
+    }
+
+    .sidebarOpen {
+        left: 0;
+    }
+
+    .sidebarHeader {
+        display: flex;
+    }
+
+    /* Restore elements hidden by the 1024px media query */
+    .logoText,
+    .navTitle,
+    .footer,
+    .navItem span {
+        display: flex;
+    }
+
+    .toggleButton {
+        display: flex;
+    }
+
+    .navItem {
+        justify-content: flex-start;
+        padding: 0.875rem 1rem;
+    }
+
+    .navItemWrapper {
+        justify-content: space-between;
+        padding-right: 0.5rem;
+    }
+
+    .logoContainer {
+        justify-content: flex-start;
+        margin-bottom: 3rem;
     }
 }

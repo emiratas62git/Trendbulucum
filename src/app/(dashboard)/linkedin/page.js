@@ -31,7 +31,7 @@ export default function LinkedinPage() {
     useEffect(() => {
         async function fetchData() {
             setLoading(true);
-            const data = await TrendService.getPlatformTrends('linkedin', timeframe);
+            const data = await TrendService.getPlatformTrends('linkedin_discussions', timeframe);
             setTrends(data);
             setLoading(false);
         }
@@ -154,7 +154,7 @@ export default function LinkedinPage() {
                                         <div className={styles.barWrapper}>
                                             <div
                                                 className={styles.bar}
-                                                style={{ height: `${item.value}%` }}
+                                                style={{ height: `${Math.min(item.value, 100)}%` }}
                                             >
                                                 <span className={styles.barValue}>{item.value}%</span>
                                             </div>

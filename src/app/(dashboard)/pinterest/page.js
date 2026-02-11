@@ -185,7 +185,7 @@ export default function PinterestPage() {
                                         <div className={styles.barWrapper}>
                                             <div
                                                 className={styles.bar}
-                                                style={{ height: `${item.value}%` }}
+                                                style={{ height: `${Math.min(item.value, 100)}%` }}
                                             >
                                                 <span className={styles.barValue}>{item.value}%</span>
                                             </div>

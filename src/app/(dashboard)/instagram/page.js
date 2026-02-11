@@ -194,7 +194,7 @@ export default function InstagramPage() {
                                         <div className={styles.barWrapper}>
                                             <div
                                                 className={styles.bar}
-                                                style={{ height: `${item.value}%` }}
+                                                style={{ height: `${Math.min(item.value, 100)}%` }}
                                                 title={`${item.value}%`}
                                             >
                                                 <span className={styles.barValue}>{item.value}%</span>

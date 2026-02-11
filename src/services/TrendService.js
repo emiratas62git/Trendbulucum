@@ -146,6 +146,31 @@ const MOCK_DATA = {
         { id: 2, tag: '#HealthyLiving', volume: '850K', growth: '+120%' },
         { id: 3, tag: '#DigitalMarketing2026', volume: '600K', growth: '+90%' },
         { id: 4, tag: '#Sustainability', volume: '2.1M', growth: '+300%' }
+    ],
+    tiktok_music: [
+        { id: 'tm-1', title: 'Summer Breeze', artist: 'Lofi Girl', uses: '1.2M' },
+        { id: 'tm-2', title: 'Neon Nights', artist: 'Synth Wave', uses: '850K' },
+        { id: 'tm-3', title: 'Coffee Shop', artist: 'Chill Beats', uses: '600K' }
+    ],
+    youtube_music: [
+        { id: 'ym-1', title: 'Global Anthem', artist: 'Top Artist', uses: '10M' },
+        { id: 'ym-2', title: 'Acoustic Soul', artist: 'Indie Star', uses: '5M' },
+        { id: 'ym-3', title: 'Upbeat Dance', artist: 'DJ Mix', uses: '2M' }
+    ],
+    instagram_categories: [
+        { id: 'ic-1', category: 'Travel', topic: 'Hidden Gems', history: Array(12).fill(0).map((_, i) => ({ month: i, value: 50 + Math.random() * 50 })) },
+        { id: 'ic-2', category: 'Food', topic: 'Vegan Recipes', history: Array(12).fill(0).map((_, i) => ({ month: i, value: 60 + Math.random() * 40 })) },
+        { id: 'ic-3', category: 'Tech', topic: 'AI Gadgets', history: Array(12).fill(0).map((_, i) => ({ month: i, value: 70 + Math.random() * 30 })) }
+    ],
+    pinterest_colors: [
+        { name: 'Peach Fuzz', hex: '#FFBE98' },
+        { name: 'Sky Blue', hex: '#87CEEB' },
+        { name: 'Sage Green', hex: '#B2AC88' },
+        { name: 'Lavender', hex: '#E6E6FA' }
+    ],
+    linkedin_discussions: [
+        { id: 'ld-1', topic: 'Future of Remote Work', growth: '+45%', engagement_rate: '5.2%', industry: 'Technology', history: Array(12).fill(0).map((_, i) => ({ month: i, value: 40 + Math.random() * 60 })) },
+        { id: 'ld-2', topic: 'Sustainability in Supply Chain', growth: '+30%', engagement_rate: '4.1%', industry: 'Logistics', history: Array(12).fill(0).map((_, i) => ({ month: i, value: 30 + Math.random() * 70 })) }
     ]
 };
 
