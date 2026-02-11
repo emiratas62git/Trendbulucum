@@ -188,7 +188,7 @@ export default function PinterestPage() {
                                                 className={styles.bar}
                                                 style={{ height: `${Math.min(item.value, 100)}%` }}
                                             >
-                                                <span className={styles.barValue}>{item.value}%</span>
+                                                <span className={styles.barValue}>{Number(item.value).toFixed(2)}%</span>
                                             </div>
                                         </div>
                                         <span className={styles.barLabel}>{item.month}</span>

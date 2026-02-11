@@ -177,7 +177,7 @@ export default function TiktokPage() {
                                     {selectedTrend.history?.map((item, idx) => (
                                         <div key={idx} className={styles.barItem}>
                                             <div className={styles.barFill} style={{ height: `${Math.min(item.value, 100)}%` }}>
-                                                <span className={styles.tooltip}>{item.value}K</span>
+                                                <span className={styles.tooltip}>{Number(item.value).toFixed(2)}K</span>
                                             </div>
                                             <span className={styles.barLabel}>{item.month}</span>
                                         </div>

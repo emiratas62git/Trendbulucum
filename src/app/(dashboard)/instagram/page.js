@@ -197,23 +197,23 @@ export default function InstagramPage() {
                                                 className={styles.bar}
                                                 style={{ height: `${Math.min(item.value, 100)}%` }}
                                                 title={`${item.value}%`}
-                                            >
-                                                <span className={styles.barValue}>{item.value}%</span>
+                                                <span className={styles.barValue}>{Number(item.value).toFixed(2)}%</span>
                                             </div>
                                         </div>
                                         <span className={styles.barLabel}>{item.month}</span>
                                     </div>
                                 ))}
-                            </div>
-                            <div className={styles.chartAxis} />
                         </div>
+                        <div className={styles.chartAxis} />
+                    </div>
 
-                        <div className={styles.reportSummary}>
-                            <p>Yearly performance analysis for this trend.</p>
-                        </div>
+                    <div className={styles.reportSummary}>
+                        <p>Yearly performance analysis for this trend.</p>
                     </div>
                 </div>
-            )}
+                </div >
+            )
+}
         </>
     );
 }
