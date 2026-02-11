@@ -72,17 +72,17 @@ export default function TwitterPage() {
                         <div className={styles.sentimentRow}>
                             <span className={styles.sentimentLabel}>Positive</span>
                             <div className={styles.progressBar}><div className={styles.progressFill} style={{ width: `${positive}%`, backgroundColor: '#17bf63' }}></div></div>
-                            <span className={styles.sentimentValue}>{positive}%</span>
+                            <span className={styles.sentimentValue}>{Math.round(positive)}%</span>
                         </div>
                         <div className={styles.sentimentRow}>
                             <span className={styles.sentimentLabel}>Neutral</span>
                             <div className={styles.progressBar}><div className={styles.progressFill} style={{ width: `${neutral}%`, backgroundColor: '#FFD700' }}></div></div>
-                            <span className={styles.sentimentValue}>{neutral}%</span>
+                            <span className={styles.sentimentValue}>{Math.round(neutral)}%</span>
                         </div>
                         <div className={styles.sentimentRow}>
                             <span className={styles.sentimentLabel}>Negative</span>
                             <div className={styles.progressBar}><div className={styles.progressFill} style={{ width: `${negative}%`, backgroundColor: '#e0245e' }}></div></div>
-                            <span className={styles.sentimentValue}>{negative}%</span>
+                            <span className={styles.sentimentValue}>{Math.round(negative)}%</span>
                         </div>
                     </div>
                 </div>
