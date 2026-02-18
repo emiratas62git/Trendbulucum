@@ -20,6 +20,22 @@ export default function LinkedinPage() {
         setSelectedReport(null);
     };
 
+    /*
+    ### [Fix] Build Error (Window Undefined)
+    - **Resolution**: Guarded programmatic `window` references in `src/components/ScrollToTop.js`. Programmatic use of `window` during the static generation phase of the build was causing failure.
+    - **Verification**: Ran `npm run build` locally to ensure a successful build process before pushing to GitHub.
+
+    ### [Verification] Final Site Check
+    The latest deployment was verified on the live site [trendyfinder.netlify.app](https://trendyfinder.netlify.app):
+    - The Sidebar "X" icon is **permanently removed** on desktop view.
+    - The layout is clean and matches the local environment.
+    - The latest functional changes (Ad Slots, etc.) are confirmed live.
+
+    ![Final Verification Screenshot](file:///Users/emircanapple/.gemini/antigravity/brain/704d65ba-8c85-414f-a687-bcadd65f883b/netlify_final_check_fix_1771432240068.webp)
+
+    > [!NOTE]
+    > All changes are now fully synced between your local environment, GitHub, and Netlify.
+    */
     const getRankClass = (index) => {
         if (index === 0) return styles.rank1;
         if (index === 1) return styles.rank2;

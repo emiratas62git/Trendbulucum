@@ -10,7 +10,7 @@ const PLATFORM_THEMES = {
     instagram: { color: '#d62976', icon: 'Instagram' },
     linkedin: { color: '#0a66c2', icon: 'LinkedIn' },
     pinterest: { color: '#bd081c', icon: 'Pinterest' },
-    default: { color: '#6366f1', icon: 'Trendfinder' }
+    default: { color: '#6366f1', icon: 'TrendyFinder' }
 };
 
 export default function SearchAlertModal({ isOpen, onClose, platformContext, searchTerm }) {

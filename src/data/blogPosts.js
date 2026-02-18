@@ -45,20 +45,20 @@ export const blogPosts = [
         id: 2,
         slug: 'how-to-find-trends-with-ai',
         title: 'How to Find Content Trends with AI?',
-        excerpt: 'Comparing manual research vs AI-driven trend discovery using tools like Trendfinder.',
+        excerpt: 'Comparing manual research vs AI-driven trend discovery using tools like TrendyFinder.',
         date: 'Jan 29, 2026',
         readTime: '5 min read',
         image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&auto=format&fit=crop&q=60',
         views: 18940,
-        hashtags: ['#AI', '#ArtificialIntelligence', '#TrendFinder', '#Marketing'],
+        hashtags: ['#AI', '#ArtificialIntelligence', '#TrendyFinder', '#Marketing'],
         content: [
             {
                 subtitle: 'Manual Research vs AI',
-                text: "Let's be honest: manual research is exhausting. It involves spending hours scrolling through feeds, reading hundreds of comments, and trying to spot patterns with your own eyes. It's like trying to find a needle in a haystack while the haystack is constantly moving. You rely on your own limited feed, which is already biased by your personal viewing habits. AI research, on the other hand, is like having a super-powered assistant who never sleeps. Tools like Trendfinder scan the entire internet simultaneously—checking millions of data points across platforms to tell you exactly what is spiking right now. It takes the guesswork out of the equation and gives you data-backed confidence."
+                text: "Let's be honest: manual research is exhausting. It involves spending hours scrolling through feeds, reading hundreds of comments, and trying to spot patterns with your own eyes. It's like trying to find a needle in a haystack while the haystack is constantly moving. You rely on your own limited feed, which is already biased by your personal viewing habits. AI research, on the other hand, is like having a super-powered assistant who never sleeps. Tools like TrendyFinder scan the entire internet simultaneously—checking millions of data points across platforms to tell you exactly what is spiking right now. It takes the guesswork out of the equation and gives you data-backed confidence."
             },
             {
-                subtitle: 'TrendFinder Analysis Logic',
-                text: "So, how does it actually work? Trendfinder isn't magic; it's math. It helps you navigate the 'black hole' of the internet by using artificial intelligence to process user behavior. It looks at the velocity of hashtags (how fast they are growing), the volume of engagement (likes, shares, comments), and the sentiment (are people angry, happy, excited?). It then compiles this massive dataset into simple, actionable visual graphs. Instead of giving you raw data, it connects the dots, showing you not just *what* is trending, but *why*—and suggesting specific content ideas that fit your niche."
+                subtitle: 'TrendyFinder Analysis Logic',
+                text: "So, how does it actually work? TrendyFinder isn't magic; it's math. It helps you navigate the 'black hole' of the internet by using artificial intelligence to process user behavior. It looks at the velocity of hashtags (how fast they are growing), the volume of engagement (likes, shares, comments), and the sentiment (are people angry, happy, excited?). It then compiles this massive dataset into simple, actionable visual graphs. Instead of giving you raw data, it connects the dots, showing you not just *what* is trending, but *why*—and suggesting specific content ideas that fit your niche."
             },
             {
                 subtitle: 'How to Choose the Right Trend?',
@@ -215,7 +215,7 @@ export const blogPosts = [
             },
             {
                 subtitle: 'Interpreting AI Data',
-                text: "AI gives us a deeper look than just view counts. It measures 'Sentiment Decay'. Trendfinder might show that while a hashtag is still getting used, the 'Save Rate' and 'Share Rate' have plummeted. This means people are still seeing it, but they no longer care enough to engage. That is the death knell of a trend. A trend is alive only as long as it provokes a reaction. When the reaction flatlines, the trend is effectively a zombie—walking around, but dead inside."
+                text: "AI gives us a deeper look than just view counts. It measures 'Sentiment Decay'. TrendyFinder might show that while a hashtag is still getting used, the 'Save Rate' and 'Share Rate' have plummeted. This means people are still seeing it, but they no longer care enough to engage. That is the death knell of a trend. A trend is alive only as long as it provokes a reaction. When the reaction flatlines, the trend is effectively a zombie—walking around, but dead inside."
             },
             {
                 subtitle: 'Examples of Late Trends',
@@ -227,7 +227,7 @@ export const blogPosts = [
         id: 8,
         slug: 'finding-tiktok-trends',
         title: 'How to Find Trending Topics for TikTok?',
-        excerpt: 'Deciphering the TikTok algorithm and using TrendFinder for viral success.',
+        excerpt: 'Deciphering the TikTok algorithm and using TrendyFinder for viral success.',
         date: 'Jan 23, 2026',
         readTime: '5 min read',
         image: 'https://images.unsplash.com/photo-1611605698335-8b1569810432?w=800&auto=format&fit=crop&q=60',
@@ -239,8 +239,8 @@ export const blogPosts = [
                 text: "TikTok is not a social network; it's an interest graph. It doesn't care who you follow; it cares what you watch. Every single video is tested on a 'cold' audience. It shows it to 200 people. If they watch 80% of it, it goes to 1000 people. If they share it, it goes to 10,000. This is the 'Fairness Doctrine' of TikTok. It means you can have 0 followers and get 1 million views overnight if your content is good. It also means you can't rely on your past success. You have to earn your views with every single video."
             },
             {
-                subtitle: 'TrendFinder & TikTok',
-                text: "TrendFinder is your cheat code for this system. Instead of guessing what those first 200 people want, it tells you. 'Hey, people are currently obsessing over [Topic A] with [Sound B]'. It analyzes the 'velocity' of hashtags—spotting the ones that are heating up before they explode. By using these insights, you are giving your video the best possible starting parameters. You are essentially drafting behind a race car to reduce air resistance. It makes the climb to viral status significantly easier."
+                subtitle: 'TrendyFinder & TikTok',
+                text: "TrendyFinder is your cheat code for this system. Instead of guessing what those first 200 people want, it tells you. 'Hey, people are currently obsessing over [Topic A] with [Sound B]'. It analyzes the 'velocity' of hashtags—spotting the ones that are heating up before they explode. By using these insights, you are giving your video the best possible starting parameters. You are essentially drafting behind a race car to reduce air resistance. It makes the climb to viral status significantly easier."
             },
             {
                 subtitle: 'Video Ideas for TikTok',
@@ -371,22 +371,22 @@ export const blogPosts = [
     },
     {
         id: 14,
-        slug: 'how-trendfinder-works',
-        title: 'How Does TrendFinder AI Work?',
-        excerpt: 'TrendFinder analysis steps and value proposition for users.',
+        slug: 'how-trendyfinder-works',
+        title: 'How Does TrendyFinder AI Work?',
+        excerpt: 'TrendyFinder analysis steps and value proposition for users.',
         date: 'Jan 17, 2026',
         readTime: '3 min read',
         image: 'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&auto=format&fit=crop&q=60',
         views: 5600,
-        hashtags: ['#TrendFinder', '#OurStory', '#AITools', '#FreeService'],
+        hashtags: ['#TrendyFinder', '#OurStory', '#AITools', '#FreeService'],
         content: [
             {
                 subtitle: 'Analysis Steps',
-                text: "TrendFinder isn't just a crawler; it's a translator. It takes the chaotic noise of the internet and translates it into a language you can understand: Opportunity. First, it taps into the APIs of major platforms (YouTube, Google Trends, etc.) to get raw data. Then, it applies our proprietary algorithm which weights 'Recency' higher than 'Volume'. This means a small but fast-growing topic scores higher than a large but stagnant one. This helps you find the 'next big thing', not the 'current big thing'."
+                text: "TrendyFinder isn't just a crawler; it's a translator. It takes the chaotic noise of the internet and translates it into a language you can understand: Opportunity. First, it taps into the APIs of major platforms (YouTube, Google Trends, etc.) to get raw data. Then, it applies our proprietary algorithm which weights 'Recency' higher than 'Volume'. This means a small but fast-growing topic scores higher than a large but stagnant one. This helps you find the 'next big thing', not the 'current big thing'."
             },
             {
                 subtitle: 'Value for Users',
-                text: "We believe that data should be democratic. In the past, only Fortune 500 companies could afford this level of market intelligence. TrendFinder makes it free. Why? Because we are funded by non-intrusive ads, allowing us to keep the service open to everyone. Whether you are a solo creator in your bedroom or a small agency, you get the same weapons-grade analytics. We also provide these blog insights to help you interpret the data, effectively acting as your strategy department."
+                text: "We believe that data should be democratic. In the past, only Fortune 500 companies could afford this level of market intelligence. TrendyFinder makes it free. Why? Because we are funded by non-intrusive ads, allowing us to keep the service open to everyone. Whether you are a solo creator in your bedroom or a small agency, you get the same weapons-grade analytics. We also provide these blog insights to help you interpret the data, effectively acting as your strategy department."
             }
         ]
     },

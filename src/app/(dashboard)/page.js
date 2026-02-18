@@ -336,7 +336,7 @@ export default function Home() {
                     </div>
                 </div>
 
-                <a href="/blog" target="_blank" className={`${styles.card} ${styles.statCard}`} style={{ textDecoration: 'none', cursor: 'pointer', border: '1px solid var(--primary)' }}>
+                <a href="/blog" target="_blank" className={`${styles.card} ${styles.statCard} ${styles.blogCard}`} style={{ textDecoration: 'none', cursor: 'pointer' }}>
                     <div className={styles.iconBox} style={{ backgroundColor: 'rgba(99, 102, 241, 0.1)', color: 'var(--primary)' }}>
                         <Hash size={24} />
                     </div>

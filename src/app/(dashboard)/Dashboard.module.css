@@ -39,6 +39,46 @@
     display: flex;
     align-items: center;
     gap: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.statCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 10% 10%, var(--card-glow-color, transparent) 0%, transparent 70%);
+    opacity: 0.15;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.statCard:hover::before {
+    opacity: 0.3;
+}
+
+/* Specific card glows */
+.statCard:nth-child(1) {
+    --card-glow-color: var(--primary);
+}
+
+.statCard:nth-child(2) {
+    --card-glow-color: var(--secondary);
+}
+
+.statCard:nth-child(3) {
+    --card-glow-color: var(--success);
+}
+
+.statCard:nth-child(4) {
+    --card-glow-color: var(--primary);
+}
+
+.blogCard:hover {
+    border-color: var(--primary) !important;
 }
 
 .iconBox {

@@ -7,7 +7,7 @@ export default function HowItWorks() {
             <div className={styles.card}>
                 <h1 className={styles.title}>How It Works?</h1>
                 <p className={styles.text}>
-                    TrendFinder uses an AI-powered system that analyzes content
+                    TrendyFinder uses an AI-powered system that analyzes content
                     movements and interaction data on social media platforms.
                     <br /><br />
                     Our platform:

@@ -8,7 +8,7 @@ import Sidebar from '@/components/Sidebar';
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-    title: 'Trendfinder',
+    title: 'TrendyFinder',
     description: 'Social media trend analysis and content suggestions',
 }
 

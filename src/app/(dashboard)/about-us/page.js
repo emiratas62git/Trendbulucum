@@ -7,14 +7,14 @@ export default function AboutUs() {
             <div className={styles.card}>
                 <h1 className={styles.title}>About Us</h1>
                 <p className={styles.text}>
-                    TrendFinder is an AI-powered analytics platform developed to show
+                    TrendyFinder is an AI-powered analytics platform developed to show
                     content creators and digital marketers which topics are rising on social media.
                     <br /><br />
                     The founder of this website is Emir Can ATAŞ, a Turkish entrepreneur.
                     Our website helps creators produce more accurate and efficient content by
                     analyzing social media platforms, content trends, and user interactions.
                     <br /><br />
-                    The information provided on TrendFinder is for guidance purposes only.
+                    The information provided on TrendyFinder is for guidance purposes only.
                     Our goal is to enable users to make more informed decisions while
                     creating their own content strategies.
                     <br /><br />
@@ -31,7 +31,7 @@ export default function AboutUs() {
                 </div>
 
                 <div className={styles.section}>
-                    <h2 className={styles.sectionTitle}>Why Trendfinder?</h2>
+                    <h2 className={styles.sectionTitle}>Why TrendyFinder?</h2>
                     <ul className={styles.list}>
                         <li className={styles.listItem}>Multi-platform support (YouTube, TikTok, Twitter, etc.)</li>
                         <li className={styles.listItem}>AI-powered content suggestions</li>
