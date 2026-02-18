@@ -31,11 +31,12 @@ export default function Sidebar() {
             {isSidebarOpen && <div className={styles.overlay} onClick={closeSidebar} />}
 
             <aside className={`${styles.sidebar} ${isSidebarOpen ? styles.sidebarOpen : ''}`}>
-                <div className={styles.sidebarHeader}>
-                    <div className={styles.logoContainer}>
-                        <BarChart2 className={styles.logoIcon} />
-                        <span className={styles.logoText}>Trendfinder</span>
-                    </div>
+                <div className={styles.logoContainer}>
+                    <BarChart2 className={styles.logoIcon} />
+                    <span className={styles.logoText}>Trendfinder</span>
+                </div>
+
+                <div className={styles.mobileHeader}>
                     <button className={styles.closeSidebar} onClick={closeSidebar}>
                         <X size={24} />
                     </button>

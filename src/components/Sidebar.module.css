@@ -150,11 +150,11 @@
     text-align: center;
 }
 
-/* Sidebar Header (Mobile Only) */
-.sidebarHeader {
+/* Mobile Only Header */
+.mobileHeader {
     display: none;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     margin-bottom: 2rem;
     padding: 0 0.5rem;
 }
@@ -233,7 +233,7 @@
         left: 0;
     }
 
-    .sidebarHeader {
+    .mobileHeader {
         display: flex;
     }
 
