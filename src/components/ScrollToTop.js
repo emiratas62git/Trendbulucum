@@ -33,17 +33,42 @@ const ScrollToTop = () => {
     };
 
     useEffect(() => {
-        // Use true for capture phase to catch scroll events from containers
-        window.addEventListener('scroll', toggleVisibility, true);
-        window.addEventListener('resize', toggleVisibility);
-        return () => {
-            window.removeEventListener('scroll', toggleVisibility, true);
-            window.removeEventListener('resize', toggleVisibility);
-        };
+        // Safe check for window
+        if (typeof window !== 'undefined') {
+            const handleScroll = () => {
+                const scrolled = window.scrollY ||
+                    document.documentElement.scrollTop ||
+                    document.body.scrollTop ||
+                    (document.querySelector('.layout-main')?.scrollTop || 0);
+
+                setIsVisible(scrolled > 300);
+            };
+
+            window.addEventListener('scroll', handleScroll, true);
+            window.addEventListener('resize', handleScroll);
+
+            // Set initial state for blog
+            if (window.location.pathname.startsWith('/blog')) {
+                // We can use a different way to handle this if needed, 
+                // but for now let's just use a local state or keep it simple
+            }
+
+            return () => {
+                window.removeEventListener('scroll', handleScroll, true);
+                window.removeEventListener('resize', handleScroll);
+            };
+        }
     }, []);
 
-    const isBlog = window.location.pathname.startsWith('/blog');
-    const buttonColor = isBlog ? '#3b82f6' : activeColor; // Blue for blog, dynamic for others
+    // Derived values should be safe if used correctly or moved to state
+    const [buttonColor, setButtonColor] = useState(activeColor);
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const isBlog = window.location.pathname.startsWith('/blog');
+            setButtonColor(isBlog ? '#3b82f6' : activeColor);
+        }
+    }, [activeColor]);
 
     return (
         <button
