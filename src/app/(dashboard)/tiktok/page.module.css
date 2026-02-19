@@ -206,13 +206,16 @@
     background-color: #1a1a1a;
     border: 1px solid #333;
     border-radius: 16px;
-    width: 90%;
+    width: 95%;
     max-width: 600px;
-    padding: 2.5rem;
+    padding: 1.5rem;
     position: relative;
     animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    max-height: 90vh;
+    overflow-y: auto;
 }
+
 
 @keyframes slideUp {
     from {
@@ -265,10 +268,11 @@
 }
 
 .modalTitle {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     margin-bottom: 0.5rem;
     color: white;
 }
+
 
 .modalSubtitle {
     color: var(--text-muted);
@@ -288,11 +292,12 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    height: 200px;
-    gap: 8px;
+    height: 150px;
+    gap: 4px;
     padding-bottom: 1rem;
     border-bottom: 1px solid #333;
 }
+
 
 .barItem {
     display: flex;

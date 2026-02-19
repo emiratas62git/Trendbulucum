@@ -16,13 +16,16 @@
     background-color: var(--surface);
     border: 1px solid var(--border);
     border-radius: 16px;
-    padding: 2rem;
-    width: 90%;
+    padding: 1.5rem;
+    width: 95%;
     max-width: 500px;
     position: relative;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     animation: slideUp 0.3s ease-out;
+    max-height: 90vh;
+    overflow-y: auto;
 }
+
 
 @keyframes slideUp {
     from {
@@ -125,6 +128,13 @@
     gap: 1rem;
     margin-bottom: 2rem;
 }
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 .infoCard {
     background-color: rgba(255, 255, 255, 0.03);

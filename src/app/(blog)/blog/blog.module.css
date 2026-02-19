@@ -372,9 +372,10 @@
     .articleLayout {
         grid-template-columns: 1fr;
         /* Stack everything on smaller screens */
-        max-width: 800px;
-        padding: 1rem;
+        max-width: 100%;
+        padding: 0.5rem;
     }
+
 
     .sideAd {
         display: none;
@@ -384,8 +385,9 @@
 
 @media (max-width: 768px) {
     .container {
-        padding: 1.5rem 0.75rem;
+        padding: 1rem 0.5rem;
     }
+
 
     .header h1 {
         font-size: 2rem;

@@ -91,8 +91,13 @@ export default function BlogPost({ params }) {
                                     {/* Render section subtitle if it exists */}
                                     {section.subtitle && <h2 className={styles.subtitle}>{section.subtitle}</h2>}
 
-                                    {/* Render section text if it exists */}
-                                    {section.text && <p className={styles.text}>{section.text}</p>}
+                                    {/* Render section text if it exists, splitting by newlines for paragraphs */}
+                                    {section.text && section.text.split('\n').filter(p => p.trim() !== '').map((paragraph, pIndex) => (
+                                        <p key={pIndex} className={styles.text} style={{ marginBottom: '1.5rem' }}>
+                                            {paragraph.trim()}
+                                        </p>
+                                    ))}
+
 
                                     {/* Insert Small Horizontal Ad between paragraphs (sections) */}
                                     {(index + 1) % 1 === 0 && index !== post.content.length - 1 && (

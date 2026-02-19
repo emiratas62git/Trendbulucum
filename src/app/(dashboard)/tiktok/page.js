@@ -58,8 +58,9 @@ export default function TiktokPage() {
 
                 <div className={styles.grid}>
                     <div className={styles.colLeft}>
-                        <h3 className={styles.sectionTitle}>🔥 Rising Hashtags</h3>
+                        <h3 className={styles.sectionTitle}>Rising Hashtags</h3>
                         <div className={styles.videoList}>
+
                             {loading ? <p>Loading...</p> : trends.map((trend, index) => (
                                 <div key={trend.id} className={styles.videoCard}>
                                     <div className={styles.videoIcon}>
@@ -107,10 +108,24 @@ export default function TiktokPage() {
                     </div>
 
                     <div className={styles.colRight}>
-                        <h3 className={styles.sectionTitle}>Daily Ideas</h3>
+                        <h3 className={styles.sectionTitle}>Content Suggestions</h3>
                         <div className={styles.suggestionBox}>
                             <div className={styles.ideaHeader}>
                                 <Hash size={20} className={styles.ideaIcon} />
+                                <h4>Chosen for You</h4>
+                            </div>
+                            <div className={styles.ideaList}>
+                                {loading ? <p>Analyzing...</p> : trends.slice(0, 3).map((trend) => (
+                                    <div key={trend.id} className={styles.ideaItem}>
+                                        <p>{TrendService.generateIdea(trend)}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className={`${styles.suggestionBox} ${styles.marginTop}`}>
+                            <div className={styles.ideaHeader}>
+                                <TrendingUp size={20} className={styles.ideaIcon} />
                                 <h4>Popular Tags</h4>
                             </div>
                             <ul className={styles.tagList}>
@@ -119,6 +134,7 @@ export default function TiktokPage() {
                                 <li>#tiktokviral</li>
                             </ul>
                         </div>
+
 
                         <div className={`${styles.suggestionBox} ${styles.marginTop}`} style={{ marginTop: '1.5rem', borderColor: 'rgba(217, 70, 239, 0.2)' }}>
                             <div className={styles.ideaHeader}>

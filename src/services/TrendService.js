@@ -532,14 +532,19 @@ export const TrendService = {
     },
 
     generateIdea: (trend) => {
+        if (!trend) return "Bugünün gündemine uygun yaratıcı bir içerik oluşturun.";
+        const topic = trend.title || trend.topic || trend.hashtag || "bu konu";
         const templates = [
-            `Create a "How-to" video about ${trend.title || trend.topic}`,
-            `React to ${trend.title || trend.topic} with your unique perspective`,
-            `Short form content: 5 facts about ${trend.title || trend.topic}`,
-            `Behind the scenes look at ${trend.title || trend.topic}`
+            `Create a "How-to" video about ${topic}`,
+            `React to ${topic} with your unique perspective`,
+            `Short form content: 5 facts about ${topic}`,
+            `Behind the scenes look at ${topic}`,
+            `${topic} hakkında samimi bir 'story' paylaşın.`,
+            `${topic} trendini kendi nişinize nasıl uyarlayabileceğinizi gösteren bir video çekin.`
         ];
         return templates[Math.floor(Math.random() * templates.length)];
     },
+
 
     getContentIdeas: async (platform) => {
         const IDEAS = {

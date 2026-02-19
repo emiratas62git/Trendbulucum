@@ -273,12 +273,15 @@
     background-color: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    width: 90%;
+    width: 95%;
     max-width: 600px;
-    padding: 2rem;
+    padding: 1.5rem;
     position: relative;
     animation: fadeIn 0.3s ease;
+    max-height: 90vh;
+    overflow-y: auto;
 }
+
 
 @keyframes fadeIn {
     from {
@@ -331,8 +334,9 @@
     justify-content: space-between;
     align-items: flex-end;
     height: 100%;
-    gap: 0.5rem;
+    gap: 4px;
 }
+
 
 .barGroup {
     display: flex;
