@@ -20,7 +20,7 @@ export default function Header({ title: propTitle, onTimeframeChange: propOnTime
     const getDerivedTitle = () => {
         if (propTitle) return propTitle;
         const path = pathname.split('/')[1];
-        if (!path || path === '') return 'Trend Dashboard';
+        if (!path || path === '') return 'TrendyFinder Dashboard';
         return path.charAt(0).toUpperCase() + path.slice(1) + ' Trends';
     };
 

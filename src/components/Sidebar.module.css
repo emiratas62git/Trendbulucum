@@ -32,20 +32,13 @@
     padding: 0 0.5rem;
 }
 
-.logoIcon {
-    color: var(--primary);
-    width: 32px;
-    height: 32px;
+.brandLogo {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
 }
 
-.logoText {
-    font-size: 1.25rem;
-    font-weight: 700;
-    background: linear-gradient(to right, #fff, #cbd5e1);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
 
 .nav {
     display: flex;

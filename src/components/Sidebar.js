@@ -32,8 +32,7 @@ export default function Sidebar() {
 
             <aside className={`${styles.sidebar} ${isSidebarOpen ? styles.sidebarOpen : ''}`}>
                 <div className={styles.logoContainer}>
-                    <BarChart2 className={styles.logoIcon} />
-                    <span className={styles.logoText}>TrendyFinder</span>
+                    <img src="/logo.png" alt="TrendyFinder Logo" className={styles.brandLogo} />
                 </div>
 
                 <div className={styles.mobileHeader}>
