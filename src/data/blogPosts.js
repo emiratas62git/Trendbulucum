@@ -590,7 +590,7 @@ export const blogPosts = [
         "excerpt": "Niche selection and using low competition to your advantage.",
         "date": "Jan 12, 2026",
         "readTime": "4 min read",
-        "image": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/small-accounts.jpg",
         "views": 19200,
         "hashtags": [
             "#SmallCreators",
