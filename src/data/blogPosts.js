@@ -410,7 +410,7 @@ export const blogPosts = [
         "excerpt": "Data sources, pattern scanning, and prediction logic.",
         "date": "Jan 18, 2026",
         "readTime": "4 min read",
-        "image": "https://images.unsplash.com/photo-1655720357761-f18ea9e5e7e6?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/ai-trends-analysis.jpg",
         "views": 14500,
         "hashtags": [
             "#AI",
