@@ -2,6 +2,11 @@ import Sidebar from '@/components/Sidebar';
 import AdSlot from '@/components/AdSlot';
 import Header from '@/components/Header';
 
+export const metadata = {
+    title: 'Dashboard | Social Media Trend Center',
+    description: 'Unified dashboard for tracking trends across TikTok, YouTube, Instagram, Pinterest, and LinkedIn.',
+}
+
 export default function DashboardLayout({ children }) {
     return (
         <div className="app-layout">
