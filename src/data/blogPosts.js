@@ -6,7 +6,7 @@ export const blogPosts = [
         "excerpt": "Discover the key trends shaping social media in 2026, from Travel Vlogs to AI Tech News.",
         "date": "Jan 30, 2026",
         "readTime": "6 min read",
-        "image": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/rising-trends.jpg",
         "views": 24532,
         "hashtags": [
             "#Trend2026",
