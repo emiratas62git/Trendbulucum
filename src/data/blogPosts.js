@@ -380,7 +380,7 @@ export const blogPosts = [
         "excerpt": "Evergreen systems on Pinterest and integration with Blogs.",
         "date": "Jan 19, 2026",
         "readTime": "5 min read",
-        "image": "https://images.unsplash.com/photo-1611605698323-b1e99cfd37ea?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/pinterest-trends.jpg",
         "views": 9800,
         "hashtags": [
             "#Pinterest",
