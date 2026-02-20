@@ -350,7 +350,7 @@ export const blogPosts = [
         "excerpt": "Reading agenda data, hashtags, and viral tweet structures.",
         "date": "Jan 20, 2026",
         "readTime": "5 min read",
-        "image": "https://images.unsplash.com/photo-1611605698323-b1e99cfd37ea?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/twitter-analysis.jpg",
         "views": 11200,
         "hashtags": [
             "#Twitter",
