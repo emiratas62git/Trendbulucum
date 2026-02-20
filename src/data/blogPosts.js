@@ -530,7 +530,7 @@ export const blogPosts = [
         "excerpt": "Adsense, Sponsorships, and Productization strategies.",
         "date": "Jan 14, 2026",
         "readTime": "4 min read",
-        "image": "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/make-money-trends.jpg",
         "views": 29800,
         "hashtags": [
             "#MakeMoneyOnline",
@@ -736,7 +736,7 @@ export const blogPosts = [
         excerpt: 'Discover how organic community engagement acts as a catalyst for social media algorithms and turns content into global trends.',
         date: 'Feb 20, 2026',
         readTime: '5 min read',
-        image: '/blog-images/community-impact.jpg', 
+        image: '/blog-images/community-impact.jpg',
         views: 1245,
         hashtags: ['#CommunityImpact', '#ViralTrends', '#SocialMediaGrowth', '#AlgorithmTips'],
         content: [
