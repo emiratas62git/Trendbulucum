@@ -264,7 +264,7 @@ export const blogPosts = [
         "excerpt": "Deciphering the TikTok algorithm and using TrendyFinder for viral success.",
         "date": "Jan 23, 2026",
         "readTime": "5 min read",
-        "image": "https://images.unsplash.com/photo-1611605698335-8b1569810432?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/tiktok-trends-final.jpg",
         "views": 45200,
         "hashtags": [
             "#TikTok",
