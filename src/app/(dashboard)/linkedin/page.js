@@ -112,7 +112,6 @@ export default function LinkedinPage() {
                             </ul>
                         </div>
 
-                        {/* Read Expert Insight Card */}
                         <div className={styles.suggestionBox} style={{ marginTop: '1.5rem', borderColor: 'rgba(99, 102, 241, 0.2)' }}>
                             <div className={styles.ideaHeader}>
                                 <BookOpen size={20} className={styles.ideaIcon} style={{ color: 'var(--primary)' }} />
@@ -121,16 +120,16 @@ export default function LinkedinPage() {
                             <div style={{ padding: '0 0.5rem 0.5rem 0.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                                 <div style={{ width: '100%', height: '100px', borderRadius: '6px', overflow: 'hidden', border: '1px solid var(--border)' }}>
                                     <img
-                                        src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&auto=format&fit=crop&q=60"
+                                        src="/blog-images/make-money-trends.jpg"
                                         alt="Insight"
                                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                     />
                                 </div>
                                 <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.4' }}>
-                                    Learn how to master LinkedIn algorithms and grow your network.
+                                    Explore specific ways to monetize trendy content.
                                 </p>
                                 <Link
-                                    href="/blog/rising-social-media-trends-2026"
+                                    href="/blog/money-from-trends?from=linkedin"
                                     className={styles.actionButton}
                                     style={{
                                         width: '100%',

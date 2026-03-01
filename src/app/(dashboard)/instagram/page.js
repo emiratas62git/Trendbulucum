@@ -148,16 +148,16 @@ export default function InstagramPage() {
                             <div style={{ padding: '0 0.5rem 0.5rem 0.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                                 <div style={{ width: '100%', height: '100px', borderRadius: '6px', overflow: 'hidden', border: '1px solid var(--border)' }}>
                                     <img
-                                        src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&auto=format&fit=crop&q=60"
+                                        src="https://images.unsplash.com/photo-1611262588024-d12430b98920?w=800&auto=format&fit=crop&q=60"
                                         alt="Insight"
                                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                     />
                                 </div>
                                 <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.4' }}>
-                                    Learn how to master Instagram Reels algorithms.
+                                    Learn what makes the most engaging Instagram Reels.
                                 </p>
                                 <Link
-                                    href="/blog/instagram-reels-rising-types?from=instagram"
+                                    href="/blog/structure-of-videos-on-instagram-reels?from=instagram"
                                     className={styles.actionButton}
                                     style={{
                                         width: '100%',

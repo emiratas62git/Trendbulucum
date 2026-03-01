@@ -144,16 +144,16 @@ export default function TiktokPage() {
                             <div style={{ padding: '0 0.5rem 0.5rem 0.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                                 <div style={{ width: '100%', height: '100px', borderRadius: '6px', overflow: 'hidden', border: '1px solid var(--border)' }}>
                                     <img
-                                        src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&auto=format&fit=crop&q=60"
+                                        src="/blog-images/tiktok-trends-final.jpg"
                                         alt="Insight"
                                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                     />
                                 </div>
                                 <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.4' }}>
-                                    Learn how to master TikTok algorithms and go viral.
+                                    Discover how the TikTok algorithm pushes content in 2026.
                                 </p>
                                 <Link
-                                    href="/blog/finding-tiktok-trends?from=tiktok"
+                                    href="/blog/how-tiktok-algorithm-works-2026?from=tiktok"
                                     className={styles.actionButton}
                                     style={{
                                         width: '100%',

@@ -66,7 +66,8 @@ const ScrollToTop = () => {
     useEffect(() => {
         if (typeof window !== 'undefined') {
             const isBlog = window.location.pathname.startsWith('/blog');
-            setButtonColor(isBlog ? '#3b82f6' : activeColor);
+            // Use the purple/indigo color #6366f1 for the blog pages
+            setButtonColor(isBlog ? '#6366f1' : activeColor);
         }
     }, [activeColor]);
 

@@ -33,8 +33,8 @@ export default function BlogList() {
                 </Link>
             </div>
             <div className={styles.header}>
-                <h1>Trend Insights</h1>
-                <p>Expert guides and strategies for mastering social media.</p>
+                <h1>Trend analyses and useful practical suggestions.</h1>
+                <p>Expert guides and strategies for mastering social media and trends.</p>
             </div>
 
             <div className={styles.searchBar}>
