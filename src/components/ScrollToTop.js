@@ -1,39 +1,39 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { ArrowUp } from 'lucide-react';
+import { ArrowUp, ArrowDown } from 'lucide-react';
 import styles from './ScrollToTop.module.css';
 import { useDashboard } from '@/context/DashboardContext';
 
 const ScrollToTop = () => {
     const { activeColor } = useDashboard();
-    const [isVisible, setIsVisible] = useState(false);
-
-    const toggleVisibility = () => {
-        // Check window scroll and document element scroll
-        const scrolled = window.scrollY ||
-            document.documentElement.scrollTop ||
-            document.body.scrollTop ||
-            (document.querySelector('.layout-main')?.scrollTop || 0);
-
-        if (scrolled > 300) {
-            setIsVisible(true);
-        } else {
-            setIsVisible(false);
-        }
-    };
+    const [isUpVisible, setIsUpVisible] = useState(false);
+    const [isDownVisible, setIsDownVisible] = useState(true);
 
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth',
         });
-        // Also scroll containers if needed
         const layoutMain = document.querySelector('.layout-main');
         if (layoutMain) layoutMain.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
+    const scrollToBottom = () => {
+        const height = document.documentElement.scrollHeight || document.body.scrollHeight;
+        window.scrollTo({
+            top: height,
+            behavior: 'smooth',
+        });
+        const layoutMain = document.querySelector('.layout-main');
+        if (layoutMain) {
+            layoutMain.scrollTo({
+                top: layoutMain.scrollHeight,
+                behavior: 'smooth'
+            });
+        }
+    };
+
     useEffect(() => {
-        // Safe check for window
         if (typeof window !== 'undefined') {
             const handleScroll = () => {
                 const scrolled = window.scrollY ||
@@ -41,49 +41,65 @@ const ScrollToTop = () => {
                     document.body.scrollTop ||
                     (document.querySelector('.layout-main')?.scrollTop || 0);
 
-                setIsVisible(scrolled > 300);
+                // Up button visible after 300px
+                setIsUpVisible(scrolled > 300);
+                // Down button visible initially, hidden after 300px
+                setIsDownVisible(scrolled <= 300);
             };
 
+            const layoutMain = document.querySelector('.layout-main');
             window.addEventListener('scroll', handleScroll, true);
+            if (layoutMain) layoutMain.addEventListener('scroll', handleScroll);
             window.addEventListener('resize', handleScroll);
 
-            // Set initial state for blog
-            if (window.location.pathname.startsWith('/blog')) {
-                // We can use a different way to handle this if needed, 
-                // but for now let's just use a local state or keep it simple
-            }
+            // Initial check
+            handleScroll();
 
             return () => {
                 window.removeEventListener('scroll', handleScroll, true);
+                if (layoutMain) layoutMain.removeEventListener('scroll', handleScroll);
                 window.removeEventListener('resize', handleScroll);
             };
         }
     }, []);
 
-    // Derived values should be safe if used correctly or moved to state
     const [buttonColor, setButtonColor] = useState(activeColor);
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
             const isBlog = window.location.pathname.startsWith('/blog');
-            // Use the purple/indigo color #6366f1 for the blog pages
             setButtonColor(isBlog ? '#6366f1' : activeColor);
         }
     }, [activeColor]);
 
     return (
-        <button
-            className={`${styles.scrollToTop} ${isVisible ? styles.visible : ''}`}
-            onClick={scrollToTop}
-            aria-label="Scroll to top"
-            style={{
-                zIndex: 999999,
-                '--scroll-color': buttonColor,
-                boxShadow: `0 4px 15px ${buttonColor}40`
-            }}
-        >
-            <ArrowUp size={24} />
-        </button >
+        <>
+            <button
+                className={`${styles.scrollToTop} ${isUpVisible ? styles.visible : ''}`}
+                onClick={scrollToTop}
+                aria-label="Scroll to top"
+                style={{
+                    zIndex: 2147483647,
+                    '--scroll-color': buttonColor,
+                    boxShadow: `0 4px 15px ${buttonColor}40`
+                }}
+            >
+                <ArrowUp size={24} />
+            </button>
+
+            <button
+                className={`${styles.scrollToTop} ${isDownVisible ? styles.visible : ''}`}
+                onClick={scrollToBottom}
+                aria-label="Scroll to bottom"
+                style={{
+                    zIndex: 2147483647,
+                    '--scroll-color': buttonColor,
+                    boxShadow: `0 4px 15px ${buttonColor}40`
+                }}
+            >
+                <ArrowDown size={24} />
+            </button>
+        </>
     );
 };
 
