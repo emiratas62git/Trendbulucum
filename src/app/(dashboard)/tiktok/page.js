@@ -136,7 +136,7 @@ export default function TiktokPage() {
                         </div>
 
 
-                        <div className={`${styles.suggestionBox} ${styles.marginTop}`} style={{ marginTop: '1.5rem', borderColor: 'rgba(217, 70, 239, 0.2)' }}>
+                        <div className={`${styles.suggestionBox} ${styles.marginTop} insight-glow-card`} style={{ marginTop: '1.5rem', '--glow-color': 'rgba(168, 85, 247, 0.5)' }}>
                             <div className={styles.ideaHeader}>
                                 <BookOpen size={20} className={styles.ideaIcon} style={{ color: '#d946ef' }} />
                                 <h4>Read Expert Insight</h4>

@@ -112,7 +112,7 @@ export default function LinkedinPage() {
                             </ul>
                         </div>
 
-                        <div className={styles.suggestionBox} style={{ marginTop: '1.5rem', borderColor: 'rgba(99, 102, 241, 0.2)' }}>
+                        <div className={`${styles.suggestionBox} insight-glow-card`} style={{ marginTop: '1.5rem', '--glow-color': 'rgba(10, 102, 194, 0.5)' }}>
                             <div className={styles.ideaHeader}>
                                 <BookOpen size={20} className={styles.ideaIcon} style={{ color: 'var(--primary)' }} />
                                 <h4>Read Expert Insight</h4>

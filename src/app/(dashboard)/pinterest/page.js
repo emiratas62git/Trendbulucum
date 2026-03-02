@@ -128,7 +128,7 @@ export default function PinterestPage() {
                             </div>
                         </div>
 
-                        <div className={`${styles.suggestionBox} ${styles.marginTop}`} style={{ marginTop: '1.5rem', borderColor: 'rgba(189, 8, 28, 0.2)' }}>
+                        <div className={`${styles.suggestionBox} ${styles.marginTop} insight-glow-card`} style={{ marginTop: '1.5rem', '--glow-color': 'rgba(230, 0, 35, 0.5)' }}>
                             <div className={styles.ideaHeader}>
                                 <BookOpen size={20} className={styles.ideaIcon} style={{ color: '#bd081c' }} />
                                 <h4>Read Expert Insight</h4>

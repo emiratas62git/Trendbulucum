@@ -124,7 +124,7 @@ export default function YoutubePage() {
                         </ul>
                     </div>
 
-                    <div className={`${styles.suggestionBox} ${styles.marginTop}`} style={{ marginTop: '1.5rem', borderColor: 'rgba(239, 68, 68, 0.2)' }}>
+                    <div className={`${styles.suggestionBox} ${styles.marginTop} insight-glow-card`} style={{ marginTop: '1.5rem', '--glow-color': 'rgba(255, 0, 0, 0.5)' }}>
                         <div className={styles.ideaHeader}>
                             <BookOpen size={20} className={styles.ideaIcon} style={{ color: '#ef4444' }} />
                             <h4>Read Expert Insight</h4>

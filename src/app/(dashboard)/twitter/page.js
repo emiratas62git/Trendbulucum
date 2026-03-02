@@ -175,7 +175,7 @@ export default function TwitterPage() {
                             </div>
                         </div>
 
-                        <div className={`${styles.suggestionBox} ${styles.marginTop}`} style={{ marginTop: '1.5rem', borderColor: 'rgba(29, 155, 240, 0.2)' }}>
+                        <div className={`${styles.suggestionBox} ${styles.marginTop} insight-glow-card`} style={{ marginTop: '1.5rem', '--glow-color': 'rgba(29, 155, 240, 0.5)' }}>
                             <div className={styles.ideaHeader}>
                                 <BookOpen size={20} className={styles.ideaIcon} style={{ color: '#1d9bf0' }} />
                                 <h4>Read Expert Insight</h4>

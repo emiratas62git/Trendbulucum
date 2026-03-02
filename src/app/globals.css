@@ -145,3 +145,33 @@ a {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--border);
 }
+
+
+/* Insight Card Glow Effect */
+@keyframes insight-pulsate {
+  0% {
+    box-shadow: 0 0 15px -2px var(--glow-color);
+  }
+
+  50% {
+    box-shadow: 0 0 25px 2px var(--glow-color);
+  }
+
+  100% {
+    box-shadow: 0 0 15px -2px var(--glow-color);
+  }
+}
+
+.insight-glow-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  animation: insight-pulsate 3.1s infinite ease-in-out;
+  border-width: 1.5px !important;
+  border-color: var(--glow-color) !important;
+}
+
+.insight-glow-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 35px 5px var(--glow-color) !important;
+}

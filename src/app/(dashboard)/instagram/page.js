@@ -140,7 +140,7 @@ export default function InstagramPage() {
                             </div>
                         </div>
 
-                        <div className={`${styles.suggestionBox} ${styles.marginTop}`} style={{ marginTop: '1.5rem', borderColor: 'rgba(214, 41, 118, 0.2)' }}>
+                        <div className={`${styles.suggestionBox} ${styles.marginTop} insight-glow-card`} style={{ marginTop: '1.5rem', '--glow-color': 'rgba(214, 41, 118, 0.5)' }}>
                             <div className={styles.ideaHeader}>
                                 <BookOpen size={20} className={styles.ideaIcon} style={{ color: '#d62976' }} />
                                 <h4>Read Expert Insight</h4>
