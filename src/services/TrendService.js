@@ -33,7 +33,7 @@ const MOCK_DATA = {
             topic: '#SilentReview',
             volume: '8.5M',
             growth: '+99%',
-            generated_idea: "Ürünleri hiç konuşmadan sadece jest ve mimiklerle incelediğin bir video çek. Arka plana 'Lo-fi beats' eklemeyi unutma!",
+            generated_idea: "Shoot a video where you review products silently with just gestures and facial expressions. Don't forget to add 'Lo-fi beats' to the background!",
             history: Array(12).fill(0).map((_, i) => ({ month: i, value: 100 + Math.random() * 300 }))
         },
         {
@@ -41,7 +41,7 @@ const MOCK_DATA = {
             topic: '#AestheticMorningRoutine',
             volume: '4.2M',
             growth: '+96%',
-            generated_idea: "Sabah rutinini 'cinematic' açılarla çek. Kahve yapımı ve gün doğumu görüntüleri etkileşimi artıracaktır.",
+            generated_idea: "Shoot your morning routine with 'cinematic' angles. Coffee making and sunrise shots will increase interaction.",
             history: Array(12).fill(0).map((_, i) => ({ month: i, value: 50 + Math.random() * 200 }))
         }
     ],
@@ -50,7 +50,7 @@ const MOCK_DATA = {
             id: 'tw-1',
             hashtag: '#NewSpaceRace',
             volume: '450K Tweets',
-            description: "Mars yolculuğu ve özel uzay şirketleri hakkındaki tartışmalar hızla artıyor. Teknoloji meraklıları için harika bir 'thread' konusu.",
+            description: "Discussions about Mars travel and private space companies are increasing rapidly. A great 'thread' topic for tech enthusiasts.",
             sentiment: { positive: 65, neutral: 25, negative: 10 },
             history: Array(12).fill(0).map((_, i) => ({ month: i, value: 200 + Math.random() * 500 }))
         },
@@ -58,7 +58,7 @@ const MOCK_DATA = {
             id: 'tw-2',
             hashtag: '#WFHRevolution',
             volume: '120K Tweets',
-            description: "Uzaktan çalışma modelleri ve ofis hayatına dönüş çatışması yeniden gündemde. Çalışan hakları odağında yorum yapabilirsin.",
+            description: "The conflict between remote work models and returning to office life is back on the agenda. You can comment with a focus on employee rights.",
             sentiment: { positive: 40, neutral: 40, negative: 20 },
             history: Array(12).fill(0).map((_, i) => ({ month: i, value: 100 + Math.random() * 300 }))
         }
@@ -306,7 +306,7 @@ export const TrendService = {
                                 id: `real-t-${i}`,
                                 hashtag: `#${t.title.replace(/\s+/g, '')}`,
                                 volume: t.traffic,
-                                description: `Gündem: ${t.title}. ${t.news?.[0]?.news_item_title || ''}`,
+                                description: `Trending: ${t.title}. ${t.news?.[0]?.news_item_title || ''}`,
                                 sentiment: { positive: 60 + Math.random() * 30, neutral: 10, negative: 10 },
                                 rt_analysis: Array(24).fill(0).map(() => Math.floor(Math.random() * 100)),
                                 history: Array(12).fill(0).map((_, idx) => ({ month: idx, value: Math.floor(Math.random() * 200) }))
@@ -318,7 +318,7 @@ export const TrendService = {
                                 title: t.title,
                                 views: t.traffic,
                                 growth: '+New',
-                                category: 'Gündem',
+                                category: 'Trending',
                                 history: Array(12).fill(0).map((_, idx) => ({ month: idx, value: Math.floor(Math.random() * 200) }))
                             }));
                             data = [...realYt, ...data];
@@ -328,7 +328,7 @@ export const TrendService = {
                                 topic: t.title,
                                 volume: t.traffic,
                                 growth: '+New',
-                                generated_idea: `Bugünün gündemi ${t.title} hakkında içerik üretmelisin.`,
+                                generated_idea: `You should create content about today's trending topic: ${t.title}.`,
                                 history: Array(12).fill(0).map((_, idx) => ({ month: idx, value: Math.floor(Math.random() * 200) }))
                             }));
                             data = [...realTiktok, ...data];
@@ -384,7 +384,7 @@ export const TrendService = {
                                     title: t.title,
                                     views: t.traffic,
                                     growth: '+New',
-                                    category: 'Gündem',
+                                    category: 'Trending',
                                 })),
                                 ...finalData.youtube
                             ];
@@ -532,15 +532,15 @@ export const TrendService = {
     },
 
     generateIdea: (trend) => {
-        if (!trend) return "Bugünün gündemine uygun yaratıcı bir içerik oluşturun.";
-        const topic = trend.title || trend.topic || trend.hashtag || "bu konu";
+        if (!trend) return "Create creative content suitable for today's agenda.";
+        const topic = trend.title || trend.topic || trend.hashtag || "this topic";
         const templates = [
             `Create a "How-to" video about ${topic}`,
             `React to ${topic} with your unique perspective`,
             `Short form content: 5 facts about ${topic}`,
             `Behind the scenes look at ${topic}`,
-            `${topic} hakkında samimi bir 'story' paylaşın.`,
-            `${topic} trendini kendi nişinize nasıl uyarlayabileceğinizi gösteren bir video çekin.`
+            `Share a sincere story about ${topic}.`,
+            `Shoot a video showing how you can adapt the ${topic} trend to your niche.`
         ];
         return templates[Math.floor(Math.random() * templates.length)];
     },
@@ -615,15 +615,15 @@ export const TrendService = {
                         if (status === 'Rising') {
                             score = 85 + Math.floor(Math.random() * 10);
                             endDate.setMonth(endDate.getMonth() + 2);
-                            summary = "Bu trend henüz doyuma ulaşmadı. Erken katılım için harika bir zaman!";
+                            summary = "This trend hasn't reached saturation yet. Great time for early participation!";
                         } else if (status === 'Peak') {
                             score = 90 + Math.floor(Math.random() * 5);
                             endDate.setMonth(endDate.getMonth() + 1);
-                            summary = "Şu an herkes bunu konuşuyor. İçerik üretirseniz yüksek izlenme garantili!";
+                            summary = "Everyone is talking about this right now. High viewing guaranteed if you produce content!";
                         } else {
                             score = 40 + Math.floor(Math.random() * 20);
                             endDate.setDate(endDate.getDate() + 10);
-                            summary = "Bu trendin modası geçmek üzere. Diğer konulara odaklanmanızı öneririz.";
+                            summary = "This trend is about to go out of style. We recommend focusing on other topics.";
                         }
 
                         return {
@@ -632,8 +632,8 @@ export const TrendService = {
                             lifecycle: {
                                 status,
                                 validityScore: score,
-                                startDate: startDate.toLocaleDateString('tr-TR'),
-                                endDate: endDate.toLocaleDateString('tr-TR'),
+                                startDate: startDate.toLocaleDateString('en-US'),
+                                endDate: endDate.toLocaleDateString('en-US'),
                                 summary
                             }
                         };
