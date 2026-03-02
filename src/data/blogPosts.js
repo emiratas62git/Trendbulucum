@@ -1,5 +1,123 @@
 export const blogPosts = [
     {
+        "id": 28,
+        "slug": "how-does-evergreen-trending-system-work-on-pinterest",
+        "title": "How Does the Evergreen Trending System Work on Pinterest?",
+        "excerpt": "Pinterest serves as an image search engine that people, content producers, and designers often refer to.",
+        "date": "Mar 02, 2026",
+        "readTime": "5 min read",
+        "image": "/blog-images/pinterest-evergreen-trends.jpg",
+        "views": 0,
+        "hashtags": [
+            "#PinterestSEO",
+            "#EvergreenContent",
+            "#VisualSearch",
+            "#TrendStrategy"
+        ],
+        "content": [
+            {
+                "subtitle": "The Working Logic of Pinterest",
+                "text": "Pinterest is also called Google's image search engine because it serves as an image search engine that people, content producers, and designers often refer to. In the working logic, people upload certain posts; these posts are called “pins” and are assigned. Since these pins contain certain topics, when this topic is written in the search section, people or researchers always come across such visuals in accordance with this topic."
+            },
+            {
+                "subtitle": "What is Evergreen Content?",
+                "text": "Unlike other social media platforms, users often prefer Pinterest because it allows people to interact for many years and weeks, rather than instantaneously. As for the Evergreen topic, evergreen content is the logic of creating and publishing content that allows users to interact constantly and regularly on a specific and fixed topic without chasing trends, and earn income from this content for many years. We can say that evergreen contents cover the necessary contents that are constantly being searched for."
+            },
+            {
+                "subtitle": "Pinterest Algorithm and Interaction",
+                "text": "The best examples are “home decoration” or content like “How to start a blog?” that constantly works and has sought-after information. We have said that Pinterest does not receive interactions quickly, but the most important thing in the Pinterest algorithm is whether people have reasons or intentions to search for our content. If we have made a long-term plan for our content, it is unlikely that we will get interaction immediately, but there will be an increase in the number of views as the days go by."
+            },
+            {
+                "subtitle": "SEO and Visibility",
+                "text": "Another logic of the Pinterest algorithm is whether the content is a new type of content. If it is a new pin, the algorithm will tend to show this pin when there is a search for this content. If we want to make the best Pinterest content visible, we need to choose the title of the pin correctly and use the pin description and board name correctly. At the end of these operations, Pinterest starts distributing and testing this content within the first seven days; at the end of a month, the algorithm recognizes the content, and a serious impression occurs; and at the end of a year or more, we start having a lot of interactions with a very serious audience and getting stable traffic."
+            },
+            {
+                "subtitle": "Practical Example: Battery Guide",
+                "text": "Let's explain this with a straightforward example. I am a car mechanic and I sell car batteries. I have serious knowledge about batteries and aim to increase my traffic by linking this information to my online shopping site. That's why I'm creating a battery guide image consisting of the batteries I sell. On the image, I include text introducing the battery, compatible vehicle types, and how to understand which battery is suitable. I share this pin with titles like “How to get the right battery?”, “How should battery maintenance be performed?”, or “How do batteries work?” along with short explanations. Since batteries are still actively used, I think these pins will be compatible for people who will buy cars in the future. Here is a simple example for you."
+            }
+        ]
+    },
+    {
+        "id": 27,
+        "slug": "guide-to-choosing-trends-for-youtube-shorts",
+        "title": "Guide to Choosing Trends For YouTube Shorts",
+        "excerpt": "One of the biggest mistakes made in trends is to do what most people and most YouTubers do and expect positive results.",
+        "date": "Mar 02, 2026",
+        "readTime": "6 min read",
+        "image": "/blog-images/youtube-shorts-trends.jpg",
+        "views": 0,
+        "hashtags": [
+            "#YouTubeShorts",
+            "#TrendGuide",
+            "#Algorithm",
+            "#ContentCreation"
+        ],
+        "content": [
+            {
+                "subtitle": "Defining Trends",
+                "text": "Doing what most people and YouTubers do and expecting positive results is one of the biggest mistakes. The fact that this content is being done a lot will make it difficult for you to get a place in an existing trend, and the effort may lead to a waste. Defining the clearest trend is not easy, but if we look steadily, those videos start to appear but are not at the top yet, and content increases before big channels start; these factors show we still have a chance not to miss the trend."
+            },
+            {
+                "subtitle": "How does the Youtube shorts algorithm work?",
+                "text": "One of the best things is that Youtube first focuses on whether videos are watched until the end at a rate of seventy percent. If a video is watched until the end, an increase in showing begins. Next, it is important whether people stop at the video while scrolling; if they watch the first three seconds, the algorithm increases the display again."
+            },
+            {
+                "subtitle": "Post-Watch Impact",
+                "text": "Thirdly, it covers whether people watch videos after they are finished. This is important because stopping to watch shows enjoyment, which means users stay on Youtube and earnings increase. Other last items concern comments, sharing, and saving, as well as the production of similar videos or processing similar topics."
+            },
+            {
+                "subtitle": "How do we find trends?",
+                "text": "The most important finder is our TrendyFinder site. Then, if we click on the similar videos button on Youtube shorts, we see similar formats. Another website is Google Trends; when we do a Youtube Search for the last seven days or twenty-four hours, sudden rising trends are remarkable. Also, checking whether the planned trend is suitable for our business is crucial."
+            },
+            {
+                "subtitle": "Practical Example: Automotive and Repair Content",
+                "text": "For example, I am a tool user and want to reach an audience using Youtube shorts. In TrendyFinder's Youtube tab, I can see trends from the last twenty-four hours, a month, or a week, and I create content based on the emerging trend. As the title, I use “No one is aware of the problem in this car!” or “If you have that model car, you might break it without realizing it!” to attract the audience, then upload the video. I also prepare another ambitiously formatted video like “If you care for these vehicles like this, scrap this vehicle!” and share it within three days."
+            }
+        ]
+    },
+    {
+        "id": 26,
+        "slug": "x-twitter-how-to-read-the-agenda-data",
+        "title": "X (Twitter) How to Read the Agenda Data?",
+        "excerpt": "The speed of increase in the number of tweets is taken into account as one of the most important factors when analyzing agendas.",
+        "date": "Mar 02, 2026",
+        "readTime": "5 min read",
+        "image": "/blog-images/twitter-agenda-analysis.jpg",
+        "views": 0,
+        "hashtags": [
+            "#Twitter",
+            "#X",
+            "#AgendaData",
+            "#Algorithm"
+        ],
+        "content": [
+            {
+                "subtitle": "Tweet Increase Speed and Agenda",
+                "text": "On X (Twitter), the speed of increase in the number of tweets is a primary factor when analyzing agendas. This ensures more users are involved rather than just tweeting too much. Sudden increases for a long time, while existing topics start to go down, allow the latest topics to stay higher, ensuring users do not constantly see the same topics circulating."
+            },
+            {
+                "subtitle": "Time and Duration in the Twitter Algorithm",
+                "text": "Another issue relates to the time and duration value. In the Twitter algorithm, the launch of the first tweet and the first few minutes usually lead to sudden increases between thirty and forty minutes, while agendas between five and six hours start to stay at the bottom. This is no coincidence; users spend time on Twitter and want to earn from it."
+            },
+            {
+                "subtitle": "Content Originality and AI",
+                "text": "Thirdly, the algorithm looks at whether tweets are visual, contain repetitive sentences, or are copies. Most importantly, it looks for unique tweets. The first thing the algorithm seeks is originality. Since AI rotates existing information and cannot produce it from scratch, the algorithm tends to hide those and favor original tweets."
+            },
+            {
+                "subtitle": "Account Authenticity and Fake Trends",
+                "text": "Fourthly, whether accounts creating a trend are fake or real is very important. Opening dates, lack of followers, and imbalanced ratios create a fake trend alarm. Accounts opened recently, especially one-week-old accounts with no profile or bio that tweet at the same second, are noticed by the algorithm and moved to the bottom after a few hours or minutes."
+            },
+            {
+                "subtitle": "Timing and Impact",
+                "text": "Besides algorithm features, timing is crucial. Generally, agendas launched around 7:00 PM and 11:00 PM are quite permanent. This is logical because people come home from work, feel the day's fatigue, and look at “What is happening today?” before sleeping. They participate in trends, comment, retweet, and share, creating a large impact."
+            },
+            {
+                "subtitle": "Content Creator Strategy",
+                "text": "Determining factors include manipulative agendas aimed at emotions or entertainment. For example, if I were a content producer, I would share a high-quality nature photo with a text addressing feelings, encouraging comments rather than just writing a tag. I would ask, “Is this photo better or the one in the comments?” and share it between 7:00 PM and 10:00 PM."
+            }
+        ]
+    },
+    {
         "id": 1,
         "slug": "rising-social-media-trends-2026",
         "title": "Rising Content Trends in Social Media in 2026",
