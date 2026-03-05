@@ -6,8 +6,9 @@ import { useSearchParams } from 'next/navigation';
 import styles from '../blog.module.css';
 import AdSlot from '@/components/AdSlot';
 import BlogPromoCard from '@/components/BlogPromoCard';
+import BlogPoll from './BlogPoll';
 
-export default function BlogPageClient({ post }) {
+export default function BlogPageClient({ post, relatedPosts }) {
     const searchParams = useSearchParams();
     const from = searchParams.get('from'); // 'blog' or 'tiktok', 'pinterest', etc.
     const [searchTerm, setSearchTerm] = useState('');
@@ -118,6 +119,36 @@ export default function BlogPageClient({ post }) {
                             <div style={{ marginTop: '3rem' }}>
                                 <AdSlot type="horizontal" />
                             </div>
+
+                            {/* Feedback Poll */}
+                            <BlogPoll postId={post.id} />
+
+                            {/* Related Posts */}
+                            {relatedPosts && relatedPosts.length > 0 && (
+                                <div className={styles.relatedPostsSection}>
+                                    <h3 className={styles.relatedPostsTitle}>Related Posts</h3>
+                                    <div className={styles.relatedGrid}>
+                                        {relatedPosts.map((rPost) => (
+                                            <Link href={`/blog/${rPost.slug}?from=blog`} key={rPost.id} className={`${styles.card} ${styles.standardCard}`}>
+                                                <div className={styles.imageContainer} style={{ height: '140px' }}>
+                                                    <img src={rPost.image} alt={rPost.title} className={styles.image} />
+                                                </div>
+                                                <div className={styles.content} style={{ padding: '1rem' }}>
+                                                    <div className={styles.meta} style={{ marginBottom: '0.5rem' }}>
+                                                        <span className={styles.views}>
+                                                            <Eye size={12} style={{ marginRight: '4px', verticalAlign: 'middle' }} />
+                                                            <span suppressHydrationWarning>
+                                                                {(rPost.views || 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} views
+                                                            </span>
+                                                        </span>
+                                                    </div>
+                                                    <h4 className={styles.title} style={{ fontSize: '1rem', marginBottom: '0' }}>{rPost.title}</h4>
+                                                </div>
+                                            </Link>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     </article>
                 </div>

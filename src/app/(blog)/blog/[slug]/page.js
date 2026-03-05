@@ -47,9 +47,19 @@ export default function BlogPost({ params }) {
         notFound();
     }
 
+    // Calculate related posts based on shared hashtags, sorted by views as a tiebreaker
+    const relatedPosts = blogPosts
+        .filter(p => p.id !== post.id)
+        .map(p => {
+            const sharedHashtags = (p.hashtags || []).filter(tag => (post.hashtags || []).includes(tag)).length;
+            return { ...p, sharedHashtags };
+        })
+        .sort((a, b) => b.sharedHashtags - a.sharedHashtags || (b.views || 0) - (a.views || 0))
+        .slice(0, 3); // Take top 3 related posts
+
     return (
         <Suspense fallback={<div style={{ padding: '2rem' }}>Loading blog post...</div>}>
-            <BlogPageClient post={post} />
+            <BlogPageClient post={post} relatedPosts={relatedPosts} />
         </Suspense>
     );
 }
