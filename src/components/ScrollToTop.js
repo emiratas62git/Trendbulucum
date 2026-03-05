@@ -68,7 +68,10 @@ const ScrollToTop = () => {
     useEffect(() => {
         if (typeof window !== 'undefined') {
             const isBlog = window.location.pathname.startsWith('/blog');
-            setButtonColor(isBlog ? '#6366f1' : activeColor);
+            const color = isBlog ? '#6366f1' : activeColor;
+            setButtonColor(color);
+            // Update global scrollbar color
+            document.documentElement.style.setProperty('--platform-scrollbar-color', color);
         }
     }, [activeColor]);
 

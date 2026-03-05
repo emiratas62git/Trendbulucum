@@ -138,12 +138,13 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--surface-hover);
+  background: var(--platform-scrollbar-color, var(--surface-hover));
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--border);
+  filter: brightness(1.2);
+  background: var(--platform-scrollbar-color, var(--border));
 }
 
 
