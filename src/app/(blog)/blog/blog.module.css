@@ -105,6 +105,67 @@
     outline: none;
 }
 
+.highlight {
+    background-color: var(--primary);
+    color: white;
+    padding: 2px 0;
+    border-radius: 2px;
+}
+
+.activeHighlight {
+    background-color: #f59e0b;
+    /* Orange-500 equivalent */
+    color: white;
+    box-shadow: 0 0 0 2px #fef3c7;
+    z-index: 10;
+}
+
+.navButton {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 0.25rem;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.navButton:hover:not(:disabled) {
+    background: var(--bg-hover);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.navButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.stickyHeader {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(10, 15, 30, 0.75);
+    /* Dark theme translucent */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1rem 2rem;
+    margin: -2rem -2rem 2rem -2rem;
+    /* Negate the parent padding */
+}
+
+/* Glassmorphism for the search bar when sticky */
+.stickyHeader .searchBar {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
 /* Grid Layout */
 .grid {
     display: grid;

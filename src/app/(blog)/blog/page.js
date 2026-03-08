@@ -1,13 +1,22 @@
 
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { ArrowRight, Search, Eye, Home } from 'lucide-react';
 import styles from './blog.module.css';
 import { blogPosts } from '@/data/blogPosts';
 
 export default function BlogList() {
+    const searchParams = useSearchParams();
+    const query = searchParams.get('q');
     const [searchTerm, setSearchTerm] = useState('');
+
+    useEffect(() => {
+        if (query) {
+            setSearchTerm(query);
+        }
+    }, [query]);
 
     // Sort by views descending
     const sortedPosts = [...blogPosts].sort((a, b) => (b.views || 0) - (a.views || 0));
