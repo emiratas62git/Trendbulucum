@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import Header from '@/components/Header';
 import { TrendService } from '@/services/TrendService';
-import { TrendingUp, Activity, Award, Hash } from 'lucide-react';
+import { TrendingUp, Activity, Award, Hash, Youtube, Video, Twitter, Instagram, Linkedin, Pin } from 'lucide-react';
 import { useDashboard } from '@/context/DashboardContext';
 import styles from './Dashboard.module.css';
 
@@ -113,7 +113,10 @@ export default function Home() {
                 return (
                     <div className={styles.card}>
                         <div className={styles.cardHeader}>
-                            <h3>YouTube Trends</h3>
+                            <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                <Youtube size={20} style={{ color: '#ff0000' }} />
+                                YouTube Trends
+                            </h3>
                             <span className={styles.badge}>Live</span>
                         </div>
                         <ul className={styles.trendList}>
@@ -142,7 +145,10 @@ export default function Home() {
                 return (
                     <div className={styles.card}>
                         <div className={styles.cardHeader}>
-                            <h3>TikTok Trends</h3>
+                            <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                <Video size={20} style={{ color: '#fe2c55' }} />
+                                TikTok Trends
+                            </h3>
                             <span className={styles.badge}>Viral</span>
                         </div>
                         <ul className={styles.trendList}>
@@ -179,7 +185,10 @@ export default function Home() {
                 return (
                     <div className={styles.card}>
                         <div className={styles.cardHeader}>
-                            <h3>Twitter / X Trends</h3>
+                            <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                <Twitter size={20} style={{ color: '#1da1f2' }} />
+                                Twitter / X Trends
+                            </h3>
                             <span className={styles.badge}>Hashtag</span>
                         </div>
                         <ul className={styles.trendList}>
@@ -208,7 +217,10 @@ export default function Home() {
                 return (
                     <div className={styles.card}>
                         <div className={styles.cardHeader}>
-                            <h3>Instagram Trends</h3>
+                            <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                <Instagram size={20} style={{ color: '#e1306c' }} />
+                                Instagram Trends
+                            </h3>
                             <span className={styles.badge}>Reels</span>
                         </div>
                         <ul className={styles.trendList}>
@@ -238,7 +250,10 @@ export default function Home() {
                 return (
                     <div className={styles.card}>
                         <div className={styles.cardHeader}>
-                            <h3>LinkedIn Trending</h3>
+                            <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                <Linkedin size={20} style={{ color: '#0077b5' }} />
+                                LinkedIn Trending
+                            </h3>
                             <span className={styles.badge}>Professional</span>
                         </div>
                         <ul className={styles.trendList}>
@@ -266,7 +281,10 @@ export default function Home() {
                 return (
                     <div className={styles.card}>
                         <div className={styles.cardHeader}>
-                            <h3>Pinterest Trends</h3>
+                            <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                <Pin size={20} style={{ color: '#E60023' }} />
+                                Pinterest Trends
+                            </h3>
                             <span className={styles.badge}>Inspiration</span>
                         </div>
                         <ul className={styles.trendList}>
