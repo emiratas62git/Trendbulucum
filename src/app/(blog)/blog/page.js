@@ -46,7 +46,13 @@ function BlogListContent() {
                 <p>Expert guides and strategies for mastering social media and trends.</p>
             </div>
 
-            <div className={styles.searchBar}>
+            <form 
+                className={styles.searchBar}
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    document.activeElement?.blur();
+                }}
+            >
                 <Search size={20} className={styles.searchIcon} />
                 <input
                     type="text"
@@ -55,7 +61,7 @@ function BlogListContent() {
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
-            </div>
+            </form>
 
             <div className={styles.grid}>
                 {filteredPosts.map((post, index) => (
