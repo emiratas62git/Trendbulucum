@@ -114,7 +114,7 @@ export default function Home() {
                     <div className={styles.card}>
                         <div className={styles.cardHeader}>
                             <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                <Youtube size={20} style={{ color: '#ff0000' }} />
+                                <Youtube size={20} style={{ color: '#ef4444' }} />
                                 YouTube Trends
                             </h3>
                             <span className={styles.badge}>Live</span>
@@ -146,7 +146,7 @@ export default function Home() {
                     <div className={styles.card}>
                         <div className={styles.cardHeader}>
                             <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                <Video size={20} style={{ color: '#fe2c55' }} />
+                                <Video size={20} style={{ color: '#d946ef' }} />
                                 TikTok Trends
                             </h3>
                             <span className={styles.badge}>Viral</span>
@@ -186,7 +186,7 @@ export default function Home() {
                     <div className={styles.card}>
                         <div className={styles.cardHeader}>
                             <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                <Twitter size={20} style={{ color: '#1da1f2' }} />
+                                <Twitter size={20} style={{ color: '#1d9bf0' }} />
                                 Twitter / X Trends
                             </h3>
                             <span className={styles.badge}>Hashtag</span>
@@ -218,7 +218,7 @@ export default function Home() {
                     <div className={styles.card}>
                         <div className={styles.cardHeader}>
                             <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                <Instagram size={20} style={{ color: '#e1306c' }} />
+                                <Instagram size={20} style={{ color: '#d62976' }} />
                                 Instagram Trends
                             </h3>
                             <span className={styles.badge}>Reels</span>
@@ -251,7 +251,7 @@ export default function Home() {
                     <div className={styles.card}>
                         <div className={styles.cardHeader}>
                             <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                <Linkedin size={20} style={{ color: '#0077b5' }} />
+                                <Linkedin size={20} style={{ color: '#0a66c2' }} />
                                 LinkedIn Trending
                             </h3>
                             <span className={styles.badge}>Professional</span>
@@ -282,7 +282,7 @@ export default function Home() {
                     <div className={styles.card}>
                         <div className={styles.cardHeader}>
                             <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                <Pin size={20} style={{ color: '#E60023' }} />
+                                <Pin size={20} style={{ color: '#bd081c' }} />
                                 Pinterest Trends
                             </h3>
                             <span className={styles.badge}>Inspiration</span>
