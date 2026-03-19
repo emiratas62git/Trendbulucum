@@ -1,13 +1,13 @@
 
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { ArrowRight, Search, Eye, Home } from 'lucide-react';
 import styles from './blog.module.css';
 import { blogPosts } from '@/data/blogPosts';
 
-export default function BlogList() {
+function BlogListContent() {
     const searchParams = useSearchParams();
     const query = searchParams.get('q');
     const [searchTerm, setSearchTerm] = useState('');
@@ -93,5 +93,13 @@ export default function BlogList() {
                 </div>
             )}
         </div>
+    );
+}
+
+export default function BlogList() {
+    return (
+        <Suspense fallback={<div className={styles.container} style={{ textAlign: 'center', padding: '2rem' }}>Loading blog...</div>}>
+            <BlogListContent />
+        </Suspense>
     );
 }
