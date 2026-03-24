@@ -55,7 +55,7 @@ export default function BlogPost({ params }) {
             return { ...p, sharedHashtags };
         })
         .sort((a, b) => b.sharedHashtags - a.sharedHashtags || (b.views || 0) - (a.views || 0))
-        .slice(0, 3); // Take top 3 related posts
+        .slice(0, 4); // Take top 4 related posts
 
     return (
         <Suspense fallback={<div style={{ padding: '2rem' }}>Loading blog post...</div>}>
