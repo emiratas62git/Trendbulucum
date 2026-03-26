@@ -371,7 +371,11 @@ export default function Home() {
                     <h3 className={styles.sectionTitle}>Platform Summaries</h3>
                     <div className={styles.trendsGrid}>
                         {loading ? (
-                            <p>Loading data...</p>
+                            <div className={styles.loadingWrapper}>
+                                <div className={`skeleton-base ${styles.skeletonCard}`}></div>
+                                <div className={`skeleton-base ${styles.skeletonCard}`}></div>
+                                <div className={`skeleton-base ${styles.skeletonCard}`}></div>
+                            </div>
                         ) : (
                             <>
                                 {/* Static Full Width Hashtags Section (MOVED TO TOP) */}

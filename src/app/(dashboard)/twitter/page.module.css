@@ -486,3 +486,16 @@
         gap: 0.25rem;
     }
 }
+
+.loadingWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.skeletonCard {
+    height: 150px;
+    width: 100%;
+    border-radius: var(--radius);
+}

@@ -8,7 +8,7 @@ import AdSlot from '@/components/AdSlot';
 import BlogPromoCard from '@/components/BlogPromoCard';
 import BlogPoll from './BlogPoll';
 
-export default function BlogPageClient({ post, relatedPosts }) {
+export default function BlogPageClient({ post, relatedPosts, children }) {
     const searchParams = useSearchParams();
     const from = searchParams.get('from'); // 'blog' or 'tiktok', 'pinterest', etc.
     const [searchTerm, setSearchTerm] = useState('');
@@ -120,7 +120,7 @@ export default function BlogPageClient({ post, relatedPosts }) {
     const BackIcon = isFromBlogList ? ArrowLeft : Home;
 
     return (
-        <div style={{ padding: '2rem' }}>
+        <>
             {/* Top Navigation Bar - Sticky */}
             <header className={styles.stickyHeader}>
                 <div style={{
@@ -172,7 +172,12 @@ export default function BlogPageClient({ post, relatedPosts }) {
                 </div>
             </header>
 
-            <div className={styles.articleLayout}>
+            {/* If there is a search term, we show an overlay or highlight version? 
+                Actually, for now, let's just render the interactive parts like poll and related posts here.
+                The main content is now handled by the server for 100% SEO.
+            */}
+
+            <div className={styles.articleLayout} style={{ marginTop: '2rem' }}>
                 {/* Left Ad Column */}
                 <aside className={styles.sideAd}>
                     <AdSlot type="vertical" />
@@ -181,109 +186,39 @@ export default function BlogPageClient({ post, relatedPosts }) {
                     </div>
                 </aside>
 
-                {/* Main Content Column */}
-                <div className={styles.mainContent}>
-                    <article>
-                        <header className={styles.articleHeader}>
-                            <div className={styles.articleMeta}>
-                                <span>{post.date} • {post.readTime}</span>
-                                <span style={{ marginLeft: '1rem', color: 'var(--primary)' }}>
-                                    <Eye size={14} style={{ marginRight: '4px', verticalAlign: 'middle' }} />
-                                    <span suppressHydrationWarning>
-                                        {(post.views || 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} views
-                                    </span>
-                                </span>
-                            </div>
-                            <h1 className={styles.articleTitle}>{renderContentWithHighlights.title}</h1>
-                        </header>
+                <div className={styles.mainContent} style={{ border: 'none', padding: 0 }}>
+                    {children}
+                    <div className={styles.articleTextContent}>
+                        {/* Feedback Poll */}
+                        <BlogPoll postId={post.id} />
 
-                        <img src={post.image} alt={post.title} className={styles.articleImage} />
-
-                        <div className={styles.articleTextContent}>
-                            {/* Intro Ad */}
-                            <div style={{ marginBottom: '2rem' }}>
-                                <AdSlot type="horizontal" />
-                            </div>
-
-                            {renderContentWithHighlights.content.map((section, index) => (
-                                <div key={index} className={styles.section}>
-                                    {section.subtitle && (
-                                        <h2 className={styles.subtitle}>
-                                            {searchTerm.trim() ? section.highlightedSubtitle : section.subtitle}
-                                        </h2>
-                                    )}
-
-                                    {searchTerm.trim() ? (
-                                        section.highlightedTextParts?.map((p, pIdx) => (
-                                            <p key={pIdx} className={styles.text} style={{ marginBottom: '1.5rem' }}>
-                                                {p}
-                                            </p>
-                                        ))
-                                    ) : (
-                                        section.text?.split('\n').filter(p => p.trim() !== '').map((paragraph, pIndex) => (
-                                            <p key={pIndex} className={styles.text} style={{ marginBottom: '1.5rem' }}>
-                                                {paragraph.trim()}
-                                            </p>
-                                        ))
-                                    )}
-
-                                    {/* Insert Small Horizontal Ad between paragraphs (sections) */}
-                                    {(index + 1) % 1 === 0 && index !== post.content.length - 1 && (
-                                        <div style={{ margin: '2rem 0', opacity: 0.8 }}>
-                                            <AdSlot type="horizontal" height="100px" />
-                                        </div>
-                                    )}
-                                </div>
-                            ))}
-
-                            {/* Hashtags Section */}
-                            {post.hashtags && post.hashtags.length > 0 && (
-                                <div className={styles.hashtagSection}>
-                                    <h3>Related Topics</h3>
-                                    <div className={styles.tags}>
-                                        {post.hashtags.map((tag, i) => (
-                                            <span key={i} className={styles.tag}>{tag}</span>
-                                        ))}
-                                    </div>
-                                </div>
-                            )}
-
-                            {/* Bottom Ad */}
-                            <div style={{ marginTop: '3rem' }}>
-                                <AdSlot type="horizontal" />
-                            </div>
-
-                            {/* Feedback Poll */}
-                            <BlogPoll postId={post.id} />
-
-                            {/* Related Posts */}
-                            {relatedPosts && relatedPosts.length > 0 && (
-                                <div className={styles.relatedPostsSection}>
-                                    <h3 className={styles.relatedPostsTitle}>Related Posts</h3>
-                                    <div className={styles.relatedGrid}>
-                                        {relatedPosts.map((rPost) => (
-                                            <Link href={`/blog/${rPost.slug}?from=blog`} key={rPost.id} className={`${styles.card} ${styles.standardCard}`}>
-                                                <div className={styles.imageContainer} style={{ height: '140px' }}>
-                                                    <img src={rPost.image} alt={rPost.title} className={styles.image} />
-                                                </div>
-                                                <div className={styles.content} style={{ padding: '1rem' }}>
-                                                    <div className={styles.meta} style={{ marginBottom: '0.5rem' }}>
-                                                        <span className={styles.views}>
-                                                            <Eye size={12} style={{ marginRight: '4px', verticalAlign: 'middle' }} />
-                                                            <span suppressHydrationWarning>
-                                                                {(rPost.views || 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} views
-                                                            </span>
+                        {/* Related Posts */}
+                        {relatedPosts && relatedPosts.length > 0 && (
+                            <div className={styles.relatedPostsSection}>
+                                <h3 className={styles.relatedPostsTitle}>Related Posts</h3>
+                                <div className={styles.relatedGrid}>
+                                    {relatedPosts.map((rPost) => (
+                                        <Link href={`/blog/${rPost.slug}?from=blog`} key={rPost.id} className={`${styles.card} ${styles.standardCard}`}>
+                                            <div className={styles.imageContainer} style={{ height: '140px' }}>
+                                                <img src={rPost.image} alt={rPost.title} className={styles.image} />
+                                            </div>
+                                            <div className={styles.content} style={{ padding: '1rem' }}>
+                                                <div className={styles.meta} style={{ marginBottom: '0.5rem' }}>
+                                                    <span className={styles.views}>
+                                                        <Eye size={12} style={{ marginRight: '4px', verticalAlign: 'middle' }} />
+                                                        <span suppressHydrationWarning>
+                                                            {(rPost.views || 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} views
                                                         </span>
-                                                    </div>
-                                                    <h4 className={styles.title} style={{ fontSize: '1rem', marginBottom: '0' }}>{rPost.title}</h4>
+                                                    </span>
                                                 </div>
-                                            </Link>
-                                        ))}
-                                    </div>
+                                                <h4 className={styles.title} style={{ fontSize: '1rem', marginBottom: '0' }}>{rPost.title}</h4>
+                                            </div>
+                                        </Link>
+                                    ))}
                                 </div>
-                            )}
-                        </div>
-                    </article>
+                            </div>
+                        )}
+                    </div>
                 </div>
 
                 {/* Right Ad Column */}
@@ -294,6 +229,7 @@ export default function BlogPageClient({ post, relatedPosts }) {
                     </div>
                 </aside>
             </div>
-        </div>
+        </>
     );
 }
+

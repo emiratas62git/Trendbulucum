@@ -69,7 +69,13 @@ export default function PinterestPage() {
                     <div className={styles.colLeft}>
                         <h3 className={styles.sectionTitle}>📌 Popular Pins</h3>
                         <div className={styles.cardList}>
-                            {loading ? <p>Loading...</p> : trends.map((trend, index) => (
+                            {loading ? (
+                                <div className={styles.loadingWrapper}>
+                                    <div className={`skeleton-base ${styles.skeletonCard}`}></div>
+                                    <div className={`skeleton-base ${styles.skeletonCard}`}></div>
+                                    <div className={`skeleton-base ${styles.skeletonCard}`}></div>
+                                </div>
+                            ) : trends.map((trend, index) => (
                                 <div key={trend.id} className={styles.card}>
                                     <div className={`${styles.rankCircle} ${getRankClass(index)}`}>
                                         {index + 1}

@@ -52,7 +52,13 @@ export default function YoutubePage() {
                 <div className={styles.colLeft}>
                     <h3 className={styles.sectionTitle}>Rising Videos</h3>
                     <div className={styles.videoList}>
-                        {loading ? <p>Loading...</p> : trends.map((trend, idx) => (
+                        {loading ? (
+                            <div className={styles.loadingWrapper}>
+                                <div className={`skeleton-base ${styles.skeletonCard}`}></div>
+                                <div className={`skeleton-base ${styles.skeletonCard}`}></div>
+                                <div className={`skeleton-base ${styles.skeletonCard}`}></div>
+                            </div>
+                        ) : trends.map((trend, idx) => (
                             <div key={trend.id} className={styles.videoCard}>
                                 <div className={styles.videoIcon}>
                                     <span className={styles.rank}>#{idx + 1}</span>
@@ -104,7 +110,12 @@ export default function YoutubePage() {
                             <h4>Chosen for You</h4>
                         </div>
                         <div className={styles.ideaList}>
-                            {loading ? <p>Analyzing...</p> : trends.slice(0, 3).map((trend) => (
+                            {loading ? (
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                                    <div className="skeleton-base" style={{ height: '40px', width: '100%' }}></div>
+                                    <div className="skeleton-base" style={{ height: '40px', width: '100%' }}></div>
+                                </div>
+                            ) : trends.slice(0, 3).map((trend) => (
                                 <div key={trend.id} className={styles.ideaItem}>
                                     <p>{TrendService.generateIdea(trend)}</p>
                                 </div>

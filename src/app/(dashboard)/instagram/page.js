@@ -118,7 +118,12 @@ export default function InstagramPage() {
                         <div className={styles.suggestionBox}>
                             <h4>Category Opportunities</h4>
                             <div className={styles.trendList}>
-                                {loading ? <p>Loading...</p> : categories.map((cat, index) => (
+                                {loading ? (
+                                    <div className={styles.loadingWrapper}>
+                                        <div className={`skeleton-base ${styles.skeletonCard}`}></div>
+                                        <div className={`skeleton-base ${styles.skeletonCard}`}></div>
+                                    </div>
+                                ) : categories.map((cat, index) => (
                                     <div key={cat.id} className={styles.trendItem}>
                                         <div className={`${styles.rankCircle} ${styles[`rank${index + 1}`] || styles.rankOther}`}>
                                             {index + 1}

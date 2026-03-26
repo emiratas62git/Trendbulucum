@@ -129,7 +129,13 @@ export default function TwitterPage() {
                     <div className={styles.colLeft}>
                         <h3 className={styles.sectionTitle}>Live Agenda & Analysis</h3>
                         <div className={styles.tweetGrid}>
-                            {loading ? <p>Loading...</p> : trends.map((trend, index) => (
+                            {loading ? (
+                                <div className={styles.loadingWrapper}>
+                                    <div className={`skeleton-base ${styles.skeletonCard}`}></div>
+                                    <div className={`skeleton-base ${styles.skeletonCard}`}></div>
+                                    <div className={`skeleton-base ${styles.skeletonCard}`}></div>
+                                </div>
+                            ) : trends.map((trend, index) => (
                                 <div key={trend.id} className={styles.tweetCard}>
                                     <div className={styles.tweetHeader}>
                                         <div className={`${styles.rankCircle} ${getRankClass(index)}`}>

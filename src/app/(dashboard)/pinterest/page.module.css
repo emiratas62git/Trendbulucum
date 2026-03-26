@@ -523,3 +523,16 @@
         font-size: 1rem;
     }
 }
+
+.loadingWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+.skeletonCard {
+    height: 120px;
+    width: 100%;
+    border-radius: var(--radius);
+}

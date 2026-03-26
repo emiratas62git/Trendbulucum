@@ -61,7 +61,13 @@ export default function TiktokPage() {
                         <h3 className={styles.sectionTitle}>Rising Hashtags</h3>
                         <div className={styles.videoList}>
 
-                            {loading ? <p>Loading...</p> : trends.map((trend, index) => (
+                            {loading ? (
+                                <div className={styles.loadingWrapper}>
+                                    <div className={`skeleton-base ${styles.skeletonCard}`}></div>
+                                    <div className={`skeleton-base ${styles.skeletonCard}`}></div>
+                                    <div className={`skeleton-base ${styles.skeletonCard}`}></div>
+                                </div>
+                            ) : trends.map((trend, index) => (
                                 <div key={trend.id} className={styles.videoCard}>
                                     <div className={styles.videoIcon}>
                                         <div className={`${styles.rankCircle} ${getRankClass(index)}`}>

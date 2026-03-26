@@ -468,7 +468,46 @@
 }
 
 @media (max-width: 1024px) {
-    .highlightsGrid {
+.highlightsGrid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Loading Shimmer Effect */
+@keyframes shimmer {
+    0% {
+        background-position: -468px 0;
+    }
+    100% {
+        background-position: 468px 0;
+    }
+}
+
+.skeleton {
+    background: #1e293b;
+    background-image: linear-gradient(to right, #1e293b 0%, #334155 20%, #1e293b 40%, #1e293b 100%);
+    background-repeat: no-repeat;
+    background-size: 800px 100%;
+    display: inline-block;
+    position: relative;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: shimmer;
+    animation-timing-function: linear;
+    border-radius: 4px;
+}
+
+.loadingWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    padding: 1rem 0;
+}
+
+.skeletonCard {
+    height: 120px;
+    width: 100%;
+    border-radius: var(--radius);
 }

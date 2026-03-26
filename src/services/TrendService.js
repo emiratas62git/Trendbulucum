@@ -273,103 +273,107 @@ export const TrendService = {
             return newItem;
         };
 
-        // Simulate network delay
+        // Use a race pattern: fetch real data but don't wait forever, and don't add sequential delay
         return new Promise(async (resolve) => {
-            // Try to fetch real trends for context (with timeout)
-            let realTrends = [];
-            try {
-                const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), 5000); // 5s timeout
+            let dataResolved = false;
 
-                const res = await fetch('/api/trends', { signal: controller.signal });
-                clearTimeout(timeoutId);
+            const resolveWithMock = () => {
+                if (dataResolved) return;
+                dataResolved = true;
+                const mock = (MOCK_DATA[platform] || []).map(item => adjustByTimeframe(item, timeframe));
+                resolve(mock);
+            };
 
-                if (res.ok) {
-                    const json = await res.json();
-                    if (json.success) {
-                        realTrends = json.data;
-                        console.log(`Successfully fetched ${realTrends.length} real trends for ${platform}`);
-                    }
-                }
-            } catch (e) {
-                console.warn(`TrendService: real trends fetch for ${platform} failed/timed out`, e.message);
-            }
-
-            // Ensure we resolve WITHIN the outer promise
-            setTimeout(() => {
-                try {
-                    let data = (MOCK_DATA[platform] || []).map(item => adjustByTimeframe(item, timeframe));
-
-                    if (realTrends && realTrends.length > 0) {
-                        if (platform === 'twitter') {
-                            const realTwitter = realTrends.slice(0, 5).map((t, i) => ({
-                                id: `real-t-${i}`,
-                                hashtag: `#${t.title.replace(/\s+/g, '')}`,
-                                volume: t.traffic,
-                                description: `Trending: ${t.title}. ${t.news?.[0]?.news_item_title || ''}`,
-                                sentiment: { positive: 60 + Math.random() * 30, neutral: 10, negative: 10 },
-                                rt_analysis: Array(24).fill(0).map(() => Math.floor(Math.random() * 100)),
-                                history: Array(12).fill(0).map((_, idx) => ({ month: idx, value: Math.floor(Math.random() * 200) }))
-                            }));
-                            data = [...realTwitter, ...data];
-                        } else if (platform === 'youtube') {
-                            const realYt = realTrends.slice(0, 5).map((t, i) => ({
-                                id: `real-y-${i}`,
-                                title: t.title,
-                                views: t.traffic,
-                                growth: '+New',
-                                category: 'Trending',
-                                history: Array(12).fill(0).map((_, idx) => ({ month: idx, value: Math.floor(Math.random() * 200) }))
-                            }));
-                            data = [...realYt, ...data];
-                        } else if (platform === 'tiktok') {
-                            const realTiktok = realTrends.slice(0, 5).map((t, i) => ({
-                                id: `real-tk-${i}`,
-                                topic: t.title,
-                                volume: t.traffic,
-                                growth: '+New',
-                                generated_idea: `You should create content about today's trending topic: ${t.title}.`,
-                                history: Array(12).fill(0).map((_, idx) => ({ month: idx, value: Math.floor(Math.random() * 200) }))
-                            }));
-                            data = [...realTiktok, ...data];
-                        }
-                    }
-                    resolve(data);
-                } catch (err) {
-                    console.error(`TrendService: error constructing ${platform} data:`, err);
-                    resolve(MOCK_DATA[platform] || []);
-                }
-            }, 500);
-        });
-    },
-
-    getAllTrends: async () => {
-        return new Promise(async (resolve) => {
-            try {
-                // Try to fetch real trends (with timeout)
-                let realTrends = [];
+            // Start fetch and mock delay in parallel
+            const fetchPromise = (async () => {
                 try {
                     const controller = new AbortController();
-                    const timeoutId = setTimeout(() => controller.abort(), 5000); // 5s timeout
+                    const timeoutId = setTimeout(() => controller.abort(), 2000); // 2s timeout for real data
 
                     const res = await fetch('/api/trends', { signal: controller.signal });
                     clearTimeout(timeoutId);
 
                     if (res.ok) {
                         const json = await res.json();
-                        if (json.success) realTrends = json.data;
+                        if (json.success && json.data.length > 0) {
+                            let data = (MOCK_DATA[platform] || []).map(item => adjustByTimeframe(item, timeframe));
+                            const realTrends = json.data;
+                            
+                            if (platform === 'twitter') {
+                                const realTwitter = realTrends.slice(0, 5).map((t, i) => ({
+                                    id: `real-t-${i}`,
+                                    hashtag: `#${t.title.replace(/\s+/g, '')}`,
+                                    volume: t.traffic,
+                                    description: `Trending: ${t.title}. ${t.news?.[0]?.news_item_title || ''}`,
+                                    sentiment: { positive: 60 + Math.random() * 30, neutral: 10, negative: 10 },
+                                    history: Array(12).fill(0).map((_, idx) => ({ month: idx, value: Math.floor(Math.random() * 200) }))
+                                }));
+                                data = [...realTwitter, ...data];
+                            } else if (platform === 'youtube') {
+                                const realYt = realTrends.slice(0, 5).map((t, i) => ({
+                                    id: `real-y-${i}`,
+                                    title: t.title,
+                                    views: t.traffic,
+                                    growth: '+New',
+                                    category: 'Trending',
+                                    history: Array(12).fill(0).map((_, idx) => ({ month: idx, value: Math.floor(Math.random() * 200) }))
+                                }));
+                                data = [...realYt, ...data];
+                            } else if (platform === 'tiktok') {
+                                const realTiktok = realTrends.slice(0, 5).map((t, i) => ({
+                                    id: `real-tk-${i}`,
+                                    topic: t.title,
+                                    volume: t.traffic,
+                                    growth: '+New',
+                                    generated_idea: `You should create content about today's trending topic: ${t.title}.`,
+                                    history: Array(12).fill(0).map((_, idx) => ({ month: idx, value: Math.floor(Math.random() * 200) }))
+                                }));
+                                data = [...realTiktok, ...data];
+                            }
+                            
+                            if (!dataResolved) {
+                                dataResolved = true;
+                                resolve(data);
+                            }
+                            return;
+                        }
                     }
                 } catch (e) {
-                    console.warn('Real trends fetch failed or timed out', e);
+                    console.warn(`TrendService: ${platform} fetch failed`, e.message);
                 }
+                // If fetch fails or has no real data, resolve with mock if not already resolved
+                resolveWithMock();
+            })();
 
-                setTimeout(() => {
-                    try {
-                        // Clone mock data
-                        const finalData = JSON.parse(JSON.stringify(MOCK_DATA));
+            // Fail-safe: resolve with mock after 1s if fetch hasn't finished
+            setTimeout(resolveWithMock, 1000);
+        });
+    },
 
-                        if (realTrends.length > 0) {
-                            // Update Hashtags
+    getAllTrends: async () => {
+        return new Promise(async (resolve) => {
+            let dataResolved = false;
+
+            const resolveWithMock = () => {
+                if (dataResolved) return;
+                dataResolved = true;
+                resolve(JSON.parse(JSON.stringify(MOCK_DATA)));
+            };
+
+            const fetchPromise = (async () => {
+                try {
+                    const controller = new AbortController();
+                    const timeoutId = setTimeout(() => controller.abort(), 2000);
+
+                    const res = await fetch('/api/trends', { signal: controller.signal });
+                    clearTimeout(timeoutId);
+
+                    if (res.ok) {
+                        const json = await res.json();
+                        if (json.success && json.data.length > 0) {
+                            const finalData = JSON.parse(JSON.stringify(MOCK_DATA));
+                            const realTrends = json.data;
+
                             finalData.hashtags = realTrends.map((t, i) => ({
                                 id: `real-tag-${i}`,
                                 tag: `#${t.title.replace(/\s+/g, '')}`,
@@ -377,47 +381,28 @@ export const TrendService = {
                                 growth: '🔥 Hot'
                             }));
 
-                            // Inject into platforms
-                            finalData.youtube = [
-                                ...realTrends.slice(0, 3).map(t => ({
-                                    id: `real-yt-${t.id}`,
-                                    title: t.title,
-                                    views: t.traffic,
-                                    growth: '+New',
-                                    category: 'Trending',
-                                })),
-                                ...finalData.youtube
-                            ];
+                            finalData.youtube = [...realTrends.slice(0, 3).map(t => ({
+                                id: `real-yt-${t.id || Math.random()}`,
+                                title: t.title,
+                                views: t.traffic,
+                                growth: '+New',
+                                category: 'Trending',
+                            })), ...finalData.youtube];
 
-                            finalData.twitter = [
-                                ...realTrends.slice(0, 3).map(t => ({
-                                    id: `real-tw-${t.id}`,
-                                    hashtag: `#${t.title.replace(/\s+/g, '')}`,
-                                    volume: t.traffic,
-                                })),
-                                ...finalData.twitter
-                            ];
-
-                            finalData.tiktok = [
-                                ...realTrends.slice(0, 3).map(t => ({
-                                    id: `real-tk-${t.id}`,
-                                    topic: t.title,
-                                    posts: t.traffic,
-                                    trend_score: 99
-                                })),
-                                ...finalData.tiktok
-                            ];
+                            if (!dataResolved) {
+                                dataResolved = true;
+                                resolve(finalData);
+                            }
+                            return;
                         }
-                        resolve(finalData);
-                    } catch (innerError) {
-                        console.error("Dashboard data construction failed:", innerError);
-                        resolve(MOCK_DATA);
                     }
-                }, 800);
-            } catch (outerError) {
-                console.error("getAllTrends promise failed:", outerError);
-                resolve(MOCK_DATA);
-            }
+                } catch (e) {
+                    console.warn('getAllTrends: fetch failed', e);
+                }
+                resolveWithMock();
+            })();
+
+            setTimeout(resolveWithMock, 1200);
         });
     },
 
