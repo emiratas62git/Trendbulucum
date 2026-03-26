@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Search, Eye, Home } from 'lucide-react';
+import { ArrowRight, Search, Eye, Home, Instagram, Twitter, Youtube, Pin } from 'lucide-react';
 import styles from './blog.module.css';
 import { blogPosts } from '@/data/blogPosts';
 
@@ -35,6 +35,18 @@ export default function BlogList({ searchParams }) {
             <div className={styles.topNav}>
                 <Link href="/" className={styles.backButton}>
                     <Home size={18} /> Back to Dashboard
+                </Link>
+                <Link href="/instagram" className={styles.backButton}>
+                    <Instagram size={18} /> Instagram
+                </Link>
+                <Link href="/twitter" className={styles.backButton}>
+                    <Twitter size={18} /> Twitter
+                </Link>
+                <Link href="/youtube" className={styles.backButton}>
+                    <Youtube size={18} /> YouTube
+                </Link>
+                <Link href="/pinterest" className={styles.backButton}>
+                    <Pin size={18} /> Pinterest
                 </Link>
             </div>
             <div className={styles.header}>
