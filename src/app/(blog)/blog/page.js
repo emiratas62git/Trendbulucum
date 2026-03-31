@@ -11,18 +11,31 @@ export default function BlogList({ searchParams }) {
     const searchTerm = searchParams?.q || '';
     const selectedCategory = searchParams?.category || '';
     
-    // Sort by views descending
-    const sortedPosts = [...blogPosts].sort((a, b) => (b.views || 0) - (a.views || 0));
+    // Get unique categories dynamically
+    const categories = ['Latest', 'All', ...new Set(blogPosts.map(post => post.category).filter(Boolean))];
+
+    // Sorting logic
+    const sortedPosts = [...blogPosts];
+    
+    // If "Latest" is selected (or by default if no category/search is active, maybe?)
+    // Actually, the user asked for a specific "Latest" tab.
+    // If selectedCategory is 'Latest', we keep the natural descending ID order.
+    // Otherwise, we sort by views as before.
+    if (selectedCategory !== 'Latest') {
+        sortedPosts.sort((a, b) => (b.views || 0) - (a.views || 0));
+    }
 
     // Filter by search and category
     const filteredPosts = sortedPosts.filter(post => {
         const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) || post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
-        const matchesCategory = selectedCategory ? post.category === selectedCategory : true;
+        
+        let matchesCategory = true;
+        if (selectedCategory && selectedCategory !== 'All' && selectedCategory !== 'Latest') {
+            matchesCategory = post.category === selectedCategory;
+        }
+        
         return matchesSearch && matchesCategory;
     });
-
-    // Get unique categories dynamically
-    const categories = ['All', ...new Set(blogPosts.map(post => post.category).filter(Boolean))];
 
     const getThemeClass = (index) => {
         // Keeping only a subtle highlight for the very top article when not searching and filtering.

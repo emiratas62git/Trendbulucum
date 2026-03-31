@@ -1,9 +1,12 @@
-import { Suspense } from 'react';
+import { Suspense, Fragment } from 'react';
 import { notFound } from 'next/navigation';
 import { Eye } from 'lucide-react';
 import { blogPosts } from '@/data/blogPosts';
 import BlogPageClient from './BlogPageClient';
+import AdSlot from '@/components/AdSlot';
 import styles from '../blog.module.css';
+
+// ... (existing generateMetadata remains same, let's keep it consistent)
 
 
 export async function generateMetadata({ params }) {
@@ -86,9 +89,14 @@ export default function BlogPost({ params }) {
                                 <h2 className={styles.subtitle}>{section.subtitle}</h2>
                             )}
                             {section.text?.split('\n').filter(p => p.trim() !== '').map((paragraph, pIndex) => (
-                                <p key={pIndex} className={styles.text} style={{ marginBottom: '1.5rem' }}>
-                                    {paragraph.trim()}
-                                </p>
+                                <Fragment key={pIndex}>
+                                    <p className={styles.text} style={{ marginBottom: '1.5rem', lineHeight: '1.8' }}>
+                                        {paragraph.trim()}
+                                    </p>
+                                    <div style={{ margin: '2.5rem 0', display: 'flex', justifyContent: 'center' }}>
+                                        <AdSlot type="horizontal" />
+                                    </div>
+                                </Fragment>
                             ))}
                         </div>
                     ))}
