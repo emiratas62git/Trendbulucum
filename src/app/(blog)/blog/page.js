@@ -16,12 +16,16 @@ export default function BlogList({ searchParams }) {
 
     // Sorting logic
     const sortedPosts = [...blogPosts];
-    
-    // If "Latest" is selected (or by default if no category/search is active, maybe?)
-    // Actually, the user asked for a specific "Latest" tab.
-    // If selectedCategory is 'Latest', we keep the natural descending ID order.
-    // Otherwise, we sort by views as before.
-    if (selectedCategory !== 'Latest') {
+
+    if (selectedCategory === 'Latest') {
+        // Sort by date descending, then by views descending for same-date posts
+        sortedPosts.sort((a, b) => {
+            const dateA = new Date(a.date);
+            const dateB = new Date(b.date);
+            if (dateB - dateA !== 0) return dateB - dateA;
+            return (b.views || 0) - (a.views || 0);
+        });
+    } else {
         sortedPosts.sort((a, b) => (b.views || 0) - (a.views || 0));
     }
 
