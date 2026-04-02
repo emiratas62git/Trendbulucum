@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import Header from '@/components/Header';
 import { TrendService } from '@/services/TrendService';
 import { TrendingUp, Activity, Award, Hash, Youtube, Video, Twitter, Instagram, Linkedin, Pin } from 'lucide-react';
@@ -354,16 +355,16 @@ export default function Home() {
                     </div>
                 </div>
 
-                <a href="/blog" target="_blank" className={`${styles.card} ${styles.statCard} ${styles.blogCard}`} style={{ textDecoration: 'none', cursor: 'pointer' }}>
+                <Link href="/blog" className={`${styles.card} ${styles.statCard} ${styles.blogCard}`} style={{ textDecoration: 'none', cursor: 'pointer' }}>
                     <div className={styles.iconBox} style={{ backgroundColor: 'rgba(99, 102, 241, 0.1)', color: 'var(--primary)' }}>
                         <Hash size={24} />
                     </div>
                     <div>
                         <h4 style={{ color: 'var(--primary)' }}>Read Our Blog</h4>
                         <p className={styles.statValue} style={{ fontSize: '1.2rem' }}>Expert Insights</p>
-                        <div className={styles.statTrend}>Click to open separate page</div>
+                        <div className={styles.statTrend}>Click to view articles</div>
                     </div>
-                </a>
+                </Link>
             </div>
 
             <div className={styles.layoutGrid}>

@@ -12,7 +12,9 @@ export default function BlogList({ searchParams }) {
     const selectedCategory = searchParams?.category || '';
     
     // Get unique categories dynamically
-    const categories = ['Latest', 'All', ...new Set(blogPosts.map(post => post.category).filter(Boolean))];
+    const dynamicCats = new Set(blogPosts.map(post => post.category).filter(Boolean));
+    dynamicCats.delete('Latest AI Analysis'); // Ensure it's not duplicated
+    const categories = ['Latest', 'All', 'Latest AI Analysis', ...dynamicCats];
 
     // Sorting logic
     const sortedPosts = [...blogPosts];

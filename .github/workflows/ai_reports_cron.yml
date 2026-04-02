@@ -1,0 +1,35 @@
+name: AI Weekly Reports Cron
+
+on:
+  schedule:
+    # Weekly on Saturday at 13:00 TRT (10:00 UTC)
+    - cron: '0 10 * * 6'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  generate-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: npm install @google/generative-ai dotenv recharts
+
+      - name: Run AI Generator Script
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: node scripts/generate_weekly_ai_report.js
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "AI Reporting Bot"
+          git config --global user.email "ai-bot@trendfinder.com"
+          git add src/data/blogPosts.js public/blog-images/
+          git commit -m "Auto-generated Weekly AI Report" || exit 0
+          git push

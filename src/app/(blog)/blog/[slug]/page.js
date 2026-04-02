@@ -4,6 +4,7 @@ import { Eye } from 'lucide-react';
 import { blogPosts } from '@/data/blogPosts';
 import BlogPageClient from './BlogPageClient';
 import AdSlot from '@/components/AdSlot';
+import AIChartRenderer from '@/components/AIChartRenderer';
 import styles from '../blog.module.css';
 
 // ... (existing generateMetadata remains same, let's keep it consistent)
@@ -87,6 +88,9 @@ export default function BlogPost({ params }) {
                         <div key={index} className={styles.section}>
                             {section.subtitle && (
                                 <h2 className={styles.subtitle}>{section.subtitle}</h2>
+                            )}
+                            {section.type === 'chart' && (
+                                <AIChartRenderer chartData={section.chartData} chartType={section.chartType} />
                             )}
                             {section.text?.split('\n').filter(p => p.trim() !== '').map((paragraph, pIndex) => (
                                 <Fragment key={pIndex}>

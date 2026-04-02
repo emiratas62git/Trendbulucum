@@ -102,7 +102,7 @@ export const blogPosts = [
         "excerpt": "Maximize the earnings from your traffic. Learn the advanced techniques for ad placement, SEO, and user retention used by professional publishers.",
         "date": "Mar 29, 2026",
         "readTime": "8 min read",
-        "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/ai_trend_1.png",
         "views": 19200,
         "hashtags": ["#AdSense", "#PassiveIncome", "#BloggingTips", "#SEO"],
         "content": [
@@ -755,7 +755,7 @@ export const blogPosts = [
         "excerpt": "An analysis of 100 viral videos reveals the core features that drive high retention, emotion, and explosive algorithmic growth.",
         "date": "Mar 10, 2026",
         "readTime": "6 min read",
-        "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/ai_trend_1.png",
         "views": 22300,
         "hashtags": ["#ViralVideos", "#DataAnalysis", "#VideoStrategy", "#ContentCreation"],
         "content": [
@@ -827,7 +827,7 @@ export const blogPosts = [
         "excerpt": "Understand why certain content types lead to a decline in AdSense earnings and how to pivot towards high-value, problem-solving niches.",
         "date": "Mar 08, 2026",
         "readTime": "10 min read",
-        "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&auto=format&fit=crop&q=80",
+        "image": "/blog-images/ai_trend_2.png",
         "views": 14500,
         "hashtags": [
             "#AdSense",
@@ -1741,7 +1741,7 @@ export const blogPosts = [
         "excerpt": "Adsense, Sponsorships, and Productization strategies.",
         "date": "Jan 14, 2026",
         "readTime": "4 min read",
-        "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/ai_trend_3.png",
         "views": 29800,
         "hashtags": [
             "#MakeMoneyOnline",
@@ -1773,7 +1773,7 @@ export const blogPosts = [
         "excerpt": "Low competition, algorithm favor, and original content advantage.",
         "date": "Jan 13, 2026",
         "readTime": "3 min read",
-        "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/ai_trend_3.png",
         "views": 16700,
         "hashtags": [
             "#EarlyAdopter",
