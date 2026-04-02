@@ -71,6 +71,7 @@
     font-size: 0.9rem;
     transition: all 0.2s;
     flex-shrink: 1;
+    cursor: pointer;
 }
 
 .backButton:hover {
@@ -430,12 +431,12 @@
 }
 
 .categoryButton {
-    padding: 0.5rem 1.25rem;
+    padding: 0.4rem 1rem;
     border-radius: 50px;
     background: var(--surface);
     border: 1px solid var(--border);
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -485,11 +486,12 @@
     gap: 0.5rem;
     background: var(--primary);
     color: white;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.8rem;
     border-radius: 8px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
     transition: all 0.2s;
+    cursor: pointer;
 }
 
 .card:hover .readMoreBtn {
