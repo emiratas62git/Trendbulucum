@@ -211,8 +211,6 @@ export default function BlogPageClient({ post, relatedPosts, children }) {
                         )}
                     </div>
                 </div>
-
-                </div>
             </div>
         </>
     );

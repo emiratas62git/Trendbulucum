@@ -99,7 +99,7 @@ export default function SignInPage() {
                 </button>
 
                 <p className={styles.footerText}>
-                    Don't have an account? <Link href="/auth/signup">Sign Up Free</Link>
+                    Don't have an account? <Link href="/auth/signup">Join TrendyFinder Pro</Link>
                 </p>
             </div>
         </div>

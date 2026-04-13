@@ -11,10 +11,10 @@ const PLANS = [
         period: 'month',
         description: 'Perfect for regular content creators.',
         features: [
-            'Daily Trend Analysis',
+            'Daily AI Trend Summaries',
             'Full Platform Insights',
             'Idea Generation Engine',
-            '7-Day Free Trial',
+            '7-Day Premium Pass',
             'Standard Support'
         ],
         icon: <Zap />,
@@ -86,7 +86,7 @@ export default function PricingPage() {
             <div className={styles.header}>
                 <span className={styles.badge}>Pricing Plans</span>
                 <h1>Master the Trends with Pro</h1>
-                <p>Choose the plan that fits your ambition. Start with a 7-day free trial.</p>
+                <p>Choose the plan that fits your ambition. Start with a 7-day premium pass.</p>
             </div>
 
             <div className={styles.pricingGrid}>
@@ -122,7 +122,7 @@ export default function PricingPage() {
                             onClick={() => handleSubscribe(plan)}
                             disabled={loading !== null}
                         >
-                            {loading === plan.name ? <Loader2 className={styles.spin} /> : 'Start 7-Day Free Trial'}
+                            {loading === plan.name ? <Loader2 className={styles.spin} /> : 'Start 7-Day Premium Pass'}
                             {loading !== plan.name && <ArrowRight size={18} />}
                         </button>
                     </div>
@@ -133,18 +133,28 @@ export default function PricingPage() {
                 <div className={styles.trustItem}>
                     <ShieldCheck size={24} />
                     <div>
-                        <h4>Secure Payments</h4>
-                        <p>Powered by Lemon Squeezy with 256-bit encryption.</p>
+                        <h4>Security Policy</h4>
+                        <p>Powered by Lemon Squeezy with 256-bit encryption and secure checkout.</p>
                     </div>
                 </div>
                 <div className={styles.trustItem}>
                     <Sparkles size={24} />
                     <div>
-                        <h4>Cancel Anytime</h4>
-                        <p>No questions asked policy for immediate cancellations.</p>
+                        <h4>About TrendyFinder</h4>
+                        <p>Providing cutting-edge AI trend analysis for creators since 2024.</p>
                     </div>
                 </div>
             </div>
+
+            <footer className={styles.mainFooter}>
+                <div className={styles.footerLinks}>
+                    <Link href="/about">Who We Are</Link>
+                    <Link href="/privacy">Privacy Policy</Link>
+                    <Link href="/terms">Terms of Service</Link>
+                    <Link href="/contact">Contact Support</Link>
+                </div>
+                <p className={styles.copyright}>© 2026 TrendyFinder Pro. All rights reserved.</p>
+            </footer>
         </div>
     );
 }

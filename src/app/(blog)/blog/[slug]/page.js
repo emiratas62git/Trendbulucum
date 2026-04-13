@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation';
 import { Eye } from 'lucide-react';
 import { blogPosts } from '@/data/blogPosts';
 import BlogPageClient from './BlogPageClient';
-import AdSlot from '@/components/AdSlot';
 import AIChartRenderer from '@/components/AIChartRenderer';
 import styles from '../blog.module.css';
 import { getServerSession } from "next-auth/next";
@@ -110,7 +109,7 @@ export default async function BlogPost({ params }) {
                                     <span>Get Unlimited Access</span>
                                     <ArrowRight size={18} />
                                 </Link>
-                                <p className={styles.trialText}>Start your 7-day free trial today.</p>
+                                <p className={styles.trialText}>Start your 7-day premium pass today.</p>
                             </div>
                         </div>
                     ) : (
