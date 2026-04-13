@@ -9,10 +9,10 @@ const PLANS = [
         name: 'Monthly Pro',
         price: '10',
         period: 'month',
-        description: 'Perfect for regular content creators.',
+        description: 'Predict trends with AI-powered intelligence.',
         features: [
-            'Daily AI Trend Summaries',
-            'Full Platform Insights',
+            'Premium Weekly AI Reports',
+            'Full Platform Trend Data',
             'Idea Generation Engine',
             '7-Day Premium Pass',
             'Standard Support'
@@ -27,8 +27,8 @@ const PLANS = [
         description: 'The most popular choice for professionals.',
         features: [
             'Everything in Monthly',
-            'Priority Trend Alerts',
-            'Extended History Access',
+            'Exclusive AI Trend Alerts',
+            'Deep-Dive AI Analysis',
             '20% Discount included',
             'Priority Support'
         ],
@@ -43,8 +43,8 @@ const PLANS = [
         description: 'Master the social media game permanently.',
         features: [
             'Everything in 3-Month',
-            'Advanced Data Analysis',
-            'Consultation Credits',
+            'Custom AI Topic Tracking',
+            'Historical AI Trend Data',
             'Legacy Price Lock',
             'VIP 24/7 Support'
         ],
