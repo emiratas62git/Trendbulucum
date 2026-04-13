@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
+const { Resend } = require('resend');
 
 require('dotenv').config({ path: path.join(__dirname, '../.env.local') });
 
@@ -10,17 +11,23 @@ if (!apiKey) {
     process.exit(1);
 }
 
-const genAI = new GoogleGenerativeAI(apiKey);
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 async function generateReport() {
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
+    let prompt = `You are an expert SEO content creator and senior AI analyst for "TrendyFinder Pro", a premium trend intelligence service.
+Generate a comprehensive Weekly AI Trend Analysis report (800-1000 words) in English.
 
-    let prompt = `You are an expert SEO content creator and AI data analyst writing for a modern blog. 
-Generate a comprehensive Weekly AI Trend Analysis report strictly between 800 and 1000 words in English.
-Focus heavily on SEO-optimization, using strong headings, keywords, and engaging detailed paragraphs.
-The report must include:
-- Daily and hourly viral trends.
-- When trends started, their specific topics, and whether they involve bot activity or human growth.
+Your analysis must include:
+1. Executive Summary: The "Big Picture" of this week.
+2. Platform Winners: Which social platform saw the most growth.
+3. Top 3 Trending Topics: Deep dive with actionable advice for creators.
+4. Content Strategy: How to capitalize on these trends right now.
+5. Future Outlook: What to expect next week.
+
+CRITICAL: Since this is a premium service, you MUST include a professional "Upgrade to Pro" Call-to-Action (CTA) at the very end. The CTA should highlight that Pro members get daily updates, priority alerts, and deep-dive analytics.
+ir specific topics, and whether they involve bot activity or human growth.
 - Deep analysis of the metrics with high readibility.
 
 Output the response strictly in JSON format matching this structure exactly (an array of content sections):
@@ -116,6 +123,32 @@ Do not include markdown blocks like \`\`\`json, just pure JSON text.`;
         fs.writeFileSync(dataPath, newFileContent, 'utf8');
 
         console.log(`Successfully generated and added Weekly AI report.`);
+
+        // --- Send Email to Admin ---
+        if (process.env.RESEND_API_KEY && process.env.ADMIN_EMAIL) {
+            console.log(`Sending AI report to admin...`);
+            await resend.emails.send({
+                from: 'TrendyFinder Pro <reports@trendyfinder.com>',
+                to: process.env.ADMIN_EMAIL,
+                subject: `[New AI Report] ${aiData.title}`,
+                html: `
+                    <div style="font-family: sans-serif; background-color: #0f172a; color: white; padding: 40px; border-radius: 20px;">
+                        <h1 style="color: #6366f1;">New Weekly AI Analysis Generated</h1>
+                        <p style="font-size: 18px;">${aiData.excerpt}</p>
+                        <hr style="border: 0; border-top: 1px solid #334155; margin: 20px 0;" />
+                        <div style="margin-bottom: 30px;">
+                            ${aiData.content.filter(c => c.text).slice(0, 2).map(c => `
+                                <h3 style="color: #818cf8;">${c.subtitle}</h3>
+                                <p style="line-height: 1.6; color: #cbd5e1;">${c.text}</p>
+                            `).join('')}
+                        </div>
+                        <a href="${process.env.NEXTAUTH_URL}/blog" style="display: inline-block; background: #6366f1; color: white; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: bold;">View Full Premium Report</a>
+                        <p style="margin-top: 30px; font-size: 12px; color: #64748b;">This analysis was automatically generated and added to TrendyFinder Pro database.</p>
+                    </div>
+                `
+            });
+            console.log(`AI report email sent to ${process.env.ADMIN_EMAIL}.`);
+        }
     } catch (e) {
         console.error("Failed to generate report:", e);
         process.exit(1);

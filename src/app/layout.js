@@ -1,9 +1,9 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import { DashboardProvider } from '@/context/DashboardContext';
-import AdSlot from '@/components/AdSlot';
 import ScrollToTop from '@/components/ScrollToTop';
 import Sidebar from '@/components/Sidebar';
+import { AuthProvider } from '@/components/AuthProvider';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -36,6 +36,11 @@ export const metadata = {
         description: 'Real-time trend analysis and content suggestions.',
         images: ['/logo.png'],
     },
+    icons: {
+        icon: '/logo.png',
+        shortcut: '/logo.png',
+        apple: '/logo.png',
+    },
     robots: {
         index: true,
         follow: true,
@@ -46,10 +51,12 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body className={inter.className}>
-                <DashboardProvider>
-                    {children}
-                    <ScrollToTop />
-                </DashboardProvider>
+                <AuthProvider>
+                    <DashboardProvider>
+                        {children}
+                        <ScrollToTop />
+                    </DashboardProvider>
+                </AuthProvider>
             </body>
         </html>
     )

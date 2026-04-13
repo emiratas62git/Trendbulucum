@@ -1,8 +1,9 @@
 "use client";
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Youtube, Twitter, Instagram, Video, BarChart2, Linkedin, Pin, Info, ShieldCheck, Mail, Wrench, FileText, BookOpen, X } from 'lucide-react';
 import { useDashboard } from '@/context/DashboardContext';
+import { useSession } from 'next-auth/react';
+import { Home, Youtube, Twitter, Instagram, Video, BarChart2, Linkedin, Pin, Info, ShieldCheck, Mail, Wrench, FileText, BookOpen, X, Sparkles } from 'lucide-react';
 import styles from './Sidebar.module.css';
 
 const MENU_ITEMS = [
@@ -23,7 +24,10 @@ const MENU_ITEMS = [
 
 export default function Sidebar() {
     const pathname = usePathname();
+    const { data: session } = useSession();
     const { isPlatformVisible, togglePlatform, isSidebarOpen, closeSidebar } = useDashboard();
+    
+    const isPremium = session?.user?.isPremium;
 
     return (
         <>
@@ -56,6 +60,16 @@ export default function Sidebar() {
 
                         return (
                             <div key={item.path}>
+                                {index === 0 && !isPremium && (
+                                    <Link 
+                                        href="/pricing" 
+                                        className={styles.premiumMenuItem}
+                                        onClick={closeSidebar}
+                                    >
+                                        <Sparkles size={20} />
+                                        <span>Try Premium</span>
+                                    </Link>
+                                )}
                                 {isFirstInfo && <div className={styles.navTitle}>Info & Support</div>}
                                 <div className={styles.navItemWrapper}>
                                     <Link

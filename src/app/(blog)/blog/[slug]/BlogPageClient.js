@@ -4,7 +4,6 @@ import { ArrowLeft, Eye, Search, Home, ChevronUp, ChevronDown } from 'lucide-rea
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import styles from '../blog.module.css';
-import AdSlot from '@/components/AdSlot';
 import BlogPromoCard from '@/components/BlogPromoCard';
 import BlogPoll from './BlogPoll';
 
@@ -177,15 +176,7 @@ export default function BlogPageClient({ post, relatedPosts, children }) {
                 The main content is now handled by the server for 100% SEO.
             */}
 
-            <div className={styles.articleLayout} style={{ marginTop: '2rem' }}>
-                {/* Left Ad Column */}
-                <aside className={styles.sideAd}>
-                    <AdSlot type="vertical" />
-                    <div style={{ marginTop: '2rem' }}>
-                        <AdSlot type="vertical" />
-                    </div>
-                </aside>
-
+            <div className={styles.articleLayout} style={{ marginTop: '2rem', display: 'block', maxWidth: '800px', margin: '2rem auto' }}>
                 <div className={styles.mainContent} style={{ border: 'none', padding: 0 }}>
                     {children}
                     <div className={styles.articleTextContent}>
@@ -221,13 +212,7 @@ export default function BlogPageClient({ post, relatedPosts, children }) {
                     </div>
                 </div>
 
-                {/* Right Ad Column */}
-                <aside className={styles.sideAd}>
-                    <AdSlot type="vertical" />
-                    <div style={{ marginTop: '2rem' }}>
-                        <AdSlot type="vertical" />
-                    </div>
-                </aside>
+                </div>
             </div>
         </>
     );

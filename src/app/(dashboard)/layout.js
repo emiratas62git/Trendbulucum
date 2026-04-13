@@ -1,41 +1,33 @@
 import Sidebar from '@/components/Sidebar';
-import AdSlot from '@/components/AdSlot';
 import Header from '@/components/Header';
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/lib/auth";
+import { redirect } from "next/navigation";
 
 export const metadata = {
     title: 'Dashboard | Social Media Trend Center',
     description: 'Unified dashboard for tracking trends across TikTok, YouTube, Instagram, Pinterest, and LinkedIn.',
 }
 
-export default function DashboardLayout({ children }) {
+export default async function DashboardLayout({ children }) {
+    const session = await getServerSession(authOptions);
+
+    if (!session || !session.user.isPremium) {
+        redirect("/pricing");
+    }
+
     return (
         <div className="app-layout">
             <Sidebar />
 
             <div className="layout-body">
-                <aside className="layout-ad-left">
-                    <AdSlot type="vertical" />
-                </aside>
-
                 <main className="layout-main">
-                    <header className="layout-header">
-                        <AdSlot type="horizontal" />
-                    </header>
-
                     <Header />
 
                     <div className="app-container">
                         {children}
                     </div>
-
-                    <footer className="layout-footer">
-                        <AdSlot type="horizontal" />
-                    </footer>
                 </main>
-
-                <aside className="layout-ad-right">
-                    <AdSlot type="vertical" />
-                </aside>
             </div>
         </div>
     );

@@ -5,6 +5,9 @@ import { Search, Loader2, TrendingUp, TrendingDown, Menu } from 'lucide-react';
 import styles from './Header.module.css';
 import { TrendService } from '@/services/TrendService';
 import { useDashboard } from '@/context/DashboardContext';
+import { useSession, signOut } from 'next-auth/react';
+import Link from 'next/link';
+import { User, LogOut, Sparkles } from 'lucide-react';
 import TrendLifecycleModal from './TrendLifecycleModal';
 import SearchAlertModal from './SearchAlertModal';
 
@@ -12,9 +15,11 @@ export default function Header({ title: propTitle, onTimeframeChange: propOnTime
     const pathname = usePathname();
     const { searchQuery, setSearchQuery, timeframe, setTimeframe, toggleSidebar } = useDashboard();
     const [query, setQuery] = useState(searchQuery);
+    const { data: session } = useSession();
     const [isSearching, setIsSearching] = useState(false);
     const [searchResult, setSearchResult] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
 
     // Derive title if not provided
     const getDerivedTitle = () => {
@@ -197,6 +202,54 @@ export default function Header({ title: propTitle, onTimeframeChange: propOnTime
                                         </div>
                                     );
                                 })}
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Pro / Auth Actions */}
+                    <div className={styles.authActions}>
+                        {!session ? (
+                            <Link href="/auth/signin" className={styles.loginBtn}>
+                                Sign In
+                            </Link>
+                        ) : (
+                            <div className={styles.userProfile}>
+                                {!session.user.isPremium && (
+                                    <Link href="/pricing" className={styles.proBtn}>
+                                        <Sparkles size={16} />
+                                        <span>Go Pro</span>
+                                    </Link>
+                                )}
+                                    <div className={styles.userNameDisplay}>
+                                        <p className={styles.headerUserName}>{session.user.name || 'User'}</p>
+                                    </div>
+                                    <div className={styles.avatarWrapper} onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}>
+                                    {session.user.image ? (
+                                        <img src={session.user.image} alt="User" className={styles.avatar} />
+                                    ) : (
+                                        <div className={styles.avatarPlaceholder}>
+                                            <User size={20} />
+                                        </div>
+                                    )}
+                                    
+                                    {isUserMenuOpen && (
+                                        <div className={styles.userDropdown}>
+                                            <div className={styles.userInfo}>
+                                                <p className={styles.userName}>{session.user.name || 'User'}</p>
+                                                <p className={styles.userEmail}>{session.user.email}</p>
+                                            </div>
+                                            <div className={styles.dropdownDivider} />
+                                            {session.user.role === 'ADMIN' && (
+                                                <Link href="/admin" className={styles.dropdownItem}>Admin Panel</Link>
+                                            )}
+                                            <Link href="/profile" className={styles.dropdownItem}>My Profile</Link>
+                                            <button onClick={() => signOut()} className={`${styles.dropdownItem} ${styles.logoutBtn}`}>
+                                                <LogOut size={16} />
+                                                <span>Sign Out</span>
+                                            </button>
+                                        </div>
+                                    )}
+                                </div>
                             </div>
                         )}
                     </div>

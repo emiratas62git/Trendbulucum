@@ -6,6 +6,10 @@ import BlogPageClient from './BlogPageClient';
 import AdSlot from '@/components/AdSlot';
 import AIChartRenderer from '@/components/AIChartRenderer';
 import styles from '../blog.module.css';
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/lib/auth";
+import { Sparkles, Lock, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 // ... (existing generateMetadata remains same, let's keep it consistent)
 
@@ -47,12 +51,17 @@ export async function generateMetadata({ params }) {
     };
 }
 
-export default function BlogPost({ params }) {
+export default async function BlogPost({ params }) {
+    const session = await getServerSession(authOptions);
     const post = blogPosts.find(p => p.slug === params.slug);
 
     if (!post) {
         notFound();
     }
+
+    const isAIReport = post.category === "Latest AI Analysis";
+    const isPremium = session?.user?.isPremium;
+    const isLocked = isAIReport && !isPremium;
 
     // Calculate related posts based on shared hashtags, sorted by views as a tiebreaker
     const relatedPosts = blogPosts
@@ -84,36 +93,56 @@ export default function BlogPost({ params }) {
                 <img src={post.image} alt={post.title} className={styles.articleImage} />
 
                 <div className={styles.articleTextContent}>
-                    {post.content.map((section, index) => (
-                        <div key={index} className={styles.section}>
-                            {section.subtitle && (
-                                <h2 className={styles.subtitle}>{section.subtitle}</h2>
-                            )}
-                            {section.type === 'chart' && (
-                                <AIChartRenderer chartData={section.chartData} chartType={section.chartType} />
-                            )}
-                            {section.text?.split('\n').filter(p => p.trim() !== '').map((paragraph, pIndex) => (
-                                <Fragment key={pIndex}>
-                                    <p className={styles.text} style={{ marginBottom: '1.5rem', lineHeight: '1.8' }}>
-                                        {paragraph.trim()}
-                                    </p>
-                                    <div style={{ margin: '2.5rem 0', display: 'flex', justifyContent: 'center' }}>
-                                        <AdSlot type="horizontal" />
-                                    </div>
-                                </Fragment>
-                            ))}
+                    {isLocked ? (
+                        <div className={styles.premiumOverlay}>
+                            <div className={styles.blurContent}>
+                                <p>{post.excerpt}</p>
+                                <p>{post.content[0].text.substring(0, 100)}...</p>
+                            </div>
+                            <div className={styles.lockCard}>
+                                <div className={styles.lockIconWrapper}>
+                                    <Lock size={32} />
+                                </div>
+                                <Sparkles size={24} className={styles.sparkleIcon} />
+                                <h2>Premium Analysis Locked</h2>
+                                <p>Unlock full weekly trend reports, deep-dive data, and actionable content strategies.</p>
+                                <Link href="/pricing" className={styles.unlockBtn}>
+                                    <span>Get Unlimited Access</span>
+                                    <ArrowRight size={18} />
+                                </Link>
+                                <p className={styles.trialText}>Start your 7-day free trial today.</p>
+                            </div>
                         </div>
-                    ))}
+                    ) : (
+                        post.content.map((section, index) => (
+                            <div key={index} className={styles.section}>
+                                {section.subtitle && (
+                                    <h2 className={styles.subtitle}>{section.subtitle}</h2>
+                                )}
+                                {section.type === 'chart' && (
+                                    <AIChartRenderer chartData={section.chartData} chartType={section.chartType} />
+                                )}
+                                {section.text?.split('\n').filter(p => p.trim() !== '').map((paragraph, pIndex) => (
+                                    <Fragment key={pIndex}>
+                                        <p className={styles.text} style={{ marginBottom: '1.5rem', lineHeight: '1.8' }}>
+                                            {paragraph.trim()}
+                                        </p>
+                                    </Fragment>
+                                ))}
+                            </div>
+                        ))
+                    )}
 
-                    {/* Author Section */}
-                    <div className={styles.authorSection}>
-                        <h3 className={styles.authorName}>
-                            Author: <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener noreferrer">Emir Can ATAŞ</a>
-                        </h3>
-                        <p className={styles.authorBio}>
-                            Emir Can ATAŞ is both the founder and the author of this website. He has been researching websites and technologies since 2017. He is the author of an AI analysis book and a coloring book for children. As of 2026, he is 27 years old and still deeply enjoys technology and websites.
-                        </p>
-                    </div>
+                    {!isLocked && (
+                        <div className={styles.authorSection}>
+                            <h3 className={styles.authorName}>
+                                Author: <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener noreferrer">Emir Can ATAŞ</a>
+                            </h3>
+                            <p className={styles.authorBio}>
+                                Emir Can ATAŞ is both the founder and the author of this website. He has been researching websites and technologies since 2017. He is the author of an AI analysis book and a coloring book for children. As of 2026, he is 27 years old and still deeply enjoys technology and websites.
+                            </p>
+                        </div>
+                    )}
                 </div>
             </article>
         </BlogPageClient>
