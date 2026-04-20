@@ -15,7 +15,7 @@ const PLANS = [
             'Premium Weekly AI Reports',
             'Full Platform Trend Data',
             'Idea Generation Engine',
-            'Pro Erişimi',
+            'Pro Access',
             'Standard Support'
         ],
         icon: <Zap />,
@@ -94,14 +94,14 @@ export default function PricingPage() {
                     {status === 'authenticated' ? (
                         <Link href="/dashboard" className={styles.loginBtn}>Dashboard</Link>
                     ) : (
-                        <button onClick={() => signIn()} className={styles.loginBtn}>Giriş Yap</button>
+                        <button onClick={() => signIn()} className={styles.loginBtn}>Sign In</button>
                     )}
                 </div>
             </header>
             <div className={styles.header}>
                 <span className={styles.badge}>Pricing Plans</span>
                 <h1>Master the Trends with Pro</h1>
-                <p>Amacınıza en uygun planı seçin. Şimdi Pro erişimi alın.</p>
+                <p>Choose the plan that fits your goals. Unlock Pro access today.</p>
             </div>
 
             <section className={styles.productSummary}>
@@ -152,7 +152,7 @@ export default function PricingPage() {
                             onClick={() => handleSubscribe(plan)}
                             disabled={loading !== null}
                         >
-                            {loading === plan.name ? <Loader2 className={styles.spin} /> : 'Şimdi Pro\'ya Geç'}
+                            {loading === plan.name ? <Loader2 className={styles.spin} /> : 'Upgrade to Pro'}
                             {loading !== plan.name && <ArrowRight size={18} />}
                         </button>
                     </div>
