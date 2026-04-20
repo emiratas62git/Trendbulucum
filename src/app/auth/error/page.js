@@ -1,7 +1,7 @@
 "use client";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import styles from "../../auth.module.css";
+import styles from "../auth.module.css";
 import { AlertCircle, ArrowLeft } from "lucide-react";
 
 export default function AuthErrorPage() {
