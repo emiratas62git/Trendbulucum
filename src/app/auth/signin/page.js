@@ -40,10 +40,6 @@ function SignInContent() {
         }
     };
 
-    const handleGoogleSignIn = () => {
-        signIn('google', { callbackUrl });
-    };
-
     return (
         <div className={styles.container}>
             <div className={styles.authCard}>
@@ -91,15 +87,6 @@ function SignInContent() {
                         {!loading && <ArrowRight size={18} />}
                     </button>
                 </form>
-
-                <div className={styles.divider}>
-                    <span>or continue with</span>
-                </div>
-
-                <button onClick={handleGoogleSignIn} className={styles.googleButton}>
-                    <Chrome size={18} />
-                    <span>Google</span>
-                </button>
 
                 <p className={styles.footerText}>
                     Don't have an account? <Link href="/auth/signup">Join TrendyFinder Pro</Link>

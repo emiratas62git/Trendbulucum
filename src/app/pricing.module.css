@@ -294,6 +294,106 @@
     transform: translateY(-2px);
 }
 
+.navActions .loginBtn:hover {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Welcome Guide Modal */
+.welcomeOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.welcomeModal {
+    background: #111827;
+    border: 1px solid #374151;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.welcomeModal h2 {
+    font-size: 1.5rem;
+    color: #f3f4f6;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.welcomeModal > p {
+    color: #9ca3af;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.guideSteps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.guideStep {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    color: #d1d5db;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.stepNumber {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+.gotItBtn {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    border: none;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.gotItBtn:hover {
+    background: linear-gradient(135deg, #059669, #047857);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 .subscribeBtn:disabled {
     opacity: 0.7;
     cursor: not-allowed;

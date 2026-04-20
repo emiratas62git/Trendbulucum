@@ -60,6 +60,21 @@ const PLANS = [
 export default function PricingPage() {
     const { data: session, status } = useSession();
     const [loading, setLoading] = useState(null);
+    const [showWelcome, setShowWelcome] = useState(false);
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const hasSeen = localStorage.getItem('hasSeenWelcome');
+            if (!hasSeen) {
+                setShowWelcome(true);
+            }
+        }
+    }, []);
+
+    const closeWelcome = () => {
+        localStorage.setItem('hasSeenWelcome', 'true');
+        setShowWelcome(false);
+    };
 
     const handleSubscribe = async (plan) => {
         // If not logged in, redirect to login page first and remember their intent
@@ -108,6 +123,36 @@ export default function PricingPage() {
 
     return (
         <div className={styles.container}>
+            {showWelcome && (
+                <div className={styles.welcomeOverlay}>
+                    <div className={styles.welcomeModal}>
+                        <h2>👋 Welcome to TrendyFinder Pro!</h2>
+                        <p>Here is your quick guide to getting started:</p>
+                        <div className={styles.guideSteps}>
+                            <div className={styles.guideStep}>
+                                <div className={styles.stepNumber}>1</div>
+                                <div><strong>Pick a Plan</strong>: Choose a subscription package below that fits your needs.</div>
+                            </div>
+                            <div className={styles.guideStep}>
+                                <div className={styles.stepNumber}>2</div>
+                                <div><strong>Create Account</strong>: Register your email securely when prompted.</div>
+                            </div>
+                            <div className={styles.guideStep}>
+                                <div className={styles.stepNumber}>3</div>
+                                <div><strong>Checkout</strong>: Complete your payment via the secure Lemon Squeezy pop-up.</div>
+                            </div>
+                            <div className={styles.guideStep}>
+                                <div className={styles.stepNumber}>4</div>
+                                <div><strong>Dashboard</strong>: Get instant access to AI reports and TikTok/YouTube trend metrics!</div>
+                            </div>
+                        </div>
+                        <button onClick={closeWelcome} className={styles.gotItBtn}>
+                            Got it, let's start!
+                        </button>
+                    </div>
+                </div>
+            )}
+            
             <header className={styles.navHeader}>
                 <Link href="/" className={styles.logoLink}>
                     <img src="/logo.png" alt="TrendyFinder Logo" className={styles.pageLogo} />
