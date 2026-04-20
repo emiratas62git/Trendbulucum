@@ -63,7 +63,8 @@ export async function POST(req) {
         
         if (checkout.errors) {
             console.error("LS Checkout Error:", checkout.errors);
-            return NextResponse.json({ error: "Billing service error" }, { status: 500 });
+            const lsErrorDetail = checkout.errors[0]?.detail || "Unknown billing error";
+            return NextResponse.json({ error: lsErrorDetail }, { status: 500 });
         }
 
         return NextResponse.json({ url: checkout.data.attributes.url });
