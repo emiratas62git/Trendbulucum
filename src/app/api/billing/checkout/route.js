@@ -15,7 +15,7 @@ export async function POST(req) {
         const VARIANTS = {
             'Monthly Pro': process.env.LS_MONTHLY_VARIANT_ID,
             '3-Month Growth': process.env.LS_QUARTERLY_VARIANT_ID,
-            'Annual Mastery': process.env.LS_YEARLY_VARIANT_ID,
+            'Annual Mastery': process.env.LS_ANNUAL_VARIANT_ID,
         };
 
         const variantId = VARIANTS[planId];
@@ -49,7 +49,7 @@ export async function POST(req) {
                     },
                     relationships: {
                         store: {
-                            data: { type: "stores", id: process.env.LS_STORE_ID },
+                            data: { type: "stores", id: process.env.LEMONSQUEEZY_STORE_ID },
                         },
                         variant: {
                             data: { type: "variants", id: variantId },

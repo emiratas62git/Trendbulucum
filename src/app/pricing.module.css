@@ -97,6 +97,49 @@
     line-height: 1.6;
 }
 
+.productSummary {
+    max-width: 1200px;
+    margin: 0 auto 6rem;
+    padding: 4rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+    border-radius: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.productSummary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.2), transparent);
+}
+
+.summaryContent {
+    max-width: 900px;
+}
+
+.summaryContent h2 {
+    font-size: 2.25rem;
+    color: var(--text-main);
+    margin-bottom: 2rem;
+    letter-spacing: -0.5px;
+}
+
+.summaryContent p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.summaryContent p:last-child {
+    margin-bottom: 0;
+}
+
 .pricingGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

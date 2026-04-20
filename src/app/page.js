@@ -14,7 +14,7 @@ const PLANS = [
             'Premium Weekly AI Reports',
             'Full Platform Trend Data',
             'Idea Generation Engine',
-            '7-Day Premium Pass',
+            'Pro Erişimi',
             'Standard Support'
         ],
         icon: <Zap />,
@@ -86,8 +86,23 @@ export default function PricingPage() {
             <div className={styles.header}>
                 <span className={styles.badge}>Pricing Plans</span>
                 <h1>Master the Trends with Pro</h1>
-                <p>Choose the plan that fits your ambition. Start with a 7-day premium pass.</p>
+                <p>Amacınıza en uygun planı seçin. Şimdi Pro erişimi alın.</p>
             </div>
+
+            <section className={styles.productSummary}>
+                <div className={styles.summaryContent}>
+                    <h2>Why TrendyFinder Pro?</h2>
+                    <p>
+                        TrendyFinder is a premium AI-driven intelligence platform designed for content creators, marketers, and social media professionals. 
+                        Our advanced algorithms analyze real-time data across major platforms like TikTok, YouTube, and LinkedIn to provide you with actionable insights, 
+                        viral content ideas, and predictive trend analysis.
+                    </p>
+                    <p>
+                        By bridging the gap between raw data and creative execution, TrendyFinder empowers you to dominate your niche and grow your audience with data-backed confidence. 
+                        Our Pro features unlock deep-dive analytics and exclusive trend reports that give you a competitive edge in the fast-paced digital landscape.
+                    </p>
+                </div>
+            </section>
 
             <div className={styles.pricingGrid}>
                 {PLANS.map((plan, i) => (
@@ -122,7 +137,7 @@ export default function PricingPage() {
                             onClick={() => handleSubscribe(plan)}
                             disabled={loading !== null}
                         >
-                            {loading === plan.name ? <Loader2 className={styles.spin} /> : 'Start 7-Day Premium Pass'}
+                            {loading === plan.name ? <Loader2 className={styles.spin} /> : 'Şimdi Pro\'ya Geç'}
                             {loading !== plan.name && <ArrowRight size={18} />}
                         </button>
                     </div>

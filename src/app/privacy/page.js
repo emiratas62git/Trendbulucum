@@ -1,14 +1,14 @@
 "use client";
-import styles from '../pricing/pricing.module.css';
+import styles from '../pricing.module.css';
 import Link from 'next/link';
 import { ArrowLeft, Shield } from 'lucide-react';
 
 export default function PrivacyPage() {
     return (
         <div className={styles.container} style={{ maxWidth: '800px', margin: '0 auto' }}>
-            <Link href="/pricing" className={styles.logoLink} style={{ marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none', color: 'var(--text-muted)' }}>
+            <Link href="/" className={styles.logoLink} style={{ marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none', color: 'var(--text-muted)' }}>
                 <ArrowLeft size={18} />
-                <span>Back to Pricing</span>
+                <span>Ana Sayfaya Dön</span>
             </Link>
             
             <header style={{ marginBottom: '3rem' }}>

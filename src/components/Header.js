@@ -161,7 +161,7 @@ export default function Header({ title: propTitle, onTimeframeChange: propOnTime
                         )}
                         <input
                             type="text"
-                            placeholder={pathname === '/' ? "Search all trends..." : `Search in ${pathname.replace('/', '').toUpperCase()}...`}
+                            placeholder={(pathname === '/' || pathname === '/dashboard') ? "Search all trends..." : `Search in ${pathname.replace('/', '').toUpperCase()}...`}
                             className={styles.searchInput}
                             value={query}
                             onChange={(e) => {
@@ -215,9 +215,9 @@ export default function Header({ title: propTitle, onTimeframeChange: propOnTime
                         ) : (
                             <div className={styles.userProfile}>
                                 {!session.user.isPremium && (
-                                    <Link href="/pricing" className={styles.proBtn}>
+                                    <Link href="/" className={styles.proBtn}>
                                         <Sparkles size={16} />
-                                        <span>Go Pro</span>
+                                        <span>Şimdi Pro'ya Geç</span>
                                     </Link>
                                 )}
                                     <div className={styles.userNameDisplay}>

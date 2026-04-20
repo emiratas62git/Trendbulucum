@@ -5,7 +5,7 @@ import Header from '@/components/Header';
 import { TrendService } from '@/services/TrendService';
 import { TrendingUp, Activity, Award, Hash, Youtube, Video, Twitter, Instagram, Linkedin, Pin } from 'lucide-react';
 import { useDashboard } from '@/context/DashboardContext';
-import styles from './Dashboard.module.css';
+import styles from '../Dashboard.module.css';
 
 export default function Home() {
     const [trends, setTrends] = useState(null);

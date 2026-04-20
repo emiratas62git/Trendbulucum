@@ -7,7 +7,7 @@ import { Home, Youtube, Twitter, Instagram, Video, BarChart2, Linkedin, Pin, Inf
 import styles from './Sidebar.module.css';
 
 const MENU_ITEMS = [
-    { name: 'Overview', path: '/', icon: Home },
+    { name: 'Overview', path: '/dashboard', icon: Home },
     { name: 'YouTube', path: '/youtube', icon: Youtube },
     { name: 'TikTok', path: '/tiktok', icon: Video },
     { name: 'Twitter / X', path: '/twitter', icon: Twitter },
@@ -62,12 +62,12 @@ export default function Sidebar() {
                             <div key={item.path}>
                                 {index === 0 && !isPremium && (
                                     <Link 
-                                        href="/pricing" 
+                                        href="/" 
                                         className={styles.premiumMenuItem}
                                         onClick={closeSidebar}
                                     >
                                         <Sparkles size={20} />
-                                        <span>Try Premium</span>
+                                        <span>Şimdi Pro'ya Geç</span>
                                     </Link>
                                 )}
                                 {isFirstInfo && <div className={styles.navTitle}>Info & Support</div>}
