@@ -2,14 +2,18 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function GET(req) {
     // 1. Verify Cron Secret (Security)
     const authHeader = req.headers.get('authorization');
     if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
         return new Response('Unauthorized', { status: 401 });
     }
+
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+        return NextResponse.json({ error: "Missing RESEND_API_KEY" }, { status: 500 });
+    }
+    const resend = new Resend(apiKey);
 
     try {
         const now = new Date();
