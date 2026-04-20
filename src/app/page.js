@@ -19,7 +19,8 @@ const PLANS = [
             'Standard Support'
         ],
         icon: <Zap />,
-        variant: 'standard'
+        variant: 'standard',
+        buttonText: 'Buy Monthly Plan'
     },
     {
         name: '3-Month Growth',
@@ -35,7 +36,8 @@ const PLANS = [
         ],
         icon: <Rocket />,
         variant: 'featured',
-        badge: 'Best Value'
+        badge: 'Best Value',
+        buttonText: 'Buy 3-Month Plan'
     },
     {
         name: 'Annual Mastery',
@@ -50,7 +52,8 @@ const PLANS = [
             'VIP 24/7 Support'
         ],
         icon: <Star />,
-        variant: 'premium'
+        variant: 'premium',
+        buttonText: 'Buy Annual Plan'
     }
 ];
 
@@ -171,7 +174,7 @@ export default function PricingPage() {
                             onClick={() => handleSubscribe(plan)}
                             disabled={loading !== null}
                         >
-                            {loading === plan.name ? <Loader2 className={styles.spin} /> : 'Upgrade to Pro'}
+                            {loading === plan.name ? <Loader2 className={styles.spin} /> : plan.buttonText || 'Upgrade to Pro'}
                             {loading !== plan.name && <ArrowRight size={18} />}
                         </button>
                     </div>
