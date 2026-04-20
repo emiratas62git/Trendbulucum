@@ -299,6 +299,42 @@
     cursor: not-allowed;
 }
 
+.navHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    max-width: 1300px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.logoLink {
+    display: flex;
+    align-items: center;
+}
+
+.loginBtn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    padding: 0.6rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.loginBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent-primary);
+    transform: translateY(-1px);
+}
+
 .footerSection {
     margin-top: 6rem;
     display: flex;

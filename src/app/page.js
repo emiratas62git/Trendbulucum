@@ -1,7 +1,4 @@
-"use client";
-import { useState } from 'react';
-import { Check, Zap, Rocket, Star, ShieldCheck, Sparkles, ArrowRight, Loader2 } from 'lucide-react';
-import styles from './pricing.module.css';
+import { useSession, signIn } from 'next-auth/react';
 import Link from 'next/link';
 
 const PLANS = [
@@ -54,9 +51,16 @@ const PLANS = [
 ];
 
 export default function PricingPage() {
+    const { data: session, status } = useSession();
     const [loading, setLoading] = useState(null);
 
     const handleSubscribe = async (plan) => {
+        // If not logged in, redirect to login page first
+        if (status !== 'authenticated') {
+            signIn();
+            return;
+        }
+
         setLoading(plan.name);
         try {
             // Logic to create Lemon Squeezy checkout
@@ -82,6 +86,13 @@ export default function PricingPage() {
                 <Link href="/" className={styles.logoLink}>
                     <img src="/logo.png" alt="TrendyFinder Logo" className={styles.pageLogo} />
                 </Link>
+                <div className={styles.navActions}>
+                    {status === 'authenticated' ? (
+                        <Link href="/dashboard" className={styles.loginBtn}>Dashboard</Link>
+                    ) : (
+                        <button onClick={() => signIn()} className={styles.loginBtn}>Giriş Yap</button>
+                    )}
+                </div>
             </header>
             <div className={styles.header}>
                 <span className={styles.badge}>Pricing Plans</span>
