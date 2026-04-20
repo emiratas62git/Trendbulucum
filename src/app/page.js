@@ -1,5 +1,5 @@
 "use client";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSession, signIn } from 'next-auth/react';
 import { Check, Zap, Rocket, Star, ShieldCheck, Sparkles, ArrowRight, Loader2 } from 'lucide-react';
 import styles from './pricing.module.css';
@@ -59,9 +59,9 @@ export default function PricingPage() {
     const [loading, setLoading] = useState(null);
 
     const handleSubscribe = async (plan) => {
-        // If not logged in, redirect to login page first
+        // If not logged in, redirect to login page first and remember their intent
         if (status !== 'authenticated') {
-            signIn();
+            signIn(undefined, { callbackUrl: '/?checkout=' + encodeURIComponent(plan.name) });
             return;
         }
 
@@ -86,6 +86,22 @@ export default function PricingPage() {
             setLoading(null);
         }
     };
+
+    // Auto-checkout if user was redirected from login with a pending plan
+    useEffect(() => {
+        if (typeof window !== 'undefined' && status === 'authenticated') {
+            const urlParams = new URLSearchParams(window.location.search);
+            const checkoutPlan = urlParams.get('checkout');
+            if (checkoutPlan) {
+                const plan = PLANS.find(p => p.name === checkoutPlan);
+                if (plan) {
+                    // Clean URL immediately so it doesn't run again
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                    handleSubscribe(plan);
+                }
+            }
+        }
+    }, [status]);
 
     return (
         <div className={styles.container}>
