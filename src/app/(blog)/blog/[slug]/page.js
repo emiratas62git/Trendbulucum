@@ -109,7 +109,6 @@ export default async function BlogPost({ params }) {
                                     <span>Get Unlimited Access</span>
                                     <ArrowRight size={18} />
                                 </Link>
-                                <p className={styles.trialText}>Start your 7-day premium pass today.</p>
                             </div>
                         </div>
                     ) : (
