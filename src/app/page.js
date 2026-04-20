@@ -76,9 +76,12 @@ export default function PricingPage() {
             const data = await res.json();
             if (data.url) {
                 window.location.href = data.url;
+            } else if (data.error) {
+                alert(`Ödeme sistemi hatası: ${data.error}`);
             }
         } catch (e) {
             console.error("Subscription failed:", e);
+            alert("Bir bağlantı hatası oluştu. Lütfen tekrar deneyin.");
         } finally {
             setLoading(null);
         }
