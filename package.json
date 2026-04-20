@@ -7,7 +7,8 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
-        "generate-report": "node scripts/generate_weekly_ai_report.js"
+        "generate-report": "node scripts/generate_weekly_ai_report.js",
+        "postinstall": "prisma generate"
     },
     "dependencies": {
         "@google/generative-ai": "^0.24.1",
