@@ -61,14 +61,21 @@ export const authOptions = {
 
             return true;
         },
-        async session({ session, token, user }) {
-            if (session.user) {
-                session.user.id = user.id;
-                session.user.role = user.role;
+        async jwt({ token, user }) {
+            if (user) {
+                token.id = user.id;
+                token.role = user.role;
+            }
+            return token;
+        },
+        async session({ session, token }) {
+            if (session.user && token) {
+                session.user.id = token.id;
+                session.user.role = token.role;
                 
                 // Get subscription status
                 const subscription = await prisma.subscription.findFirst({
-                    where: { userId: user.id, status: 'active' }
+                    where: { userId: token.id, status: 'active' }
                 });
                 session.user.isPremium = !!subscription;
             }
@@ -80,7 +87,7 @@ export const authOptions = {
         error: '/auth/error',
     },
     session: {
-        strategy: "database",
+        strategy: "jwt",
     },
     secret: process.env.NEXTAUTH_SECRET,
 };

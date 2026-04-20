@@ -1,13 +1,16 @@
 "use client";
-import { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { LogIn, Mail, Lock, Chrome, ArrowRight, Loader2 } from 'lucide-react';
 import styles from '../auth.module.css';
 
-export default function SignInPage() {
+function SignInContent() {
     const router = useRouter();
+    const searchParams = useSearchParams();
+    const callbackUrl = searchParams.get('callbackUrl') || '/';
+    
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const [form, setForm] = useState({ email: '', password: '' });
@@ -27,7 +30,7 @@ export default function SignInPage() {
             if (res.error) {
                 setError(res.error);
             } else {
-                router.push('/');
+                router.push(callbackUrl);
                 router.refresh();
             }
         } catch (err) {
@@ -38,7 +41,7 @@ export default function SignInPage() {
     };
 
     const handleGoogleSignIn = () => {
-        signIn('google', { callbackUrl: '/' });
+        signIn('google', { callbackUrl });
     };
 
     return (
@@ -103,5 +106,17 @@ export default function SignInPage() {
                 </p>
             </div>
         </div>
+    );
+}
+
+export default function SignInPage() {
+    return (
+        <Suspense fallback={
+            <div className={styles.container} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <Loader2 className={styles.spin} size={32} />
+            </div>
+        }>
+            <SignInContent />
+        </Suspense>
     );
 }
