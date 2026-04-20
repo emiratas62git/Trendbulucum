@@ -1,4 +1,8 @@
+"use client";
+import { useState } from 'react';
 import { useSession, signIn } from 'next-auth/react';
+import { Check, Zap, Rocket, Star, ShieldCheck, Sparkles, ArrowRight, Loader2 } from 'lucide-react';
+import styles from './pricing.module.css';
 import Link from 'next/link';
 
 const PLANS = [
