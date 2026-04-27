@@ -65,9 +65,12 @@ export async function GET(req) {
         const approximateLoss = cancellations.length * 10; // Simple estimate: each cancellation is a $10 loss
 
         // --- Email 1: Performance Summary ---
+        const adminEmail = process.env.ADMIN_EMAIL || 'emircanatas62@gmail.com';
+        console.log(`Sending performance report to: ${adminEmail}`);
+        
         await resend.emails.send({
-            from: 'TrendyFinder Admin <admin@trendyfinder.com>',
-            to: process.env.ADMIN_EMAIL,
+            from: 'TrendyFinder <onboarding@resend.dev>',
+            to: adminEmail,
             subject: `[Weekly Admin Report] ${now.toLocaleDateString()}`,
             html: `
                 <div style="font-family: sans-serif; padding: 20px; color: #1e293b;">
@@ -113,17 +116,15 @@ export async function GET(req) {
         });
 
         // --- Email 2: Latest AI Report ---
-        // Fetch the newest blog post that is an AI Report
-        // This is a placeholder logic depending on how reports are stored
         await resend.emails.send({
-            from: 'TrendyFinder AI <reports@trendyfinder.com>',
-            to: process.env.ADMIN_EMAIL,
+            from: 'TrendyFinder AI <onboarding@resend.dev>',
+            to: adminEmail,
             subject: `[Weekly AI Analysis] Copy for Admin`,
             html: `
                 <div style="font-family: sans-serif; gap: 20px;">
                     <h2>Haftalık Yapay Zeka Raporu</h2>
                     <p>Bu haftaki trend analizi raporu başarıyla oluşturuldu ve siteye eklendi.</p>
-                    <a href="${process.env.NEXTAUTH_URL}/blog" style="background: #6366f1; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Raporu Sitede Gör</a>
+                    <a href="${process.env.NEXTAUTH_URL || 'https://trendyfinderpro.com'}/blog" style="background: #6366f1; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Raporu Sitede Gör</a>
                 </div>
             `
         });
