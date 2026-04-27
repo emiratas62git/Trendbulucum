@@ -4,7 +4,7 @@
     right: 2rem;
     z-index: 2147483647;
     /* Max z-index to stay above everything */
-    background: var(--scroll-color, linear-gradient(135deg, var(--primary), var(--secondary)));
+    background: var(--scroll-color, linear-gradient(135deg, var(--primary), #818cf8));
     color: #fff;
     width: 3.5rem;
     height: 3.5rem;

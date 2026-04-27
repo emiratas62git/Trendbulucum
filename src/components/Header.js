@@ -11,6 +11,8 @@ import { User, LogOut, Sparkles } from 'lucide-react';
 import TrendLifecycleModal from './TrendLifecycleModal';
 import SearchAlertModal from './SearchAlertModal';
 
+import { getTranslation } from '@/lib/i18n';
+
 export default function Header({ title: propTitle, onTimeframeChange: propOnTimeframeChange }) {
     const pathname = usePathname();
     const { searchQuery, setSearchQuery, timeframe, setTimeframe, toggleSidebar } = useDashboard();
@@ -20,6 +22,14 @@ export default function Header({ title: propTitle, onTimeframeChange: propOnTime
     const [searchResult, setSearchResult] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+    
+    // Detection for browser language
+    const [t, setT] = useState(getTranslation('en'));
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            setT(getTranslation(navigator.language));
+        }
+    }, []);
 
     // Derive title if not provided
     const getDerivedTitle = () => {
@@ -217,11 +227,28 @@ export default function Header({ title: propTitle, onTimeframeChange: propOnTime
                                 {!session.user.isPremium && (
                                     <Link href="/" className={styles.proBtn}>
                                         <Sparkles size={16} />
-                                        <span>Şimdi Pro'ya Geç</span>
+                                        <span>{t.upgradePro}</span>
                                     </Link>
                                 )}
                                     <div className={styles.userNameDisplay}>
-                                        <p className={styles.headerUserName}>{session.user.name || 'User'}</p>
+                                        <p className={styles.headerUserName}>
+                                            {session.user.name || 'User'}
+                                            {session.user.isPremium && (
+                                                <span className={styles.remainingDays}>
+                                                    {session.user.subscriptionEnd === 'unlimited' ? (
+                                                        t.unlimitedPro
+                                                    ) : (
+                                                        (() => {
+                                                            const end = new Date(session.user.subscriptionEnd);
+                                                            const now = new Date();
+                                                            const diffTime = Math.abs(end - now);
+                                                            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                                                            return `${diffDays} ${t.daysLeft}`;
+                                                        })()
+                                                    )}
+                                                </span>
+                                            )}
+                                        </p>
                                     </div>
                                     <div className={styles.avatarWrapper} onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}>
                                     {session.user.image ? (
@@ -233,21 +260,24 @@ export default function Header({ title: propTitle, onTimeframeChange: propOnTime
                                     )}
                                     
                                     {isUserMenuOpen && (
-                                        <div className={styles.userDropdown}>
-                                            <div className={styles.userInfo}>
-                                                <p className={styles.userName}>{session.user.name || 'User'}</p>
-                                                <p className={styles.userEmail}>{session.user.email}</p>
+                                        <>
+                                            <div className={styles.dropdownOverlay} onClick={() => setIsUserMenuOpen(false)} />
+                                            <div className={styles.userDropdown}>
+                                                <div className={styles.userInfo}>
+                                                    <p className={styles.userName}>{session.user.name || 'User'}</p>
+                                                    <p className={styles.userEmail}>{session.user.email}</p>
+                                                </div>
+                                                <div className={styles.dropdownDivider} />
+                                                {session.user.role === 'ADMIN' && (
+                                                    <Link href="/admin" className={styles.dropdownItem}>Admin Panel</Link>
+                                                )}
+                                                <Link href="/profile" className={styles.dropdownItem}>{t.accountSettings}</Link>
+                                                <button onClick={() => signOut()} className={`${styles.dropdownItem} ${styles.logoutBtn}`}>
+                                                    <LogOut size={16} />
+                                                    <span>Sign Out</span>
+                                                </button>
                                             </div>
-                                            <div className={styles.dropdownDivider} />
-                                            {session.user.role === 'ADMIN' && (
-                                                <Link href="/admin" className={styles.dropdownItem}>Admin Panel</Link>
-                                            )}
-                                            <Link href="/profile" className={styles.dropdownItem}>My Profile</Link>
-                                            <button onClick={() => signOut()} className={`${styles.dropdownItem} ${styles.logoutBtn}`}>
-                                                <LogOut size={16} />
-                                                <span>Sign Out</span>
-                                            </button>
-                                        </div>
+                                        </>
                                     )}
                                 </div>
                             </div>

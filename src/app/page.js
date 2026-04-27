@@ -57,10 +57,20 @@ const PLANS = [
     }
 ];
 
+import { getTranslation } from '@/lib/i18n';
+
 export default function PricingPage() {
     const { data: session, status } = useSession();
     const [loading, setLoading] = useState(null);
     const [showWelcome, setShowWelcome] = useState(false);
+
+    // Detection for browser language
+    const [t, setT] = useState(getTranslation('en'));
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            setT(getTranslation(navigator.language));
+        }
+    }, []);
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -83,6 +93,12 @@ export default function PricingPage() {
             return;
         }
 
+        // Bypass payment for specific user
+        if (session?.user?.email === 'emircanatas62@gmail.com') {
+            window.location.href = '/dashboard';
+            return;
+        }
+
         setLoading(plan.name);
         try {
             // Logic to create Lemon Squeezy checkout
@@ -91,19 +107,36 @@ export default function PricingPage() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ planId: plan.name })
             });
+            
+            if (!res.ok) {
+                const errorData = await res.json().catch(() => ({}));
+                throw new Error(errorData.error || `HTTP error! status: ${res.status}`);
+            }
+
             const data = await res.json();
             if (data.url) {
                 window.location.href = data.url;
             } else if (data.error) {
-                alert(`Ödeme sistemi hatası: ${data.error}`);
+                alert(`Billing system error: ${data.error}`);
             }
         } catch (e) {
             console.error("Subscription failed:", e);
-            alert("Bir bağlantı hatası oluştu. Lütfen tekrar deneyin.");
+            alert("An error occurred while connecting to the payment page. Please check your internet connection or try again later.");
         } finally {
             setLoading(null);
         }
     };
+
+    // Redirect premium users from landing page to dashboard
+    useEffect(() => {
+        if (status === 'authenticated' && session?.user?.isPremium) {
+            // Only redirect if they aren't explicitly trying to checkout a different plan
+            const urlParams = new URLSearchParams(window.location.search);
+            if (!urlParams.get('checkout')) {
+                window.location.href = '/dashboard';
+            }
+        }
+    }, [status, session]);
 
     // Auto-checkout if user was redirected from login with a pending plan
     useEffect(() => {
@@ -238,7 +271,7 @@ export default function PricingPage() {
                     <Sparkles size={24} />
                     <div>
                         <h4>About TrendyFinder</h4>
-                        <p>Providing cutting-edge AI trend analysis for creators since 2024.</p>
+                        <p>Providing cutting-edge AI trend analysis for creators since 2026.</p>
                     </div>
                 </div>
             </div>
@@ -248,7 +281,7 @@ export default function PricingPage() {
                     <Link href="/about">Who We Are</Link>
                     <Link href="/privacy">Privacy Policy</Link>
                     <Link href="/terms">Terms of Service</Link>
-                    <Link href="/contact">Contact Support</Link>
+                    <a href="https://www.linkedin.com/in/emircanataş626210/" target="_blank" rel="noopener noreferrer">Contact Support</a>
                 </div>
                 <p className={styles.copyright}>© 2026 TrendyFinder Pro. All rights reserved.</p>
             </footer>

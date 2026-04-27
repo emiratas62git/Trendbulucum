@@ -1,4 +1,5 @@
 "use client";
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useDashboard } from '@/context/DashboardContext';
@@ -22,12 +23,22 @@ const MENU_ITEMS = [
     { name: 'How It Works', path: '/how-it-works', icon: Wrench, type: 'info' },
 ];
 
+import { getTranslation } from '@/lib/i18n';
+
 export default function Sidebar() {
     const pathname = usePathname();
     const { data: session } = useSession();
     const { isPlatformVisible, togglePlatform, isSidebarOpen, closeSidebar } = useDashboard();
     
     const isPremium = session?.user?.isPremium;
+
+    // Detection for browser language
+    const [t, setT] = useState(getTranslation('en'));
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            setT(getTranslation(navigator.language));
+        }
+    }, []);
 
     return (
         <>
@@ -67,7 +78,7 @@ export default function Sidebar() {
                                         onClick={closeSidebar}
                                     >
                                         <Sparkles size={20} />
-                                        <span>Şimdi Pro'ya Geç</span>
+                                        <span>{t.upgradePro}</span>
                                     </Link>
                                 )}
                                 {isFirstInfo && <div className={styles.navTitle}>Info & Support</div>}

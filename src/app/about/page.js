@@ -23,7 +23,7 @@ export default function AboutPage() {
 
             <section style={{ color: 'var(--text-main)', lineHeight: '1.8', fontSize: '1.05rem' }}>
                 <p style={{ marginBottom: '1.5rem' }}>
-                    Founded in 2024 by Emir Can ATAŞ, we combine deep data analysis with the latest Google Gemini AI models to filter out the noise and deliver actionable insights.
+                    Founded in 2026 by Emir Can ATAŞ, we combine deep data analysis with the latest Google Gemini AI models to filter out the noise and deliver actionable insights.
                 </p>
                 <p style={{ marginBottom: '1.5rem' }}>
                     Our team believes that the future of social media belongs to those who can predict the next big thing before it happens. TrendyFinder Pro is the bridge between raw data and creative success.

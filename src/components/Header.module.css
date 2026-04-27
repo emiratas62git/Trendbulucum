@@ -495,7 +495,7 @@
     font-size: 0.85rem;
     font-weight: 700;
     color: var(--text-main);
-    max-width: 120px;
+    max-width: 250px; /* Increased to accommodate days */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -503,4 +503,28 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.remainingDays {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 99px;
+    -webkit-text-fill-color: #10b981; /* Override parent gradient */
+    font-weight: 600;
+}
+
+.dropdownOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+    background: transparent;
 }

@@ -73,11 +73,26 @@ export const authOptions = {
                 session.user.id = token.id;
                 session.user.role = token.role;
                 
-                // Get subscription status
+                // Fetch active subscription
                 const subscription = await prisma.subscription.findFirst({
-                    where: { userId: token.id, status: 'active' }
+                    where: { 
+                        userId: token.id, 
+                        status: 'active' 
+                    },
+                    orderBy: {
+                        createdAt: 'desc'
+                    }
                 });
+
+                // Default logic
                 session.user.isPremium = !!subscription;
+                session.user.subscriptionEnd = subscription?.currentPeriodEnd;
+
+                // Special handling for the owner
+                if (session.user.email === 'emircanatas62@gmail.com') {
+                    session.user.isPremium = true;
+                    session.user.subscriptionEnd = 'unlimited';
+                }
             }
             return session;
         },
