@@ -281,7 +281,8 @@ export default function PricingPage() {
                     <Link href="/about">Who We Are</Link>
                     <Link href="/privacy">Privacy Policy</Link>
                     <Link href="/terms">Terms of Service</Link>
-                    <a href="https://www.linkedin.com/in/emircanataş626210/" target="_blank" rel="noopener noreferrer">Contact Support</a>
+                    <a href="https://www.linkedin.com/in/emircanata%C5%9F626210/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:emircanatas62@gmail.com">Email Support</a>
                 </div>
                 <p className={styles.copyright}>© 2026 TrendyFinder Pro. All rights reserved.</p>
             </footer>
