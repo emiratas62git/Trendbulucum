@@ -233,22 +233,22 @@ export default function Header({ title: propTitle, onTimeframeChange: propOnTime
                                     <div className={styles.userNameDisplay}>
                                         <p className={styles.headerUserName}>
                                             {session.user.name || 'User'}
-                                            {session.user.isPremium && (
-                                                <span className={styles.remainingDays}>
-                                                    {session.user.subscriptionEnd === 'unlimited' ? (
-                                                        t.unlimitedPro
-                                                    ) : (
-                                                        (() => {
-                                                            const end = new Date(session.user.subscriptionEnd);
-                                                            const now = new Date();
-                                                            const diffTime = Math.abs(end - now);
-                                                            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-                                                            return `${diffDays} ${t.daysLeft}`;
-                                                        })()
-                                                    )}
-                                                </span>
-                                            )}
                                         </p>
+                                        {session.user.isPremium && (
+                                            <span className={styles.remainingDays}>
+                                                {session.user.subscriptionEnd === 'unlimited' ? (
+                                                    t.unlimitedPro
+                                                ) : (
+                                                    (() => {
+                                                        const end = new Date(session.user.subscriptionEnd);
+                                                        const now = new Date();
+                                                        const diffTime = Math.abs(end - now);
+                                                        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                                                        return `${diffDays} ${t.daysLeft}`;
+                                                    })()
+                                                )}
+                                            </span>
+                                        )}
                                     </div>
                                     <div className={styles.avatarWrapper} onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}>
                                     {session.user.image ? (
@@ -266,6 +266,21 @@ export default function Header({ title: propTitle, onTimeframeChange: propOnTime
                                                 <div className={styles.userInfo}>
                                                     <p className={styles.userName}>{session.user.name || 'User'}</p>
                                                     <p className={styles.userEmail}>{session.user.email}</p>
+                                                    {session.user.isPremium && (
+                                                        <div className={styles.dropdownSubscription}>
+                                                            {session.user.subscriptionEnd === 'unlimited' ? (
+                                                                t.unlimitedPro
+                                                            ) : (
+                                                                (() => {
+                                                                    const end = new Date(session.user.subscriptionEnd);
+                                                                    const now = new Date();
+                                                                    const diffTime = Math.abs(end - now);
+                                                                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                                                                    return `${diffDays} ${t.daysLeft}`;
+                                                                })()
+                                                            )}
+                                                        </div>
+                                                    )}
                                                 </div>
                                                 <div className={styles.dropdownDivider} />
                                                 {session.user.role === 'ADMIN' && (
