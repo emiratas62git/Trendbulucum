@@ -84,7 +84,7 @@ export default function Sidebar() {
                                 {isFirstInfo && <div className={styles.navTitle}>Info & Support</div>}
                                 <div className={styles.navItemWrapper}>
                                     <Link
-                                        href={item.path}
+                                        href={!isPremium && (isPlatform || item.path === '/dashboard') ? '/' : item.path}
                                         className={`${styles.navItem} ${isActive ? styles.active : ''}`}
                                         onClick={closeSidebar}
                                     >

@@ -191,6 +191,7 @@ export default function PricingPage() {
                     <img src="/logo.png" alt="TrendyFinder Logo" className={styles.pageLogo} />
                 </Link>
                 <div className={styles.navActions}>
+                    <Link href="/blog" className={styles.loginBtn} style={{ marginRight: '1rem', background: 'transparent', borderColor: 'transparent' }}>Blog</Link>
                     {status === 'authenticated' ? (
                         <Link href="/dashboard" className={styles.loginBtn}>Dashboard</Link>
                     ) : (

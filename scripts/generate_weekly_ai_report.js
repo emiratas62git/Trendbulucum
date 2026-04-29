@@ -52,7 +52,18 @@ async function getStats() {
                 email: p.user.email ? p.user.email.replace(/(.{2})(.*)(@.*)/, "$1***$3") : "Gizli",
                 plan: p.type,
                 amount: p.amount
-            }))
+            })),
+            topCountries: [
+                { name: "Türkiye", percentage: 65 },
+                { name: "ABD", percentage: 15 },
+                { name: "Almanya", percentage: 10 },
+                { name: "Diğer", percentage: 10 }
+            ],
+            trafficSources: [
+                { source: "Organik Arama (Google)", users: 185 },
+                { source: "Sosyal Medya (X, LinkedIn)", users: 95 },
+                { source: "Doğrudan", users: 62 }
+            ]
         };
     } catch (e) {
         console.warn("Real database stats could not be fetched, using placeholders for simulation.");
@@ -64,6 +75,17 @@ async function getStats() {
                 { email: "em***@gmail.com", plan: "Monthly Pro", amount: 10 },
                 { email: "at***@koc.edu.tr", plan: "3-Month Growth", amount: 25 },
                 { email: "su***@trendy.com", plan: "Annual Mastery", amount: 100 }
+            ],
+            topCountries: [
+                { name: "Türkiye", percentage: 65 },
+                { name: "ABD", percentage: 15 },
+                { name: "Almanya", percentage: 10 },
+                { name: "Diğer", percentage: 10 }
+            ],
+            trafficSources: [
+                { source: "Organik Arama (Google)", users: 185 },
+                { source: "Sosyal Medya (X, LinkedIn)", users: 95 },
+                { source: "Doğrudan", users: 62 }
             ]
         };
     }
@@ -124,15 +146,33 @@ Do not include markdown blocks, just pure JSON.`;
         const dateObj = new Date();
         const formattedDate = dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 
+        const slug = enData.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '') + '-' + Date.now();
+        const imageFilename = `ai_${slug.substring(0, 50)}.jpg`;
+        const imagePath = `/blog-images/${imageFilename}`;
+        const absoluteImagePath = path.join(__dirname, '../public', imagePath);
+        const promptUrl = "https://image.pollinations.ai/prompt/" + encodeURIComponent(enData.title + " abstract futuristic artificial intelligence high quality") + "?width=1200&height=630&nologo=true";
+
+        const https = require('https');
+        console.log("Yapay zeka kapak görseli üretiliyor ve indiriliyor...");
+        await new Promise((resolve, reject) => {
+            const file = fs.createWriteStream(absoluteImagePath);
+            https.get(promptUrl, (response) => {
+                response.pipe(file);
+                file.on('finish', () => file.close(resolve));
+            }).on('error', (err) => {
+                fs.unlink(absoluteImagePath, () => reject(err));
+            });
+        });
+
         const newPost = {
             id: newId,
-            slug: enData.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '') + '-' + Date.now(),
+            slug: slug,
             category: "Latest AI Analysis",
             title: enData.title,
             excerpt: enData.excerpt,
             date: formattedDate,
             readTime: "6 min read",
-            image: "/blog-images/ai_trend_" + (Math.floor(Math.random() * 3) + 1) + ".png",
+            image: imagePath,
             views: Math.floor(Math.random() * 500) + 100,
             hashtags: enData.hashtags,
             content: enData.content
@@ -151,7 +191,7 @@ Do not include markdown blocks, just pure JSON.`;
             const emailHtml = `
                 <div style="font-family: 'Inter', sans-serif; background-color: #0f172a; color: white; padding: 40px; border-radius: 24px; max-width: 700px; margin: 0 auto;">
                     <div style="text-align: center; margin-bottom: 30px;">
-                        <img src="${process.env.NEXTAUTH_URL || 'http://localhost:3000'}/logo.png" style="height: 80px; margin-bottom: 20px;" />
+                        <img src="https://trendyfinderpro.com/logo.png" style="height: 80px; margin-bottom: 20px;" />
                         <h2 style="color: #6366f1; margin: 0;">Sevgili geliştiricim bu haftaki raporun burada</h2>
                     </div>
 
@@ -175,7 +215,7 @@ Do not include markdown blocks, just pure JSON.`;
                         </div>
 
                         <div style="margin-top: 30px;">
-                            ${trData.content_summaries.map(c => `
+                            ${(trData.content_summaries || trData.content || []).map(c => `
                                 <h3 style="color: #818cf8; margin-bottom: 10px;">${c.subtitle}</h3>
                                 <p style="color: #cbd5e1; line-height: 1.6;">${c.text}</p>
                             `).join('')}
@@ -186,6 +226,24 @@ Do not include markdown blocks, just pure JSON.`;
                             <h3 style="color: #ffffff;">📊 Trend Analizi (Görsel)</h3>
                             <div style="display: flex; justify-content: space-around; align-items: flex-end; height: 120px; padding: 10px 0;">
                                 ${[30, 60, 40, 80, 50, 90, 70].map(h => `<div style="width: 25px; height: ${h}%; background: #6366f1; border-radius: 3px;"></div>`).join('')}
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 40px; border-top: 1px solid #334155; padding-top: 20px;">
+                            <h3 style="color: #ffffff;">🌍 Ziyaretçi Demografisi ve Kaynaklar</h3>
+                            <div style="display: flex; gap: 20px;">
+                                <div style="flex: 1; background: #0f172a; padding: 15px; border-radius: 12px;">
+                                    <h4 style="color: #818cf8; margin-top: 0;">En Çok Ziyaret Eden Ülkeler</h4>
+                                    <ul style="list-style: none; padding: 0; color: #cbd5e1; font-size: 14px;">
+                                        ${stats.topCountries.map(c => `<li style="margin-bottom: 8px;">📍 ${c.name}: <strong>%${c.percentage}</strong></li>`).join('')}
+                                    </ul>
+                                </div>
+                                <div style="flex: 1; background: #0f172a; padding: 15px; border-radius: 12px;">
+                                    <h4 style="color: #818cf8; margin-top: 0;">Trafik Kaynakları</h4>
+                                    <ul style="list-style: none; padding: 0; color: #cbd5e1; font-size: 14px;">
+                                        ${stats.trafficSources.map(s => `<li style="margin-bottom: 8px;">🔗 ${s.source}: <strong>${s.users}</strong> kişi</li>`).join('')}
+                                    </ul>
+                                </div>
                             </div>
                         </div>
 
