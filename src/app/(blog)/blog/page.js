@@ -24,17 +24,33 @@ export default async function BlogList({ searchParams }) {
     // Sorting logic
     const sortedPosts = [...blogPosts];
 
-    if (selectedCategory === 'Latest') {
-        // Sort by date descending, then by views descending for same-date posts
-        sortedPosts.sort((a, b) => {
-            const dateA = new Date(a.date);
-            const dateB = new Date(b.date);
-            if (dateB - dateA !== 0) return dateB - dateA;
-            return (b.views || 0) - (a.views || 0);
-        });
-    } else {
-        sortedPosts.sort((a, b) => (b.views || 0) - (a.views || 0));
-    }
+    // Helper to parse dates like "18 Nis 2026" or "May 10, 2026" safely
+    const parseDateSafe = (dateStr) => {
+        if (!dateStr) return 0;
+        const turkishMonths = {
+            'Oca': 'Jan', 'Şub': 'Feb', 'Mar': 'Mar', 'Nis': 'Apr', 'May': 'May', 'Haz': 'Jun',
+            'Tem': 'Jul', 'Ağu': 'Aug', 'Eyl': 'Sep', 'Eki': 'Oct', 'Kas': 'Nov', 'Ara': 'Dec',
+            'Ocak': 'Jan', 'Şubat': 'Feb', 'Mart': 'Mar', 'Nisan': 'Apr', 'Mayıs': 'May', 'Haziran': 'Jun',
+            'Temmuz': 'Jul', 'Ağustos': 'Aug', 'Eylül': 'Sep', 'Ekim': 'Oct', 'Kasım': 'Nov', 'Aralık': 'Dec'
+        };
+        let englishDateStr = dateStr;
+        for (const [tr, en] of Object.entries(turkishMonths)) {
+            if (englishDateStr.includes(tr)) {
+                englishDateStr = englishDateStr.replace(tr, en);
+                break;
+            }
+        }
+        const time = new Date(englishDateStr).getTime();
+        return isNaN(time) ? 0 : time;
+    };
+
+    // Always sort by date descending, then by views descending for same-date posts
+    sortedPosts.sort((a, b) => {
+        const timeA = parseDateSafe(a.date);
+        const timeB = parseDateSafe(b.date);
+        if (timeB - timeA !== 0) return timeB - timeA;
+        return (b.views || 0) - (a.views || 0);
+    });
 
     // Filter by search and category
     const filteredPosts = sortedPosts.filter(post => {

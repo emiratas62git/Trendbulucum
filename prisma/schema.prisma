@@ -24,6 +24,7 @@ model User {
   subscriptions Subscription[]
   auditLogs     AuditLog[]
   purchases     Purchase[]
+  comments      Comment[]
 
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
@@ -103,3 +104,15 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+
+model Comment {
+  id        String   @id @default(cuid())
+  postId    String
+  text      String   @db.Text
+  author    String   @default("Anonymous")
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  
+  createdAt DateTime @default(now())
+}
+

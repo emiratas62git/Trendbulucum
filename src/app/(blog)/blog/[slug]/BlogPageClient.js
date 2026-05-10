@@ -1,18 +1,70 @@
 "use client";
-import { useState, useMemo, useEffect, useCallback, useRef } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import { ArrowLeft, Eye, Search, Home, ChevronUp, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import styles from '../blog.module.css';
 import BlogPromoCard from '@/components/BlogPromoCard';
 import BlogPoll from './BlogPoll';
 
-export default function BlogPageClient({ post, relatedPosts, children }) {
+export default function BlogPageClient({ post, relatedPosts, isLoggedIn, isLocked, children }) {
     const searchParams = useSearchParams();
+    const router = useRouter();
     const from = searchParams.get('from'); // 'blog' or 'tiktok', 'pinterest', etc.
     const [searchTerm, setSearchTerm] = useState('');
     const [currentMatchIndex, setCurrentMatchIndex] = useState(0);
     const searchRef = useRef(null);
+    const [commentText, setCommentText] = useState('');
+    const [comments, setComments] = useState([]);
+    const [isPostingComment, setIsPostingComment] = useState(false);
+    
+    // Fetch comments on load
+    useEffect(() => {
+        fetch(`/api/comments?postId=${post.id}`)
+            .then(res => res.json())
+            .then(data => {
+                if (Array.isArray(data)) setComments(data);
+            })
+            .catch(e => console.error("Error fetching comments:", e));
+    }, [post.id]);
+
+    // Translation state
+    const [showingTranslated, setShowingTranslated] = useState(new Set());
+    const [translations, setTranslations] = useState({});
+    const [isTranslating, setIsTranslating] = useState(new Set());
+
+    const toggleTranslation = async (id, text) => {
+        if (showingTranslated.has(id)) {
+            setShowingTranslated(prev => {
+                const newSet = new Set(prev);
+                newSet.delete(id);
+                return newSet;
+            });
+            return;
+        }
+
+        if (translations[id]) {
+            setShowingTranslated(prev => new Set(prev).add(id));
+            return;
+        }
+
+        setIsTranslating(prev => new Set(prev).add(id));
+        try {
+            const res = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=tr&dt=t&q=${encodeURIComponent(text)}`);
+            const data = await res.json();
+            const translatedText = data[0].map(item => item[0]).join('');
+            setTranslations(prev => ({ ...prev, [id]: translatedText }));
+            setShowingTranslated(prev => new Set(prev).add(id));
+        } catch (error) {
+            console.error("Translation error", error);
+        } finally {
+            setIsTranslating(prev => {
+                const newSet = new Set(prev);
+                newSet.delete(id);
+                return newSet;
+            });
+        }
+    };
 
     // Reset current index when search term changes
     useEffect(() => {
@@ -176,12 +228,107 @@ export default function BlogPageClient({ post, relatedPosts, children }) {
                 The main content is now handled by the server for 100% SEO.
             */}
 
-            <div className={styles.articleLayout} style={{ marginTop: '2rem', display: 'block', maxWidth: '800px', margin: '2rem auto' }}>
+            <div className={styles.articleLayout} style={{ marginTop: '2rem', display: 'block', width: '100%', maxWidth: '1000px', padding: '0 1rem', margin: '2rem auto' }}>
                 <div className={styles.mainContent} style={{ border: 'none', padding: 0 }}>
                     {children}
                     <div className={styles.articleTextContent}>
                         {/* Feedback Poll */}
                         <BlogPoll postId={post.id} />
+
+                        {/* Comments Section */}
+                        {!isLocked && (
+                            <div className={styles.commentsSection} style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid var(--border)' }}>
+                                <h3 style={{ fontSize: '1.25rem', marginBottom: '1rem', color: 'var(--text)', textAlign: 'center' }}>Comments</h3>
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                                    <textarea 
+                                        placeholder="Write your comment..."
+                                        style={{ width: '100%', minHeight: '100px', padding: '1rem', borderRadius: '12px', border: '1px solid var(--border)', background: 'var(--bg-secondary)', color: 'var(--text)', resize: 'vertical', fontSize: '14px', fontFamily: 'inherit' }}
+                                        onClick={() => {
+                                            if (!isLoggedIn) {
+                                                router.push('/pricing');
+                                            }
+                                        }}
+                                        onChange={(e) => {
+                                            if (isLoggedIn) {
+                                                setCommentText(e.target.value);
+                                            }
+                                        }}
+                                        value={commentText}
+                                        readOnly={!isLoggedIn}
+                                    />
+                                    <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '1rem' }}>
+                                        <button 
+                                            onClick={async () => {
+                                                if (!isLoggedIn) {
+                                                    router.push('/pricing');
+                                                    return;
+                                                }
+                                                if (commentText.trim()) {
+                                                    setIsPostingComment(true);
+                                                    try {
+                                                        const res = await fetch('/api/comments', {
+                                                            method: 'POST',
+                                                            headers: { 'Content-Type': 'application/json' },
+                                                            body: JSON.stringify({ postId: post.id, text: commentText.trim() })
+                                                        });
+                                                        const data = await res.json();
+                                                        if (data.success) {
+                                                            setComments([...comments, data.comment]);
+                                                            setCommentText('');
+                                                        } else {
+                                                            alert(data.error || "Failed to post comment");
+                                                        }
+                                                    } catch (e) {
+                                                        console.error(e);
+                                                        alert("An error occurred");
+                                                    } finally {
+                                                        setIsPostingComment(false);
+                                                    }
+                                                }
+                                            }}
+                                            className={`${styles.pollButton} ${styles.dislikeButton}`}
+                                            style={{ margin: 0, opacity: isPostingComment ? 0.5 : 1 }}
+                                            disabled={isPostingComment}
+                                        >
+                                            {isPostingComment ? 'Posting...' : 'Post Comment'}
+                                        </button>
+                                    </div>
+                                    <div style={{ marginTop: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                                        {comments.map(c => {
+                                            const isTranslated = showingTranslated.has(c.id);
+                                            const isLoading = isTranslating.has(c.id);
+                                            const displayText = isTranslated ? translations[c.id] : c.text;
+                                            
+                                            return (
+                                                <div key={c.id} style={{ padding: '1rem', background: 'var(--bg-secondary)', borderRadius: '8px', border: '1px solid var(--border)' }}>
+                                                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                                                        <strong>{c.author}</strong>
+                                                        <span>{c.date}</span>
+                                                    </div>
+                                                    <div style={{ color: 'var(--text)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+                                                        {displayText}
+                                                    </div>
+                                                    <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                                                        <button 
+                                                            style={{ background: 'none', border: 'none', color: 'var(--primary)', fontSize: '0.8rem', cursor: isLoading ? 'wait' : 'pointer', padding: 0, opacity: isLoading ? 0.5 : 1 }} 
+                                                            onClick={() => toggleTranslation(c.id, c.text)}
+                                                            disabled={isLoading}
+                                                        >
+                                                            {isLoading ? 'Translating...' : (isTranslated ? 'Show Original' : 'Translate to Turkish')}
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            );
+                                        })}
+                                        {comments.length === 0 && (
+                                            <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', textAlign: 'center', margin: '1rem 0' }}>
+                                                Be the first to comment.
+                                            </p>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+                        )}
 
                         {/* Related Posts */}
                         {relatedPosts && relatedPosts.length > 0 && (

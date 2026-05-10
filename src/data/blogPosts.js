@@ -1,5 +1,275 @@
 export const blogPosts = [
     {
+        "id": 1011,
+        "slug": "weekly-ai-trend-analysis-the-rise-of-slms-and-generative-video-innovation-1778414620969",
+        "category": "Latest AI Analysis",
+        "title": "Weekly AI Trend Analysis: The Rise of SLMs and Generative Video Innovation",
+        "excerpt": "Discover how Small Language Models (SLMs) and high-fidelity generative video tools are reshaping the artificial intelligence landscape this week.",
+        "date": "May 10, 2026",
+        "readTime": "6 min read",
+        "image": "/blog-images/ai_weekly-ai-trend-analysis-the-rise-of-slms-and-gene.jpg",
+        "views": 517,
+        "hashtags": [
+            "#AI",
+            "#GenerativeVideo",
+            "#SLM",
+            "#TechTrends2024",
+            "#TrendyFinderPro"
+        ],
+        "content": [
+            {
+                "subtitle": "The Strategic Pivot to Small Language Models (SLMs)",
+                "text": "This week, we observed a significant industry pivot from massive LLMs to highly specialized Small Language Models. Developers are prioritizing efficiency and low latency for on-device applications. Models like Phi-3 and Mistral-7B are dominating the conversation, proving that parameters aren't the only metric for success. Companies are now looking for cost-effective ways to deploy AI without the massive overhead of cloud-based giants."
+            },
+            {
+                "subtitle": "Bar Chart: Daily Virality Volume",
+                "type": "chart",
+                "chartType": "bar",
+                "chartData": [
+                    {
+                        "label": "Mon",
+                        "value": 4500
+                    },
+                    {
+                        "label": "Tue",
+                        "value": 5200
+                    },
+                    {
+                        "label": "Wed",
+                        "value": 6100
+                    },
+                    {
+                        "label": "Thu",
+                        "value": 5800
+                    },
+                    {
+                        "label": "Fri",
+                        "value": 7200
+                    },
+                    {
+                        "label": "Sat",
+                        "value": 4100
+                    },
+                    {
+                        "label": "Sun",
+                        "value": 3800
+                    }
+                ]
+            },
+            {
+                "subtitle": "Pie Chart: Bot vs Human Interaction",
+                "type": "chart",
+                "chartType": "pie",
+                "chartData": [
+                    {
+                        "label": "Human",
+                        "value": 62
+                    },
+                    {
+                        "label": "Verified Bots",
+                        "value": 28
+                    },
+                    {
+                        "label": "Unidentified Traffic",
+                        "value": 10
+                    }
+                ]
+            },
+            {
+                "subtitle": "Candlestick: Hourly Volatility",
+                "type": "chart",
+                "chartType": "candlestick",
+                "chartData": [
+                    {
+                        "time": "08:00",
+                        "open": 102,
+                        "high": 110,
+                        "low": 98,
+                        "close": 105
+                    },
+                    {
+                        "time": "12:00",
+                        "open": 105,
+                        "high": 125,
+                        "low": 104,
+                        "close": 120
+                    },
+                    {
+                        "time": "16:00",
+                        "open": 120,
+                        "high": 122,
+                        "low": 115,
+                        "close": 118
+                    },
+                    {
+                        "time": "20:00",
+                        "open": 118,
+                        "high": 119,
+                        "low": 110,
+                        "close": 112
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1010,
+        "slug": "weekly-ai-evolution-large-language-models-and-edge-computing-synergy-1778412175700",
+        "category": "Latest AI Analysis",
+        "title": "Weekly AI Evolution: Large Language Models and Edge Computing Synergy",
+        "excerpt": "A comprehensive analysis of the shift towards Small Language Models (SLMs), on-device AI integration, and the evolving landscape of human-bot digital interactions.",
+        "date": "May 10, 2026",
+        "readTime": "6 min read",
+        "image": "/blog-images/ai_weekly-ai-evolution-large-language-models-and-edge.jpg",
+        "views": 585,
+        "hashtags": [
+            "#AI",
+            "#GenerativeAI",
+            "#TechTrends2024",
+            "#MachineLearning",
+            "#EdgeComputing"
+        ],
+        "content": [
+            {
+                "subtitle": "The Rise of Efficiency: SLMs vs LLMs",
+                "text": "This week observed a significant pivot in the industry towards Small Language Models (SLMs). While Large Language Models (LLMs) like GPT-4 continue to dominate complex reasoning tasks, the market is demanding more cost-effective, private, and localized solutions. Microsoft’s Phi-3 and Google's Gemini Nano are leading the charge, proving that high-quality inference can occur on local hardware without sacrificing substantial accuracy. This democratization of AI is expected to accelerate integration into consumer electronics and IoT devices throughout the fiscal quarter."
+            },
+            {
+                "subtitle": "Bar Chart: Daily Virality Volume",
+                "type": "chart",
+                "chartType": "bar",
+                "chartData": [
+                    {
+                        "label": "Mon",
+                        "value": 4200
+                    },
+                    {
+                        "label": "Tue",
+                        "value": 5100
+                    },
+                    {
+                        "label": "Wed",
+                        "value": 4800
+                    },
+                    {
+                        "label": "Thu",
+                        "value": 7200
+                    },
+                    {
+                        "label": "Fri",
+                        "value": 6500
+                    },
+                    {
+                        "label": "Sat",
+                        "value": 3100
+                    },
+                    {
+                        "label": "Sun",
+                        "value": 2800
+                    }
+                ]
+            },
+            {
+                "subtitle": "Pie Chart: Bot vs Human Interaction",
+                "type": "chart",
+                "chartType": "pie",
+                "chartData": [
+                    {
+                        "label": "Verified Humans",
+                        "value": 62
+                    },
+                    {
+                        "label": "Automated Bots",
+                        "value": 28
+                    },
+                    {
+                        "label": "Hybrid/Unidentified",
+                        "value": 10
+                    }
+                ]
+            },
+            {
+                "subtitle": "Candlestick: Hourly Volatility",
+                "type": "chart",
+                "chartType": "candlestick",
+                "chartData": [
+                    {
+                        "time": "09:00",
+                        "open": 150,
+                        "high": 155,
+                        "low": 148,
+                        "close": 152
+                    },
+                    {
+                        "time": "10:00",
+                        "open": 152,
+                        "high": 160,
+                        "low": 151,
+                        "close": 158
+                    },
+                    {
+                        "time": "11:00",
+                        "open": 158,
+                        "high": 159,
+                        "low": 153,
+                        "close": 154
+                    },
+                    {
+                        "time": "12:00",
+                        "open": 154,
+                        "high": 156,
+                        "low": 150,
+                        "close": 151
+                    }
+                ]
+            },
+            {
+                "subtitle": "Ethical AI and Regulatory Compliance",
+                "text": "Regulatory bodies in the EU and the US have increased their scrutiny of generative data sources. Our sentiment analysis indicates a 15% increase in user concern regarding data privacy. Companies that emphasize 'Transparent AI' are seeing a higher trust score in public forums compared to those with opaque training methodologies. The trend is clearly moving toward 'Privacy by Design' as a competitive advantage rather than just a legal requirement."
+            }
+        ]
+    },
+    {
+        "id": 1009,
+        "slug": "social-media-trends-and-digital-income-2026",
+        "category": "Trends",
+        "title": "Social Media Trends and Digital Income: Monetization Models in 2026",
+        "excerpt": "The latest trends on social media platforms are opening new revenue streams for digital content creators. How can you turn engagement into money?",
+        "date": "May 10, 2026",
+        "readTime": "6 min read",
+        "image": "/blog-images/social_media_money_trends.jpg",
+        "views": 250,
+        "hashtags": [
+            "#SocialMedia",
+            "#Monetization",
+            "#DigitalIncome",
+            "#Trends2026",
+            "#TrendyFinderPro"
+        ],
+        "content": [
+            {
+                "subtitle": "A New Era in the Digital Economy",
+                "text": "2026 is going down in history as the year social media platforms transformed from mere entertainment tools into full-fledged digital economy hubs. In the past, brands only worked with influencers who had massive follower bases, but today micro and nano content creators are also generating significant income. Algorithms no longer reward just follower counts, but engagement rates and the ability to appeal to niche audiences. This has redefined the rules of the game for anyone looking to make money through social media."
+            },
+            {
+                "subtitle": "Catching Trends and Monetizing",
+                "text": "Today, catching a trend requires much more than just using a popular sound. Analyzing consumer behavior, making data-driven decisions, and anticipating what audiences need is critical for success. The use of AI-powered data analytics tools, in particular, shows content creators where the market is shifting in seconds. Insights provided by systems like TrendyFinder Pro offer unique opportunities on how organic engagement can be turned into a sustainable revenue model. People now prefer to consume short, punchy videos that focus directly on solutions rather than long and exhausting content."
+            },
+            {
+                "subtitle": "Diversifying Revenue Models",
+                "text": "Relying on a single platform or a single revenue model is one of the biggest strategic mistakes one can make in today's digital world. Successful content creators are diversifying their income streams with sponsorships, digital product sales, subscription systems, and even e-commerce integrations, alongside ad revenues. In-platform tipping and exclusive content subscription features are increasing the share of direct audience revenue in total earnings day by day. Because of this, potential traffic drops due to algorithm updates do not shake the financial stability of creators as much as they used to."
+            },
+            {
+                "subtitle": "Personal Branding and Community Management",
+                "text": "The secret to long-term success is building a loyal community rather than chasing passing trends. The quality of the bond you build with your followers is the most important factor that directly affects brands' willingness to work with you. Authenticity and transparency have become the most valuable digital currencies of 2026. Content creators who share their experiences, failures, and learnings with their community gain much higher engagement and trust compared to those who project a perfect profile. This trust ultimately translates into sales, subscriptions, and brand collaborations."
+            },
+            {
+                "subtitle": "Preparing for the Future: What to Expect?",
+                "text": "In the coming period, augmented reality (AR) and virtual reality (VR) integrations are expected to completely change the social media experience. For content creators, this will mean designing three-dimensional and interactive experiences, not just two-dimensional screens. Those who quickly adapt to new technologies and are the first to try innovations will be the first to reap the rewards of this change. Leaving a lasting mark on social media and turning it into financial success requires continuous learning and being open to development."
+            }
+        ]
+    },
+    {
         "id": 1008,
         "slug": "the-rise-of-multimodal-ai-weekly-intelligence-report-by-trendyfinder-pro-1777488578357",
         "category": "Latest AI Analysis",
@@ -350,7 +620,7 @@ export const blogPosts = [
         "excerpt": "This week's report dives into the exponential growth of generative video tools like Kling and Runway Gen-3, analyzing market sentiment and interaction patterns in the AI landscape.",
         "date": "Apr 29, 2026",
         "readTime": "6 min read",
-        "image": "/blog-images/ai_weekly-ai-analysis-the-explosion-of-multimodal-vid.jpg",
+        "image": "/blog-images/ai_analysis_multimodal.png",
         "views": 116,
         "hashtags": [
             "#GenerativeAI",
@@ -467,7 +737,7 @@ export const blogPosts = [
         "excerpt": "A comprehensive analysis of this week's most impactful AI developments, focusing on the rapid advancement of video synthesis models and the strategic implications of the EU AI Act.",
         "date": "Apr 29, 2026",
         "readTime": "6 min read",
-        "image": "/blog-images/ai_weekly-ai-frontier-the-surge-of-generative-vide.jpg",
+        "image": "/blog-images/ai_frontier_video.png",
         "views": 517,
         "hashtags": [
             "#GenerativeAI",
@@ -780,94 +1050,94 @@ export const blogPosts = [
     },
     {
         "id": 1001,
-        "slug": "2026-yapay-zeka-trend-analizi-i-çerik-üreticileri-i-çin-stratejik-büyüme-ve-kazanç-rehberi-1776534379055",
+        "slug": "2026-ai-trend-analysis-strategic-growth-and-revenue-guide-for-content-creators",
         "category": "Latest AI Analysis",
-        "title": "2026 Yapay Zeka Trend Analizi: İçerik Üreticileri İçin Stratejik Büyüme ve Kazanç Rehberi",
-        "excerpt": "TrendyFinder Pro'nun bu haftalık raporunda yapay zeka ekosistemindeki en son değişimleri, TikTok ve LinkedIn'deki büyüme fırsatlarını ve haftalık performans verilerimizi keşfedin.",
-        "date": "18 Nis 2026",
-        "readTime": "6 dk okuma",
+        "title": "2026 AI Trend Analysis: Strategic Growth and Revenue Guide for Content Creators",
+        "excerpt": "Discover the latest shifts in the AI ecosystem, growth opportunities on TikTok and LinkedIn, and our weekly performance metrics in TrendyFinder Pro's weekly report.",
+        "date": "Apr 18, 2026",
+        "readTime": "6 min read",
         "image": "/blog-images/ai_2026-yapay-zeka-trend-analizi-i-çerik-üreticile.jpg",
         "views": 286,
         "hashtags": [
-            "#YapayZeka",
-            "#İçerikStratejisi",
+            "#ArtificialIntelligence",
+            "#ContentStrategy",
             "#TrendyFinderPro",
-            "#DijitalPazarlama",
-            "#TrendAnalizi"
+            "#DigitalMarketing",
+            "#TrendAnalysis"
         ],
         "content": [
             {
-                "subtitle": "Executive Summary: Bu Haftanın Büyük Resmi",
-                "text": "Yapay zeka dünyasında bu hafta, üretken video modellerinin ve hiper-kişiselleştirilmiş içerik algoritmalarının domine ettiği bir döneme şahitlik ettik. TrendyFinder Pro verilerine göre, AI araçlarının kullanımı sadece bir 'yardımcı' olmaktan çıkarak, ana akım içerik üretim süreçlerinin merkezine yerleşti. Bu hafta platformumuzda 342 aktif ziyaretçi ağırladık ve kullanıcılarımızın trendlere erişimini en üst seviyeye çıkardık. Genel pazar dinamikleri; kullanıcıların artık sadece yapay zeka tarafından üretilmiş içeriklere değil, yapay zekayla geliştirilmiş ve 'insan dokunuşu' barındıran içeriklere daha fazla rağbet gösterdiğini kanıtlıyor. Özellikle dil modellerinin bağlamsal doğruluğundaki artış, SEO odaklı metin yazarlığında yeni standartlar belirliyor. Bu süreçte kazandığımız 14 yeni kullanıcı, platformumuzun sağladığı analitik verilerin ne kadar kritik olduğunu bir kez daha gösterdi. Elde ettiğimiz 245.5$ tutarındaki haftalık kazanç ise, stratejik içerik üretiminin doğrudan ticari başarıya dönüştüğünün en net göstergesidir."
+                "subtitle": "Executive Summary: This Week's Big Picture",
+                "text": "This week in the AI world, we witnessed an era dominated by generative video models and hyper-personalized content algorithms. According to TrendyFinder Pro data, the use of AI tools has moved from being merely an 'assistant' to the center of mainstream content production processes. This week, we hosted 342 active visitors on our platform and maximized our users' access to trends. General market dynamics prove that users are now demanding not just AI-generated content, but AI-enhanced content with a 'human touch'. Especially the increase in contextual accuracy of language models is setting new standards in SEO-focused copywriting. The 14 new users we gained during this process once again demonstrated how critical the analytical data provided by our platform is. The weekly revenue of $245.50 we achieved is the clearest indicator that strategic content production directly translates into commercial success."
             },
             {
-                "subtitle": "Platform Kazananları: TikTok ve LinkedIn Arasındaki Makas Daralıyor",
-                "text": "Büyüme verilerini incelediğimizde, TikTok'un kısa formlu video algoritmasının, yapay zeka tabanlı kurgu araçlarıyla entegrasyonu sayesinde %18'lik bir etkileşim artışı yakaladığını görüyoruz. Ancak asıl sürpriz profesyonel iş ağı LinkedIn tarafında yaşandı. LinkedIn'in 'Yapay Zeka Destekli Yazım Asistanı' özelliği, platformdaki makale paylaşım oranlarını ciddi ölçüde artırdı. İçerik üreticileri için TikTok hala bir 'viralite' merkeziyken, LinkedIn ise 'otorite' kurma noktasında rakipsizliğini koruyor. TrendyFinder Pro analizleri; platformlar arası çapraz paylaşım stratejilerinin, bu hafta her zamankinden daha yüksek bir ROI (Yatırım Getirisi) sağladığını ortaya koyuyor. Özellikle yapay zekayla üretilen görsel içeriklerin LinkedIn'e uygun profesyonel bir tonda yeniden yorumlanması, takipçiye dönüşüm oranlarını %12 artırdı."
+                "subtitle": "Platform Winners: The Gap Narrows Between TikTok and LinkedIn",
+                "text": "When we examine the growth data, we see that TikTok's short-form video algorithm achieved an 18% engagement increase thanks to its integration with AI-based editing tools. However, the real surprise occurred on the professional business network LinkedIn. LinkedIn's 'AI-Powered Writing Assistant' feature significantly increased the article sharing rates on the platform. While TikTok remains a center of 'virality' for content creators, LinkedIn maintains its undisputed position in building 'authority'. TrendyFinder Pro analytics reveal that cross-platform sharing strategies provided a higher ROI (Return on Investment) this week than ever before. In particular, reinterpreting AI-generated visual content in a professional tone suitable for LinkedIn increased follower conversion rates by 12%."
             },
             {
-                "subtitle": "Bar Chart: Günlük Viralite Hacmi",
+                "subtitle": "Bar Chart: Daily Virality Volume",
                 "type": "chart",
                 "chartType": "bar",
                 "chartData": [
                     {
-                        "name": "Pzt",
+                        "name": "Mon",
                         "value": 1100
                     },
                     {
-                        "name": "Sal",
+                        "name": "Tue",
                         "value": 1450
                     },
                     {
-                        "name": "Çar",
+                        "name": "Wed",
                         "value": 1300
                     },
                     {
-                        "name": "Per",
+                        "name": "Thu",
                         "value": 1650
                     },
                     {
-                        "name": "Cum",
+                        "name": "Fri",
                         "value": 1900
                     },
                     {
-                        "name": "Cmt",
+                        "name": "Sat",
                         "value": 2100
                     },
                     {
-                        "name": "Paz",
+                        "name": "Sun",
                         "value": 1750
                     }
                 ]
             },
             {
-                "subtitle": "En Popüler 3 Konu: Derinlemesine Analiz ve Aksiyon Önerileri",
-                "text": "Bu haftanın gündemini belirleyen üç ana başlık; Çok Modlu (Multimodal) Yapay Zeka, Yapay Zeka Etiği ve Yerel Dil Modelleri oldu. İlk olarak, metinden videoya dönüştürme araçları içerik üreticilerinin prodüksiyon maliyetlerini %60 oranında düşürmelerine olanak tanıdı. Aksiyon önerimiz: 'Sora' ve benzeri araçlar herkesin kullanımına açılmadan önce, yapay zekanın sunduğu video estetiğini markanıza entegre etmenizdir. İkinci popüler konu olan yapay zeka etiği, özellikle 'deepfake' teknolojisi ve telif hakları çerçevesinde tartışıldı. İzleyiciler artık şeffaflık bekliyor; bu nedenle yapay zeka kullandığınız içeriklerde 'Yapay Zeka Tarafından Üretilmiştir' etiketini kullanmak, hedef kitlenizle güven inşa etmenizi sağlar. Üçüncü olarak, yerel dil modellerinin gelişimiyle birlikte Türkçe içeriklerdeki anlamsal doğruluk ciddi şekilde arttı. TrendyFinder Pro verilerine göre; yerel kültürel referanslarla beslenen yapay zeka içerikleri, sıradan çeviri içeriklere kıyasla %45 daha fazla kaydedilme oranına ulaşıyor."
+                "subtitle": "Top 3 Popular Topics: In-Depth Analysis and Action Recommendations",
+                "text": "The three main topics that shaped this week's agenda were Multimodal AI, AI Ethics, and Local Language Models. First, text-to-video conversion tools allowed content creators to reduce their production costs by 60%. Our action recommendation: Before tools like 'Sora' become available to everyone, integrate the video aesthetics offered by AI into your brand. The second popular topic, AI ethics, was discussed especially within the framework of 'deepfake' technology and copyrights. Audiences now expect transparency; therefore, using the 'Generated by AI' label in the content you use AI for allows you to build trust with your target audience. Third, with the development of local language models, the semantic accuracy in local content has increased significantly. According to TrendyFinder Pro data; AI content fed with local cultural references reaches a 45% higher save rate compared to ordinary translated content."
             },
             {
-                "subtitle": "İçerik Stratejisi: Trendlerden Maksimum Fayda Sağlama Yolları",
-                "text": "Mevcut trendlerden en iyi şekilde faydalanmak için 'Hızlı Prototipleme' yöntemini benimsemelisiniz. Yapay zeka araçlarını kullanarak günde 10 farklı içerik taslağı oluşturmak ve bunlar arasından en yüksek potansiyele sahip 2 taslağı manuel olarak detaylandırmak, verimliliğinizi artırmanın en pratik yoludur. SEO odaklı düşündüğümüzde; 'Long-tail' (uzun kuyruklu) anahtar kelimelerin, yapay zeka tarafından kullanıcı niyetine göre gruplandırılması organik trafik elde etmenin kilit noktasıdır. Sistemimizdeki 342 aktif ziyaretçinin davranışlarını incelediğimizde; kullanıcıların 'nasıl yapılır' tarzı rehberlerden ziyade 'sonuç odaklı vaka çalışmaları' (case studies) ile daha fazla etkileşime girdiğini saptadık. Bu hafta platformumuza katılan 14 yeni kullanıcının ortak özelliği, sunduğumuz veri odaklı içerik haritalarını takip etmeleridir. Elde ettiğimiz 245.5$ değerindeki haftalık gelir, işte bu stratejik yönlendirmelerin başarılı bir sonucudur."
+                "subtitle": "Content Strategy: Ways to Maximize Benefits from Trends",
+                "text": "To make the most of current trends, you should adopt the 'Rapid Prototyping' method. Generating 10 different content drafts a day using AI tools and manually detailing the 2 drafts with the highest potential is the most practical way to increase your efficiency. Thinking SEO-focused; grouping 'long-tail' keywords by user intent via AI is the key to getting organic traffic. When we examined the behavior of the 342 active visitors on our system, we found that users interacted more with 'results-oriented case studies' rather than 'how-to' style guides. The common feature of the 14 new users who joined our platform this week is that they follow the data-oriented content maps we offer. The weekly revenue of $245.50 we achieved is a successful result of these strategic orientations."
             },
             {
-                "subtitle": "Pie Chart: Robot ve İnsan Etkileşimi",
+                "subtitle": "Pie Chart: Robot vs Human Interaction",
                 "type": "chart",
                 "chartType": "pie",
                 "chartData": [
                     {
-                        "name": "Bot/Yapay Zeka",
+                        "name": "Bot/AI",
                         "value": 22
                     },
                     {
-                        "name": "Organik/İnsan",
+                        "name": "Organic/Human",
                         "value": 78
                     }
                 ]
             },
             {
-                "subtitle": "Gelecek Görünümü: Gelecek Hafta Bizi Neler Bekliyor?",
-                "text": "Önümüzdeki hafta, kişiselleştirilmiş yapay zeka asistanlarının sosyal medya akışlarına (feed) daha fazla entegre olmasını öngörüyoruz. Instagram'ın test aşamasındaki 'AI Arkadaş' özelliği, markaların doğrudan mesaj (DM) stratejilerini kökten değiştirebilir. Ayrıca Sesli Arama Optimizasyonunun (VSO) önemi daha da artacak. Akıllı hoparlörler ve mobil asistanlar üzerinden yapılan aramaların %30 oranında yükselmesi bekleniyor. TrendyFinder Pro olarak bu değişime ayak uydurmak amacıyla sesli içerik analiz modülümüzü geliştirmeye devam ediyoruz. Gelecek haftanın 'kazananı' olmak isteyen içerik üreticilerinin, paylaşımlarını soru-cevap formatına uygun hale getirmeleri kritik bir önem taşıyor."
+                "subtitle": "Future Outlook: What Awaits Us Next Week?",
+                "text": "Next week, we anticipate personalized AI assistants becoming more integrated into social media feeds. Instagram's 'AI Friend' feature in its testing phase could radically change brands' direct message (DM) strategies. Furthermore, the importance of Voice Search Optimization (VSO) will increase even more. Searches via smart speakers and mobile assistants are expected to rise by 30%. As TrendyFinder Pro, we continue to develop our voice content analysis module to keep up with this change. It is critically important for content creators who want to be the 'winner' of next week to adapt their posts to the Q&A format."
             },
             {
-                "subtitle": "Candlestick: Saatlik Volatilite (24 Saatlik Trend Değişimi)",
+                "subtitle": "Candlestick: Hourly Volatility (24-Hour Trend Change)",
                 "type": "chart",
                 "chartType": "candlestick",
                 "chartData": [
@@ -922,8 +1192,8 @@ export const blogPosts = [
                 ]
             },
             {
-                "subtitle": "Müşteri ve Kazanç Özeti",
-                "text": "TrendyFinder Pro olarak bu hafta da topluluğumuzu büyütmeye devam ettik. Sisteme dahil olan 14 yeni kullanıcı, platformumuzun sunduğu ileri düzey analitik araçların piyasadaki değerini bir kez daha teyit ediyor. 342 aktif ziyaretçimizle birlikte ekosistemimiz her geçen gün çok daha dinamik bir yapıya bürünüyor. Bu etkileşimler sonucunda ulaştığımız 245.5$ tutarındaki haftalık kazanç, hem operasyonel maliyetlerimizi karşılamamızı hem de yeni yapay zeka modelleri üzerinde Ar-Ge çalışmaları yapmamızı sağlamaktadır. Kullanıcılarımıza sunduğumuz veriye dayalı stratejiler, dijital varlıklarını optimize etme yolculuklarında en büyük rehberleri olmaya devam edecektir."
+                "subtitle": "Customer and Earnings Summary",
+                "text": "As TrendyFinder Pro, we continued to grow our community this week. The 14 new users included in the system once again confirm the market value of the advanced analytical tools offered by our platform. Together with our 342 active visitors, our ecosystem is taking on a much more dynamic structure day by day. The weekly revenue of $245.50 we reached as a result of these interactions enables us to both cover our operational costs and carry out R&D studies on new artificial intelligence models. The data-driven strategies we offer to our users will continue to be their greatest guide in their journey to optimize their digital assets."
             }
         ]
     },
@@ -1426,7 +1696,7 @@ export const blogPosts = [
         "excerpt": "Creating YouTube content in 2026 has become dramatically easier thanks to AI. From scriptwriting to voiceovers, learn how to automate your video production.",
         "date": "Mar 30, 2026",
         "readTime": "7 min read",
-        "image": "https://images.unsplash.com/photo-1611162616475-46b635cbca44?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/youtube_ai_guide.png",
         "views": 19500,
         "hashtags": [
             "#YouTube",
@@ -1659,7 +1929,7 @@ export const blogPosts = [
         "excerpt": "Where is the money moving? An analysis of the industries seeing the most investment and disruption from artificial intelligence this year.",
         "date": "Mar 28, 2026",
         "readTime": "7 min read",
-        "image": "https://images.unsplash.com/photo-1620712943543-bcc4628c9757?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/ai_niches_2026.png",
         "views": 17800,
         "hashtags": [
             "#AINiches",
@@ -1752,7 +2022,7 @@ export const blogPosts = [
         "excerpt": "Balance your studies and your bank account. Discover flexible, AI-enhanced side hustles perfect for students this year.",
         "date": "Mar 27, 2026",
         "readTime": "6 min read",
-        "image": "https://images.unsplash.com/photo-1523240715639-9a67a0e570bd?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/student_income_2026.png",
         "views": 15400,
         "hashtags": [
             "#StudentLife",
@@ -2004,7 +2274,7 @@ export const blogPosts = [
         "excerpt": "An analysis of 100 viral videos reveals the core features that drive high retention, emotion, and explosive algorithmic growth.",
         "date": "Mar 10, 2026",
         "readTime": "6 min read",
-        "image": "/blog-images/ai_trend_1.png",
+        "image": "/blog-images/ai_unique_35_1778413017518.jpg",
         "views": 22300,
         "hashtags": [
             "#ViralVideos",
@@ -2079,7 +2349,7 @@ export const blogPosts = [
         "excerpt": "Understand why certain content types lead to a decline in AdSense earnings and how to pivot towards high-value, problem-solving niches.",
         "date": "Mar 08, 2026",
         "readTime": "10 min read",
-        "image": "/blog-images/ai_trend_2.png",
+        "image": "/blog-images/ai_unique_33_1778413015066.jpg",
         "views": 14500,
         "hashtags": [
             "#AdSense",
@@ -3004,7 +3274,7 @@ export const blogPosts = [
         "excerpt": "Low competition, algorithm favor, and original content advantage.",
         "date": "Jan 13, 2026",
         "readTime": "3 min read",
-        "image": "/blog-images/ai_trend_3.png",
+        "image": "/blog-images/ai_unique_18_1778413197490.jpg",
         "views": 16700,
         "hashtags": [
             "#EarlyAdopter",
@@ -3268,7 +3538,7 @@ export const blogPosts = [
         "excerpt": "Discover the key elements that make Instagram Reels successful, from the 3-second hook to the importance of subtitles and clear niches.",
         "date": "Mar 01, 2026",
         "readTime": "5 min read",
-        "image": "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/ai_unique_26_1778413106986.jpg",
         "views": 154,
         "hashtags": [
             "#InstagramReels",

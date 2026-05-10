@@ -61,6 +61,7 @@ export default async function BlogPost({ params }) {
     const isAIReport = post.category === "Latest AI Analysis";
     const isPremium = session?.user?.isPremium;
     const isLocked = isAIReport && !isPremium;
+    const isLoggedIn = !!session;
 
     // Calculate related posts based on shared hashtags, sorted by views as a tiebreaker
     const relatedPosts = blogPosts
@@ -73,7 +74,7 @@ export default async function BlogPost({ params }) {
         .slice(0, 4); // Take top 4 related posts
 
     return (
-        <BlogPageClient post={post} relatedPosts={relatedPosts}>
+        <BlogPageClient post={post} relatedPosts={relatedPosts} isLoggedIn={isLoggedIn} isLocked={isLocked}>
             <article style={{ padding: 0 }}>
                 {/* SEO & SSR Content */}
                 <header className={styles.articleHeader}>
