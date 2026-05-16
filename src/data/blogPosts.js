@@ -1,5 +1,126 @@
 export const blogPosts = [
     {
+        "id": 1012,
+        "slug": "weekly-ai-horizon-generative-video-evolution-and-the-rise-of-edge-intelligence-1778929293929",
+        "category": "Latest AI Analysis",
+        "title": "Weekly AI Horizon: Generative Video Evolution and the Rise of Edge Intelligence",
+        "excerpt": "A comprehensive analysis of this week's breakthroughs in AI, focusing on the surge in video generation models and the strategic shift toward on-device edge computing.",
+        "date": "May 16, 2026",
+        "readTime": "6 min read",
+        "image": "/blog-images/ai_weekly-ai-horizon-generative-video-evolution-and-t.jpg",
+        "views": 192,
+        "hashtags": [
+            "#GenerativeAI",
+            "#EdgeComputing",
+            "#TechTrends2024",
+            "#MachineLearning",
+            "#SoraCompetitors"
+        ],
+        "content": [
+            {
+                "subtitle": "The Generative Video Arms Race",
+                "text": "This week saw a massive influx of interest in high-fidelity video generation. Following the initial hype of OpenAI's Sora, competitors like Kling and Luma AI have rapidly iterated, showing a 40% increase in user-generated content across social platforms. The focus has shifted from mere physics simulation to stylistic consistency and temporal coherence, which are crucial for commercial applications in advertising and cinema."
+            },
+            {
+                "subtitle": "Bar Chart: Daily Virality Volume",
+                "type": "chart",
+                "chartType": "bar",
+                "chartData": [
+                    {
+                        "label": "Monday",
+                        "value": 4500
+                    },
+                    {
+                        "label": "Tuesday",
+                        "value": 5200
+                    },
+                    {
+                        "label": "Wednesday",
+                        "value": 6800
+                    },
+                    {
+                        "label": "Thursday",
+                        "value": 8100
+                    },
+                    {
+                        "label": "Friday",
+                        "value": 7900
+                    },
+                    {
+                        "label": "Saturday",
+                        "value": 4200
+                    },
+                    {
+                        "label": "Sunday",
+                        "value": 3800
+                    }
+                ]
+            },
+            {
+                "subtitle": "The Shift to Edge AI",
+                "text": "Enterprise focus is pivoting toward 'Edge Intelligence.' As privacy concerns grow and latency becomes a bottleneck for real-time applications, hardware manufacturers are optimizing NPU (Neural Processing Unit) performance. Local LLMs (Large Language Models) are now capable of running complex reasoning tasks on mobile devices, reducing server costs by an estimated 25% for early adopters."
+            },
+            {
+                "subtitle": "Pie Chart: Bot vs Human Interaction",
+                "type": "chart",
+                "chartType": "pie",
+                "chartData": [
+                    {
+                        "label": "Verified Human",
+                        "value": 58
+                    },
+                    {
+                        "label": "Automated Bots",
+                        "value": 32
+                    },
+                    {
+                        "label": "Hybrid/Unidentified",
+                        "value": 10
+                    }
+                ]
+            },
+            {
+                "subtitle": "Market Sentiment and Volatility",
+                "text": "AI-related stocks and tokens experienced significant volatility this week. While foundational model providers saw a slight dip due to regulatory scrutiny in the EU, specialized AI hardware startups reached record-high funding rounds. The market is currently rewarding infrastructure over pure software application layers."
+            },
+            {
+                "subtitle": "Candlestick: Hourly Volatility",
+                "type": "chart",
+                "chartType": "candlestick",
+                "chartData": [
+                    {
+                        "t": "09:00",
+                        "o": 150,
+                        "h": 155,
+                        "l": 148,
+                        "c": 152
+                    },
+                    {
+                        "t": "10:00",
+                        "o": 152,
+                        "h": 160,
+                        "l": 151,
+                        "c": 158
+                    },
+                    {
+                        "t": "11:00",
+                        "o": 158,
+                        "h": 159,
+                        "l": 154,
+                        "c": 155
+                    },
+                    {
+                        "t": "12:00",
+                        "o": 155,
+                        "h": 157,
+                        "l": 145,
+                        "c": 147
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "id": 1011,
         "slug": "weekly-ai-trend-analysis-the-rise-of-slms-and-generative-video-innovation-1778414620969",
         "category": "Latest AI Analysis",
