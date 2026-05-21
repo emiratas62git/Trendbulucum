@@ -40,6 +40,23 @@ export default function Sidebar() {
         }
     }, []);
 
+    const getMenuNameTranslation = (name) => {
+        if (name === 'Overview') return t.menuOverview;
+        if (name === 'YouTube') return t.menuYouTube;
+        if (name === 'TikTok') return t.menuTikTok;
+        if (name === 'Twitter / X') return t.menuTwitter;
+        if (name === 'Instagram') return t.menuInstagram;
+        if (name === 'LinkedIn') return t.menuLinkedIn;
+        if (name === 'Pinterest') return t.menuPinterest;
+        if (name === 'Blog & Insights') return t.menuBlog;
+        if (name === 'About Us') return t.menuAbout;
+        if (name === 'Privacy Policy') return t.menuPrivacy;
+        if (name === 'Terms of Service') return t.menuTerms;
+        if (name === 'Contact') return t.menuContact;
+        if (name === 'How It Works') return t.menuHowItWorks;
+        return name;
+    };
+
     return (
         <>
             {/* Mobile Overlay */}
@@ -81,7 +98,7 @@ export default function Sidebar() {
                                         <span>{t.upgradePro}</span>
                                     </Link>
                                 )}
-                                {isFirstInfo && <div className={styles.navTitle}>Info & Support</div>}
+                                {isFirstInfo && <div className={styles.navTitle}>{t.infoSupport}</div>}
                                 <div className={styles.navItemWrapper}>
                                     <Link
                                         href={!isPremium && (isPlatform || item.path === '/dashboard') ? '/' : item.path}
@@ -89,7 +106,7 @@ export default function Sidebar() {
                                         onClick={closeSidebar}
                                     >
                                         <Icon size={20} />
-                                        <span>{item.name}</span>
+                                        <span>{getMenuNameTranslation(item.name)}</span>
                                     </Link>
                                     {isPlatform && (
                                         <button
@@ -99,7 +116,7 @@ export default function Sidebar() {
                                                 e.stopPropagation();
                                                 togglePlatform(platformKey);
                                             }}
-                                            title={isVisible ? "Remove from Overview" : "Add to Overview"}
+                                            title={isVisible ? t.removeFromOverview : t.addToOverview}
                                         >
                                             {isVisible ? '-' : '+'}
                                         </button>

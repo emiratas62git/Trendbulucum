@@ -5,58 +5,6 @@ import { Check, Zap, Rocket, Star, ShieldCheck, Sparkles, ArrowRight, Loader2 } 
 import styles from './pricing.module.css';
 import Link from 'next/link';
 
-const PLANS = [
-    {
-        name: 'Monthly Pro',
-        price: '10',
-        period: 'month',
-        description: 'Predict trends with AI-powered intelligence.',
-        features: [
-            'Premium Weekly AI Reports',
-            'Full Platform Trend Data',
-            'Idea Generation Engine',
-            'Pro Access',
-            'Standard Support'
-        ],
-        icon: <Zap />,
-        variant: 'standard',
-        buttonText: 'Buy Monthly Plan'
-    },
-    {
-        name: '3-Month Growth',
-        price: '25',
-        period: 'quarter',
-        description: 'The most popular choice for professionals.',
-        features: [
-            'Everything in Monthly',
-            'Exclusive AI Trend Alerts',
-            'Deep-Dive AI Analysis',
-            '20% Discount included',
-            'Priority Support'
-        ],
-        icon: <Rocket />,
-        variant: 'featured',
-        badge: 'Best Value',
-        buttonText: 'Buy 3-Month Plan'
-    },
-    {
-        name: 'Annual Mastery',
-        price: '100',
-        period: 'year',
-        description: 'Master the social media game permanently.',
-        features: [
-            'Everything in 3-Month',
-            'Custom AI Topic Tracking',
-            'Historical AI Trend Data',
-            'Legacy Price Lock',
-            'VIP 24/7 Support'
-        ],
-        icon: <Star />,
-        variant: 'premium',
-        buttonText: 'Buy Annual Plan'
-    }
-];
-
 import { getTranslation } from '@/lib/i18n';
 
 export default function PricingPage() {
@@ -71,6 +19,58 @@ export default function PricingPage() {
             setT(getTranslation(navigator.language));
         }
     }, []);
+
+    const PLANS = [
+        {
+            name: 'Monthly Pro',
+            price: '10',
+            period: t.membershipType === 'Üyelik Tipi' ? 'ay' : 'month',
+            description: t.membershipType === 'Üyelik Tipi' ? 'Yapay zeka destekli analiz ile trendleri tahmin edin.' : 'Predict trends with AI-powered intelligence.',
+            features: [
+                t.welcomeStep4Title === 'Panel' ? 'Haftalık Premium Yapay Zeka Raporları' : 'Premium Weekly AI Reports',
+                t.welcomeStep4Title === 'Panel' ? 'Tüm Platform Trend Verileri' : 'Full Platform Trend Data',
+                t.welcomeStep4Title === 'Panel' ? 'Fikir Üretme Motoru' : 'Idea Generation Engine',
+                t.welcomeStep4Title === 'Panel' ? 'Pro Erişimi' : 'Pro Access',
+                t.welcomeStep4Title === 'Panel' ? 'Standart Destek' : 'Standard Support'
+            ],
+            icon: <Zap />,
+            variant: 'standard',
+            buttonText: t.membershipType === 'Üyelik Tipi' ? 'Aylık Plan Satın Al' : 'Buy Monthly Plan'
+        },
+        {
+            name: '3-Month Growth',
+            price: '25',
+            period: t.membershipType === 'Üyelik Tipi' ? '3 ay' : 'quarter',
+            description: t.membershipType === 'Üyelik Tipi' ? 'Profesyoneller için en popüler seçim.' : 'The most popular choice for professionals.',
+            features: [
+                t.membershipType === 'Üyelik Tipi' ? 'Aylık Plandaki Her Şey' : 'Everything in Monthly',
+                t.membershipType === 'Üyelik Tipi' ? 'Özel Yapay Zeka Trend Uyarıları' : 'Exclusive AI Trend Alerts',
+                t.membershipType === 'Üyelik Tipi' ? 'Derinlemesine Yapay Zeka Analizi' : 'Deep-Dive AI Analysis',
+                t.membershipType === 'Üyelik Tipi' ? '%20 İndirim Dahil' : '20% Discount included',
+                t.membershipType === 'Üyelik Tipi' ? 'Öncelikli Destek' : 'Priority Support'
+            ],
+            icon: <Rocket />,
+            variant: 'featured',
+            badge: t.membershipType === 'Üyelik Tipi' ? 'En İyi Değer' : 'Best Value',
+            buttonText: t.membershipType === 'Üyelik Tipi' ? '3 Aylık Plan Satın Al' : 'Buy 3-Month Plan'
+        },
+        {
+            name: 'Annual Mastery',
+            price: '100',
+            period: t.membershipType === 'Üyelik Tipi' ? 'yıl' : 'year',
+            description: t.membershipType === 'Üyelik Tipi' ? 'Sosyal medya oyununda kalıcı olarak uzmanlaşın.' : 'Master the social media game permanently.',
+            features: [
+                t.membershipType === 'Üyelik Tipi' ? '3 Aylık Plandaki Her Şey' : 'Everything in 3-Month',
+                t.membershipType === 'Üyelik Tipi' ? 'Özel Yapay Zeka Konu Takibi' : 'Custom AI Topic Tracking',
+                t.membershipType === 'Üyelik Tipi' ? 'Geçmiş Yapay Zeka Trend Verileri' : 'Historical AI Trend Data',
+                t.membershipType === 'Üyelik Tipi' ? 'Eski Fiyat Kilidi' : 'Legacy Price Lock',
+                t.membershipType === 'Üyelik Tipi' ? 'VIP 7/24 Destek' : 'VIP 24/7 Support'
+            ],
+            icon: <Star />,
+            variant: 'premium',
+            buttonText: t.membershipType === 'Üyelik Tipi' ? 'Yıllık Plan Satın Al' : 'Buy Annual Plan'
+        }
+    ];
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -159,28 +159,28 @@ export default function PricingPage() {
             {showWelcome && (
                 <div className={styles.welcomeOverlay}>
                     <div className={styles.welcomeModal}>
-                        <h2>👋 Welcome to TrendyFinder Pro!</h2>
-                        <p>Here is your quick guide to getting started:</p>
+                        <h2>{t.welcomeTitle}</h2>
+                        <p>{t.welcomeSubtitle}</p>
                         <div className={styles.guideSteps}>
                             <div className={styles.guideStep}>
                                 <div className={styles.stepNumber}>1</div>
-                                <div><strong>Pick a Plan</strong>: Choose a subscription package below that fits your needs.</div>
+                                <div><strong>{t.welcomeStep1Title}</strong>: {t.welcomeStep1Desc}</div>
                             </div>
                             <div className={styles.guideStep}>
                                 <div className={styles.stepNumber}>2</div>
-                                <div><strong>Create Account</strong>: Register your email securely when prompted.</div>
+                                <div><strong>{t.welcomeStep2Title}</strong>: {t.welcomeStep2Desc}</div>
                             </div>
                             <div className={styles.guideStep}>
                                 <div className={styles.stepNumber}>3</div>
-                                <div><strong>Checkout</strong>: Complete your payment via the secure Lemon Squeezy pop-up.</div>
+                                <div><strong>{t.welcomeStep3Title}</strong>: {t.welcomeStep3Desc}</div>
                             </div>
                             <div className={styles.guideStep}>
                                 <div className={styles.stepNumber}>4</div>
-                                <div><strong>Dashboard</strong>: Get instant access to AI reports and TikTok/YouTube trend metrics!</div>
+                                <div><strong>{t.welcomeStep4Title}</strong>: {t.welcomeStep4Desc}</div>
                             </div>
                         </div>
                         <button onClick={closeWelcome} className={styles.gotItBtn}>
-                            Got it, let's start!
+                            {t.gotItStart}
                         </button>
                     </div>
                 </div>
@@ -191,32 +191,25 @@ export default function PricingPage() {
                     <img src="/logo.png" alt="TrendyFinder Logo" className={styles.pageLogo} />
                 </Link>
                 <div className={styles.navActions}>
-                    <Link href="/blog" className={styles.loginBtn} style={{ marginRight: '1rem', background: 'transparent', borderColor: 'transparent' }}>Blog</Link>
+                    <Link href="/blog" className={styles.loginBtn} style={{ marginRight: '1rem', background: 'transparent', borderColor: 'transparent' }}>{t.blog}</Link>
                     {status === 'authenticated' ? (
-                        <Link href="/dashboard" className={styles.loginBtn}>Dashboard</Link>
+                        <Link href="/dashboard" className={styles.loginBtn}>{t.dashboard}</Link>
                     ) : (
-                        <button onClick={() => signIn()} className={styles.loginBtn}>Sign In</button>
+                        <button onClick={() => signIn()} className={styles.loginBtn}>{t.signIn}</button>
                     )}
                 </div>
             </header>
             <div className={styles.header}>
-                <span className={styles.badge}>Pricing Plans</span>
-                <h1>Master the Trends with Pro</h1>
-                <p>Choose the plan that fits your goals. Unlock Pro access today.</p>
+                <span className={styles.badge}>{t.pricingPlans}</span>
+                <h1>{t.masterTrends}</h1>
+                <p>{t.pricingDesc}</p>
             </div>
 
             <section className={styles.productSummary}>
                 <div className={styles.summaryContent}>
-                    <h2>Why TrendyFinder Pro?</h2>
-                    <p>
-                        TrendyFinder is a premium AI-driven intelligence platform designed for content creators, marketers, and social media professionals. 
-                        Our advanced algorithms analyze real-time data across major platforms like TikTok, YouTube, and LinkedIn to provide you with actionable insights, 
-                        viral content ideas, and predictive trend analysis.
-                    </p>
-                    <p>
-                        By bridging the gap between raw data and creative execution, TrendyFinder empowers you to dominate your niche and grow your audience with data-backed confidence. 
-                        Our Pro features unlock deep-dive analytics and exclusive trend reports that give you a competitive edge in the fast-paced digital landscape.
-                    </p>
+                    <h2>{t.whyTrendyFinder}</h2>
+                    <p>{t.summaryParagraph1}</p>
+                    <p>{t.summaryParagraph2}</p>
                 </div>
             </section>
 
@@ -264,28 +257,28 @@ export default function PricingPage() {
                 <div className={styles.trustItem}>
                     <ShieldCheck size={24} />
                     <div>
-                        <h4>Security Policy</h4>
-                        <p>Powered by Lemon Squeezy with 256-bit encryption and secure checkout.</p>
+                        <h4>{t.securityPolicy}</h4>
+                        <p>{t.securityDesc}</p>
                     </div>
                 </div>
                 <div className={styles.trustItem}>
                     <Sparkles size={24} />
                     <div>
-                        <h4>About TrendyFinder</h4>
-                        <p>Providing cutting-edge AI trend analysis for creators since 2026.</p>
+                        <h4>{t.aboutTrendyFinder}</h4>
+                        <p>{t.aboutDesc}</p>
                     </div>
                 </div>
             </div>
 
             <footer className={styles.mainFooter}>
                 <div className={styles.footerLinks}>
-                    <Link href="/about">Who We Are</Link>
-                    <Link href="/privacy">Privacy Policy</Link>
-                    <Link href="/terms">Terms of Service</Link>
+                    <Link href="/about">{t.whoWeAre}</Link>
+                    <Link href="/privacy">{t.privacyPolicy}</Link>
+                    <Link href="/terms">{t.termsOfService}</Link>
                     <a href="https://www.linkedin.com/in/emircanata%C5%9F626210/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                    <a href="mailto:emircanatas62@gmail.com">Email Support</a>
+                    <a href="mailto:emircanatas62@gmail.com">{t.emailSupport}</a>
                 </div>
-                <p className={styles.copyright}>© 2026 TrendyFinder Pro. All rights reserved.</p>
+                <p className={styles.copyright}>{t.allRightsReserved}</p>
             </footer>
         </div>
     );

@@ -6,6 +6,7 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import styles from '../blog.module.css';
 import BlogPromoCard from '@/components/BlogPromoCard';
 import BlogPoll from './BlogPoll';
+import { getTranslation } from '@/lib/i18n';
 
 export default function BlogPageClient({ post, relatedPosts, isLoggedIn, isLocked, children }) {
     const searchParams = useSearchParams();
@@ -18,6 +19,15 @@ export default function BlogPageClient({ post, relatedPosts, isLoggedIn, isLocke
     const [comments, setComments] = useState([]);
     const [isPostingComment, setIsPostingComment] = useState(false);
     
+    // Translation setup
+    const [t, setT] = useState(getTranslation('en'));
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            setT(getTranslation(navigator.language));
+        }
+    }, []);
+    const isTurkish = t.membershipType === 'Üyelik Tipi';
+
     // Fetch comments on load
     useEffect(() => {
         fetch(`/api/comments?postId=${post.id}`)
@@ -185,7 +195,7 @@ export default function BlogPageClient({ post, relatedPosts, isLoggedIn, isLocke
                 }}>
                     <Link href={backUrl} className={styles.backLink}>
                         <BackIcon size={20} />
-                        {isFromBlogList ? 'Back to Insights' : 'Back to Platform'}
+                        {isFromBlogList ? t.backToInsights : t.backToPlatform}
                     </Link>
 
                     {/* Article Internal Search */}
@@ -193,14 +203,14 @@ export default function BlogPageClient({ post, relatedPosts, isLoggedIn, isLocke
                         {searchTerm && (
                             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                                 <span style={{ fontSize: '0.85rem', color: matchCount > 0 ? 'var(--primary)' : 'var(--text-muted)', whiteSpace: 'nowrap' }}>
-                                    {matchCount > 0 ? `${currentMatchIndex + 1} / ${matchCount} matches` : '0 matches found'}
+                                    {matchCount > 0 ? `${currentMatchIndex + 1} / ${matchCount} ${t.matches}` : t.zeroMatches}
                                 </span>
                                 {matchCount > 0 && (
                                     <div style={{ display: 'flex', gap: '2px' }}>
-                                        <button onClick={handlePrev} className={styles.navButton} title="Previous">
+                                        <button onClick={handlePrev} className={styles.navButton} title={isTurkish ? "Önceki" : "Previous"}>
                                             <ChevronUp size={16} />
                                         </button>
-                                        <button onClick={handleNext} className={styles.navButton} title="Next">
+                                        <button onClick={handleNext} className={styles.navButton} title={isTurkish ? "Sonraki" : "Next"}>
                                             <ChevronDown size={16} />
                                         </button>
                                     </div>
@@ -211,7 +221,7 @@ export default function BlogPageClient({ post, relatedPosts, isLoggedIn, isLocke
                             <Search size={16} className={styles.searchIcon} />
                             <input
                                 type="text"
-                                placeholder="Search in article..."
+                                placeholder={t.searchInArticle}
                                 className={styles.searchInput}
                                 style={{ fontSize: '0.9rem' }}
                                 value={searchTerm}
@@ -238,10 +248,10 @@ export default function BlogPageClient({ post, relatedPosts, isLoggedIn, isLocke
                         {/* Comments Section */}
                         {!isLocked && (
                             <div className={styles.commentsSection} style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid var(--border)' }}>
-                                <h3 style={{ fontSize: '1.25rem', marginBottom: '1rem', color: 'var(--text)', textAlign: 'center' }}>Comments</h3>
+                                <h3 style={{ fontSize: '1.25rem', marginBottom: '1rem', color: 'var(--text)', textAlign: 'center' }}>{t.comments}</h3>
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                                     <textarea 
-                                        placeholder="Write your comment..."
+                                        placeholder={t.writeComment}
                                         style={{ width: '100%', minHeight: '100px', padding: '1rem', borderRadius: '12px', border: '1px solid var(--border)', background: 'var(--bg-secondary)', color: 'var(--text)', resize: 'vertical', fontSize: '14px', fontFamily: 'inherit' }}
                                         onClick={() => {
                                             if (!isLoggedIn) {
@@ -290,7 +300,7 @@ export default function BlogPageClient({ post, relatedPosts, isLoggedIn, isLocke
                                             style={{ margin: 0, opacity: isPostingComment ? 0.5 : 1 }}
                                             disabled={isPostingComment}
                                         >
-                                            {isPostingComment ? 'Posting...' : 'Post Comment'}
+                                            {isPostingComment ? t.posting : t.postComment}
                                         </button>
                                     </div>
                                     <div style={{ marginTop: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -314,7 +324,7 @@ export default function BlogPageClient({ post, relatedPosts, isLoggedIn, isLocke
                                                             onClick={() => toggleTranslation(c.id, c.text)}
                                                             disabled={isLoading}
                                                         >
-                                                            {isLoading ? 'Translating...' : (isTranslated ? 'Show Original' : 'Translate to Turkish')}
+                                                            {isLoading ? t.translating : (isTranslated ? t.showOriginal : t.translateToTurkish)}
                                                         </button>
                                                     </div>
                                                 </div>
@@ -322,7 +332,7 @@ export default function BlogPageClient({ post, relatedPosts, isLoggedIn, isLocke
                                         })}
                                         {comments.length === 0 && (
                                             <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', textAlign: 'center', margin: '1rem 0' }}>
-                                                Be the first to comment.
+                                                {t.beFirstComment}
                                             </p>
                                         )}
                                     </div>
@@ -333,7 +343,7 @@ export default function BlogPageClient({ post, relatedPosts, isLoggedIn, isLocke
                         {/* Related Posts */}
                         {relatedPosts && relatedPosts.length > 0 && (
                             <div className={styles.relatedPostsSection}>
-                                <h3 className={styles.relatedPostsTitle}>Related Posts</h3>
+                                <h3 className={styles.relatedPostsTitle}>{t.relatedPosts}</h3>
                                 <div className={styles.relatedGrid}>
                                     {relatedPosts.map((rPost) => (
                                         <Link href={`/blog/${rPost.slug}?from=blog`} key={rPost.id} className={`${styles.card} ${styles.standardCard}`}>
@@ -345,7 +355,7 @@ export default function BlogPageClient({ post, relatedPosts, isLoggedIn, isLocke
                                                     <span className={styles.views}>
                                                         <Eye size={12} style={{ marginRight: '4px', verticalAlign: 'middle' }} />
                                                         <span suppressHydrationWarning>
-                                                            {(rPost.views || 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} views
+                                                            {(rPost.views || 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} {isTurkish ? 'görüntülenme' : 'views'}
                                                         </span>
                                                     </span>
                                                 </div>

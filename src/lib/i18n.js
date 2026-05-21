@@ -1,5 +1,6 @@
 const translations = {
     en: {
+        // Common / Account Settings
         upgradePro: "Upgrade to Pro Now",
         unlimitedPro: "Unlimited Pro",
         daysLeft: "Days Left",
@@ -18,9 +19,130 @@ const translations = {
         saveChanges: "Save Changes",
         updating: "Updating...",
         backToDashboard: "Back to Dashboard",
-        personalInfo: "Personal Information"
+        personalInfo: "Personal Information",
+
+        // Navigation
+        backToHome: "Back to Home",
+        blog: "Blog",
+        dashboard: "Dashboard",
+        signIn: "Sign In",
+
+        // Landing / Pricing Page
+        welcomeTitle: "👋 Welcome to TrendyFinder Pro!",
+        welcomeSubtitle: "Here is your quick guide to getting started:",
+        welcomeStep1Title: "Pick a Plan",
+        welcomeStep1Desc: "Choose a subscription package below that fits your needs.",
+        welcomeStep2Title: "Create Account",
+        welcomeStep2Desc: "Register your email securely when prompted.",
+        welcomeStep3Title: "Checkout",
+        welcomeStep3Desc: "Complete your payment via the secure Lemon Squeezy pop-up.",
+        welcomeStep4Title: "Dashboard",
+        welcomeStep4Desc: "Get instant access to AI reports and TikTok/YouTube trend metrics!",
+        gotItStart: "Got it, let's start!",
+
+        pricingPlans: "Pricing Plans",
+        masterTrends: "Master the Trends with Pro",
+        pricingDesc: "Choose the plan that fits your goals. Unlock Pro access today.",
+        whyTrendyFinder: "Why TrendyFinder Pro?",
+        summaryParagraph1: "TrendyFinder is a premium AI-driven intelligence platform designed for content creators, marketers, and social media professionals. Our advanced algorithms analyze real-time data across major platforms like TikTok, YouTube, and LinkedIn to provide you with actionable insights, viral content ideas, and predictive trend analysis.",
+        summaryParagraph2: "By bridging the gap between raw data and creative execution, TrendyFinder empowers you to dominate your niche and grow your audience with data-backed confidence. Our Pro features unlock deep-dive analytics and exclusive trend reports that give you a competitive edge in the fast-paced digital landscape.",
+        
+        securityPolicy: "Security Policy",
+        securityDesc: "Powered by Lemon Squeezy with 256-bit encryption and secure checkout.",
+        aboutTrendyFinder: "About TrendyFinder",
+        aboutDesc: "Providing cutting-edge AI trend analysis for creators since 2026.",
+        whoWeAre: "Who We Are",
+        privacyPolicy: "Privacy Policy",
+        termsOfService: "Terms of Service",
+        emailSupport: "Email Support",
+        allRightsReserved: "© 2026 TrendyFinder Pro. All rights reserved.",
+
+        // Static Pages
+        aboutTitle: "Who We Are",
+        aboutText1: "TrendyFinder Pro was founded with a single mission: to empower content creators and businesses with real-time, AI-driven trend intelligence.",
+        aboutText2: "Founded in 2026 by Emir Can ATAŞ, we combine deep data analysis with the latest Google Gemini AI models to filter out the noise and deliver actionable insights.",
+        aboutText3: "Our team believes that the future of social media belongs to those who can predict the next big thing before it happens. TrendyFinder Pro is the bridge between raw data and creative success.",
+
+        privacyTitle: "Privacy & Security Policy",
+        privacySubtitle: "How we protect your data and trends.",
+        privacySec1Title: "1. Data Encryption",
+        privacySec1Text: "All user information is encrypted using 256-bit SSL protocols. We do not store your raw password; only secure hashes.",
+        privacySec2Title: "2. Payment Security",
+        privacySec2Text: "Payments are handled exclusively through Lemon Squeezy. TrendyFinder Pro never sees or stores your credit card details.",
+        privacySec3Title: "3. Third-Party Access",
+        privacySec3Text: "We do not sell your personal trend preferences or dashboard activity to third parties. Your growth strategy is your own.",
+
+        termsTitle: "Terms of Service",
+        termsSubtitle: "Please read these terms before subscribing to Pro.",
+        termsSec1Title: "1. Subscription Service",
+        termsSec1Text: "TrendyFinder Pro is a subscription-based trend intelligence service. By subscribing, you agree to recurring payments for your chosen plan.",
+        termsSec2Title: "2. Cancellation Policy",
+        termsSec2Text: "You may cancel your subscription at any time. Your access will continue until the end of the current billing cycle. No refunds for partial months.",
+        termsSec3Title: "3. Usage Limits",
+        termsSec3Text: "Access is for personal or single-business use. Account sharing or mass scraping of regional trend data is strictly prohibited.",
+        termsSec4Title: "4. AI Reports",
+        termsSec4Text: "AI-generated reports are tools for analysis. TrendyFinder Pro is not responsible for the direct success of content based on these trends",
+
+        // Blog
+        blogTitle: "Trend Analyses and Useful Practical Suggestions",
+        blogSubtitle: "Expert guides and strategies for mastering social media and trends.",
+        searchArticles: "Search all articles...",
+        upgradeToPremium: "Upgrade to Premium",
+
+        // Blog Page additions
+        backToInsights: "Back to Insights",
+        backToPlatform: "Back to Platform",
+        searchInArticle: "Search in article...",
+        matches: "matches",
+        zeroMatches: "0 matches found",
+        comments: "Comments",
+        writeComment: "Write your comment...",
+        posting: "Posting...",
+        postComment: "Post Comment",
+        beFirstComment: "Be the first to comment.",
+        relatedPosts: "Related Posts",
+        translating: "Translating...",
+        showOriginal: "Show Original",
+        translateToTurkish: "Translate to Turkish",
+        premiumAnalysisLocked: "Premium Analysis Locked",
+        premiumLockedDesc: "Unlock full weekly trend reports, deep-dive data, and actionable content strategies.",
+        getUnlimitedAccess: "Get Unlimited Access",
+        author: "Author",
+        authorBio: "Emir Can ATAŞ is both the founder and the author of this website. He has been researching websites and technologies since 2017. He is the author of an AI analysis book and a coloring book for children. As of 2026, he is 27 years old and still deeply enjoys technology and websites.",
+
+        // Categories
+        categoryLatest: "Latest",
+        categoryAll: "All",
+        categoryLatestAI: "Latest AI Analysis",
+        categoryTrends: "Trends",
+
+        // Sidebar / Navigation additions
+        menuOverview: "Overview",
+        menuYouTube: "YouTube",
+        menuTikTok: "TikTok",
+        menuTwitter: "Twitter / X",
+        menuInstagram: "Instagram",
+        menuLinkedIn: "LinkedIn",
+        menuPinterest: "Pinterest",
+        menuBlog: "Blog & Insights",
+        menuAbout: "About Us",
+        menuPrivacy: "Privacy Policy",
+        menuTerms: "Terms of Service",
+        menuContact: "Contact",
+        menuHowItWorks: "How It Works",
+        infoSupport: "Info & Support",
+        removeFromOverview: "Remove from Overview",
+        addToOverview: "Add to Overview",
+
+        // Header additions
+        hourly: "Hourly",
+        daily: "Daily",
+        weekly: "Weekly",
+        monthly: "Monthly",
+        searchAllTrends: "Search all trends...",
     },
     tr: {
+        // Ortak / Hesap Ayarları
         upgradePro: "Şimdi Pro'ya Geç",
         unlimitedPro: "Süresiz Pro",
         daysLeft: "Gün Kaldı",
@@ -39,7 +161,127 @@ const translations = {
         saveChanges: "Değişiklikleri Kaydet",
         updating: "Güncelleniyor...",
         backToDashboard: "Panele Dön",
-        personalInfo: "Kişisel Bilgiler"
+        personalInfo: "Kişisel Bilgiler",
+
+        // Navigasyon
+        backToHome: "Ana Sayfaya Dön",
+        blog: "Blog",
+        dashboard: "Panel",
+        signIn: "Giriş Yap",
+
+        // İndirme / Fiyatlandırma Sayfası
+        welcomeTitle: "👋 TrendyFinder Pro'ya Hoş Geldiniz!",
+        welcomeSubtitle: "Başlamak için hızlı kılavuzunuz:",
+        welcomeStep1Title: "Plan Seçin",
+        welcomeStep1Desc: "Aşağıdan ihtiyaçlarınıza en uygun abonelik paketini seçin.",
+        welcomeStep2Title: "Hesap Oluşturun",
+        welcomeStep2Desc: "İstendiğinde e-postanızı güvenli bir şekilde kaydedin.",
+        welcomeStep3Title: "Ödeme Yapın",
+        welcomeStep3Desc: "Ödemenizi güvenli Lemon Squeezy penceresi üzerinden tamamlayın.",
+        welcomeStep4Title: "Panel",
+        welcomeStep4Desc: "Yapay zeka raporlarına ve TikTok/YouTube trend metriklerine anında erişin!",
+        gotItStart: "Anladım, başlayalım!",
+
+        pricingPlans: "Fiyatlandırma Planları",
+        masterTrends: "Pro ile Trendlerin Hakimi Olun",
+        pricingDesc: "Hedeflerinize uygun planı seçin. Pro erişimini bugün kilitleyin.",
+        whyTrendyFinder: "Neden TrendyFinder Pro?",
+        summaryParagraph1: "TrendyFinder; içerik üreticileri, pazarlamacılar ve sosyal medya profesyonelleri için tasarlanmış birinci sınıf, yapay zeka destekli bir analiz platformudur. Gelişmiş algoritmalarımız TikTok, YouTube ve LinkedIn gibi büyük platformlardaki gerçek zamanlı verileri analiz ederek size uygulanabilir içgörüler, viral içerik fikirleri ve öngörülü trend analizleri sunar.",
+        summaryParagraph2: "TrendyFinder, ham veri ile yaratıcı yürütme arasındaki boşluğu doldurarak nişinizi domine etmenizi ve veriye dayalı güvenle kitlenizi büyütmenizi sağlar. Pro özelliklerimiz, hızlı tempolu dijital ortamda size rekabet avantajı sağlayan derinlemesine analizlerin ve özel trend raporlarının kilidini açar.",
+        
+        securityPolicy: "Güvenlik Politikası",
+        securityDesc: "256 bit şifreleme ve güvenli ödeme ile Lemon Squeezy tarafından desteklenmektedir.",
+        aboutTrendyFinder: "TrendyFinder Hakkında",
+        aboutDesc: "2026'dan beri üreticiler için en son yapay zeka trend analizini sunuyor.",
+        whoWeAre: "Biz Kimiz",
+        privacyPolicy: "Gizlilik Politikası",
+        termsOfService: "Kullanım Koşulları",
+        emailSupport: "E-posta Desteği",
+        allRightsReserved: "© 2026 TrendyFinder Pro. Tüm hakları saklıdır.",
+
+        // Statik Sayfalar
+        aboutTitle: "Biz Kimiz",
+        aboutText1: "TrendyFinder Pro tek bir misyonla kuruldu: içerik üreticilerini ve işletmeleri gerçek zamanlı, yapay zeka destekli trend zekasıyla güçlendirmek.",
+        aboutText2: "2026 yılında Emir Can ATAŞ tarafından kurulan platformumuzda, gürültüyü filtrelemek ve uygulanabilir içgörüler sunmak için derin veri analizini en son Google Gemini yapay zeka modelleriyle birleştiriyoruz.",
+        aboutText3: "Ekibimiz, sosyal medyanın geleceğinin, bir sonraki büyük şeyi gerçekleşmeden önce tahmin edebilenlere ait olduğuna inanyor. TrendyFinder Pro, ham veri ile yaratıcı başarı arasındaki köprüdür.",
+
+        privacyTitle: "Gizlilik ve Güvenlik Politikası",
+        privacySubtitle: "Verilerinizi ve trendlerinizi nasıl koruyoruz.",
+        privacySec1Title: "1. Veri Şifreleme",
+        privacySec1Text: "Tüm kullanıcı bilgileri 256-bit SSL protokolleri kullanılarak şifrelenir. Ham şifrenizi saklamayız; yalnızca güvenli karmaları (hash) saklarız.",
+        privacySec2Title: "2. Ödeme Güvenliği",
+        privacySec2Text: "Ödemeler yalnızca Lemon Squeezy aracılığıyla gerçekleştirilir. TrendyFinder Pro kredi kartı bilgilerinizi asla görmez veya saklamaz.",
+        privacySec3Title: "3. Üçüncü Taraf Erişimi",
+        privacySec3Text: "Kişisel trend tercihlerinizi veya panel aktivitelerinizi üçüncü taraflarla paylaşmayız. Büyüme stratejiniz yalnızca size aittir.",
+
+        termsTitle: "Kullanım Koşulları",
+        termsSubtitle: "Pro'ya abone olmadan önce lütfen bu koşulları okuyun.",
+        termsSec1Title: "1. Abonelik Hizmeti",
+        termsSec1Text: "TrendyFinder Pro, abonelik tabanlı bir trend analizi hizmetidir. Abone olarak, seçtiğiniz plan için yinelenen ödemeleri kabul etmiş olursunuz.",
+        termsSec2Title: "2. İptal Politikası",
+        termsSec2Text: "Aboneliğinizi istediğiniz zaman iptal edebilirsiniz. Erişiminiz mevcut fatura döneminin sonuna kadar devam edecektir. Kısmi aylar için geri ödeme yapılmaz.",
+        termsSec3Title: "3. Kullanım Sınırları",
+        termsSec3Text: "Erişim kişisel veya tek bir işletme kullanımı içindir. Hesap paylaşımı veya bölgesel trend verilerinin toplu olarak kazınması kesinlikle yasaktır.",
+        termsSec4Title: "4. Yapay Zeka Raporları",
+        termsSec4Text: "Yapay zeka tarafından oluşturulan raporlar analiz amaçlı araçlardır. TrendyFinder Pro, bu trendlere dayalı içeriğin doğrudan başarısından sorumlu değildir.",
+
+        // Blog
+        blogTitle: "Trend Analizleri ve Faydalı Pratik Öneriler",
+        blogSubtitle: "Sosyal medya ve trendlerde uzmanlaşmak için profesyonel rehberler ve stratejiler.",
+        searchArticles: "Tüm makaleleri ara...",
+        upgradeToPremium: "Premium'a Yükselt",
+
+        // Blog Page additions
+        backToInsights: "Analizlere Dön",
+        backToPlatform: "Platforma Dön",
+        searchInArticle: "Makalede ara...",
+        matches: "eşleşme",
+        zeroMatches: "Eşleşme bulunamadı",
+        comments: "Yorumlar",
+        writeComment: "Yorumunuzu yazın...",
+        posting: "Gönderiliyor...",
+        postComment: "Yorum Gönder",
+        beFirstComment: "İlk yorum yapan siz olun.",
+        relatedPosts: "İlgili Yazılar",
+        translating: "Çevriliyor...",
+        showOriginal: "Orijinalini Göster",
+        translateToTurkish: "Türkçe'ye Çevir",
+        premiumAnalysisLocked: "Premium Analiz Kilitli",
+        premiumLockedDesc: "Haftalık trend raporlarının, derinlemesine verilerin ve uygulanabilir içerik stratejilerinin tamamını açın.",
+        getUnlimitedAccess: "Sınırsız Erişim Elde Edin",
+        author: "Yazar",
+        authorBio: "Emir Can ATAŞ, bu web sitesinin hem kurucusu hem de yazarıdır. 2017 yılından beri web sitelerini ve teknolojilerini araştırmaktadır. Çocuklar için bir yapay zeka analiz kitabı ve bir boyama kitabının yazarıdır. 2026 yılı itibarıyla 27 yaşındadır ve hâlâ teknoloji ve web sitelerinden derin bir keyif almaktadır.",
+
+        // Kategoriler
+        categoryLatest: "En Son",
+        categoryAll: "Tümü",
+        categoryLatestAI: "Yapay Zeka Analizleri",
+        categoryTrends: "Trendler",
+
+        // Sidebar / Navigasyon
+        menuOverview: "Genel Bakış",
+        menuYouTube: "YouTube",
+        menuTikTok: "TikTok",
+        menuTwitter: "Twitter / X",
+        menuInstagram: "Instagram",
+        menuLinkedIn: "LinkedIn",
+        menuPinterest: "Pinterest",
+        menuBlog: "Blog ve İçgörüler",
+        menuAbout: "Hakkımızda",
+        menuPrivacy: "Gizlilik Politikası",
+        menuTerms: "Kullanım Koşulları",
+        menuContact: "İletişim",
+        menuHowItWorks: "Nasıl Çalışır?",
+        infoSupport: "Bilgi ve Destek",
+        removeFromOverview: "Genel Bakıştan Kaldır",
+        addToOverview: "Genel Bakışa Ekle",
+
+        // Header
+        hourly: "Saatlik",
+        daily: "Günlük",
+        weekly: "Haftalık",
+        monthly: "Aylık",
+        searchAllTrends: "Tüm trendleri ara...",
     }
 };
 

@@ -9,6 +9,8 @@ import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/lib/auth";
 import { Sparkles, Lock, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { headers } from 'next/headers';
+import { getTranslation } from '@/lib/i18n';
 
 // ... (existing generateMetadata remains same, let's keep it consistent)
 
@@ -58,6 +60,11 @@ export default async function BlogPost({ params }) {
         notFound();
     }
 
+    const headersList = headers();
+    const acceptLanguage = headersList.get('accept-language') || 'en';
+    const t = getTranslation(acceptLanguage);
+    const isTurkish = t.membershipType === 'Üyelik Tipi';
+
     const isAIReport = post.category === "Latest AI Analysis";
     const isPremium = session?.user?.isPremium;
     const isLocked = isAIReport && !isPremium;
@@ -83,7 +90,7 @@ export default async function BlogPost({ params }) {
                         <span style={{ marginLeft: '1rem', color: 'var(--primary)' }}>
                             <Eye size={14} style={{ marginRight: '4px', verticalAlign: 'middle' }} />
                             <span suppressHydrationWarning>
-                                {(post.views || 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} views
+                                {(post.views || 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} {isTurkish ? 'görüntülenme' : 'views'}
                             </span>
                         </span>
                     </div>
@@ -104,10 +111,10 @@ export default async function BlogPost({ params }) {
                                     <Lock size={32} />
                                 </div>
                                 <Sparkles size={24} className={styles.sparkleIcon} />
-                                <h2>Premium Analysis Locked</h2>
-                                <p>Unlock full weekly trend reports, deep-dive data, and actionable content strategies.</p>
+                                <h2>{t.premiumAnalysisLocked}</h2>
+                                <p>{t.premiumLockedDesc}</p>
                                 <Link href="/pricing" className={styles.unlockBtn}>
-                                    <span>Get Unlimited Access</span>
+                                    <span>{t.getUnlimitedAccess}</span>
                                     <ArrowRight size={18} />
                                 </Link>
                             </div>
@@ -135,10 +142,10 @@ export default async function BlogPost({ params }) {
                     {!isLocked && (
                         <div className={styles.authorSection}>
                             <h3 className={styles.authorName}>
-                                Author: <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener noreferrer">Emir Can ATAŞ</a>
+                                {t.author}: <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener noreferrer">Emir Can ATAŞ</a>
                             </h3>
                             <p className={styles.authorBio}>
-                                Emir Can ATAŞ is both the founder and the author of this website. He has been researching websites and technologies since 2017. He is the author of an AI analysis book and a coloring book for children. As of 2026, he is 27 years old and still deeply enjoys technology and websites.
+                                {t.authorBio}
                             </p>
                         </div>
                     )}

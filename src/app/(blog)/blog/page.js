@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { ArrowRight, Search, Eye, Home, Instagram, Twitter, Youtube, Pin } from 'lucide-react';
 import styles from './blog.module.css';
 import { blogPosts } from '@/data/blogPosts';
+import { headers } from 'next/headers';
+import { getTranslation } from '@/lib/i18n';
 
 // Client component for the search interaction
 import BlogSearchInput from './BlogSearchInput';
@@ -13,6 +15,11 @@ export default async function BlogList({ searchParams }) {
     const session = await getServerSession(authOptions);
     const isPremium = session?.user?.isPremium;
     
+    const headersList = headers();
+    const acceptLanguage = headersList.get('accept-language') || 'en';
+    const t = getTranslation(acceptLanguage);
+    const isTurkish = t.membershipType === 'Üyelik Tipi';
+
     const searchTerm = searchParams?.q || '';
     const selectedCategory = searchParams?.category || '';
     
@@ -70,12 +77,20 @@ export default async function BlogList({ searchParams }) {
         return styles.standardCard;
     };
 
+    const getCategoryTranslation = (category) => {
+        if (category === 'Latest') return t.categoryLatest;
+        if (category === 'All') return t.categoryAll;
+        if (category === 'Latest AI Analysis') return t.categoryLatestAI;
+        if (category === 'Trends') return t.categoryTrends;
+        return category;
+    };
+
     return (
         <div className={styles.container}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem', flexWrap: 'wrap', gap: '1rem' }}>
                 <div className={styles.topNav} style={{ marginBottom: 0, justifyContent: 'flex-start', flex: 1 }}>
                     <Link href={!isPremium ? "/" : "/dashboard"} className={styles.backButton}>
-                        <Home size={18} /> Back to Dashboard
+                        <Home size={18} /> {t.backToDashboard}
                     </Link>
                     <Link href={!isPremium ? "/" : "/instagram"} className={styles.backButton}>
                         <Instagram size={18} /> Instagram
@@ -93,18 +108,18 @@ export default async function BlogList({ searchParams }) {
                 <div>
                     {isPremium ? (
                         <Link href="/dashboard" className={styles.backButton} style={{ background: 'var(--primary)', color: 'white', borderColor: 'var(--primary)', fontWeight: 'bold' }}>
-                            {session.user.name || (session.user.email ? session.user.email.split('@')[0] : 'Dashboard')}
+                            {session.user.name || (session.user.email ? session.user.email.split('@')[0] : t.dashboard)}
                         </Link>
                     ) : (
                         <Link href="/" className={styles.backButton} style={{ background: 'var(--primary)', color: 'white', borderColor: 'var(--primary)', fontWeight: 'bold' }}>
-                            Premium'a Yükselt
+                            {t.upgradeToPremium}
                         </Link>
                     )}
                 </div>
             </div>
             <div className={styles.header}>
-                <h1>Trend Analyses and Useful Practical Suggestions</h1>
-                <p>Expert guides and strategies for mastering social media and trends.</p>
+                <h1>{t.blogTitle}</h1>
+                <p>{t.blogSubtitle}</p>
             </div>
 
             <Suspense fallback={<div className={styles.searchBar}><Search size={20} className={styles.searchIcon} /><div className="skeleton-base" style={{ flex: 1, height: '24px' }}></div></div>}>
@@ -121,7 +136,7 @@ export default async function BlogList({ searchParams }) {
                             href={`/blog?${searchTerm ? `q=${searchTerm}&` : ''}${cat !== 'All' ? `category=${encodeURIComponent(cat)}` : ''}`}
                             className={`${styles.categoryButton} ${isActive ? styles.activeCategoryButton : ''}`}
                         >
-                            {cat}
+                            {getCategoryTranslation(cat)}
                         </Link>
                     )
                 })}
@@ -143,7 +158,7 @@ export default async function BlogList({ searchParams }) {
                                 <span className={styles.views}>
                                     <Eye size={14} style={{ marginRight: '4px', verticalAlign: 'middle' }} />
                                     <span suppressHydrationWarning>
-                                        {(post.views || 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} views
+                                        {(post.views || 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} {isTurkish ? 'görüntülenme' : 'views'}
                                     </span>
                                 </span>
                             </div>
@@ -152,9 +167,9 @@ export default async function BlogList({ searchParams }) {
                             
                             {/* Updated Read More Section with Category Badge & Styled Button */}
                             <div className={styles.readMoreContainer}>
-                                {post.category && <span className={styles.categoryBadge}>{post.category}</span>}
+                                {post.category && <span className={styles.categoryBadge}>{getCategoryTranslation(post.category)}</span>}
                                 <span className={styles.readMoreBtn}>
-                                    Read Article <ArrowRight size={16} />
+                                    {isTurkish ? 'Makaleyi Oku' : 'Read Article'} <ArrowRight size={16} />
                                 </span>
                             </div>
                         </div>
@@ -164,7 +179,11 @@ export default async function BlogList({ searchParams }) {
 
             {filteredPosts.length === 0 && (
                 <div style={{ textAlign: 'center', marginTop: '3rem', color: 'var(--text-muted)' }}>
-                    <p>No articles found matching "{searchTerm}" {selectedCategory && `in "${selectedCategory}"`}</p>
+                    <p suppressHydrationWarning>
+                        {isTurkish 
+                            ? `"${searchTerm}" aramasıyla eşleşen ${selectedCategory ? `"${getCategoryTranslation(selectedCategory)}" kategorisinde ` : ''}makale bulunamadı.` 
+                            : `No articles found matching "${searchTerm}" ${selectedCategory ? `in "${getCategoryTranslation(selectedCategory)}"` : ''}`}
+                    </p>
                 </div>
             )}
         </div>
