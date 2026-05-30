@@ -118,6 +118,7 @@ const translations = {
 
         // Sidebar / Navigation additions
         menuOverview: "Overview",
+        menuAdminPanel: "Admin Panel",
         menuYouTube: "YouTube",
         menuTikTok: "TikTok",
         menuTwitter: "Twitter / X",
@@ -260,6 +261,7 @@ const translations = {
 
         // Sidebar / Navigasyon
         menuOverview: "Genel Bakış",
+        menuAdminPanel: "Yönetici Paneli",
         menuYouTube: "YouTube",
         menuTikTok: "TikTok",
         menuTwitter: "Twitter / X",

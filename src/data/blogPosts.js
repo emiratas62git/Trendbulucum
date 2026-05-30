@@ -2186,7 +2186,7 @@ export const blogPosts = [
         "excerpt": "Discover the most powerful AI writing tools of 2026 and learn how to monetize your content in lucrative industries like finance and tech.",
         "date": "Mar 30, 2026",
         "readTime": "7 min read",
-        "image": "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/ai_unique_58_1780169556614.jpg",
         "views": 14200,
         "hashtags": [
             "#AIWriting",
@@ -2221,7 +2221,7 @@ export const blogPosts = [
         "excerpt": "The online income landscape is evolving. Explore the most realistic and sustainable ways to generate revenue online this year.",
         "date": "Mar 30, 2026",
         "readTime": "6 min read",
-        "image": "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/ai_unique_57_1780169560676.jpg",
         "views": 25600,
         "hashtags": [
             "#OnlineIncome",
@@ -2256,7 +2256,7 @@ export const blogPosts = [
         "excerpt": "Your smartphone is a powerful tool for income generation. Discover the most legitimate and profitable apps for making money on the go.",
         "date": "Mar 30, 2026",
         "readTime": "5 min read",
-        "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/ai_unique_56_1780169561072.jpg",
         "views": 16700,
         "hashtags": [
             "#MobileApps",
@@ -2291,7 +2291,7 @@ export const blogPosts = [
         "excerpt": "Streamline your social presence. Learn how AI can handle your scheduling, engagement, and content creation across all platforms.",
         "date": "Mar 28, 2026",
         "readTime": "6 min read",
-        "image": "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/ai_unique_51_1780169561426.jpg",
         "views": 14500,
         "hashtags": [
             "#SocialMedia",
@@ -2322,7 +2322,7 @@ export const blogPosts = [
         "excerpt": "Boost your sales and lower your costs. A deep dive into AI-driven product descriptions, customer service, and inventory management.",
         "date": "Mar 28, 2026",
         "readTime": "7 min read",
-        "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/ai_unique_50_1780169561728.jpg",
         "views": 12800,
         "hashtags": [
             "#Ecommerce",
@@ -2353,7 +2353,7 @@ export const blogPosts = [
         "excerpt": "Create once, sell forever. Learn how to identify profitable digital products and use AI to build them faster than ever before.",
         "date": "Mar 28, 2026",
         "readTime": "6 min read",
-        "image": "https://images.unsplash.com/photo-1434626881859-194d67b2b86f?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/ai_unique_49_1780169562905.jpg",
         "views": 22400,
         "hashtags": [
             "#PassiveIncome",
@@ -2415,7 +2415,7 @@ export const blogPosts = [
         "excerpt": "Transform your listings and attract more buyers. How AI-driven virtual staging and automated lead generation are changing the game.",
         "date": "Mar 27, 2026",
         "readTime": "6 min read",
-        "image": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/ai_unique_47_1780169563233.jpg",
         "views": 9800,
         "hashtags": [
             "#RealEstate",
@@ -2446,7 +2446,7 @@ export const blogPosts = [
         "excerpt": "Launch your voice to the world with zero technical friction. Learn how AI can handle your recording, editing, and distribution.",
         "date": "Mar 27, 2026",
         "readTime": "7 min read",
-        "image": "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/ai_unique_46_1780169563725.jpg",
         "views": 11200,
         "hashtags": [
             "#Podcast",
@@ -2508,7 +2508,7 @@ export const blogPosts = [
         "excerpt": "Don't get left behind. Stay ahead of the curve with these top-rated, completely free courses on artificial intelligence and machine learning.",
         "date": "Mar 27, 2026",
         "readTime": "8 min read",
-        "image": "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/ai_unique_44_1780169564064.jpg",
         "views": 24500,
         "hashtags": [
             "#Education",
@@ -2698,7 +2698,7 @@ export const blogPosts = [
         "excerpt": "Find out why hashtags have become secondary signals in 2026 and how algorithms prioritize watch time and user retention.",
         "date": "Mar 12, 2026",
         "readTime": "5 min read",
-        "image": "https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/ai_unique_36_1780169564396.jpg",
         "views": 19800,
         "hashtags": [
             "#Hashtags",
@@ -2852,7 +2852,7 @@ export const blogPosts = [
         "excerpt": "A professional guide on content standards, the role of AI and human touch, and the structural layout needed for Google AdSense monetization.",
         "date": "Mar 08, 2026",
         "readTime": "8 min read",
-        "image": "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1600&auto=format&fit=crop&q=80",
+        "image": "/blog-images/ai_unique_32_1780169564797.jpg",
         "views": 17800,
         "hashtags": [
             "#AdSense",
@@ -3205,7 +3205,7 @@ export const blogPosts = [
         "excerpt": "Comparing manual research vs AI-driven trend discovery using tools like TrendyFinder.",
         "date": "Jan 29, 2026",
         "readTime": "5 min read",
-        "image": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/ai_unique_2_1780169565084.jpg",
         "views": 18940,
         "hashtags": [
             "#AI",
@@ -3240,7 +3240,7 @@ export const blogPosts = [
         "excerpt": "Understanding why algorithms love trends and the importance of timing.",
         "date": "Jan 28, 2026",
         "readTime": "4 min read",
-        "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/ai_unique_3_1780169565377.jpg",
         "views": 15300,
         "hashtags": [
             "#ContentCreator",
@@ -3354,7 +3354,7 @@ export const blogPosts = [
         "excerpt": "Understanding the balance between short-term viral hits and long-term value.",
         "date": "Jan 25, 2026",
         "readTime": "4 min read",
-        "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/ai_unique_6_1780169565731.jpg",
         "views": 8900,
         "hashtags": [
             "#Evergreen",
@@ -3393,7 +3393,7 @@ export const blogPosts = [
         "excerpt": "Signs of interaction drop and how to interpret AI data.",
         "date": "Jan 24, 2026",
         "readTime": "3 min read",
-        "image": "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/ai_unique_7_1780169566050.jpg",
         "views": 7650,
         "hashtags": [
             "#TrendAnalysis",
@@ -3454,7 +3454,7 @@ export const blogPosts = [
         "excerpt": "Effective Reels formats: Hook & Info, Text-based, and POV.",
         "date": "Jan 22, 2026",
         "readTime": "4 min read",
-        "image": "https://images.unsplash.com/photo-1611262588024-d12430b98920?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/ai_unique_9_1780169566452.jpg",
         "views": 38900,
         "hashtags": [
             "#Instagram",
@@ -3481,7 +3481,7 @@ export const blogPosts = [
         "excerpt": "Shorts logic, view-boosting trend types, and hook suggestions.",
         "date": "Jan 21, 2026",
         "readTime": "4 min read",
-        "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/ai_unique_10_1780169566974.jpg",
         "views": 41000,
         "hashtags": [
             "#YouTubeShorts",
@@ -3605,7 +3605,7 @@ export const blogPosts = [
         "excerpt": "TrendyFinder analysis steps and value proposition for users.",
         "date": "Jan 17, 2026",
         "readTime": "3 min read",
-        "image": "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/ai_unique_14_1780169567268.jpg",
         "views": 5600,
         "hashtags": [
             "#TrendyFinder",
@@ -3632,7 +3632,7 @@ export const blogPosts = [
         "excerpt": "Strengths and limitations of AI predictions and the need for human balance.",
         "date": "Jan 16, 2026",
         "readTime": "4 min read",
-        "image": "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/ai_unique_15_1780169567579.jpg",
         "views": 13200,
         "hashtags": [
             "#AI",
@@ -3667,7 +3667,7 @@ export const blogPosts = [
         "excerpt": "Speed versus context. Which approach wins?",
         "date": "Jan 15, 2026",
         "readTime": "4 min read",
-        "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/ai_unique_16_1780169567895.jpg",
         "views": 10100,
         "hashtags": [
             "#Automation",
@@ -3787,7 +3787,7 @@ export const blogPosts = [
         "excerpt": "Building trust, consistency, and community effect.",
         "date": "Jan 11, 2026",
         "readTime": "4 min read",
-        "image": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/ai_unique_20_1780169568205.jpg",
         "views": 11500,
         "hashtags": [
             "#AudienceBuilding",
@@ -3818,7 +3818,7 @@ export const blogPosts = [
         "excerpt": "From creating content for saturated trends to ignoring emotions.",
         "date": "Jan 10, 2026",
         "readTime": "5 min read",
-        "image": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/ai_unique_21_1780169568540.jpg",
         "views": 22300,
         "hashtags": [
             "#MistakesAvoided",
@@ -3853,7 +3853,7 @@ export const blogPosts = [
         "excerpt": "Why generic motivation quotes and old-school content fail.",
         "date": "Jan 09, 2026",
         "readTime": "3 min read",
-        "image": "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/ai_unique_22_1780169568970.jpg",
         "views": 6500,
         "hashtags": [
             "#BadAdvice",
@@ -3880,7 +3880,7 @@ export const blogPosts = [
         "excerpt": "Distinguishing between organic spread and bot-driven inflation.",
         "date": "Jan 08, 2026",
         "readTime": "3 min read",
-        "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/ai_unique_23_1780169569313.jpg",
         "views": 8100,
         "hashtags": [
             "#FakeNews",
@@ -3954,7 +3954,7 @@ export const blogPosts = [
         "excerpt": "A deep analysis of the 2026 TikTok algorithm, explaining why viewing time trumps follower count and how community momentum predicts viral success.",
         "date": "Mar 01, 2026",
         "readTime": "6 min read",
-        "image": "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&auto=format&fit=crop&q=60",
+        "image": "/blog-images/ai_unique_25_1780169569658.jpg",
         "views": 315,
         "hashtags": [
             "#TikTokAlgorithm",

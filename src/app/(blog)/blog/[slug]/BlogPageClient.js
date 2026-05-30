@@ -255,7 +255,7 @@ export default function BlogPageClient({ post, relatedPosts, isLoggedIn, isLocke
                                         style={{ width: '100%', minHeight: '100px', padding: '1rem', borderRadius: '12px', border: '1px solid var(--border)', background: 'var(--bg-secondary)', color: 'var(--text)', resize: 'vertical', fontSize: '14px', fontFamily: 'inherit' }}
                                         onClick={() => {
                                             if (!isLoggedIn) {
-                                                router.push('/pricing');
+                                                router.push('/');
                                             }
                                         }}
                                         onChange={(e) => {
@@ -270,7 +270,7 @@ export default function BlogPageClient({ post, relatedPosts, isLoggedIn, isLocke
                                         <button 
                                             onClick={async () => {
                                                 if (!isLoggedIn) {
-                                                    router.push('/pricing');
+                                                    router.push('/');
                                                     return;
                                                 }
                                                 if (commentText.trim()) {

@@ -31,6 +31,7 @@ export default function Sidebar() {
     const { isPlatformVisible, togglePlatform, isSidebarOpen, closeSidebar } = useDashboard();
     
     const isPremium = session?.user?.isPremium;
+    const isAdmin = session?.user?.email === 'emircanatas62@gmail.com';
 
     // Detection for browser language
     const [t, setT] = useState(getTranslation('en'));
@@ -40,8 +41,14 @@ export default function Sidebar() {
         }
     }, []);
 
+    const menuItemsToRender = [...MENU_ITEMS];
+    if (isAdmin && !menuItemsToRender.some(item => item.path === '/admin')) {
+        menuItemsToRender.splice(1, 0, { name: 'Admin Panel', path: '/admin', icon: BarChart2 });
+    }
+
     const getMenuNameTranslation = (name) => {
         if (name === 'Overview') return t.menuOverview;
+        if (name === 'Admin Panel') return t.menuAdminPanel || 'Admin Panel';
         if (name === 'YouTube') return t.menuYouTube;
         if (name === 'TikTok') return t.menuTikTok;
         if (name === 'Twitter / X') return t.menuTwitter;
@@ -74,7 +81,7 @@ export default function Sidebar() {
                 </div>
 
                 <nav className={styles.nav}>
-                    {MENU_ITEMS.map((item, index) => {
+                    {menuItemsToRender.map((item, index) => {
                         const Icon = item.icon;
                         const isActive = pathname === item.path;
 
@@ -84,7 +91,7 @@ export default function Sidebar() {
 
                         const isVisible = isPlatform && isPlatformVisible(platformKey);
 
-                        const isFirstInfo = item.type === 'info' && (index === 0 || MENU_ITEMS[index - 1].type !== 'info');
+                        const isFirstInfo = item.type === 'info' && (index === 0 || menuItemsToRender[index - 1].type !== 'info');
 
                         return (
                             <div key={item.path}>

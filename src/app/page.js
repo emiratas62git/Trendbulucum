@@ -1,6 +1,7 @@
 "use client";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useSession, signIn } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 import { Check, Zap, Rocket, Star, ShieldCheck, Sparkles, ArrowRight, Loader2 } from 'lucide-react';
 import styles from './pricing.module.css';
 import Link from 'next/link';
@@ -9,8 +10,10 @@ import { getTranslation } from '@/lib/i18n';
 
 export default function PricingPage() {
     const { data: session, status } = useSession();
+    const router = useRouter();
     const [loading, setLoading] = useState(null);
     const [showWelcome, setShowWelcome] = useState(false);
+    const autoCheckoutRan = useRef(false);
 
     // Detection for browser language
     const [t, setT] = useState(getTranslation('en'));
@@ -95,7 +98,7 @@ export default function PricingPage() {
 
         // Bypass payment for specific user
         if (session?.user?.email === 'emircanatas62@gmail.com') {
-            window.location.href = '/dashboard';
+            router.push('/dashboard');
             return;
         }
 
@@ -133,19 +136,20 @@ export default function PricingPage() {
             // Only redirect if they aren't explicitly trying to checkout a different plan
             const urlParams = new URLSearchParams(window.location.search);
             if (!urlParams.get('checkout')) {
-                window.location.href = '/dashboard';
+                router.push('/dashboard');
             }
         }
     }, [status, session]);
 
     // Auto-checkout if user was redirected from login with a pending plan
     useEffect(() => {
-        if (typeof window !== 'undefined' && status === 'authenticated') {
+        if (typeof window !== 'undefined' && status === 'authenticated' && !autoCheckoutRan.current) {
             const urlParams = new URLSearchParams(window.location.search);
             const checkoutPlan = urlParams.get('checkout');
             if (checkoutPlan) {
                 const plan = PLANS.find(p => p.name === checkoutPlan);
                 if (plan) {
+                    autoCheckoutRan.current = true;
                     // Clean URL immediately so it doesn't run again
                     window.history.replaceState({}, document.title, window.location.pathname);
                     handleSubscribe(plan);

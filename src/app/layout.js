@@ -5,6 +5,7 @@ import { DashboardProvider } from '@/context/DashboardContext';
 import ScrollToTop from '@/components/ScrollToTop';
 import Sidebar from '@/components/Sidebar';
 import { AuthProvider } from '@/components/AuthProvider';
+import ClientTranslationProvider from '@/components/ClientTranslationProvider';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -68,12 +69,14 @@ export default function RootLayout({ children }) {
                         </Script>
                     </>
                 )}
-                <AuthProvider>
-                    <DashboardProvider>
-                        {children}
-                        <ScrollToTop />
-                    </DashboardProvider>
-                </AuthProvider>
+                <ClientTranslationProvider>
+                    <AuthProvider>
+                        <DashboardProvider>
+                            {children}
+                            <ScrollToTop />
+                        </DashboardProvider>
+                    </AuthProvider>
+                </ClientTranslationProvider>
             </body>
         </html>
     )
