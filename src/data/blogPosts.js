@@ -1,5 +1,113 @@
 export const blogPosts = [
     {
+        "id": 1015,
+        "slug": "weekly-ai-insights-the-rise-of-real-time-generative-video-and-edge-computing-1780745087191",
+        "category": "Latest AI Analysis",
+        "title": "Weekly AI Insights: The Rise of Real-Time Generative Video and Edge Computing",
+        "excerpt": "A deep dive into this week's AI evolution, featuring data-driven insights on viral video generation models and the strategic shift towards local AI processing.",
+        "date": "Jun 6, 2026",
+        "readTime": "6 min read",
+        "image": "/blog-images/ai_weekly-ai-insights-the-rise-of-real-time-generativ.jpg",
+        "views": 250,
+        "hashtags": [
+            "#AITrends",
+            "#GenerativeAI",
+            "#EdgeComputing",
+            "#MachineLearning"
+        ],
+        "content": [
+            {
+                "subtitle": "The Emergence of High-Fidelity Video Models",
+                "text": "This week witnessed a significant surge in generative video model adoption. Emerging tools from both established tech giants and niche startups have demonstrated a 40% improvement in temporal consistency. As industries pivot towards automated content creation, the focus is shifting from simple text-to-image prompts to complex, multi-modal video sequences that maintain high resolution and realistic physics."
+            },
+            {
+                "subtitle": "Bar Chart: Daily Virality Volume",
+                "type": "chart",
+                "chartType": "bar",
+                "chartData": [
+                    {
+                        "label": "Monday",
+                        "value": 450
+                    },
+                    {
+                        "label": "Tuesday",
+                        "value": 720
+                    },
+                    {
+                        "label": "Wednesday",
+                        "value": 1100
+                    },
+                    {
+                        "label": "Thursday",
+                        "value": 980
+                    },
+                    {
+                        "label": "Friday",
+                        "value": 1250
+                    },
+                    {
+                        "label": "Saturday",
+                        "value": 840
+                    },
+                    {
+                        "label": "Sunday",
+                        "value": 610
+                    }
+                ]
+            },
+            {
+                "subtitle": "Pie Chart: Bot vs Human Interaction",
+                "type": "chart",
+                "chartType": "pie",
+                "chartData": [
+                    {
+                        "category": "Human",
+                        "percentage": 68
+                    },
+                    {
+                        "category": "Bot",
+                        "percentage": 32
+                    }
+                ]
+            },
+            {
+                "subtitle": "Candlestick: Hourly Volatility",
+                "type": "chart",
+                "chartType": "candlestick",
+                "chartData": [
+                    {
+                        "time": "09:00",
+                        "open": 45,
+                        "high": 52,
+                        "low": 42,
+                        "close": 50
+                    },
+                    {
+                        "time": "12:00",
+                        "open": 50,
+                        "high": 58,
+                        "low": 48,
+                        "close": 55
+                    },
+                    {
+                        "time": "15:00",
+                        "open": 55,
+                        "high": 65,
+                        "low": 53,
+                        "close": 62
+                    },
+                    {
+                        "time": "18:00",
+                        "open": 62,
+                        "high": 64,
+                        "low": 58,
+                        "close": 60
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "id": 1014,
         "slug": "weekly-ai-trend-analysis-the-rise-of-multi-modal-orchestration-and-efficiency-benchmarks-1780139931828",
         "category": "Latest AI Analysis",
