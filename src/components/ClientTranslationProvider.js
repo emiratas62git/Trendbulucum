@@ -245,7 +245,7 @@ export default function ClientTranslationProvider({ children }) {
                 .translate-widget-container {
                     position: fixed;
                     bottom: 24px;
-                    right: 24px;
+                    left: 24px;
                     z-index: 99999;
                     font-family: 'Inter', sans-serif;
                 }
@@ -286,7 +286,7 @@ export default function ClientTranslationProvider({ children }) {
                 .translate-modal {
                     position: absolute;
                     bottom: 60px;
-                    right: 0;
+                    left: 0;
                     width: 320px;
                     background: rgba(15, 23, 42, 0.9);
                     border: 1px solid rgba(255, 255, 255, 0.1);

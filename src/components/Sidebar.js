@@ -106,14 +106,18 @@ export default function Sidebar() {
                                     </Link>
                                 )}
                                 {isFirstInfo && <div className={styles.navTitle}>{t.infoSupport}</div>}
-                                <div className={styles.navItemWrapper}>
+                                <div className={`${styles.navItemWrapper} ${item.path === '/blog' ? styles.blogNavItemWrapper : ''}`}>
                                     <Link
                                         href={!isPremium && (isPlatform || item.path === '/dashboard') ? '/' : item.path}
-                                        className={`${styles.navItem} ${isActive ? styles.active : ''}`}
+                                        className={`${styles.navItem} ${isActive ? styles.active : ''} ${item.path === '/blog' ? styles.blogNavItem : ''}`}
                                         onClick={closeSidebar}
                                     >
-                                        <Icon size={20} />
+                                        <span className={item.path === '/blog' ? styles.blogIconWrapper : ''}>
+                                            <Icon size={20} />
+                                            {item.path === '/blog' && <span className={styles.blogPulseDot} />}
+                                        </span>
                                         <span>{getMenuNameTranslation(item.name)}</span>
+                                        {item.path === '/blog' && <span className={styles.blogNewBadge}>NEW</span>}
                                     </Link>
                                     {isPlatform && (
                                         <button

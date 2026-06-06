@@ -89,6 +89,101 @@
     stroke-width: 2px;
 }
 
+/* ─── Blog & Insights — Featured Nav Item ─── */
+.blogNavItemWrapper {
+    background: linear-gradient(90deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.06) 100%) !important;
+    border: 1px solid rgba(99, 102, 241, 0.25) !important;
+    border-radius: var(--radius) !important;
+    margin: 2px 0;
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.15);
+    animation: blogWrapperGlow 3s ease-in-out infinite;
+}
+
+.blogNavItemWrapper:hover {
+    background: linear-gradient(90deg, rgba(99, 102, 241, 0.22) 0%, rgba(139, 92, 246, 0.14) 100%) !important;
+    border-color: rgba(139, 92, 246, 0.5) !important;
+    box-shadow: 0 0 18px rgba(139, 92, 246, 0.35) !important;
+}
+
+@keyframes blogWrapperGlow {
+    0%, 100% { box-shadow: 0 0 8px rgba(99, 102, 241, 0.15); }
+    50%       { box-shadow: 0 0 16px rgba(139, 92, 246, 0.35); }
+}
+
+/* ─── Blog & Insights — Featured Nav Item ─── */
+.blogNavItem {
+    color: #a78bfa !important;
+    background: transparent !important;
+    border: none !important;
+    position: relative;
+    overflow: visible;
+}
+
+.blogNavItem:hover {
+    background: transparent !important;
+    color: #c4b5fd !important;
+    transform: translateX(4px);
+}
+
+.blogIconWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* Yanıp sönen nokta */
+.blogPulseDot {
+    position: absolute;
+    top: -3px;
+    right: -4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #6366f1;
+    box-shadow: 0 0 6px 2px rgba(99, 102, 241, 0.7);
+    animation: blogPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes blogPulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+        box-shadow: 0 0 6px 2px rgba(99, 102, 241, 0.7);
+    }
+    50% {
+        opacity: 0.55;
+        transform: scale(0.8);
+        box-shadow: 0 0 12px 4px rgba(139, 92, 246, 0.5);
+    }
+}
+
+/* NEW badge */
+.blogNewBadge {
+    margin-left: auto;
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: #fff;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    padding: 2px 6px;
+    border-radius: 999px;
+    box-shadow: 0 0 8px rgba(99, 102, 241, 0.5);
+    animation: blogBadgeGlow 2.5s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+@keyframes blogBadgeGlow {
+    0%, 100% { box-shadow: 0 0 6px rgba(99, 102, 241, 0.5); }
+    50%       { box-shadow: 0 0 14px rgba(139, 92, 246, 0.85); }
+}
+
+/* 1024px küçük sidebar'da badge'i gizle, nokta kalsın */
+@media (max-width: 1024px) {
+    .blogNewBadge { display: none; }
+}
+
+
 .toggleButton {
     width: 22px;
     height: 22px;
