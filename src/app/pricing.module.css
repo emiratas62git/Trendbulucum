@@ -166,9 +166,10 @@
 }
 
 .featured {
-    border: 2px solid var(--primary);
-    background: linear-gradient(180deg, var(--surface) 0%, rgba(99, 102, 241, 0.03) 100%);
+    border: 2px solid #8b5cf6;
+    background: linear-gradient(180deg, var(--surface) 0%, rgba(139, 92, 246, 0.04) 100%);
     transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
 }
 
 .featuredBadge {
@@ -176,13 +177,13 @@
     top: -15px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--primary);
+    background: linear-gradient(135deg, #8b5cf6, #6366f1);
     color: white;
     padding: 0.4rem 1.25rem;
     border-radius: 99px;
     font-size: 0.85rem;
     font-weight: 700;
-    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.5);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.45);
 }
 
 .iconWrapper {
@@ -280,8 +281,21 @@
 }
 
 .featured .subscribeBtn {
-    background: linear-gradient(90deg, var(--primary), #818cf8);
-    color: white;
+    background: rgba(139, 92, 246, 0.12);
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    color: #c4b5fd;
+    box-shadow: 0 0 12px rgba(139, 92, 246, 0.2);
+    animation: headerBlogGlow 3s ease-in-out infinite;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.featured .subscribeBtn:hover:not(:disabled) {
+    background: rgba(139, 92, 246, 0.22) !important;
+    border-color: #a78bfa !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.55) !important;
+    transform: translateY(-2.5px) !important;
+    opacity: 1 !important;
 }
 
 .premium .subscribeBtn {
