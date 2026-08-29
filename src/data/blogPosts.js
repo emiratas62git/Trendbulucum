@@ -1,5 +1,118 @@
 export const blogPosts = [
     {
+        "id": 1026,
+        "slug": "weekly-ai-pulse-the-rise-of-agentic-workflows-and-generative-video-evolution-1788015345598",
+        "category": "Latest AI Analysis",
+        "title": "Weekly AI Pulse: The Rise of Agentic Workflows and Generative Video Evolution",
+        "excerpt": "A deep dive into the latest trends in autonomous AI agents, the surge in high-fidelity video generation, and an analysis of social sentiment volatility within the tech sector.",
+        "date": "Aug 29, 2026",
+        "readTime": "6 min read",
+        "image": "/blog-images/ai_weekly-ai-pulse-the-rise-of-agentic-workflows-and-.jpg",
+        "views": 545,
+        "hashtags": [
+            "#AIResearch",
+            "#GenerativeVideo",
+            "#AutonomousAgents",
+            "#TrendyFinderPro",
+            "#TechTrends2024"
+        ],
+        "content": [
+            {
+                "subtitle": "The Shift Toward Agentic Workflows",
+                "text": "This week, the AI ecosystem shifted significantly from static prompting to iterative, agentic workflows. Developers are increasingly leveraging frameworks that allow LLMs to plan, execute code, and reflect on their own outputs. This trend suggests a move toward truly autonomous software development life cycles and a reduction in manual oversight for complex reasoning tasks."
+            },
+            {
+                "subtitle": "Bar Chart: Daily Virality Volume",
+                "type": "chart",
+                "chartType": "bar",
+                "chartData": [
+                    {
+                        "day": "Monday",
+                        "mentions": 4500
+                    },
+                    {
+                        "day": "Tuesday",
+                        "mentions": 5200
+                    },
+                    {
+                        "day": "Wednesday",
+                        "mentions": 6100
+                    },
+                    {
+                        "day": "Thursday",
+                        "mentions": 8900
+                    },
+                    {
+                        "day": "Friday",
+                        "mentions": 7400
+                    },
+                    {
+                        "day": "Saturday",
+                        "mentions": 3200
+                    },
+                    {
+                        "day": "Sunday",
+                        "mentions": 2800
+                    }
+                ]
+            },
+            {
+                "subtitle": "Pie Chart: Bot vs Human Interaction",
+                "type": "chart",
+                "chartType": "pie",
+                "chartData": [
+                    {
+                        "label": "Verified Human",
+                        "value": 62
+                    },
+                    {
+                        "label": "Automated Bots",
+                        "value": 28
+                    },
+                    {
+                        "label": "Unidentified/Hybrid",
+                        "value": 10
+                    }
+                ]
+            },
+            {
+                "subtitle": "Candlestick: Hourly Volatility",
+                "type": "chart",
+                "chartType": "candlestick",
+                "chartData": [
+                    {
+                        "time": "10:00",
+                        "open": 142.5,
+                        "high": 145.2,
+                        "low": 141,
+                        "close": 144.1
+                    },
+                    {
+                        "time": "11:00",
+                        "open": 144.1,
+                        "high": 148.8,
+                        "low": 143.5,
+                        "close": 147.2
+                    },
+                    {
+                        "time": "12:00",
+                        "open": 147.2,
+                        "high": 147.5,
+                        "low": 140.2,
+                        "close": 141.5
+                    },
+                    {
+                        "time": "13:00",
+                        "open": 141.5,
+                        "high": 143,
+                        "low": 139.5,
+                        "close": 142.8
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "id": 1025,
         "slug": "weekly-ai-trend-analysis-the-surge-of-generative-video-and-small-language-models-1787394008245",
         "category": "Latest AI Analysis",
