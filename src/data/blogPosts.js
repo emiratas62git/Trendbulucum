@@ -1,5 +1,122 @@
 export const blogPosts = [
     {
+        "id": 1032,
+        "slug": "weekly-ai-trend-analysis-the-dominance-of-generative-video-and-agentic-orchestration-1792243653077",
+        "category": "Latest AI Analysis",
+        "title": "Weekly AI Trend Analysis: The Dominance of Generative Video and Agentic Orchestration",
+        "excerpt": "An in-depth look at the surge in generative video technologies and the strategic shift toward autonomous AI agentic workflows in Q3.",
+        "date": "Oct 17, 2026",
+        "readTime": "6 min read",
+        "image": "/blog-images/ai_weekly-ai-trend-analysis-the-dominance-of-generati.jpg",
+        "views": 183,
+        "hashtags": [
+            "#AITrends",
+            "#GenerativeVideo",
+            "#AIAgents",
+            "#FutureOfWork",
+            "#TrendyFinderPro"
+        ],
+        "content": [
+            {
+                "subtitle": "The Rise of Motion: Generative Video Evolution",
+                "text": "The past week has seen an unprecedented spike in interest surrounding generative video models. With the release of open-weights alternatives and significant updates to proprietary models like Sora and Kling, creators are shifting from static image generation to complex video sequences. This trend signifies a democratization of high-fidelity cinematic content, impacting marketing and entertainment industries globally."
+            },
+            {
+                "subtitle": "Bar Chart: Daily Virality Volume",
+                "type": "chart",
+                "chartType": "bar",
+                "chartData": [
+                    {
+                        "label": "Monday",
+                        "value": 12500
+                    },
+                    {
+                        "label": "Tuesday",
+                        "value": 18200
+                    },
+                    {
+                        "label": "Wednesday",
+                        "value": 24500
+                    },
+                    {
+                        "label": "Thursday",
+                        "value": 21000
+                    },
+                    {
+                        "label": "Friday",
+                        "value": 32000
+                    },
+                    {
+                        "label": "Saturday",
+                        "value": 28000
+                    },
+                    {
+                        "label": "Sunday",
+                        "value": 19500
+                    }
+                ]
+            },
+            {
+                "subtitle": "Transitioning to Autonomy: Agentic Workflows",
+                "text": "Large Language Models (LLMs) are no longer just chatbots; they are becoming the central processing units for autonomous agents. Companies are increasingly investing in multi-agent systems where different AI modules collaborate to solve complex tasks like software development and automated supply chain management. This shift is reducing human oversight requirements and increasing operational efficiency by 40% in early-adopter pilot programs."
+            },
+            {
+                "subtitle": "Pie Chart: Bot vs Human Interaction",
+                "type": "chart",
+                "chartType": "pie",
+                "chartData": [
+                    {
+                        "label": "Human Generated Traffic",
+                        "value": 58
+                    },
+                    {
+                        "label": "Autonomous AI Interactions",
+                        "value": 42
+                    }
+                ]
+            },
+            {
+                "subtitle": "Compute Economics and Hardware Shifts",
+                "text": "The financial markets surrounding AI hardware remain volatile. As the demand for training chips shifts slightly toward inference-optimized hardware, we are seeing a correction in GPU-linked stock prices. However, the appetite for localized compute solutions remains at an all-time high, driven by data privacy concerns in the enterprise sector."
+            },
+            {
+                "subtitle": "Candlestick: Hourly Volatility",
+                "type": "chart",
+                "chartType": "candlestick",
+                "chartData": [
+                    {
+                        "time": "10:00",
+                        "open": 145.2,
+                        "high": 148.5,
+                        "low": 144.1,
+                        "close": 147.8
+                    },
+                    {
+                        "time": "11:00",
+                        "open": 147.8,
+                        "high": 150.2,
+                        "low": 147,
+                        "close": 149.1
+                    },
+                    {
+                        "time": "12:00",
+                        "open": 149.1,
+                        "high": 149.5,
+                        "low": 142.3,
+                        "close": 143.5
+                    },
+                    {
+                        "time": "13:00",
+                        "open": 143.5,
+                        "high": 146,
+                        "low": 143,
+                        "close": 145.4
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "id": 1031,
         "slug": "weekly-ai-insight-the-surge-of-autonomous-agents-and-multimodal-evolution-1791038011812",
         "category": "Latest AI Analysis",
