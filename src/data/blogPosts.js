@@ -1,5 +1,118 @@
 export const blogPosts = [
     {
+        "id": 1034,
+        "slug": "weekly-ai-trend-report-the-rise-of-agentic-ai-workflows-in-enterprise-1793460961694",
+        "category": "Latest AI Analysis",
+        "title": "Weekly AI Trend Report: The Rise of Agentic AI Workflows in Enterprise",
+        "excerpt": "Explore how autonomous AI agents are revolutionizing enterprise productivity and the latest shifts in LLM integration strategies for 2024.",
+        "date": "Oct 31, 2026",
+        "readTime": "6 min read",
+        "image": "/blog-images/ai_weekly-ai-trend-report-the-rise-of-agentic-ai-work.jpg",
+        "views": 564,
+        "hashtags": [
+            "#AgenticAI",
+            "#EnterpriseTech",
+            "#LLMOps",
+            "#AIStrategy",
+            "#TrendyFinderPro"
+        ],
+        "content": [
+            {
+                "subtitle": "The Shift from Chatbots to Autonomous Agents",
+                "text": "The artificial intelligence landscape is witnessing a significant pivot from simple conversational interfaces to complex agentic workflows. These systems don't just answer questions; they execute multi-step tasks across diverse software ecosystems. We are seeing a 40% increase in enterprise interest for agents that can autonomously handle procurement, scheduling, and basic software development tasks."
+            },
+            {
+                "subtitle": "Bar Chart: Daily Virality Volume",
+                "type": "chart",
+                "chartType": "bar",
+                "chartData": [
+                    {
+                        "label": "Mon",
+                        "value": 450
+                    },
+                    {
+                        "label": "Tue",
+                        "value": 520
+                    },
+                    {
+                        "label": "Wed",
+                        "value": 610
+                    },
+                    {
+                        "label": "Thu",
+                        "value": 580
+                    },
+                    {
+                        "label": "Fri",
+                        "value": 720
+                    },
+                    {
+                        "label": "Sat",
+                        "value": 400
+                    },
+                    {
+                        "label": "Sun",
+                        "value": 350
+                    }
+                ]
+            },
+            {
+                "subtitle": "Pie Chart: Bot vs Human Interaction",
+                "type": "chart",
+                "chartType": "pie",
+                "chartData": [
+                    {
+                        "label": "Verified Human",
+                        "value": 62
+                    },
+                    {
+                        "label": "Automated/Bot",
+                        "value": 38
+                    }
+                ]
+            },
+            {
+                "subtitle": "Candlestick: Hourly Volatility",
+                "type": "chart",
+                "chartType": "candlestick",
+                "chartData": [
+                    {
+                        "time": "08:00",
+                        "open": 100,
+                        "high": 125,
+                        "low": 95,
+                        "close": 110
+                    },
+                    {
+                        "time": "12:00",
+                        "open": 110,
+                        "high": 115,
+                        "low": 105,
+                        "close": 108
+                    },
+                    {
+                        "time": "16:00",
+                        "open": 108,
+                        "high": 140,
+                        "low": 102,
+                        "close": 135
+                    },
+                    {
+                        "time": "20:00",
+                        "open": 135,
+                        "high": 138,
+                        "low": 120,
+                        "close": 125
+                    }
+                ]
+            },
+            {
+                "subtitle": "The Future of Multimodal Integration",
+                "text": "Future growth is heavily weighted toward multimodal capabilities. Models that process video, audio, and text simultaneously are becoming the standard for enterprise diagnostic tools. Our data suggests that by Q4, over 60% of new AI startups will lead with multimodal-first architectures rather than text-only LLMs."
+            }
+        ]
+    },
+    {
         "id": 1033,
         "slug": "weekly-ai-trend-analysis-the-rise-of-agentic-workflows-and-edge-intelligence-1792849780172",
         "category": "Latest AI Analysis",
