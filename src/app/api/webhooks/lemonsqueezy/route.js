@@ -2,12 +2,6 @@ import { NextResponse } from "next/server";
 import crypto from "crypto";
 import { prisma } from "@/lib/prisma";
 
-export const config = {
-    api: {
-        bodyParser: false,
-    },
-};
-
 export async function POST(req) {
     try {
         const rawBody = await req.text();

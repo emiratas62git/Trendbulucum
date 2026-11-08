@@ -53,7 +53,7 @@ export default function AdminDashboardPage() {
     }
 
     // Server-side security emulation on client component
-    if (!session || session.user.email !== 'emircanatas62@gmail.com') {
+    if (!session?.user || session.user.email !== 'emircanatas62@gmail.com') {
         return (
             <div className={styles.deniedContainer}>
                 <div className={styles.deniedCard}>
@@ -179,6 +179,7 @@ export default function AdminDashboardPage() {
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
                         {/* Interactive Growth Charts */}
                         <div className={styles.chartsGrid}>

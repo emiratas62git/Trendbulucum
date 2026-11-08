@@ -3,6 +3,33 @@ import React, { useEffect, useState } from 'react';
 import { Globe, X, Check } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 
+// Fix for React + Google Translate DOM mutation crash (NotFoundError: removeChild / insertBefore)
+if (typeof window !== 'undefined') {
+    if (typeof Node === 'function' && Node.prototype) {
+        const originalRemoveChild = Node.prototype.removeChild;
+        Node.prototype.removeChild = function (child) {
+            if (child.parentNode !== this) {
+                if (console && console.warn) {
+                    console.warn('Google Translate DOM patch: suppressed removeChild mismatch');
+                }
+                return child;
+            }
+            return originalRemoveChild.apply(this, arguments);
+        };
+
+        const originalInsertBefore = Node.prototype.insertBefore;
+        Node.prototype.insertBefore = function (newNode, referenceNode) {
+            if (referenceNode && referenceNode.parentNode !== this) {
+                if (console && console.warn) {
+                    console.warn('Google Translate DOM patch: suppressed insertBefore mismatch');
+                }
+                return newNode;
+            }
+            return originalInsertBefore.apply(this, arguments);
+        };
+    }
+}
+
 const LANGUAGE_MAP = {
     'en': 'English',
     'tr': 'Türkçe',

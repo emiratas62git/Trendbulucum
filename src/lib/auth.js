@@ -71,37 +71,51 @@ export const authOptions = {
         async session({ session, token }) {
             if (session.user && token) {
                 session.user.id = token.id;
-                session.user.role = token.role;
+                session.user.role = token.role || 'USER';
                 
-                // Fetch active or trialling subscription
-                const subscription = await prisma.subscription.findFirst({
-                    where: { 
-                        userId: token.id, 
-                        status: { in: ['active', 'on_trial', 'trialling'] }
-                    },
-                    orderBy: {
-                        createdAt: 'desc'
+                try {
+                    // Fetch active or trialling subscription
+                    let subscription = null;
+                    if (token.id) {
+                        subscription = await prisma.subscription.findFirst({
+                            where: { 
+                                userId: token.id, 
+                                status: { in: ['active', 'on_trial', 'trialling'] }
+                            },
+                            orderBy: {
+                                createdAt: 'desc'
+                            }
+                        });
                     }
-                });
 
-                const isTrial = subscription?.status === 'on_trial' || subscription?.status === 'trialling';
-                let trialDaysRemaining = null;
+                    const isTrial = subscription?.status === 'on_trial' || subscription?.status === 'trialling';
+                    let trialDaysRemaining = null;
 
-                if (isTrial && subscription?.currentPeriodEnd) {
-                    const diffTime = new Date(subscription.currentPeriodEnd).getTime() - Date.now();
-                    trialDaysRemaining = Math.max(0, Math.ceil(diffTime / (1000 * 60 * 60 * 24)));
+                    if (isTrial && subscription?.currentPeriodEnd) {
+                        const diffTime = new Date(subscription.currentPeriodEnd).getTime() - Date.now();
+                        trialDaysRemaining = Math.max(0, Math.ceil(diffTime / (1000 * 60 * 60 * 24)));
+                    }
+
+                    // Default logic
+                    session.user.isPremium = !!subscription;
+                    session.user.isTrial = isTrial;
+                    session.user.trialDaysRemaining = trialDaysRemaining;
+                    session.user.subscriptionStatus = subscription?.status || 'free';
+                    session.user.subscriptionEnd = subscription?.currentPeriodEnd ? subscription.currentPeriodEnd.toISOString() : null;
+                } catch (err) {
+                    console.error("Error in session callback subscription lookup:", err);
+                    session.user.isPremium = false;
+                    session.user.isTrial = false;
+                    session.user.trialDaysRemaining = null;
+                    session.user.subscriptionStatus = 'free';
+                    session.user.subscriptionEnd = null;
                 }
-
-                // Default logic
-                session.user.isPremium = !!subscription;
-                session.user.isTrial = isTrial;
-                session.user.trialDaysRemaining = trialDaysRemaining;
-                session.user.subscriptionStatus = subscription?.status || 'free';
-                session.user.subscriptionEnd = subscription?.currentPeriodEnd;
 
                 // Special handling for the owner
                 if (session.user.email === 'emircanatas62@gmail.com') {
                     session.user.isPremium = true;
+                    session.user.role = 'ADMIN';
+                    session.user.subscriptionStatus = 'active';
                     session.user.subscriptionEnd = 'unlimited';
                 }
             }

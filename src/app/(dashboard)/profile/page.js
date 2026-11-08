@@ -130,7 +130,7 @@ export default function ProfilePage() {
                                 <span className={styles.statusLabel}>{t.expiryDate}:</span>
                                 <span className={styles.statusValue}>
                                     {session?.user?.subscriptionEnd === 'unlimited' ? t.unlimited : 
-                                     session?.user?.subscriptionEnd ? new Date(session.user.subscriptionEnd).toLocaleDateString() : t.none}
+                                     (session?.user?.subscriptionEnd && !isNaN(new Date(session.user.subscriptionEnd).getTime())) ? new Date(session.user.subscriptionEnd).toLocaleDateString() : (t.none || 'None')}
                                 </span>
                             </div>
                         </div>

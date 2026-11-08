@@ -218,13 +218,13 @@ export default function Header({ title: propTitle, onTimeframeChange: propOnTime
 
                     {/* Pro / Auth Actions */}
                     <div className={styles.authActions}>
-                        {!session ? (
+                        {!session?.user ? (
                             <Link href="/auth/signin" className={styles.loginBtn}>
                                 Sign In
                             </Link>
                         ) : (
                             <div className={styles.userProfile}>
-                                {!session.user.isPremium && (
+                                {!session.user?.isPremium && (
                                     <Link href="/" className={styles.proBtn}>
                                         <Sparkles size={16} />
                                         <span>{t.upgradePro}</span>
@@ -232,26 +232,29 @@ export default function Header({ title: propTitle, onTimeframeChange: propOnTime
                                 )}
                                     <div className={styles.userNameDisplay}>
                                         <p className={styles.headerUserName}>
-                                            {session.user.name || 'User'}
+                                            {session.user?.name || 'User'}
                                         </p>
-                                        {session.user.isPremium && (
+                                        {session.user?.isPremium && (
                                             <span className={styles.remainingDays}>
-                                                {session.user.subscriptionEnd === 'unlimited' ? (
+                                                {session.user?.subscriptionEnd === 'unlimited' ? (
                                                     t.unlimitedPro
-                                                ) : (
+                                                ) : session.user?.subscriptionEnd ? (
                                                     (() => {
                                                         const end = new Date(session.user.subscriptionEnd);
+                                                        if (isNaN(end.getTime())) return t.unlimitedPro || 'Pro';
                                                         const now = new Date();
-                                                        const diffTime = Math.abs(end - now);
+                                                        const diffTime = Math.max(0, end - now);
                                                         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-                                                        return `${diffDays} ${t.daysLeft}`;
+                                                        return `${diffDays} ${t.daysLeft || 'Days Left'}`;
                                                     })()
+                                                ) : (
+                                                    t.unlimitedPro || 'Pro'
                                                 )}
                                             </span>
                                         )}
                                     </div>
                                     <div className={styles.avatarWrapper} onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}>
-                                    {session.user.image ? (
+                                    {session.user?.image ? (
                                         <img src={session.user.image} alt="User" className={styles.avatar} />
                                     ) : (
                                         <div className={styles.avatarPlaceholder}>
@@ -264,26 +267,29 @@ export default function Header({ title: propTitle, onTimeframeChange: propOnTime
                                             <div className={styles.dropdownOverlay} onClick={() => setIsUserMenuOpen(false)} />
                                             <div className={styles.userDropdown}>
                                                 <div className={styles.userInfo}>
-                                                    <p className={styles.userName}>{session.user.name || 'User'}</p>
-                                                    <p className={styles.userEmail}>{session.user.email}</p>
-                                                    {session.user.isPremium && (
+                                                    <p className={styles.userName}>{session.user?.name || 'User'}</p>
+                                                    <p className={styles.userEmail}>{session.user?.email}</p>
+                                                    {session.user?.isPremium && (
                                                         <div className={styles.dropdownSubscription}>
-                                                            {session.user.subscriptionEnd === 'unlimited' ? (
+                                                            {session.user?.subscriptionEnd === 'unlimited' ? (
                                                                 t.unlimitedPro
-                                                            ) : (
+                                                            ) : session.user?.subscriptionEnd ? (
                                                                 (() => {
                                                                     const end = new Date(session.user.subscriptionEnd);
+                                                                    if (isNaN(end.getTime())) return t.unlimitedPro || 'Pro';
                                                                     const now = new Date();
-                                                                    const diffTime = Math.abs(end - now);
+                                                                    const diffTime = Math.max(0, end - now);
                                                                     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-                                                                    return `${diffDays} ${t.daysLeft}`;
+                                                                    return `${diffDays} ${t.daysLeft || 'Days Left'}`;
                                                                 })()
+                                                            ) : (
+                                                                t.unlimitedPro || 'Pro'
                                                             )}
                                                         </div>
                                                     )}
                                                 </div>
                                                 <div className={styles.dropdownDivider} />
-                                                {session.user.role === 'ADMIN' && (
+                                                {(session.user?.role === 'ADMIN' || session.user?.email === 'emircanatas62@gmail.com') && (
                                                     <Link href="/admin" className={styles.dropdownItem}>Admin Panel</Link>
                                                 )}
                                                 <Link href="/profile" className={styles.dropdownItem}>{t.accountSettings}</Link>
