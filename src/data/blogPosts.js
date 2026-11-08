@@ -1,5 +1,41 @@
 export const blogPosts = [
     {
+        "id": 1016,
+        "slug": "facebook-architecture-and-trendyfinder-pro-trend-analysis-system-1785159542684",
+        "category": "Social Media",
+        "title": "Facebook Architecture & How TrendyFinder Pro Automates Trend Intelligence",
+        "excerpt": "An in-depth guide on Facebook's underlying data infrastructure and how TrendyFinder Pro's AI algorithms extract, process, and simplify real-time viral trend discovery for creators.",
+        "date": "Jul 27, 2026",
+        "readTime": "7 min read",
+        "image": "/blog-images/ai_facebook_architecture_trend_system.jpg",
+        "views": 420,
+        "hashtags": [
+            "#Facebook",
+            "#TrendyFinderPro",
+            "#TrendAnalysis",
+            "#AI",
+            "#SocialMediaStrategy"
+        ],
+        "content": [
+            {
+                "subtitle": "1. Facebook's Modern Infrastructure & Social Graph Architecture",
+                "text": "Facebook operates on one of the most complex, distributed data architectures in human history. At its core lies the Social Graph—a massive, multi-petabyte database representing billions of entities (users, pages, groups, comments) and their intricate relationships. Facebook utilizes specialized backend systems like TAO (a distributed data store for social graph data) and RocksDB to handle millions of queries per second. Every post, like, and share traverses high-performance Edge Processing nodes and real-time AI recommendation engines, continuously evaluating engagement velocity, user affinity, and content freshness."
+            },
+            {
+                "subtitle": "2. How TrendyFinder Pro Extracts Real-Time Trend Intelligence",
+                "text": "While Facebook processes user interactions internally, TrendyFinder Pro functions as an intelligent layer above the digital ecosystem. Our system employs automated AI crawlers and statistical sentiment models to monitor keyword velocity, hashtag escalation, and topic virality. By calculating the derivative of engagement over time, TrendyFinder Pro identifies topics before they reach mass saturation. Whether it is an emerging trend on Facebook, TikTok, or YouTube, our Gemini AI-driven pipeline aggregates signal spikes, filters out spam, and scores every trend by its virality potential."
+            },
+            {
+                "subtitle": "3. Streamlining the Creator Workflow: Eliminating Manual Research",
+                "text": "Before TrendyFinder Pro, content creators and digital marketers spent hours scrolling through social feeds to guess what topics might perform well. TrendyFinder Pro transforms this reactive approach into a proactive strategy. The platform condenses raw, chaotic social data into clean, visual dashboards with bar charts, sentiment breakdowns, and automated script ideas. Creators gain immediate clarity on what their audience craves, saving time and eliminating creative fatigue."
+            },
+            {
+                "subtitle": "4. Strategic Playbook: Turning Trend Data into Growth in 2026",
+                "text": "To maximize reach on platforms like Facebook in 2026, creators must combine real-time trend intelligence with rapid content execution. When TrendyFinder Pro flags an ascending trend, early adoption within 24 to 48 hours offers exponential organic reach. By aligning your niche messaging with data-backed trend signals, your content achieves higher algorithmic priority in recommended feeds, driving sustainable follower growth and digital monetization."
+            }
+        ]
+    },
+    {
         "id": 1015,
         "slug": "weekly-ai-insights-the-rise-of-real-time-generative-video-and-edge-computing-1780745087191",
         "category": "Latest AI Analysis",
@@ -1848,150 +1884,6 @@ export const blogPosts = [
         ]
     },
     {
-        "id": 55,
-        "slug": "ai-image-generation-for-creators",
-        "category": "Design",
-        "title": "AI Image Generation: A Guide for Creators",
-        "excerpt": "Visual storytelling has reached new heights. Learn how to master AI image generation tools like Midjourney, DALL-E, and Stable Diffusion.",
-        "date": "Mar 29, 2026",
-        "readTime": "6 min read",
-        "image": "/blog-images/ai_ai-image-generation-for-creators.jpg.jpg",
-        "views": 11400,
-        "hashtags": [
-            "#AIArt",
-            "#Design",
-            "#Midjourney",
-            "#ContentCreation"
-        ],
-        "content": [
-            {
-                "subtitle": "The Creative Potential of AI Vision",
-                "text": "Artificial Intelligence has transformed the way artists and creators approach visual content. In 2026, AI image generation is no longer a novelty; it's a fundamental part of the design workflow. This guide explores the most powerful tools available today and how creators can leverage them to produce stunning, original imagery for any project."
-            },
-            {
-                "subtitle": "Leading AI Image Tools",
-                "text": "While Midjourney remains the gold standard for artistic quality, DALL-E 3 (integrated into ChatGPT) has become the easiest tool for rapid prototyping. Stable Diffusion continues to thrive among technical users who want complete control over the generation process. Each tool has unique strengths—choosing the right one depends on your specific creative style and needs."
-            },
-            {
-                "subtitle": "Mastering Negative Prompts and Parameters",
-                "text": "To truly control AI imagery, you must master more than just text prompts. Learning to use negative prompts, aspect ratios, and stylize parameters is essential for professional results. By refining your input, you can eliminate common AI artifacts and ensure the final output perfectly matches your brand's aesthetic."
-            },
-            {
-                "subtitle": "Ethics, Copyright, and Your Brand",
-                "text": "As AI art becomes mainstream, understanding the legal and ethical landscape is vital. While US copyright law continues to evolve regarding AI-generated output, many creators use AI as a collaborator. Combining AI-generated concepts with human refinement is the best way to ensure your brand remains unique and legally protected."
-            }
-        ]
-    },
-    {
-        "id": 54,
-        "slug": "productivity-hacks-for-2026",
-        "category": "Productivity",
-        "title": "Unlocking Efficiency: Productivity Hacks for 2026",
-        "excerpt": "Work smarter, not harder. Discover the latest tools and techniques to skyrocket your concentration and get more done in less time.",
-        "date": "Mar 29, 2026",
-        "readTime": "5 min read",
-        "image": "/blog-images/ai_productivity-hacks-for-2026.jpg.jpg",
-        "views": 13900,
-        "hashtags": [
-            "#Productivity",
-            "#TimeManagement",
-            "#Focus",
-            "#LifeHacks"
-        ],
-        "content": [
-            {
-                "subtitle": "Managing the Noise of 2026",
-                "text": "In a world of constant notifications and digital noise, true productivity has become a competitive advantage. The year 2026 offers new tools that don't just add more tasks, but help us focus on what really matters. This article shares actionable hacks to help you reclaim your time and achieve deep focus in an era of distraction."
-            },
-            {
-                "subtitle": "AI-Enhanced Time Blocking",
-                "text": "Traditional to-do lists are dead. Success in 2026 involves AI-powered calendars that automatically block out time for deep work based on your energy levels and existing commitments. These smart systems can predict how long a task will take and proactively reschedule meetings to protect your most productive hours."
-            },
-            {
-                "subtitle": "The Rise of Brain-Computer Interfaces (BCI)",
-                "text": "Lightweight BCI wearables are now used by high-performance professionals to monitor their focus levels. By seeing real-time data on your concentration, you can learn when to take breaks and when you are in your 'flow' state. This data-driven approach to work ensures that you are always operating at your cognitive peak."
-            },
-            {
-                "subtitle": "Simplified Decision Making",
-                "text": "The most productive people minimize the number of trivial decisions they make each day. From automated meal planning to AI-curated news feeds, reducing 'decision fatigue' allows you to save your creative energy for your most important work. Small systemic changes lead to massive long-term gains in efficiency."
-            }
-        ]
-    },
-    {
-        "id": 53,
-        "slug": "best-free-hosting-for-your-website",
-        "category": "Development",
-        "title": "Best Free Hosting for Your Website in 2026",
-        "excerpt": "Launch your online presence without budget constraints. A comparison of the most reliable free hosting platforms available this year.",
-        "date": "Mar 29, 2026",
-        "readTime": "7 min read",
-        "image": "/blog-images/ai_best-free-hosting-for-your-website.jpg.jpg",
-        "views": 15600,
-        "hashtags": [
-            "#WebHosting",
-            "#WebDev",
-            "#Coding",
-            "#FreeHosting"
-        ],
-        "content": [
-            {
-                "subtitle": "Quality Hosting on a Zero Budget",
-                "text": "Launching a website shouldn't require a large upfront investment. In 2026, the quality of free hosting tiers has significantly improved, offering high performance, security, and global CDNs. This guide helps you choose the best free hosting platform for your blog, portfolio, or side project."
-            },
-            {
-                "subtitle": "Leading Cloud Platforms: Vercel & Netlify",
-                "text": "Vercel and Netlify remain the top choices for frontend developers, providing seamless integration with Git and automatic SSL certificates. Their free tiers are incredibly generous, often handling thousands of visitors per month without any cost, making them ideal for modern web framework deployments."
-            },
-            {
-                "subtitle": "Cloudflare Pages and GitHub Pages",
-                "text": "For static sites, Cloudflare Pages offers unmatched global speed through their extensive edge network. GitHub Pages remains the most convenient option for open-source projects. Both platforms have eliminated the need for complex server management, allowing you to focus entirely on your code."
-            },
-            {
-                "subtitle": "Database Hosting and Backend Tiers",
-                "text": "Free backend hosting has also seen a resurgence. Platforms like Supabase and PlanetScale provide powerful free tiers for databases, while Render and Railway offer manageable free time for server-side applications. When combined, these free services allow you to build complex, full-stack web applications for $0."
-            },
-            {
-                "subtitle": "When to Upgrade",
-                "text": "Free plans are great for starting, but they often have limits on bandwidth or processing power. It's important to monitor your traffic and performance closely. Most modern hosting providers offer a 'pay-as-you-grow' model, ensuring that you only start paying when your site actually becomes profitable."
-            }
-        ]
-    },
-    {
-        "id": 52,
-        "slug": "increase-your-ad-revenue",
-        "category": "Monetization",
-        "title": "Proven Ways to Increase Your Ad Revenue in 2026",
-        "excerpt": "Maximize the earnings from your traffic. Learn the advanced techniques for ad placement, SEO, and user retention used by professional publishers.",
-        "date": "Mar 29, 2026",
-        "readTime": "8 min read",
-        "image": "/blog-images/ai_increase-your-ad-revenue.jpg.jpg",
-        "views": 19200,
-        "hashtags": [
-            "#AdSense",
-            "#PassiveIncome",
-            "#BloggingTips",
-            "#SEO"
-        ],
-        "content": [
-            {
-                "subtitle": "Beyond Basic Ad Placement",
-                "text": "If you rely on advertising revenue, simply 'placing ads' is no longer enough in 2026. Professional publishers use a combination of AI-driven optimization, high-quality content, and strategic layout to maximize their Revenue Per Thousand impressions (RPM). This guide reveals the advanced strategies used to double or even triple ad earnings without increasing traffic."
-            },
-            {
-                "subtitle": "Optimizing for High-CPM Keywords",
-                "text": "Not all traffic is equal. By targeting high-value niches like finance, insurance, and enterprise software, you can earn significantly more per click. Use AI keyword tools to find low-competition, high-value topics and build content clusters that attract premium advertisers."
-            },
-            {
-                "subtitle": "Layout Optimization and Viewability",
-                "text": "Ad viewability is a key metric for advertisers. Placing ads where users naturally focus their attention—such as between paragraphs or near engaging visuals—increases both clicks and long-term auction prices. However, it's vital to maintain a good user experience; too many ads can increase bounce rates and harm your SEO."
-            },
-            {
-                "subtitle": "User Retention and Session Depth",
-                "text": "The more pages a user visits, the more ads they see. Increasing session depth through internal linking, related post sections, and interactive elements can drastically increase your total earnings per visitor. Focus on building a community and encouraging repeat visits to create a stable, predictable income stream."
-            }
-        ]
-    },
-    {
         "id": 63,
         "slug": "best-free-ai-tools-2026",
         "category": "AI",
@@ -2284,6 +2176,150 @@ export const blogPosts = [
         ]
     },
     {
+        "id": 55,
+        "slug": "ai-image-generation-for-creators",
+        "category": "Design",
+        "title": "AI Image Generation: A Guide for Creators",
+        "excerpt": "Visual storytelling has reached new heights. Learn how to master AI image generation tools like Midjourney, DALL-E, and Stable Diffusion.",
+        "date": "Mar 29, 2026",
+        "readTime": "6 min read",
+        "image": "/blog-images/ai_ai-image-generation-for-creators.jpg.jpg",
+        "views": 11400,
+        "hashtags": [
+            "#AIArt",
+            "#Design",
+            "#Midjourney",
+            "#ContentCreation"
+        ],
+        "content": [
+            {
+                "subtitle": "The Creative Potential of AI Vision",
+                "text": "Artificial Intelligence has transformed the way artists and creators approach visual content. In 2026, AI image generation is no longer a novelty; it's a fundamental part of the design workflow. This guide explores the most powerful tools available today and how creators can leverage them to produce stunning, original imagery for any project."
+            },
+            {
+                "subtitle": "Leading AI Image Tools",
+                "text": "While Midjourney remains the gold standard for artistic quality, DALL-E 3 (integrated into ChatGPT) has become the easiest tool for rapid prototyping. Stable Diffusion continues to thrive among technical users who want complete control over the generation process. Each tool has unique strengths—choosing the right one depends on your specific creative style and needs."
+            },
+            {
+                "subtitle": "Mastering Negative Prompts and Parameters",
+                "text": "To truly control AI imagery, you must master more than just text prompts. Learning to use negative prompts, aspect ratios, and stylize parameters is essential for professional results. By refining your input, you can eliminate common AI artifacts and ensure the final output perfectly matches your brand's aesthetic."
+            },
+            {
+                "subtitle": "Ethics, Copyright, and Your Brand",
+                "text": "As AI art becomes mainstream, understanding the legal and ethical landscape is vital. While US copyright law continues to evolve regarding AI-generated output, many creators use AI as a collaborator. Combining AI-generated concepts with human refinement is the best way to ensure your brand remains unique and legally protected."
+            }
+        ]
+    },
+    {
+        "id": 54,
+        "slug": "productivity-hacks-for-2026",
+        "category": "Productivity",
+        "title": "Unlocking Efficiency: Productivity Hacks for 2026",
+        "excerpt": "Work smarter, not harder. Discover the latest tools and techniques to skyrocket your concentration and get more done in less time.",
+        "date": "Mar 29, 2026",
+        "readTime": "5 min read",
+        "image": "/blog-images/ai_productivity-hacks-for-2026.jpg.jpg",
+        "views": 13900,
+        "hashtags": [
+            "#Productivity",
+            "#TimeManagement",
+            "#Focus",
+            "#LifeHacks"
+        ],
+        "content": [
+            {
+                "subtitle": "Managing the Noise of 2026",
+                "text": "In a world of constant notifications and digital noise, true productivity has become a competitive advantage. The year 2026 offers new tools that don't just add more tasks, but help us focus on what really matters. This article shares actionable hacks to help you reclaim your time and achieve deep focus in an era of distraction."
+            },
+            {
+                "subtitle": "AI-Enhanced Time Blocking",
+                "text": "Traditional to-do lists are dead. Success in 2026 involves AI-powered calendars that automatically block out time for deep work based on your energy levels and existing commitments. These smart systems can predict how long a task will take and proactively reschedule meetings to protect your most productive hours."
+            },
+            {
+                "subtitle": "The Rise of Brain-Computer Interfaces (BCI)",
+                "text": "Lightweight BCI wearables are now used by high-performance professionals to monitor their focus levels. By seeing real-time data on your concentration, you can learn when to take breaks and when you are in your 'flow' state. This data-driven approach to work ensures that you are always operating at your cognitive peak."
+            },
+            {
+                "subtitle": "Simplified Decision Making",
+                "text": "The most productive people minimize the number of trivial decisions they make each day. From automated meal planning to AI-curated news feeds, reducing 'decision fatigue' allows you to save your creative energy for your most important work. Small systemic changes lead to massive long-term gains in efficiency."
+            }
+        ]
+    },
+    {
+        "id": 53,
+        "slug": "best-free-hosting-for-your-website",
+        "category": "Development",
+        "title": "Best Free Hosting for Your Website in 2026",
+        "excerpt": "Launch your online presence without budget constraints. A comparison of the most reliable free hosting platforms available this year.",
+        "date": "Mar 29, 2026",
+        "readTime": "7 min read",
+        "image": "/blog-images/ai_best-free-hosting-for-your-website.jpg.jpg",
+        "views": 15600,
+        "hashtags": [
+            "#WebHosting",
+            "#WebDev",
+            "#Coding",
+            "#FreeHosting"
+        ],
+        "content": [
+            {
+                "subtitle": "Quality Hosting on a Zero Budget",
+                "text": "Launching a website shouldn't require a large upfront investment. In 2026, the quality of free hosting tiers has significantly improved, offering high performance, security, and global CDNs. This guide helps you choose the best free hosting platform for your blog, portfolio, or side project."
+            },
+            {
+                "subtitle": "Leading Cloud Platforms: Vercel & Netlify",
+                "text": "Vercel and Netlify remain the top choices for frontend developers, providing seamless integration with Git and automatic SSL certificates. Their free tiers are incredibly generous, often handling thousands of visitors per month without any cost, making them ideal for modern web framework deployments."
+            },
+            {
+                "subtitle": "Cloudflare Pages and GitHub Pages",
+                "text": "For static sites, Cloudflare Pages offers unmatched global speed through their extensive edge network. GitHub Pages remains the most convenient option for open-source projects. Both platforms have eliminated the need for complex server management, allowing you to focus entirely on your code."
+            },
+            {
+                "subtitle": "Database Hosting and Backend Tiers",
+                "text": "Free backend hosting has also seen a resurgence. Platforms like Supabase and PlanetScale provide powerful free tiers for databases, while Render and Railway offer manageable free time for server-side applications. When combined, these free services allow you to build complex, full-stack web applications for $0."
+            },
+            {
+                "subtitle": "When to Upgrade",
+                "text": "Free plans are great for starting, but they often have limits on bandwidth or processing power. It's important to monitor your traffic and performance closely. Most modern hosting providers offer a 'pay-as-you-grow' model, ensuring that you only start paying when your site actually becomes profitable."
+            }
+        ]
+    },
+    {
+        "id": 52,
+        "slug": "increase-your-ad-revenue",
+        "category": "Monetization",
+        "title": "Proven Ways to Increase Your Ad Revenue in 2026",
+        "excerpt": "Maximize the earnings from your traffic. Learn the advanced techniques for ad placement, SEO, and user retention used by professional publishers.",
+        "date": "Mar 29, 2026",
+        "readTime": "8 min read",
+        "image": "/blog-images/ai_increase-your-ad-revenue.jpg.jpg",
+        "views": 19200,
+        "hashtags": [
+            "#AdSense",
+            "#PassiveIncome",
+            "#BloggingTips",
+            "#SEO"
+        ],
+        "content": [
+            {
+                "subtitle": "Beyond Basic Ad Placement",
+                "text": "If you rely on advertising revenue, simply 'placing ads' is no longer enough in 2026. Professional publishers use a combination of AI-driven optimization, high-quality content, and strategic layout to maximize their Revenue Per Thousand impressions (RPM). This guide reveals the advanced strategies used to double or even triple ad earnings without increasing traffic."
+            },
+            {
+                "subtitle": "Optimizing for High-CPM Keywords",
+                "text": "Not all traffic is equal. By targeting high-value niches like finance, insurance, and enterprise software, you can earn significantly more per click. Use AI keyword tools to find low-competition, high-value topics and build content clusters that attract premium advertisers."
+            },
+            {
+                "subtitle": "Layout Optimization and Viewability",
+                "text": "Ad viewability is a key metric for advertisers. Placing ads where users naturally focus their attention—such as between paragraphs or near engaging visuals—increases both clicks and long-term auction prices. However, it's vital to maintain a good user experience; too many ads can increase bounce rates and harm your SEO."
+            },
+            {
+                "subtitle": "User Retention and Session Depth",
+                "text": "The more pages a user visits, the more ads they see. Increasing session depth through internal linking, related post sections, and interactive elements can drastically increase your total earnings per visitor. Focus on building a community and encouraging repeat visits to create a stable, predictable income stream."
+            }
+        ]
+    },
+    {
         "id": 51,
         "slug": "best-ai-tools-for-social-media-management",
         "category": "Social Media",
@@ -2532,6 +2568,50 @@ export const blogPosts = [
         ]
     },
     {
+        "id": 34,
+        "slug": "tiktok-algorithm-2026-analysis",
+        "category": "Social Media",
+        "title": "TikTok Algorithm (2026 Deep Analysis with Real Data)",
+        "excerpt": "A deep dive into how the TikTok algorithm prioritizes viewer behavior, watch time, and continuous engagement for maximum growth.",
+        "date": "Mar 24, 2026",
+        "readTime": "5 min read",
+        "image": "/blog-images/tiktok-algorithm-2026.png",
+        "views": 31200,
+        "hashtags": [
+            "#TikTok",
+            "#Algorithm",
+            "#ContentStrategy",
+            "#SocialMediaGrowth",
+            "#ViralContent"
+        ],
+        "content": [
+            {
+                "subtitle": "Viewer Behavior-Focused Algorithm",
+                "text": "As of 2026, the TikTok algorithm operates much more \"viewer behavior-focused\" compared to previous years. While interaction (likes, comments) used to be at the forefront, the system now considers how genuinely the user watches the video and how much time they spend with the content as key signals. Therefore, the type of content that becomes valuable from the perspective of Google AdSense emerges: content that keeps the user on the page and contains depth and analysis."
+            },
+            {
+                "subtitle": "Watch Time is the Ultimate Metric",
+                "text": "The algorithm's most critical signal, watch time (with a 40%+ impact), refers to the total watch time, not how long a video is watched for. For example, watching a 10-second video for 9 seconds is a stronger signal than watching a 60-second video for 20 seconds. This completely dismantles the content creators' perception that \"long video = better.\" Similarly, the full-view rate (25%) measures the percentage of viewers who watched the video until the end and is the clearest answer the algorithm gives to the question \"Is this content boring?\"."
+            },
+            {
+                "subtitle": "The Power of Replay Rate and Engagement Quality",
+                "text": "The replay rate (loop rate of 15%) is particularly common among viral content. If a user watches a video again, it means the content is either information-dense, surprising, or addictive. While interaction (10%) and sharing (10%) remain important, they now function as secondary verification signals. That is, if people like a video without watching it, this alone is not sufficient. The most critical conclusion of this data is as follows: 👉 Content with low views but high engagement rates grows faster than content with high views but low quality. This logic also applies exactly to the AdSense side. Because Google also evaluates content based on \"user retention time on the site\"."
+            },
+            {
+                "subtitle": "Example Strategy 1: The '3 Seconds' Format",
+                "text": "1. Video: \"Shocking information in 3 seconds\" format. This type of video usually sparks curiosity in the first 1-2 seconds: \"If you don't know this, you're making a big mistake.\" The reason these contents go viral: Using a \"hook\" (catchphrase) in the first second, short length leading to a 90+% viewership rate, and focusing on a single piece of information. Result: High completion rate + high loop rate."
+            },
+            {
+                "subtitle": "Example Strategy 2: Storytelling",
+                "text": "2. Video: Storytelling. For example: “This man went from zero to a millionaire, but no one knows the truth.” In this type of content, the user does not leave the video because they are curious about the ending. Reason for retention: The use of an open loop, establishing an emotional connection, and giving a “reward” (information / amazing fact) at the end. Result: High watch time + strong retention."
+            },
+            {
+                "subtitle": "Example Strategy 3: List Format",
+                "text": "3. Video: List format (“Top 5…”). For example: “5 business ideas that will explode in 2026.” The power of these videos lies in their sequential presentation of information. Reason for retention: The user is curious about the \"last one\", it provides a clear structure with no distraction, making it highly re-watchable content. Result: Moderate to high viewership + re-watching (loop)."
+            }
+        ]
+    },
+    {
         "id": 41,
         "slug": "instagram-reels-case-study",
         "category": "Social Media",
@@ -2749,50 +2829,6 @@ export const blogPosts = [
             {
                 "subtitle": "Emotion Triggering Titles",
                 "text": "Attention-Grabbing Titles: Titles must provide clear but incomplete info, contain emotional triggers, and compel viewership. The Key Common Point: Viral content triggers Curiosity (filling in missing info), Surprise (unexpected facts), or Benefit (a concrete gain). Emotion-triggering content spreads faster because it boosts watch time, repeat views, and interaction simultaneously."
-            }
-        ]
-    },
-    {
-        "id": 34,
-        "slug": "tiktok-algorithm-2026-analysis",
-        "category": "Social Media",
-        "title": "TikTok Algorithm (2026 Deep Analysis with Real Data)",
-        "excerpt": "A deep dive into how the TikTok algorithm prioritizes viewer behavior, watch time, and continuous engagement for maximum growth.",
-        "date": "Mar 24, 2026",
-        "readTime": "5 min read",
-        "image": "/blog-images/tiktok-algorithm-2026.png",
-        "views": 31200,
-        "hashtags": [
-            "#TikTok",
-            "#Algorithm",
-            "#ContentStrategy",
-            "#SocialMediaGrowth",
-            "#ViralContent"
-        ],
-        "content": [
-            {
-                "subtitle": "Viewer Behavior-Focused Algorithm",
-                "text": "As of 2026, the TikTok algorithm operates much more \"viewer behavior-focused\" compared to previous years. While interaction (likes, comments) used to be at the forefront, the system now considers how genuinely the user watches the video and how much time they spend with the content as key signals. Therefore, the type of content that becomes valuable from the perspective of Google AdSense emerges: content that keeps the user on the page and contains depth and analysis."
-            },
-            {
-                "subtitle": "Watch Time is the Ultimate Metric",
-                "text": "The algorithm's most critical signal, watch time (with a 40%+ impact), refers to the total watch time, not how long a video is watched for. For example, watching a 10-second video for 9 seconds is a stronger signal than watching a 60-second video for 20 seconds. This completely dismantles the content creators' perception that \"long video = better.\" Similarly, the full-view rate (25%) measures the percentage of viewers who watched the video until the end and is the clearest answer the algorithm gives to the question \"Is this content boring?\"."
-            },
-            {
-                "subtitle": "The Power of Replay Rate and Engagement Quality",
-                "text": "The replay rate (loop rate of 15%) is particularly common among viral content. If a user watches a video again, it means the content is either information-dense, surprising, or addictive. While interaction (10%) and sharing (10%) remain important, they now function as secondary verification signals. That is, if people like a video without watching it, this alone is not sufficient. The most critical conclusion of this data is as follows: 👉 Content with low views but high engagement rates grows faster than content with high views but low quality. This logic also applies exactly to the AdSense side. Because Google also evaluates content based on \"user retention time on the site\"."
-            },
-            {
-                "subtitle": "Example Strategy 1: The '3 Seconds' Format",
-                "text": "1. Video: \"Shocking information in 3 seconds\" format. This type of video usually sparks curiosity in the first 1-2 seconds: \"If you don't know this, you're making a big mistake.\" The reason these contents go viral: Using a \"hook\" (catchphrase) in the first second, short length leading to a 90+% viewership rate, and focusing on a single piece of information. Result: High completion rate + high loop rate."
-            },
-            {
-                "subtitle": "Example Strategy 2: Storytelling",
-                "text": "2. Video: Storytelling. For example: “This man went from zero to a millionaire, but no one knows the truth.” In this type of content, the user does not leave the video because they are curious about the ending. Reason for retention: The use of an open loop, establishing an emotional connection, and giving a “reward” (information / amazing fact) at the end. Result: High watch time + strong retention."
-            },
-            {
-                "subtitle": "Example Strategy 3: List Format",
-                "text": "3. Video: List format (“Top 5…”). For example: “5 business ideas that will explode in 2026.” The power of these videos lies in their sequential presentation of information. Reason for retention: The user is curious about the \"last one\", it provides a clear structure with no distraction, making it highly re-watchable content. Result: Moderate to high viewership + re-watching (loop)."
             }
         ]
     },
@@ -3147,6 +3183,131 @@ export const blogPosts = [
             {
                 "subtitle": "Content Creator Strategy",
                 "text": "Determining factors include manipulative agendas aimed at emotions or entertainment. For example, if I were a content producer, I would share a high-quality nature photo with a text addressing feelings, encouraging comments rather than just writing a tag. I would ask, “Is this photo better or the one in the comments?” and share it between 7:00 PM and 10:00 PM."
+            }
+        ]
+    },
+    {
+        "id": 26,
+        "slug": "structure-of-videos-on-instagram-reels",
+        "category": "Social Media",
+        "title": "The Structure of the Videos that are Discovered on Instagram Reels",
+        "excerpt": "Discover the key elements that make Instagram Reels successful, from the 3-second hook to the importance of subtitles and clear niches.",
+        "date": "Mar 01, 2026",
+        "readTime": "5 min read",
+        "image": "/blog-images/ai_unique_26_1778413106986.jpg",
+        "views": 154,
+        "hashtags": [
+            "#InstagramReels",
+            "#ViralContent",
+            "#SocialMediaTips",
+            "#ContentCreator"
+        ],
+        "content": [
+            {
+                "subtitle": "The First 3 Seconds & Maximizing Watch Time",
+                "text": "The Instagram Reels algorithm has a system that aims to hook in the strongest way in the first one to three seconds. First of all, it tries to ensure that users stay in that content with an interesting topic, a clear sentence or very interesting visuals. In the next step, the duration of the video and determines whether the audience stays until the end of the video for this purpose, the more the videos are watched until the end, the more likely that video will be discovered, first of all, the most important goal is to try to stop users from constantly moving and scrolling around that video, since seven- or twenty-second Reels increase the video's viewing time. Therefore, since people's perception times are used to such videos and videos of no more than twenty seconds, it would be a rather ridiculous move to add intro videos unnecessarily."
+            },
+            {
+                "subtitle": "Clear Problem Solving Without Fluff",
+                "text": "The next step is that the content in the video consists of a clear, accurate, targeted single main idea for this purpose, since people will want to solve the problems they are experiencing about any topic in the fastest and clearest way without going into unnecessary details, the Instagram algorithm also says, \"This video can solve this problem!\" by helping videos fall into Discover, it tries to ensure that people don't get bored by aiming to make users spend more time using this application and indirectly provide more ad tracking."
+            },
+            {
+                "subtitle": "The Crucial Role of Subtitles",
+                "text": "The next stage is subtitles. Most people watch videos in silent mode while watching, and because of this, videos with subtitles in a large, clear and understandable color and tone help people stay focused on the video, since they will understand by reading the subtitles what the video or any internal producer's newly released video is about."
+            },
+            {
+                "subtitle": "Engagement Triggers and Hashtags",
+                "text": "The next steps are to avoid imitation again, but it would be useful to adapt the same sound, music or content in accordance with this topic. In this way, comments, creating a real audience that answers open-ended questions or filling out surveys will provide a certain benefit, as three or four hasthag videos added to the video will create a very useful structure for dropping the content of the discovery."
+            },
+            {
+                "subtitle": "A Proven Formula for Discovery",
+                "text": "If we want to explore in the clearest way, if we want to collect, a clear niche and a video, a clear and smooth narration that does not exceed twenty seconds, there must be subtitles, surveys and comments to attract people, the video solves a problem or contains humorous content on a clear topic will be useful for our content to fall into explore."
+            },
+            {
+                "subtitle": "An Example Scenario in the Tech Niche",
+                "text": "Let's make sure that the content we create accompanied by an example falls into Explore. For example: let's say we have chosen a niche area related to a content producer and technology, we are introducing an application that describes the problem mobile phones and shows the solution to this problem. Video content: \"Hello, I'm x Sending files from Iphones to Android devices is a pretty boring and difficult situation, now how about I tell you that there is a very easy way to do this? Come on, let's solve this problem step by step together. We turn on our device, download this application, connect to the nearest Internet, the process is so now, even if you are on one side of the world, you will be able to send files to your friend quickly. If you like this kind of content, please like our video and follow me. Share your thoughts about the topic below immediately and let's meet in the comments!\" we created a sample video in the form of, we solved a problem clearly, our sentences were clear and fast. Then we encourage people to like and subscribe to us, using the phrase such topics, “Look, I produce content in this style!” we have given the message. Last but not least, by inviting comments, we have increased our chances of falling into Discover by making sure that the interactions are continuous. We have also edited the subject of our video to create interaction for everyone to watch by using contrasting colors that are most suitable for our video or content, perhaps suitable for our brand colors. That's all, there is a lot of chance that we will fall into discovery now."
+            }
+        ]
+    },
+    {
+        "id": 25,
+        "slug": "how-tiktok-algorithm-works-2026",
+        "category": "Social Media",
+        "title": "How Does the TikTok Algorithm Work in 2026?",
+        "excerpt": "A deep analysis of the 2026 TikTok algorithm, explaining why viewing time trumps follower count and how community momentum predicts viral success.",
+        "date": "Mar 01, 2026",
+        "readTime": "6 min read",
+        "image": "/blog-images/ai_unique_25_1780169569658.jpg",
+        "views": 315,
+        "hashtags": [
+            "#TikTokAlgorithm",
+            "#TikTok2026",
+            "#SocialMediaGrowth",
+            "#ContentStrategy"
+        ],
+        "content": [
+            {
+                "subtitle": "The Core of the TikTok Algorithm in 2026",
+                "text": "The TikTok algorithm hasn't changed much compared to the previous year, so how does this algorithm work? Since the TikTok algorithm aims for each user to spend more time in the application, it is primarily based on a system that always continues to show the most interesting and closest video according to the user's experience. At the provincial stage, the video is first shown to a small target audience, just like on other social media platforms, and then this post is sent to a slightly wider group based on the video's interaction, and the process thus completes the first stage. Therefore, the fact that the audience shares, saves, comments, and most importantly, the viewing continues until the end of the video is a very critical threshold for TikTok to reach other users of a post. If users say that they are not interested in a video, the algorithm for this video starts to slow down the distribution of this video by receiving a negative signal."
+            },
+            {
+                "subtitle": "TikTok Acts Almost Like a Search Engine",
+                "text": "Because we are going through a period where interest is shifting to TikTok, TikTok acts almost like a search engine. So searching for a video you have watched and watching it again is also a complex but not random filter mechanism that contributes positively to the interaction of that video on the TikTok platform."
+            },
+            {
+                "subtitle": "Follower Count vs. Content Quality",
+                "text": "In addition, one of the most important points to know is that if accounts without a lot of followers create smooth and high-quality content on this occasion, there is almost no chance of not growing, because the TikTok platform does not care about the number of followers, the quality of your content is a key factor for your growth."
+            },
+            {
+                "subtitle": "Deep Analysis Logic for Virality",
+                "text": "If we pass a general summary, the TikTok algorithm is not random, but a platform that works with a deep analysis logic, because the viewing time directly affects the spread of content and does not care about the number of followers, we can say that quality content that a business will do on TikTok initially if it is new to the industry will be quite logical for that business or content producer."
+            },
+            {
+                "subtitle": "A Content Production Strategy Scenario",
+                "text": "Let's think of ourselves as a content producer and produce content according to a TikTok user. For example, there is a movie scene, and it occurred to us that this content scene shows a person eating a spicy meal in our own business blushing after adding this sound effect, and after supporting it with effects, \"if you eat this bitterness, you will burn!\" let's imagine that he said, and when people eat this pain when they get cold since winter, the cold breaks down, and people reach out and warm their hands to people who eat this pain, we first produced and published a content in the form that the snow melts where the people who eat this pain are. Let's imagine that a person eats this spicy dish or this chili pepper again in a new video in three days, this time other business owners will have produced a strong and memorable trend content that helps this business quite humorously, considering that we have produced another continuation content that involves calling people who eat this bitterness, sharing a video in which they want to melt their cars, the profits in front of the business, and when these people go to business stores and eat this bitterness, they turn off their boilers or heaters at home, thinking that we have produced another trend content that helps this business quite a lot."
+            }
+        ]
+    },
+    {
+        "id": 24,
+        "slug": "community-impact-viral-trend-propagation",
+        "category": "Social Media",
+        "title": "How Community Impact Accelerates Viral Trend Propagation",
+        "excerpt": "Discover how organic community engagement acts as a catalyst for social media algorithms and turns content into global trends.",
+        "date": "Feb 20, 2026",
+        "readTime": "5 min read",
+        "image": "/blog-images/community-impact.jpg",
+        "views": 1245,
+        "hashtags": [
+            "#CommunityImpact",
+            "#ViralTrends",
+            "#SocialMediaGrowth",
+            "#AlgorithmTips"
+        ],
+        "content": [
+            {
+                "subtitle": "Defining the Community Effect",
+                "text": "The community effect is an organic growth process where users centered around a specific interest continuously interact with a post—be it a video, image, or trend—by liking, sharing, and commenting. This collective effort ensures the content remains visible across various circles, effectively feeding the platforms distribution engine."
+            },
+            {
+                "subtitle": "The 30-100 Minute Golden Window",
+                "text": "The most significant impact of the community effect occurs within the critical first few minutes (typically the 30-100 minute window). When a community engages heavily with a post shortly after it is published, it signals to the social media algorithm that the content is gossiping—it is spreading naturally from ear to ear."
+            },
+            {
+                "subtitle": "Triggering Algorithmic Logic",
+                "text": "Social media algorithms dont just count views; they look for potential for spontaneous growth. When they detect high engagement in a short period, they conclude: This post is gaining momentum on its own. I should push it to the wider application so even more people can reach it! This triggers a massive expansion in reach beyond your immediate followers."
+            },
+            {
+                "subtitle": "The Chain Reaction of Engagement",
+                "text": "This process leads to longer stay times (retention) on your post. When a community discusses a post for a long duration, shares it, and returns to it multiple times, it creates a chain reaction. This activates the trend-triggering algorithm, which prioritizes content that fosters return visits and deep discussion."
+            },
+            {
+                "subtitle": "A Case Study: The Nodding Golden Retriever",
+                "text": "Imagine a content creator shares a POV video of a drive. They spot a cute Golden Retriever in another car, rhythmically bobbing its head to a beat. The creator starts nodding along. Soon, other drivers join in, and eventually, the cars themselves appear to be jumping in sync with the music.\\n\\nThis hilarious scene, when shared with a community, generates immediate comments and shares. Other Golden Retriever owners and car enthusiasts join the conversation, interpretations multiply with human creativity, and a simple moment transforms into a global trend. This is the power of a slow, steady trend growth powered by a dedicated community."
+            },
+            {
+                "subtitle": "Why Algorithms Favor Sustained Growth",
+                "text": "Social media platforms are not just looking for instant, fleeting hits. They favor content that leads to sustained interaction because this directly increases long-term advertising revenue. A community-driven trend provides a more stable and predictable growth curve, making it a favorite for algorithmic amplification."
             }
         ]
     },
@@ -3900,131 +4061,6 @@ export const blogPosts = [
             {
                 "subtitle": "AI Detection",
                 "text": "AI looks for non-human patterns and holistic interaction data, not just single metrics. In 2026, we have 'AI Guards' defending the integrity of social data. These algorithms analyze 'Behavioral Cadence'—how fast an account is clicking, scrolling, and liking. A human has a variable cadence; we get distracted, we read a long comment, we skip a video. A bot has a 'Metronomic Cadence'—it interacts at precise, unchanging intervals. AI also uses 'Semantic Clustering' to identify when 10,000 posts across the internet are using the exact same sentence structure, which is a hallmark of a coordinated 'Influence Operation.' For example, if a foreign state-actor is trying to create a fake political trend, the AI spots the unnatural similarity in 'Word-Choice Ratios' and flags the hashtag as 'Inauthentic.' As a creator, staying away from these 'Polluted Trends' isn't just about efficiency; it's about protecting your account from 'Guilt by Association' in the eyes of the platform's primary algorithm."
-            }
-        ]
-    },
-    {
-        "id": 24,
-        "slug": "community-impact-viral-trend-propagation",
-        "category": "Social Media",
-        "title": "How Community Impact Accelerates Viral Trend Propagation",
-        "excerpt": "Discover how organic community engagement acts as a catalyst for social media algorithms and turns content into global trends.",
-        "date": "Feb 20, 2026",
-        "readTime": "5 min read",
-        "image": "/blog-images/community-impact.jpg",
-        "views": 1245,
-        "hashtags": [
-            "#CommunityImpact",
-            "#ViralTrends",
-            "#SocialMediaGrowth",
-            "#AlgorithmTips"
-        ],
-        "content": [
-            {
-                "subtitle": "Defining the Community Effect",
-                "text": "The community effect is an organic growth process where users centered around a specific interest continuously interact with a post—be it a video, image, or trend—by liking, sharing, and commenting. This collective effort ensures the content remains visible across various circles, effectively feeding the platforms distribution engine."
-            },
-            {
-                "subtitle": "The 30-100 Minute Golden Window",
-                "text": "The most significant impact of the community effect occurs within the critical first few minutes (typically the 30-100 minute window). When a community engages heavily with a post shortly after it is published, it signals to the social media algorithm that the content is gossiping—it is spreading naturally from ear to ear."
-            },
-            {
-                "subtitle": "Triggering Algorithmic Logic",
-                "text": "Social media algorithms dont just count views; they look for potential for spontaneous growth. When they detect high engagement in a short period, they conclude: This post is gaining momentum on its own. I should push it to the wider application so even more people can reach it! This triggers a massive expansion in reach beyond your immediate followers."
-            },
-            {
-                "subtitle": "The Chain Reaction of Engagement",
-                "text": "This process leads to longer stay times (retention) on your post. When a community discusses a post for a long duration, shares it, and returns to it multiple times, it creates a chain reaction. This activates the trend-triggering algorithm, which prioritizes content that fosters return visits and deep discussion."
-            },
-            {
-                "subtitle": "A Case Study: The Nodding Golden Retriever",
-                "text": "Imagine a content creator shares a POV video of a drive. They spot a cute Golden Retriever in another car, rhythmically bobbing its head to a beat. The creator starts nodding along. Soon, other drivers join in, and eventually, the cars themselves appear to be jumping in sync with the music.\\n\\nThis hilarious scene, when shared with a community, generates immediate comments and shares. Other Golden Retriever owners and car enthusiasts join the conversation, interpretations multiply with human creativity, and a simple moment transforms into a global trend. This is the power of a slow, steady trend growth powered by a dedicated community."
-            },
-            {
-                "subtitle": "Why Algorithms Favor Sustained Growth",
-                "text": "Social media platforms are not just looking for instant, fleeting hits. They favor content that leads to sustained interaction because this directly increases long-term advertising revenue. A community-driven trend provides a more stable and predictable growth curve, making it a favorite for algorithmic amplification."
-            }
-        ]
-    },
-    {
-        "id": 25,
-        "slug": "how-tiktok-algorithm-works-2026",
-        "category": "Social Media",
-        "title": "How Does the TikTok Algorithm Work in 2026?",
-        "excerpt": "A deep analysis of the 2026 TikTok algorithm, explaining why viewing time trumps follower count and how community momentum predicts viral success.",
-        "date": "Mar 01, 2026",
-        "readTime": "6 min read",
-        "image": "/blog-images/ai_unique_25_1780169569658.jpg",
-        "views": 315,
-        "hashtags": [
-            "#TikTokAlgorithm",
-            "#TikTok2026",
-            "#SocialMediaGrowth",
-            "#ContentStrategy"
-        ],
-        "content": [
-            {
-                "subtitle": "The Core of the TikTok Algorithm in 2026",
-                "text": "The TikTok algorithm hasn't changed much compared to the previous year, so how does this algorithm work? Since the TikTok algorithm aims for each user to spend more time in the application, it is primarily based on a system that always continues to show the most interesting and closest video according to the user's experience. At the provincial stage, the video is first shown to a small target audience, just like on other social media platforms, and then this post is sent to a slightly wider group based on the video's interaction, and the process thus completes the first stage. Therefore, the fact that the audience shares, saves, comments, and most importantly, the viewing continues until the end of the video is a very critical threshold for TikTok to reach other users of a post. If users say that they are not interested in a video, the algorithm for this video starts to slow down the distribution of this video by receiving a negative signal."
-            },
-            {
-                "subtitle": "TikTok Acts Almost Like a Search Engine",
-                "text": "Because we are going through a period where interest is shifting to TikTok, TikTok acts almost like a search engine. So searching for a video you have watched and watching it again is also a complex but not random filter mechanism that contributes positively to the interaction of that video on the TikTok platform."
-            },
-            {
-                "subtitle": "Follower Count vs. Content Quality",
-                "text": "In addition, one of the most important points to know is that if accounts without a lot of followers create smooth and high-quality content on this occasion, there is almost no chance of not growing, because the TikTok platform does not care about the number of followers, the quality of your content is a key factor for your growth."
-            },
-            {
-                "subtitle": "Deep Analysis Logic for Virality",
-                "text": "If we pass a general summary, the TikTok algorithm is not random, but a platform that works with a deep analysis logic, because the viewing time directly affects the spread of content and does not care about the number of followers, we can say that quality content that a business will do on TikTok initially if it is new to the industry will be quite logical for that business or content producer."
-            },
-            {
-                "subtitle": "A Content Production Strategy Scenario",
-                "text": "Let's think of ourselves as a content producer and produce content according to a TikTok user. For example, there is a movie scene, and it occurred to us that this content scene shows a person eating a spicy meal in our own business blushing after adding this sound effect, and after supporting it with effects, \"if you eat this bitterness, you will burn!\" let's imagine that he said, and when people eat this pain when they get cold since winter, the cold breaks down, and people reach out and warm their hands to people who eat this pain, we first produced and published a content in the form that the snow melts where the people who eat this pain are. Let's imagine that a person eats this spicy dish or this chili pepper again in a new video in three days, this time other business owners will have produced a strong and memorable trend content that helps this business quite humorously, considering that we have produced another continuation content that involves calling people who eat this bitterness, sharing a video in which they want to melt their cars, the profits in front of the business, and when these people go to business stores and eat this bitterness, they turn off their boilers or heaters at home, thinking that we have produced another trend content that helps this business quite a lot."
-            }
-        ]
-    },
-    {
-        "id": 26,
-        "slug": "structure-of-videos-on-instagram-reels",
-        "category": "Social Media",
-        "title": "The Structure of the Videos that are Discovered on Instagram Reels",
-        "excerpt": "Discover the key elements that make Instagram Reels successful, from the 3-second hook to the importance of subtitles and clear niches.",
-        "date": "Mar 01, 2026",
-        "readTime": "5 min read",
-        "image": "/blog-images/ai_unique_26_1778413106986.jpg",
-        "views": 154,
-        "hashtags": [
-            "#InstagramReels",
-            "#ViralContent",
-            "#SocialMediaTips",
-            "#ContentCreator"
-        ],
-        "content": [
-            {
-                "subtitle": "The First 3 Seconds & Maximizing Watch Time",
-                "text": "The Instagram Reels algorithm has a system that aims to hook in the strongest way in the first one to three seconds. First of all, it tries to ensure that users stay in that content with an interesting topic, a clear sentence or very interesting visuals. In the next step, the duration of the video and determines whether the audience stays until the end of the video for this purpose, the more the videos are watched until the end, the more likely that video will be discovered, first of all, the most important goal is to try to stop users from constantly moving and scrolling around that video, since seven- or twenty-second Reels increase the video's viewing time. Therefore, since people's perception times are used to such videos and videos of no more than twenty seconds, it would be a rather ridiculous move to add intro videos unnecessarily."
-            },
-            {
-                "subtitle": "Clear Problem Solving Without Fluff",
-                "text": "The next step is that the content in the video consists of a clear, accurate, targeted single main idea for this purpose, since people will want to solve the problems they are experiencing about any topic in the fastest and clearest way without going into unnecessary details, the Instagram algorithm also says, \"This video can solve this problem!\" by helping videos fall into Discover, it tries to ensure that people don't get bored by aiming to make users spend more time using this application and indirectly provide more ad tracking."
-            },
-            {
-                "subtitle": "The Crucial Role of Subtitles",
-                "text": "The next stage is subtitles. Most people watch videos in silent mode while watching, and because of this, videos with subtitles in a large, clear and understandable color and tone help people stay focused on the video, since they will understand by reading the subtitles what the video or any internal producer's newly released video is about."
-            },
-            {
-                "subtitle": "Engagement Triggers and Hashtags",
-                "text": "The next steps are to avoid imitation again, but it would be useful to adapt the same sound, music or content in accordance with this topic. In this way, comments, creating a real audience that answers open-ended questions or filling out surveys will provide a certain benefit, as three or four hasthag videos added to the video will create a very useful structure for dropping the content of the discovery."
-            },
-            {
-                "subtitle": "A Proven Formula for Discovery",
-                "text": "If we want to explore in the clearest way, if we want to collect, a clear niche and a video, a clear and smooth narration that does not exceed twenty seconds, there must be subtitles, surveys and comments to attract people, the video solves a problem or contains humorous content on a clear topic will be useful for our content to fall into explore."
-            },
-            {
-                "subtitle": "An Example Scenario in the Tech Niche",
-                "text": "Let's make sure that the content we create accompanied by an example falls into Explore. For example: let's say we have chosen a niche area related to a content producer and technology, we are introducing an application that describes the problem mobile phones and shows the solution to this problem. Video content: \"Hello, I'm x Sending files from Iphones to Android devices is a pretty boring and difficult situation, now how about I tell you that there is a very easy way to do this? Come on, let's solve this problem step by step together. We turn on our device, download this application, connect to the nearest Internet, the process is so now, even if you are on one side of the world, you will be able to send files to your friend quickly. If you like this kind of content, please like our video and follow me. Share your thoughts about the topic below immediately and let's meet in the comments!\" we created a sample video in the form of, we solved a problem clearly, our sentences were clear and fast. Then we encourage people to like and subscribe to us, using the phrase such topics, “Look, I produce content in this style!” we have given the message. Last but not least, by inviting comments, we have increased our chances of falling into Discover by making sure that the interactions are continuous. We have also edited the subject of our video to create interaction for everyone to watch by using contrasting colors that are most suitable for our video or content, perhaps suitable for our brand colors. That's all, there is a lot of chance that we will fall into discovery now."
             }
         ]
     }

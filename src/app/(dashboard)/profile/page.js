@@ -117,7 +117,13 @@ export default function ProfilePage() {
                             <div className={styles.statusInfo}>
                                 <span className={styles.statusLabel}>{t.membershipType}:</span>
                                 <span className={styles.statusValue}>
-                                    {session?.user?.isPremium ? t.premiumPlan : t.freePlan}
+                                    {session?.user?.isTrial ? (
+                                        `${t.trialPlan}${session?.user?.trialDaysRemaining !== null ? ` (${session.user.trialDaysRemaining} ${t.daysLeft})` : ''}`
+                                    ) : session?.user?.isPremium ? (
+                                        t.premiumPlan
+                                    ) : (
+                                        t.freePlan
+                                    )}
                                 </span>
                             </div>
                             <div className={styles.statusInfo}>

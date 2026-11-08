@@ -106,9 +106,9 @@ export async function GET(req) {
 
             dailyTrendData.push({
                 name: days[dayStart.getDay()],
-                "Page Views": pageViews || Math.floor(Math.random() * 50) + 10, // Simulated fallback logic if fresh db
-                "New Signups": signups || Math.floor(Math.random() * 5),
-                "Sales": sales || Math.floor(Math.random() * 2)
+                "Page Views": pageViews,
+                "New Signups": signups,
+                "Sales": sales
             });
         }
 
@@ -135,33 +135,32 @@ export async function GET(req) {
         }));
 
         // --- D. Top Countries & Sources Calculation ---
-        const topCountries = [
-            { name: "Turkey", percentage: 68 },
-            { name: "United States", percentage: 14 },
-            { name: "Germany", percentage: 10 },
-            { name: "United Kingdom", percentage: 8 }
-        ];
+        // NOTE: Real geographic/referral data requires a dedicated analytics integration
+        // (e.g., Google Analytics API, Plausible, or middleware IP geolocation tracking).
+        // Returning empty arrays to avoid showing fake static data as real metrics.
+        const topCountries = [];
+        const trafficSources = [];
 
-        const trafficSources = [
-            { source: "Google Organic Search", users: 195 },
-            { source: "Social Media (Twitter, X, LinkedIn)", users: 110 },
-            { source: "Direct Traffic", users: 75 }
-        ];
+        // --- E. Confirmed Subscriptions (Active) ---
+        const activeSubscriptions = await prisma.subscription.count({
+            where: { status: { in: ['active', 'on_trial', 'trialling'] } }
+        });
 
         return NextResponse.json({
             metrics: {
                 visitors: {
-                    value: pageViewsThisWeek || 1420, // Real or fallback simulation
-                    growth: calculateGrowth(pageViewsThisWeek, pageViewsLastWeek) || 12
+                    value: pageViewsThisWeek,
+                    growth: calculateGrowth(pageViewsThisWeek, pageViewsLastWeek)
                 },
                 signups: {
-                    value: signupsThisWeek || 45,
-                    growth: calculateGrowth(signupsThisWeek, signupsLastWeek) || 15
+                    value: signupsThisWeek,
+                    growth: calculateGrowth(signupsThisWeek, signupsLastWeek)
                 },
                 revenue: {
-                    value: revenueThisWeek || 345,
-                    growth: calculateGrowth(revenueThisWeek, revenueLastWeek) || 8
-                }
+                    value: parseFloat(revenueThisWeek.toFixed(2)),
+                    growth: calculateGrowth(revenueThisWeek, revenueLastWeek)
+                },
+                activeSubscriptions
             },
             dailyTrendData,
             auditLogs,

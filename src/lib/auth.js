@@ -73,19 +73,30 @@ export const authOptions = {
                 session.user.id = token.id;
                 session.user.role = token.role;
                 
-                // Fetch active subscription
+                // Fetch active or trialling subscription
                 const subscription = await prisma.subscription.findFirst({
                     where: { 
                         userId: token.id, 
-                        status: 'active' 
+                        status: { in: ['active', 'on_trial', 'trialling'] }
                     },
                     orderBy: {
                         createdAt: 'desc'
                     }
                 });
 
+                const isTrial = subscription?.status === 'on_trial' || subscription?.status === 'trialling';
+                let trialDaysRemaining = null;
+
+                if (isTrial && subscription?.currentPeriodEnd) {
+                    const diffTime = new Date(subscription.currentPeriodEnd).getTime() - Date.now();
+                    trialDaysRemaining = Math.max(0, Math.ceil(diffTime / (1000 * 60 * 60 * 24)));
+                }
+
                 // Default logic
                 session.user.isPremium = !!subscription;
+                session.user.isTrial = isTrial;
+                session.user.trialDaysRemaining = trialDaysRemaining;
+                session.user.subscriptionStatus = subscription?.status || 'free';
                 session.user.subscriptionEnd = subscription?.currentPeriodEnd;
 
                 // Special handling for the owner

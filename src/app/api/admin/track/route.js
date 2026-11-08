@@ -5,7 +5,12 @@ import { authOptions } from "@/lib/auth";
 
 export async function POST(req) {
     try {
-        const { path } = await req.json();
+        let path = "/";
+        try {
+            const body = await req.json();
+            if (body?.path) path = body.path;
+        } catch (_) {}
+
         const session = await getServerSession(authOptions);
         const ip = req.headers.get("x-forwarded-for")?.split(",")[0] || "127.0.0.1";
         const userAgent = req.headers.get("user-agent") || "";

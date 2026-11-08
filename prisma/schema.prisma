@@ -60,8 +60,11 @@ model Session {
 model Subscription {
   id                String   @id @default(cuid())
   userId            String
-  status            String   // active, cancelled, expired, trialling
+  status            String   // active, cancelled, expired, trialling, paused
   planId            String?
+  variantId         String?  // Lemon Squeezy variant ID
+  orderId           String?  // Lemon Squeezy order ID linked to this subscription
+  lsCustomerId      String?  // Lemon Squeezy customer ID
   lemonSqueezyId    String?  @unique
   currentPeriodEnd  DateTime?
   cancelAtPeriodEnd Boolean  @default(false)
@@ -74,8 +77,10 @@ model Subscription {
 model Purchase {
   id              String   @id @default(cuid())
   userId          String
-  type            String   // REPORT, SUBSCRIPTION
-  itemId          String?  // If it's a specific AI report slug
+  type            String   // REPORT, SUBSCRIPTION, REFUNDED
+  status          String   @default("paid") // paid, refunded, voided
+  itemId          String?  // Plan name or AI report slug
+  variantId       String?  // Lemon Squeezy variant ID
   amount          Float
   currency        String
   invoiceUrl      String?
@@ -116,3 +121,10 @@ model Comment {
   createdAt DateTime @default(now())
 }
 
+// Idempotency table: tracks processed webhook events to prevent duplicate processing
+model WebhookEvent {
+  id          String   @id @default(cuid())
+  eventId     String   @unique // Lemon Squeezy event ID from meta.event_id (if available) or lsId+eventName
+  eventName   String
+  processedAt DateTime @default(now())
+}

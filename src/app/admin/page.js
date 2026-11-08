@@ -7,7 +7,7 @@ import {
 } from 'recharts';
 import { 
     TrendingUp, TrendingDown, Users, DollarSign, Activity, 
-    Eye, ShieldCheck, ArrowRightLeft, Home, Loader2, Info
+    Eye, ShieldCheck, ArrowRightLeft, Home, Loader2, Info, CreditCard
 } from 'lucide-react';
 import styles from './admin.module.css';
 
@@ -95,12 +95,13 @@ export default function AdminDashboardPage() {
     }
 
     const { metrics, dailyTrendData, auditLogs, topCountries, trafficSources } = stats || {
-        metrics: { visitors: { value: 0, growth: 0 }, signups: { value: 0, growth: 0 }, revenue: { value: 0, growth: 0 } },
+        metrics: { visitors: { value: 0, growth: 0 }, signups: { value: 0, growth: 0 }, revenue: { value: 0, growth: 0 }, activeSubscriptions: 0 },
         dailyTrendData: [],
         auditLogs: [],
         topCountries: [],
         trafficSources: []
     };
+    const activeSubscriptions = metrics?.activeSubscriptions ?? 0;
 
     return (
         <div className="app-layout">
@@ -164,7 +165,20 @@ export default function AdminDashboardPage() {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+
+                            <div className={styles.statCard}>
+                                <div className={styles.iconBox} style={{ background: 'rgba(245, 158, 11, 0.1)', color: '#fbbf24' }}>
+                                    <CreditCard size={24} />
+                                </div>
+                                <div>
+                                    <h4>Active Subscriptions</h4>
+                                    <p className={styles.statValue}>{activeSubscriptions.toLocaleString()}</p>
+                                    <div className={styles.trendUp}>
+                                        <Activity size={16} />
+                                        <span>Verified via Lemon Squeezy webhooks</span>
+                                    </div>
+                                </div>
+                            </div>
 
                         {/* Interactive Growth Charts */}
                         <div className={styles.chartsGrid}>
@@ -223,24 +237,32 @@ export default function AdminDashboardPage() {
                             <div className={styles.demographicCard}>
                                 <h3>🌍 Visitor Top Countries</h3>
                                 <ul className={styles.demographicList}>
-                                    {topCountries.map((c, idx) => (
+                                    {topCountries.length > 0 ? topCountries.map((c, idx) => (
                                         <li key={idx} className={styles.demographicItem}>
                                             <span>📍 {c.name}</span>
                                             <strong>%{c.percentage}</strong>
                                         </li>
-                                    ))}
+                                    )) : (
+                                        <li className={styles.demographicItem}>
+                                            <span style={{ color: '#64748b', fontStyle: 'italic' }}>No geographic data yet. Integrate an analytics provider (e.g., Plausible, GA4) to track visitor locations.</span>
+                                        </li>
+                                    )}
                                 </ul>
                             </div>
 
                             <div className={styles.demographicCard}>
                                 <h3>🔗 Top Referral Traffic Sources</h3>
                                 <ul className={styles.demographicList}>
-                                    {trafficSources.map((s, idx) => (
+                                    {trafficSources.length > 0 ? trafficSources.map((s, idx) => (
                                         <li key={idx} className={styles.demographicItem}>
                                             <span>🔗 {s.source}</span>
                                             <strong>{s.users} sessions</strong>
                                         </li>
-                                    ))}
+                                    )) : (
+                                        <li className={styles.demographicItem}>
+                                            <span style={{ color: '#64748b', fontStyle: 'italic' }}>No referral data yet. Integrate an analytics provider to track traffic sources.</span>
+                                        </li>
+                                    )}
                                 </ul>
                             </div>
                         </div>
